@@ -1,0 +1,5 @@
+robotpkg-wip (Work In Progress) is a project to hold packages that require some
+work before being integrated into robotpkg.
+
+Clone this package as robotpkg/wip (where robotpkg is the regular robotpkg
+reposityory) and enjoy fixing bleeding-edge packages!
