@@ -1,4 +1,4 @@
-# $LAAS: Makefile 2010/01/14 12:26:05 mallet $
+# $LAAS: Makefile 2010/01/14 12:31:56 mallet $
 #
 # Copyright (c) 2007-2010 LAAS/CNRS
 # All rights reserved.
@@ -15,6 +15,9 @@
 #
 #                                       Anthony Mallet on Tue May 15 2007
 #
+
+# FIXME:
+# .pc file has wrong version
 
 DISTNAME=	walkgenjrl-${VERSION}
 PKGNAME=	jrl-walkgen-${VERSION}
