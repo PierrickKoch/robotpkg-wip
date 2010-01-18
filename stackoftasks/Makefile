@@ -19,7 +19,7 @@
 # .../include/MatrixAbstractLayer/boostMatrix.h:183: error: 'stderr' was not declared in this scope
 
 
-PKGVERSION=	1.2.0
+PKGVERSION=	1.2.1
 DISTNAME=	stackoftasks-${PKGVERSION}
 
 CATEGORIES=	motion
