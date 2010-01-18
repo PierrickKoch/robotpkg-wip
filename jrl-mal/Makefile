@@ -1,6 +1,6 @@
-# $LAAS: Makefile 2010/01/14 11:50:36 mallet $
+# $LAAS: Makefile 2009/03/16 22:43:58 tho $
 #
-# Copyright (c) 2007-2010 LAAS/CNRS
+# Copyright (c) 2007-2009 LAAS/CNRS
 # All rights reserved.
 #
 # Redistribution  and  use in source   and binary forms,  with or without
@@ -18,10 +18,10 @@
 
 DISTNAME=	matrixabstractlayer-${VERSION}
 PKGNAME=	jrl-mal-${VERSION}
-VERSION=	1.8.0
+VERSION=	1.8.1
 
 CATEGORIES=	interfaces
-MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=jrl-mal/}
+MASTER_SITES=		${MASTER_SITE_OPENROBOTS}/jrl-mal/
 MASTER_REPOSITORY=	${MASTER_REPOSITORY_JRL}/MatrixAbstractLayer
 
 MAINTAINER=	openrobots@laas.fr
@@ -52,7 +52,7 @@ endef
 PKG_OPTIONS_REQUIRED_GROUPS=	matrix
 PKG_OPTIONS_GROUP.matrix=	t3d jrl-mathtools
 
-include ../../math/jrl-mathtools/depend.mk
+include ../../wip/jrl-mathtools/depend.mk
 include ../../devel/boost-headers/depend.mk
 include ../../devel/boost-libs/depend.mk
 include ../../devel/boost-numeric-bindings/depend.mk
