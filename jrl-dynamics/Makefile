@@ -1,6 +1,6 @@
-# $LAAS: Makefile 2010/01/14 12:14:54 mallet $
+# $LAAS: Makefile 2009/02/27 17:59:35 mallet $
 #
-# Copyright (c) 2007-2010 LAAS/CNRS
+# Copyright (c) 2007-2009 LAAS/CNRS
 # All rights reserved.
 #
 # Redistribution  and  use in source   and binary forms,  with or without
@@ -18,7 +18,7 @@
 
 DISTNAME=	dynamicsjrljapan-${VERSION}
 PKGNAME=	jrl-dynamics-${VERSION}
-VERSION=	1.16.1
+VERSION=	1.16.2
 
 CATEGORIES=	math
 NO_PUBLIC_SRC=	yes
@@ -32,9 +32,12 @@ USE_LANGUAGES+=	c c++
 
 DOXYGEN_PLIST_DIR+=	share/doc/dynamicsJRLJapan
 
+PKG_SUPPORTED_OPTIONS+= debug
+PKG_OPTION_DESCR.debug=	Compile in debugging mode
+PKG_OPTION_SET.debug:=	CMAKE_ARGS+= -DCMAKE_BUILD_TYPE=Debug
+
 include ../../wip/jrl-mal/depend.mk
 include ../../wip/jrl-interface-dynamics/depend.mk
-
 include ../../pkgtools/pkg-config/depend.mk
 include ../../mk/sysdep/cmake.mk
 include ../../mk/sysdep/doxygen.mk

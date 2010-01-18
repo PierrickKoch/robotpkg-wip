@@ -1,6 +1,6 @@
-# $LAAS: depend.mk 2010/01/14 12:17:51 mallet $
+# $LAAS: depend.mk 2009/02/27 18:01:17 mallet $
 #
-# Copyright (c) 2008-2010 LAAS/CNRS
+# Copyright (c) 2008-2009 LAAS/CNRS
 # All rights reserved.
 #
 # Redistribution and use  in source  and binary  forms,  with or without
@@ -29,13 +29,14 @@ PREFER.jrl-dynamics?=	robotpkg
 
 DEPEND_USE+=		jrl-dynamics
 
-DEPEND_ABI.jrl-dynamics?=jrl-dynamics>=1.16.1
+DEPEND_ABI.jrl-dynamics?=jrl-dynamics>=1.11
 DEPEND_DIR.jrl-dynamics?=../../wip/jrl-dynamics
 
 SYSTEM_SEARCH.jrl-dynamics=\
-	include/dynamicsJRLJapan/dynamicsJRLJapanFactory.h	\
+	include/dynamicsJRLJapan/robotDynamicsImpl.h	\
 	lib/pkgconfig/dynamicsJRLJapan.pc
 
 endif # JRL_DYNAMICS_DEPEND_MK ---------------------------------------
 
 DEPEND_DEPTH:=		${DEPEND_DEPTH:+=}
+
