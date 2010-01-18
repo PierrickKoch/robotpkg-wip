@@ -1,6 +1,6 @@
-# $LAAS: depend.mk 2010/01/14 12:12:08 mallet $
+# $LAAS: depend.mk 2009/07/21 16:54:38 mallet $
 #
-# Copyright (c) 2008-2010 LAAS/CNRS
+# Copyright (c) 2008-2009 LAAS/CNRS
 # All rights reserved.
 #
 # Redistribution  and  use in source   and binary forms,  with or without
@@ -28,7 +28,7 @@ PREFER.jrl-interface-dynamics?=		robotpkg
 
 DEPEND_USE+=				jrl-interface-dynamics
 
-DEPEND_ABI.jrl-interface-dynamics?=	jrl-interface-dynamics>=1.15
+DEPEND_ABI.jrl-interface-dynamics?=	jrl-interface-dynamics>=1.14
 DEPEND_DIR.jrl-interface-dynamics?=	../../wip/jrl-interface-dynamics
 
 SYSTEM_SEARCH.jrl-interface-dynamics=\

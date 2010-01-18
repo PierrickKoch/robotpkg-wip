@@ -1,6 +1,6 @@
-# $LAAS: Makefile 2010/01/14 12:12:13 mallet $
+# $LAAS: Makefile 2009/04/06 14:19:25 mallet $
 #
-# Copyright (c) 2007-2010 LAAS/CNRS
+# Copyright (c) 2007-2009 LAAS/CNRS
 # All rights reserved.
 #
 # Permission to use, copy, modify, and distribute this software for any purpose
@@ -29,7 +29,7 @@ MASTER_REPOSITORY=	${MASTER_REPOSITORY_JRL}abstractRobotDynamics
 DOXYGEN_PLIST_DIR+=	share/doc/abstractRobotDynamics
 
 MAINTAINER=	hpp@laas.fr
-#HOMEPAGE=
+#HOMEPAGE=	
 COMMENT=	JRL abstract interface for dynamic robot model.
 
 USE_LANGUAGES+=	c c++

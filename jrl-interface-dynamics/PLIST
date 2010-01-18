@@ -1,4 +1,4 @@
-@comment Thu Jan 14 12:12:18 CET 2010
+@comment Mon Nov 23 09:05:45 CET 2009
 include/robotDynamics/deprecated.h
 include/robotDynamics/jrlBody.h
 include/robotDynamics/jrlDynamicRobot.h
@@ -10,3 +10,4 @@ include/robotDynamics/jrlRigidAcceleration.h
 include/robotDynamics/jrlRigidVelocity.h
 include/robotDynamics/jrlRobotDynamicsObjectConstructor.h
 lib/pkgconfig/abstractRobotDynamics.pc
+@dirrm include/robotDynamics
