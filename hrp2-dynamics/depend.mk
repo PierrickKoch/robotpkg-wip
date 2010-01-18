@@ -1,6 +1,6 @@
-# $LAAS: depend.mk 2010/01/14 12:20:42 mallet $
+# $LAAS: depend.mk 2009/02/02 16:36:09 mallet $
 #
-# Copyright (c) 2008-2010 LAAS/CNRS
+# Copyright (c) 2008-2009 LAAS/CNRS
 # All rights reserved.
 #
 # Redistribution and use  in source  and binary  forms,  with or without
@@ -29,7 +29,7 @@ PREFER.hrp2-dynamics?=	robotpkg
 
 DEPEND_USE+=		hrp2-dynamics
 
-DEPEND_ABI.hrp2-dynamics?=hrp2-dynamics>=1.3
+DEPEND_ABI.hrp2-dynamics?=hrp2-dynamics>=1.0
 DEPEND_DIR.hrp2-dynamics?=../../wip/hrp2-dynamics
 
 SYSTEM_SEARCH.hrp2-dynamics=\

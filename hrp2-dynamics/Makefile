@@ -1,6 +1,6 @@
-# $LAAS: Makefile 2010/01/14 12:22:59 mallet $
+# $LAAS: Makefile 2009/02/10 17:13:47 tho $
 #
-# Copyright (c) 2008-2010 LAAS/CNRS
+# Copyright (c) 2008-2009 LAAS/CNRS
 # All rights reserved.
 #
 # Redistribution  and  use in source   and binary forms,  with or without
@@ -26,17 +26,17 @@ MASTER_SITES=		${MASTER_SITE_JRL}
 MASTER_REPOSITORY=	${MASTER_REPOSITORY_JRL}hrp2Dynamics
 
 MAINTAINER=	hpp@laas.fr
-#HOMEPAGE=
+#HOMEPAGE=	
 COMMENT=	Optimized implementation of functions related to HRP-2 dynamics.
 
 USE_LANGUAGES+= c c++
 
-DOXYGEN_PLIST_DIR+=	share/doc/hrp2Dynamics
-
-include ../../wip/jrl-dynamics/depend.mk
+PKG_SUPPORTED_OPTIONS+= debug
+PKG_OPTION_DESCR.debug=	Compile in debugging mode
+PKG_OPTION_SET.debug:=	CMAKE_ARGS+= -DCMAKE_BUILD_TYPE=Debug
 
 include ../../mk/sysdep/cmake.mk
-include ../../mk/sysdep/doxygen.mk
+include ../../wip/jrl-dynamics/depend.mk
 include ../../pkgtools/libtool/depend.mk
 include ../../pkgtools/pkg-config/depend.mk
 include ../../mk/robotpkg.mk
