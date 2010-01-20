@@ -30,7 +30,7 @@ PREFER.hpp-core?=	robotpkg
 DEPEND_USE+=		hpp-core
 
 DEPEND_ABI.hpp-core?=	hpp-core>=1.6
-DEPEND_DIR.hpp-core?=	../../path/hpp-core
+DEPEND_DIR.hpp-core?=	../../wip/hpp-core
 
 SYSTEM_SEARCH.hpp-core=\
 	include/hppCore/hppProblem.h	\
