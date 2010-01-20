@@ -57,7 +57,7 @@ PKG_OPTION_SET.verbose1:=	CXXFLAGS+=-DDEBUG=1
 # --------------------------------------------------------------------
 
 include ../../wip/hrp2-builder/depend.mk
-include ../../path/hpp-core/depend.mk
+include ../../wip/hpp-core/depend.mk
 include ../../devel/omniORB/depend.mk
 include ../../pkgtools/libtool/depend.mk
 include ../../pkgtools/pkg-config/depend.mk
