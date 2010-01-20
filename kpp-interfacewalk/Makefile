@@ -41,7 +41,7 @@ PKG_OPTION_SET.verbose1:=	CXXFLAGS+=-DDEBUG=1
 include ../../mk/sysdep/doxygen.mk
 include ../../wip/hpp-openhrp/depend.mk
 include ../../wip/hpp-walkplanner/depend.mk
-include ../../graphics/kpp-interface/depend.mk
+include ../../wip/kpp-interface/depend.mk
 include ../../pkgtools/libtool/depend.mk
 include ../../pkgtools/pkg-config/depend.mk
 include ../../mk/robotpkg.mk
