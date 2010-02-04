@@ -40,7 +40,7 @@ CMAKE_ARGS+=		-DCMAKE_BUILD_TYPE=Release
 
 # Build shared libs.
 #FIXME: seems to be broken, extremely annoying.
-#CMAKE_ARGS+=		-DBUILD_SHARED_LIBS=ON
+CMAKE_ARGS+=		-DBUILD_SHARED_LIBS=ON
 
 # Enable misc. optional features.
 CMAKE_ARGS+=		-DDC1394_2=ON -DUSE_GSL=ON -DUSE_GTK2=ON
@@ -54,7 +54,7 @@ CMAKE_ARGS+=		-DUSE_COIN_SIMULATOR=ON -DDESIRED_QT_VERSION=3
 CMAKE_ARGS+=		-DBUILD_DEPRECATED=ON
 
 # Disable uninstalled features
-CMAKE_ARGS+=		-DBUILD_EXAMPLE=OFF
+CMAKE_ARGS+=		-DBUILD_EXAMPLES=OFF
 
 # FIXME: do not work for me.
 CMAKE_ARGS+=		-DUSE_FFMPEG=OFF
@@ -62,6 +62,8 @@ CMAKE_ARGS+=		-DUSE_FFMPEG=OFF
 # FIXME: is it okay?
 CMAKE_ARGS+=		-DBUILD_TESTING=OFF
 
+# FIXME: temporary fix required to build shared library.
+CMAKE_ARGS+=		-DCMAKE_SKIP_RPATH=ON
 
 # FIXME:
 # missing system dependencies:

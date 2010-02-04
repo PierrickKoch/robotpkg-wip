@@ -1,4 +1,4 @@
-@comment Thu Feb 4 13:44:19 CET 2010
+@comment Thu Feb 4 16:44:33 CET 2010
 bin/visp-config
 include/visp/vp1394Grabber.h
 include/visp/vp1394TwoGrabber.h
@@ -154,7 +154,9 @@ include/visp/vpViper.h
 include/visp/vpWin32Renderer.h
 include/visp/vpWin32Window.h
 include/visp/vpXmlParserCamera.h
-lib/libvisp-2.a
+lib/libvisp-2.so
+lib/libvisp-2.so.2
+lib/libvisp-2.so.${PKGVERSION}
 lib/VISPBuildSettings.cmake
 lib/VISPConfig.cmake
 lib/VISPLibraryDepends.cmake
