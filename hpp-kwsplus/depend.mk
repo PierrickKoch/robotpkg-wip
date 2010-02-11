@@ -1,4 +1,4 @@
-# $LAAS: depend.mk 2008/12/10 22:27:24 tho $
+# $LAAS: depend.mk 2008/12/10 22:26:25 tho $
 #
 # Copyright (c) 2008 LAAS/CNRS
 # All rights reserved.
@@ -14,31 +14,31 @@
 #      the  documentation   and/or  other  materials   provided with  the
 #      distribution.
 #
-#                                       Anthony Mallet on Wed May 14 2008
+#                                       Anthony Mallet on Thu Apr 24 2008
 #
 
 DEPEND_DEPTH:=		${DEPEND_DEPTH}+
-HPP_MODEL_DEPEND_MK:=	${HPP_MODEL_DEPEND_MK}+
+HPP_KWSPLUS_DEPEND_MK:=	${HPP_KWSPLUS_DEPEND_MK}+
 
 ifeq (+,$(DEPEND_DEPTH))
-DEPEND_PKG+=		hpp-model
+DEPEND_PKG+=		hpp-kwsplus
 endif
 
-ifeq (+,$(HPP_MODEL_DEPEND_MK)) # ------------------------------------
+ifeq (+,$(HPP_KWSPLUS_DEPEND_MK)) # ----------------------------------
 
-PREFER.hpp-model?=	robotpkg
+PREFER.hpp-kwsplus?=	robotpkg
 
-SYSTEM_SEARCH.hpp-model=\
-	include/hppModel/hppDevice.h	\
-	lib/libhppModel.la
+SYSTEM_SEARCH.hpp-kwsplus=\
+	include/kwsPlus/kwsPlusRoadmap.h	\
+	lib/libkwsPlus.la
 
-DEPEND_USE+=		hpp-model
+DEPEND_USE+=		hpp-kwsplus
 
-DEPEND_ABI.hpp-model?=	hpp-model>=1.4
-DEPEND_DIR.hpp-model?=	../../wip/hpp-model
+DEPEND_ABI.hpp-kwsplus?=hpp-kwsplus>=1.5
+DEPEND_DIR.hpp-kwsplus?=../../devel/hpp-kwsplus
 
-include ../../wip/kineo-pp/depend.mk
+include ../../wip/hpp-kwsio/depend.mk
 
-endif # HPP_MODEL_DEPEND_MK ------------------------------------------
+endif # HPP_KWSPLUS_DEPEND_MK ----------------------------------------
 
 DEPEND_DEPTH:=		${DEPEND_DEPTH:+=}

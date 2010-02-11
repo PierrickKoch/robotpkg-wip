@@ -54,6 +54,6 @@ PKG_OPTION_SET.verbose1:=	CXXFLAGS+=-DDEBUG=1
 # --------------------------------------------------------------------
 
 include ../../mk/sysdep/doxygen.mk
-include ../../devel/hpp-kwsplus/depend.mk
+include ../../wip/hpp-kwsplus/depend.mk
 include ../../pkgtools/pkg-config/depend.mk
 include ../../mk/robotpkg.mk

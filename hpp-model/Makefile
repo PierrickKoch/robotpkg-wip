@@ -55,8 +55,7 @@ PKG_OPTION_DESCR.verbose2=	Set the level of verbosity to 2
 PKG_OPTION_SET.verbose2:=	CXXFLAGS+=-DDEBUG=2
 
 include ../../mk/sysdep/doxygen.mk
-include ../../path/kineo-pp/depend.mk
-include ../../devel/hpp-kwsio/depend.mk
+include ../../wip/hpp-kwsio/depend.mk
 include ../../wip/jrl-interface-dynamics/depend.mk
 include ../../pkgtools/libtool/depend.mk
 include ../../pkgtools/pkg-config/depend.mk

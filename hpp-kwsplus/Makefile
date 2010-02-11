@@ -1,3 +1,4 @@
+# $LAAS: Makefile 2009/07/27 11:19:32 mallet $
 #
 # Copyright (c) 2007-2009 LAAS/CNRS
 # All rights reserved.
@@ -12,32 +13,39 @@
 #      notice  and this list of  conditions in the documentation   and/or
 #      other materials provided with the distribution.
 #
-#                                       Anthony Mallet on Mon Aug 27 2007
+#                                       Anthony Mallet on Fri Jul 13 2007
 #
 
-DISTNAME=	kppinterface-${VERSION}
-PKGNAME=	kpp-interface-${VERSION}
-VERSION=	1.6
+DISTNAME=	kwsplus-${VERSION}
+PKGNAME=	hpp-kwsplus-${VERSION}
+VERSION=	1.8
 
-CATEGORIES=	graphics
-MASTER_SITES=		${MASTER_SITE_OPENROBOTS}
-MASTER_REPOSITORY=	${MASTER_REPOSITORY_JRL}kppInterface
+CATEGORIES=	devel
+MASTER_REPOSITORY=	${MASTER_REPOSITORY_JRL}kwsPlus
+MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=kwsplus/}
+
 MAINTAINER=	hpp@laas.fr
 #HOMEPAGE=
-COMMENT=	Graphical user interface for HPP libraries.
+COMMENT=	Helper functions for KineoWorks(tm) package.
 
-USE_LANGUAGES+= c c++
+USE_LANGUAGES+=	c c++
 
-GNU_CONFIGURE=	yes
+GNU_CONFIGURE=		yes
+CONFIGURE_ARGS+=	--with-lapack=${PREFIX.lapack}
 
-# options
+DOXYGEN_PLIST_DIR+=	share/doc/kwsPlus
+
+# Options
 PKG_SUPPORTED_OPTIONS+=	verbose1
 PKG_OPTION_DESCR.verbose1=	Define level of verbosity
 PKG_OPTION_SET.verbose1:=	CXXFLAGS+=-DDEBUG=1
 
-include ../../wip/hpp-corbaserver/depend.mk
+include ../../math/lapack/depend.mk
+include ../../devel/boost-numeric-bindings/depend.mk
+include ../../wip/hpp-kwsio/depend.mk
 include ../../pkgtools/libtool/depend.mk
 include ../../pkgtools/pkg-config/depend.mk
-include ../../mk/sysdep/mesa.mk
-include ../../mk/sysdep/glu.mk
+include ../../mk/sysdep/doxygen.mk
+include ../../mk/sysdep/graphviz.mk
+include ../../mk/sysdep/latex.mk
 include ../../mk/robotpkg.mk

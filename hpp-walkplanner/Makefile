@@ -49,7 +49,6 @@ include ../../wip/hrp2-14/depend.mk
 include ../../wip/jrl-walkgen/depend.mk
 include ../../wip/hpp-walkfootplanner/depend.mk
 include ../../wip/hpp-core/depend.mk
-include ../../devel/hpp-kwsplus/depend.mk
 include ../../pkgtools/libtool/depend.mk
 include ../../pkgtools/pkg-config/depend.mk
 include ../../mk/robotpkg.mk

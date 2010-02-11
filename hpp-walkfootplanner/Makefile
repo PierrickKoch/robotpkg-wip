@@ -47,7 +47,6 @@ PKG_OPTION_SET.verbose2:=	CXXFLAGS+=-DDEBUG=2
 include ../../mk/sysdep/doxygen.mk
 include ../../wip/jrl-mathtools/depend.mk
 include ../../wip/hpp-core/depend.mk
-include ../../devel/hpp-kwsplus/depend.mk
 include ../../pkgtools/libtool/depend.mk
 include ../../pkgtools/pkg-config/depend.mk
 include ../../mk/robotpkg.mk

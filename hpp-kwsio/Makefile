@@ -1,3 +1,4 @@
+# $LAAS: Makefile 2009/01/08 15:30:11 mallet $
 #
 # Copyright (c) 2007-2009 LAAS/CNRS
 # All rights reserved.
@@ -12,32 +13,28 @@
 #      notice  and this list of  conditions in the documentation   and/or
 #      other materials provided with the distribution.
 #
-#                                       Anthony Mallet on Mon Aug 27 2007
+#                                       Anthony Mallet on Fri Jul 13 2007
 #
 
-DISTNAME=	kppinterface-${VERSION}
-PKGNAME=	kpp-interface-${VERSION}
-VERSION=	1.6
+DISTNAME=	kwsio-${VERSION}
+PKGNAME=	hpp-kwsio-${VERSION}
+VERSION=	1.0.1
 
-CATEGORIES=	graphics
-MASTER_SITES=		${MASTER_SITE_OPENROBOTS}
-MASTER_REPOSITORY=	${MASTER_REPOSITORY_JRL}kppInterface
-MAINTAINER=	hpp@laas.fr
-#HOMEPAGE=
-COMMENT=	Graphical user interface for HPP libraries.
+CATEGORIES=	devel
+MASTER_SITES=	${MASTER_SITE_OPENROBOTS}
 
-USE_LANGUAGES+= c c++
+MAINTAINER=	gepetto@laas.fr
+#HOMEPAGE=	
+COMMENT=	Input and Output functions for KineoWorks(tm) package.
 
-GNU_CONFIGURE=	yes
+USE_LANGUAGES+=	c c++
 
-# options
-PKG_SUPPORTED_OPTIONS+=	verbose1
-PKG_OPTION_DESCR.verbose1=	Define level of verbosity
-PKG_OPTION_SET.verbose1:=	CXXFLAGS+=-DDEBUG=1
+GNU_CONFIGURE=		yes
+DOXYGEN_PLIST_DIR+=	share/doc/kwsIO
 
-include ../../wip/hpp-corbaserver/depend.mk
+include ../../wip/kineo-pp/depend.mk
 include ../../pkgtools/libtool/depend.mk
 include ../../pkgtools/pkg-config/depend.mk
-include ../../mk/sysdep/mesa.mk
-include ../../mk/sysdep/glu.mk
+include ../../mk/sysdep/doxygen.mk
+include ../../mk/sysdep/graphviz.mk
 include ../../mk/robotpkg.mk
