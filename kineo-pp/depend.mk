@@ -30,7 +30,7 @@ PREFER.kineo-pp?=	robotpkg
 DEPEND_USE+=		kineo-pp
 
 DEPEND_ABI.kineo-pp?=	kineo-pp>=2.04.501r1
-DEPEND_DIR.kineo-pp?=	../../path/kineo-pp
+DEPEND_DIR.kineo-pp?=	../../wip/kineo-pp
 
 endif # KINEO_PP_DEPEND_MK -------------------------------------------
 

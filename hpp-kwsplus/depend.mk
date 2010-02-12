@@ -35,7 +35,7 @@ SYSTEM_SEARCH.hpp-kwsplus=\
 DEPEND_USE+=		hpp-kwsplus
 
 DEPEND_ABI.hpp-kwsplus?=hpp-kwsplus>=1.5
-DEPEND_DIR.hpp-kwsplus?=../../devel/hpp-kwsplus
+DEPEND_DIR.hpp-kwsplus?=../../wip/hpp-kwsplus
 
 include ../../wip/hpp-kwsio/depend.mk
 

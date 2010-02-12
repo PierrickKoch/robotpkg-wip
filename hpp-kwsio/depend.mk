@@ -46,7 +46,7 @@ SYSTEM_SEARCH.hpp-kwsio=\
 DEPEND_USE+=		hpp-kwsio
 
 DEPEND_ABI.hpp-kwsio?=	hpp-kwsio>=1.0.1
-DEPEND_DIR.hpp-kwsio?=	../../devel/hpp-kwsio
+DEPEND_DIR.hpp-kwsio?=	../../wip/hpp-kwsio
 
 include ../../wip/kineo-pp/depend.mk
 
