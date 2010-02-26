@@ -15,12 +15,12 @@
 #                                       Anthony Mallet on Mon Aug 27 2007
 #
 
-DISTNAME=	kppinterface-${VERSION}
+DISTNAME=	kppInterface-${VERSION}
 PKGNAME=	kpp-interface-${VERSION}
-VERSION=	1.6
+VERSION=	1.6.1
 
 CATEGORIES=	graphics
-MASTER_SITES=		${MASTER_SITE_OPENROBOTS}
+MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=kpp-interface/}
 MASTER_REPOSITORY=	${MASTER_REPOSITORY_JRL}kppInterface
 MAINTAINER=	hpp@laas.fr
 #HOMEPAGE=
