@@ -29,7 +29,7 @@ ifeq (+,$(HPP_KWSPLUS_DEPEND_MK)) # ----------------------------------
 PREFER.hpp-kwsplus?=	robotpkg
 
 SYSTEM_SEARCH.hpp-kwsplus=\
-	include/kwsPlus/kwsPlusRoadmap.h	\
+	include/kwsPlus/roadmap/kwsPlusRoadmap.h	\
 	lib/libkwsPlus.la
 
 DEPEND_USE+=		hpp-kwsplus
