@@ -39,10 +39,10 @@ PKG_OPTIONS_OPTIONAL_GROUPS+=	verbose
 PKG_OPTIONS_GROUP.verbose=	verbose1 verbose2
 
 PKG_OPTION_DESCR.verbose1=	Set the level of verbosity to 1
-PKG_OPTION_SET.verbose1:=	CXXFLAGS+=-DDEBUG=1
+PKG_OPTION_SET.verbose1:=	CPPFLAGS+=-DHPP_DEBUG
 
 PKG_OPTION_DESCR.verbose2=	Set the level of verbosity to 2
-PKG_OPTION_SET.verbose2:=	CXXFLAGS+=-DDEBUG=2
+PKG_OPTION_SET.verbose2:=	CPPFLAGS+=-DHPP_DEBUG
 
 include ../../mk/sysdep/doxygen.mk
 include ../../wip/jrl-mathtools/depend.mk
