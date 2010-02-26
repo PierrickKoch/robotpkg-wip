@@ -16,9 +16,9 @@
 #                                       Anthony Mallet on Wed Sep 17 2008
 #
 
-DISTNAME=	hppwalkfootplanner-${VERSION}
+DISTNAME=	hpp-walkfootplanner-${VERSION}
 PKGNAME=	hpp-walkfootplanner-${VERSION}
-VERSION=	1.2.2
+VERSION=	2.0
 
 CATEGORIES=	path
 MASTER_SITES=	${MASTER_SITE_OPENROBOTS:=hpp-walkfootplanner/}
