@@ -2,6 +2,6 @@
 include//walkGenJrl/PatternGeneratorInterface.h
 include//walkGenJrl/PGTypes.h
 lib/libwalkGenJrl.so
-lib/libwalkGenJrl.so.3.0.0
+lib/libwalkGenJrl.so.${PKGVERSION}
 lib/pkgconfig/walkGenJrl.pc
 @dirrm include/walkGenJrl
