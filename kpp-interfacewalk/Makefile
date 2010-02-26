@@ -36,7 +36,7 @@ DOXYGEN_PLIST_DIR+=share/doc/kppInterfaceWalk
 # options
 PKG_SUPPORTED_OPTIONS+=	verbose1
 PKG_OPTION_DESCR.verbose1=	Define level of verbosity
-PKG_OPTION_SET.verbose1:=	CXXFLAGS+=-DDEBUG=1
+PKG_OPTION_SET.verbose1:=	CPPFLAGS+=-DHPP_DEBUG
 
 include ../../mk/sysdep/doxygen.mk
 include ../../wip/hpp-openhrp/depend.mk
