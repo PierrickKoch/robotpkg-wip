@@ -18,7 +18,7 @@
 
 DISTNAME=	hppCorbaServer-${VERSION}
 PKGNAME=	hpp-corbaserver-${VERSION}
-VERSION=	1.8.2
+VERSION=	1.8.3
 
 CATEGORIES=	devel
 MASTER_SITES=	${MASTER_SITE_OPENROBOTS:=hpp-corbaserver/}
