@@ -16,9 +16,9 @@
 #                                       Anthony Mallet on Wed Aug 29 2007
 #
 
-DISTNAME=	kppinterfacewalk-${VERSION}
+DISTNAME=	kpp-interfacewalk-${VERSION}
 PKGNAME=	kpp-interfacewalk-${VERSION}
-VERSION=	1.10.0
+VERSION=	1.11
 
 CATEGORIES=	graphics
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=kpp-interfacewalk/}
