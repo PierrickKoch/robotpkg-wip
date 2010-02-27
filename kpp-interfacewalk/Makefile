@@ -31,7 +31,7 @@ COMMENT=	Graphical user interface for hppWalkPlanner libraries.
 USE_LANGUAGES+= c c++
 
 GNU_CONFIGURE=	yes
-DOXYGEN_PLIST_DIR+=share/doc/kppInterfaceWalk
+DOXYGEN_PLIST_DIR+=share/doc/kpp-interfacewalk
 
 # options
 PKG_SUPPORTED_OPTIONS+=	verbose1
