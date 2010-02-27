@@ -1,4 +1,4 @@
-@comment Sat Jan 16 15:38:40 CET 2010
+@comment Sat Feb 27 11:19:43 CET 2010
 include/MatrixAbstractLayer/abstract.h
 include/MatrixAbstractLayer/abstractMatrix.h
 include/MatrixAbstractLayer/abstractVector.h
@@ -20,4 +20,7 @@ include/MatrixAbstractLayer/MatrixAbstractLayerT3D.h
 include/MatrixAbstractLayer/MatrixAbstractLayerVector3JrlMath.h
 include/MatrixAbstractLayer/MatrixAbstractLayerVector4JrlMath.h
 include/MatrixAbstractLayer/MatrixAbstractLayerVNL.h
+include/MatrixAbstractLayer/MatrixAbstractLayerCheck.h
 lib/pkgconfig/MatrixAbstractLayer.pc
+@dirrm include/MatrixAbstractLayer
+
