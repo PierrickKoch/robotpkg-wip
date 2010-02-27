@@ -16,9 +16,9 @@
 #                                       Anthony Mallet on Mon Aug 27 2007
 #
 
-DISTNAME=	hppWalkPlanner-${PKGVERSION}
+DISTNAME=	hpp-walkplanner-${PKGVERSION}
 PKGNAME=	hpp-walkplanner-${PKGVERSION}
-PKGVERSION=	3.2.1
+PKGVERSION=	3.2
 PKGREVISION=
 
 CATEGORIES=	path
@@ -32,17 +32,17 @@ COMMENT=	Path planning algorithm for a walking humanoid robot.
 USE_LANGUAGES+= c c++
 
 GNU_CONFIGURE=		yes
-DOXYGEN_PLIST_DIR+=	share/doc/hppWalkPlanner
+DOXYGEN_PLIST_DIR+=	share/doc/hpp-walkplanner
 
 # options
 PKG_OPTIONS_OPTIONAL_GROUPS+=	verbose
 PKG_OPTIONS_GROUP.verbose=	verbose1 verbose2
 
 PKG_OPTION_DESCR.verbose1=	Set the level of verbosity to 1
-PKG_OPTION_SET.verbose1:=	CXXFLAGS+=-DDEBUG=1
+PKG_OPTION_SET.verbose1:=	CPPFLAGS+=-DHPP_DEBUG
 
 PKG_OPTION_DESCR.verbose2=	Set the level of verbosity to 2
-PKG_OPTION_SET.verbose2:=	CXXFLAGS+=-DDEBUG=2
+PKG_OPTION_SET.verbose2:=	CPPFLAGS+=-DHPP_DEBUG
 
 include ../../mk/sysdep/doxygen.mk
 include ../../wip/hrp2-14/depend.mk
