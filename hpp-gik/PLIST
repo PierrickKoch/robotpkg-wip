@@ -1,0 +1,64 @@
+@comment Sat Mar 14 10:59:20 JST 2009
+include/hppGik/constraints/hppGikComConstraint.h
+include/hppGik/constraints/hppGikConfigurationConstraint.h
+include/hppGik/constraints/hppGikGazeConstraint.h
+include/hppGik/constraints/hppGikJointStateConstraint.h
+include/hppGik/constraints/hppGikMotionConstraint.h
+include/hppGik/constraints/hppGikParallelConstraint.h
+include/hppGik/constraints/hppGikPlaneConstraint.h
+include/hppGik/constraints/hppGikPointingConstraint.h
+include/hppGik/constraints/hppGikPositionConstraint.h
+include/hppGik/constraints/hppGikPrioritizedStateConstraint.h
+include/hppGik/constraints/hppGikRotationConstraint.h
+include/hppGik/constraints/hppGikTransformationConstraint.h
+include/hppGik/constraints/hppGikVectorizableConstraint.h
+include/hppGik/core/hppGikBounder.h
+include/hppGik/core/hppGikMotionPlanColumn.h
+include/hppGik/core/hppGikMotionPlanElement.h
+include/hppGik/core/hppGikMotionPlan.h
+include/hppGik/core/hppGikMotionPlanRow.h
+include/hppGik/core/hppGikPrioritizedMotion.h
+include/hppGik/core/hppGikSolverBasic.h
+include/hppGik/core/hppGikSolver.h
+include/hppGik/examples/example.h
+include/hppGik/hppGikTools.h
+include/hppGik/motionplanners/elements/hppGikComMotion.h
+include/hppGik/motionplanners/elements/hppGikFootDisplaceElement.h
+include/hppGik/motionplanners/elements/hppGikInterpolatedElement.h
+include/hppGik/motionplanners/elements/hppGikLocomotionElement.h
+include/hppGik/motionplanners/elements/hppGikNoLocomotion.h
+include/hppGik/motionplanners/elements/hppGikReadyElement.h
+include/hppGik/motionplanners/elements/hppGikStepElement.h
+include/hppGik/motionplanners/elements/hppGikWalkElement.h
+include/hppGik/motionplanners/elements/hppGikZMPshiftElement.h
+include/hppGik/motionplanners/hppGikLocomotionPlan.h
+include/hppGik/motionplanners/hppGikPreviewController.h
+include/hppGik/robot/hppGik2DShape.h
+include/hppGik/robot/hppGikFootprintRelated.h
+include/hppGik/robot/hppGikMaskFactory.h
+include/hppGik/robot/hppGikStandingRobot.h
+include/hppGik/robot/hppRobotMotion.h
+include/hppGik/tasks/hppGikGenericTask.h
+include/hppGik/tasks/hppGikHalfSittingTask.h
+include/hppGik/tasks/hppGikHandTask.h
+include/hppGik/tasks/hppGikMetaTask.h
+include/hppGik/tasks/hppGikReachTask.h
+include/hppGik/tasks/hppGikRobotTask.h
+include/hppGik/tasks/hppGikStepBackTask.h
+include/hppGik/tasks/hppGikStepTask.h
+include/hppGik/tasks/hppGikWholeBodyTask.h
+lib/libhppGik.la
+lib/pkgconfig/hppGik.pc
+share/gik/hppGikPreviewController10ms.ini
+share/gik/hppGikPreviewController20ms.ini
+share/gik/hppGikPreviewController50ms.ini
+share/gik/hppGikPreviewController5ms.ini
+@dirrm share/gik
+@dirrm include/hppGik/tasks
+@dirrm include/hppGik/robot
+@dirrm include/hppGik/motionplanners/elements
+@dirrm include/hppGik/motionplanners
+@dirrm include/hppGik/examples
+@dirrm include/hppGik/core
+@dirrm include/hppGik/constraints
+@dirrm include/hppGik
