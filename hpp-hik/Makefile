@@ -18,11 +18,11 @@
 
 DISTNAME=	hpphik-${VERSION}
 PKGNAME=	hpp-hik-${VERSION}
-VERSION=	1.2.1
+VERSION=	1.3
 
 CATEGORIES=	path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=hpphik/}
-MASTER_REPOSITORY=	${MASTER_REPOSITORY_JRL}hpphik
+MASTER_REPOSITORY=	${MASTER_REPOSITORY_JRL}algo/hpphik
 
 MAINTAINER=	hpp@laas.fr
 COMMENT=Solver of hierarchical linear inequality and equality constraints
