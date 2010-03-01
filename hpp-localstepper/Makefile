@@ -18,7 +18,7 @@
 
 DISTNAME=	hpplocalstepper-${VERSION}
 PKGNAME=	hpp-localstepper-${VERSION}
-VERSION=	0.1
+VERSION=	1.0
 
 CATEGORIES=	path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=hpp-localstepper/}

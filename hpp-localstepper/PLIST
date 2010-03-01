@@ -1,6 +1,8 @@
-@comment Fri Oct 16 17:45:16 CEST 2009
+@comment Mon Mar 1 17:45:57 CET 2010
 include/hpplocalstepper/hppLosCentipedeFactory.hh
 include/hpplocalstepper/hppLosCentipede.hh
+include/hpplocalstepper/hppLosGeometry.hh
+include/hpplocalstepper/hppLosLinkGeometry.hh
 include/hpplocalstepper/hppLosLink.hh
 include/hpplocalstepper/hppLosSolverBasic.hh
 include/hpplocalstepper/hppLosSolver.hh
@@ -23,7 +25,6 @@ include/hpplocalstepper/tasks/hppLosPointingTask.hh
 include/hpplocalstepper/tasks/hppLosPositionTask.hh
 include/hpplocalstepper/tasks/hppLosTask.hh
 include/hpplocalstepper/tasks/hppLosTransformationTask.hh
-include/hpplocalstepper/tasks/HRP2BasicCollisionAvoider.hh
 lib/libhpplocalstepper.la
 lib/pkgconfig/hpplocalstepper.pc
 @dirrm include/hpplocalstepper/tasks
