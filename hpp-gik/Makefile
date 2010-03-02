@@ -16,13 +16,13 @@
 #                                       Anthony Mallet on Tue Jun 28 2007
 #
 
-DISTNAME=	hppgik-${VERSION}
+DISTNAME=	hpp-gik-${VERSION}
 PKGNAME=	hpp-gik-${VERSION}
-VERSION=	2.5
+VERSION=	2.6
 
 CATEGORIES=	path
-MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=hppgik/}
-MASTER_REPOSITORY=	${MASTER_REPOSITORY_JRL}algo/hppGik
+MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=hpp-gik/}
+MASTER_REPOSITORY=	${MASTER_REPOSITORY_JRL}algo/hpp-gik
 
 MAINTAINER=	gepetto@laas.fr
 #HOMEPAGE=	
