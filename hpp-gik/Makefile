@@ -30,7 +30,7 @@ COMMENT=	Generalized Inverse Kinematics for humanoid robots.
 
 GNU_CONFIGURE=		yes
 USE_LANGUAGES+=		c c++
-DOXYGEN_PLIST_DIR+=	share/doc/hppGik
+DOXYGEN_PLIST_DIR+=	share/doc/hpp-gik
 
 include ../../interfaces/jrl-interface-giktask/depend.mk
 include ../../wip/jrl-dynamics/depend.mk
