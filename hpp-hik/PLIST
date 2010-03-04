@@ -1,4 +1,5 @@
-@comment Wed Mar 3 11:41:27 CET 2010
+@comment Thu Mar 4 21:24:09 CET 2010
+include/hpp/hik/doc.hh
 include/hpp/hik/linear-system.hh
 include/hpp/hik/slack-solver.hh
 include/hpp/hik/solver-basic.hh
