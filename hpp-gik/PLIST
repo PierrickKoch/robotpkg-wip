@@ -1,4 +1,4 @@
-@comment Wed Mar 3 16:31:14 CET 2010
+@comment Thu Mar 4 19:21:03 CET 2010
 include/hpp/gik/constraint/com-constraint.hh
 include/hpp/gik/constraint/configuration-constraint.hh
 include/hpp/gik/constraint/gaze-constraint.hh
@@ -41,6 +41,7 @@ include/hpp/gik/core/motion-plan-row.hh
 include/hpp/gik/core/prioritized-motion.hh
 include/hpp/gik/core/solver-basic.hh
 include/hpp/gik/core/solver.hh
+include/hpp/gik/doc.hh
 include/hpp/gik/example/example.hh
 include/hppGik/examples/example.h
 include/hppGik/hppGikTools.h
