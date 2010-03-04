@@ -1,4 +1,4 @@
-@comment Tue Mar 2 14:44:29 CET 2010
+@comment Thu Mar 4 21:25:42 CET 2010
 lib/pkgconfig/hpp-doc.pc
 share/doc/hpp-doc/abstractGikTask-missing.html
 share/doc/hpp-doc/abstractRobotDynamics-missing.html
@@ -18,13 +18,13 @@ share/doc/hpp-doc/hppCmpPlanner-missing.html
 share/doc/hpp-doc/hppCorbaServer-missing.html
 share/doc/hpp-doc/hppCore-missing.html
 share/doc/hpp-doc/hppDynamicObstacle-missing.html
-share/doc/hpp-doc/hppGik-missing.html
-share/doc/hpp-doc/hpphik-missing.html
+share/doc/hpp-doc/hpp-gik-missing.html
+share/doc/hpp-doc/hpp-hik-missing.html
 share/doc/hpp-doc/hppHRPPlanner-missing.html
 share/doc/hpp-doc/hppHybridRobot-missing.html
 share/doc/hpp-doc/hppLoa-missing.html
 share/doc/hpp-doc/hppLoaPlanner-missing.html
-share/doc/hpp-doc/hpplocalstepper-missing.html
+share/doc/hpp-doc/hpp-localstepper-missing.html
 share/doc/hpp-doc/hppModel-missing.html
 share/doc/hpp-doc/hppOpenHRP-missing.html
 share/doc/hpp-doc/hppPython-missing.html
@@ -109,3 +109,8 @@ share/doc/hpp-doc/walk-genom-missing.html
 share/doc/hpp-doc/walkPlannerOrtmClient-missing.html
 share/doc/hpp-doc/walkPlannerOrtm-missing.html
 share/doc/hpp-doc/worldModelGrid3D-missing.html
+@dirrm share/doc/hpp-doc/figures
+@dirrm share/doc/hpp-doc/images/icons/callouts
+@dirrm share/doc/hpp-doc/images/icons
+@dirrm share/doc/hpp-doc/images
+@dirrm share/doc/hpp-doc
