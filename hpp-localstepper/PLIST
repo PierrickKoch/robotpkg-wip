@@ -1,6 +1,7 @@
 @comment Wed Mar 3 18:33:03 CET 2010
 include/hpp/localstepper/centipede-factory.hh
 include/hpp/localstepper/centipede.hh
+include/hpp/localstepper/doc.hh
 include/hpp/localstepper/geometry.hh
 include/hpplocalstepper/hppLosCentipedeFactory.hh
 include/hpplocalstepper/hppLosCentipede.hh
