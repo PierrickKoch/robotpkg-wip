@@ -32,7 +32,7 @@ GNU_CONFIGURE=		yes
 USE_LANGUAGES+=		c c++
 DOXYGEN_PLIST_DIR+=	share/doc/hpp-gik
 
-include ../../interfaces/jrl-interface-giktask/depend.mk
+include ../../wip/jrl-interface-giktask/depend.mk
 include ../../wip/jrl-dynamics/depend.mk
 include ../../wip/hrp2-dynamics/depend.mk
 include ../../pkgtools/libtool/depend.mk
