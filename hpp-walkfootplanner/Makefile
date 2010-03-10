@@ -32,7 +32,7 @@ USE_LANGUAGES+= c c++
 
 GNU_CONFIGURE=	yes
 
-DOXYGEN_PLIST_DIR+=	share/doc/hppWalkPlanner
+DOXYGEN_PLIST_DIR+=	share/doc/hpp-walkfootplanner
 
 # options
 PKG_SUPPORTED_OPTIONS+=	verbose
