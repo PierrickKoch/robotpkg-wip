@@ -39,6 +39,10 @@ PKG_SUPPORTED_OPTIONS+=	verbose
 PKG_OPTION_DESCR.verbose=	Compile in verbose mode
 PKG_OPTION_SET.verbose:=	CPPFLAGS+=-DHPP_DEBUG
 
+PKG_SUPPORTED_OPTIONS+=	benchmark
+PKG_OPTION_DESCR.benchmark=	Measure computation times
+PKG_OPTION_SET.benchmark:=	CPPFLAGS+=-DHPP_ENABLE_BENCHMARK -DHPP_DEBUG
+
 include ../../mk/sysdep/doxygen.mk
 include ../../wip/hrp2-14/depend.mk
 include ../../wip/jrl-walkgen/depend.mk
