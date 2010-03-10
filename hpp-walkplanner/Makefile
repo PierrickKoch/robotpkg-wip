@@ -35,14 +35,9 @@ GNU_CONFIGURE=		yes
 DOXYGEN_PLIST_DIR+=	share/doc/hpp-walkplanner
 
 # options
-PKG_OPTIONS_OPTIONAL_GROUPS+=	verbose
-PKG_OPTIONS_GROUP.verbose=	verbose1 verbose2
-
-PKG_OPTION_DESCR.verbose1=	Set the level of verbosity to 1
-PKG_OPTION_SET.verbose1:=	CPPFLAGS+=-DHPP_DEBUG
-
-PKG_OPTION_DESCR.verbose2=	Set the level of verbosity to 2
-PKG_OPTION_SET.verbose2:=	CPPFLAGS+=-DHPP_DEBUG
+PKG_SUPPORTED_OPTIONS+=	verbose
+PKG_OPTION_DESCR.verbose=	Compile in verbose mode
+PKG_OPTION_SET.verbose:=	CPPFLAGS+=-DHPP_DEBUG
 
 include ../../mk/sysdep/doxygen.mk
 include ../../wip/hrp2-14/depend.mk
