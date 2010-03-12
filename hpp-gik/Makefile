@@ -16,13 +16,13 @@
 #                                       Anthony Mallet on Tue Jun 28 2007
 #
 
-DISTNAME=	hppgik-${VERSION}
+DISTNAME=	hpp-gik-${VERSION}
 PKGNAME=	hpp-gik-${VERSION}
-VERSION=	2.5
+VERSION=	2.6.2
 
 CATEGORIES=	path
-MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=hppgik/}
-MASTER_REPOSITORY=	${MASTER_REPOSITORY_JRL}algo/hppGik
+MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=hpp-gik/}
+MASTER_REPOSITORY=	${MASTER_REPOSITORY_JRL}algo/hpp-gik
 
 MAINTAINER=	gepetto@laas.fr
 #HOMEPAGE=	
@@ -30,9 +30,9 @@ COMMENT=	Generalized Inverse Kinematics for humanoid robots.
 
 GNU_CONFIGURE=		yes
 USE_LANGUAGES+=		c c++
-DOXYGEN_PLIST_DIR+=	share/doc/hppGik
+DOXYGEN_PLIST_DIR+=	share/doc/hpp-gik
 
-include ../../interfaces/jrl-interface-giktask/depend.mk
+include ../../wip/jrl-interface-giktask/depend.mk
 include ../../wip/jrl-dynamics/depend.mk
 include ../../wip/hrp2-dynamics/depend.mk
 include ../../pkgtools/libtool/depend.mk
