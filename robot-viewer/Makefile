@@ -30,6 +30,7 @@ COMMENT=	A simple robot viewer/motion player
 USE_LANGUAGES+= Python
 
 GNU_CONFIGURE=		no
+NO_CONFIGURE= 		yes
 DOXYGEN_PLIST_DIR+=	
 
 include ../../mk/sysdep/python.mk
@@ -40,5 +41,6 @@ include ../../mk/sysdep/python.mk
 #include ../../mk/sysdep/pdflatex.mk
 include ../../mk/robotpkg.mk
 
-MAKE_PROGRAM= "${PYTHON} setup.py build"
-INSTALL_TARGET="${PYTHON} setup.py install"
+
+MAKE_PROGRAM= "`python setup.py build`"
+INSTALL_TARGET= "`python setup.py install`"
