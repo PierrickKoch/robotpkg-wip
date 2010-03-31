@@ -18,7 +18,7 @@
 
 DISTNAME=	robot-viewer-${VERSION}
 PKGNAME=	robot-viewer-${VERSION}
-VERSION=	0.1.1
+VERSION=	0.2.1
 
 CATEGORIES=	path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=robot-viewer/}
@@ -27,10 +27,11 @@ MASTER_REPOSITORY=	${MASTER_REPOSITORY_JRL}gui/robot-viewer
 MAINTAINER=	hpp@laas.fr
 COMMENT=	A simple robot viewer/motion player
 
-USE_LANGUAGES+= Python
+USE_LANGUAGES= Python
 
 GNU_CONFIGURE=		no
 NO_CONFIGURE= 		yes
+NO_CHECKSUM= yes	# FIXME
 DOXYGEN_PLIST_DIR+=	
 
 include ../../mk/sysdep/python.mk
