@@ -18,7 +18,7 @@
 
 DISTNAME=	robot-viewer-${VERSION}
 PKGNAME=	robot-viewer-${VERSION}
-VERSION=	0.1
+VERSION=	0.1.1
 
 CATEGORIES=	path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=robot-viewer/}
@@ -40,7 +40,3 @@ include ../../mk/sysdep/python.mk
 #include ../../mk/sysdep/graphviz.mk
 #include ../../mk/sysdep/pdflatex.mk
 include ../../mk/robotpkg.mk
-
-
-MAKE_PROGRAM= "`python setup.py build`"
-INSTALL_TARGET= "`python setup.py install`"
