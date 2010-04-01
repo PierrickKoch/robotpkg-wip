@@ -18,7 +18,7 @@
 
 DISTNAME=	robot-viewer-${VERSION}
 PKGNAME=	robot-viewer-${VERSION}
-VERSION=	0.2.1
+VERSION=	0.2.2
 
 CATEGORIES=	path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=robot-viewer/}
