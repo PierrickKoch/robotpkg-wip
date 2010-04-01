@@ -25,7 +25,6 @@ SUBDIR+=	jrl-mal
 SUBDIR+=	jrl-walkgen
 SUBDIR+=	kineo-pp
 SUBDIR+=	kpp-interfacewalk
-SUBDIR+=	python3
 SUBDIR+=	stackoftasks
 
 include ../mk/robotpkg.subdir.mk
