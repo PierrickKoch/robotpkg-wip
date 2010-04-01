@@ -24,6 +24,7 @@ SUBDIR+=	jrl-interface-dynamics
 SUBDIR+=	jrl-mal
 SUBDIR+=	jrl-walkgen
 SUBDIR+=	kineo-pp
+SUBDIR+=	kpp-interface
 SUBDIR+=	kpp-interfacewalk
 SUBDIR+=	stackoftasks
 
