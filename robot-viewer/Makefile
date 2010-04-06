@@ -34,7 +34,7 @@ NO_CONFIGURE= 		yes
 NO_CHECKSUM= yes	# FIXME
 DOXYGEN_PLIST_DIR+=	
 
-include ../../mk/sysdep/python.mk
+#include ../../mk/sysdep/python.mk
 #include ../../pkgtools/libtool/depend.mk
 #include ../../pkgtools/pkg-config/depend.mk
 #include ../../mk/sysdep/doxygen.mk
