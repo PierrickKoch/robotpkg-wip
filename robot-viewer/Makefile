@@ -18,11 +18,11 @@
 
 DISTNAME=	robot-viewer-${VERSION}
 PKGNAME=	robot-viewer-${VERSION}
-VERSION=	0.9
+VERSION=	0.9.1
 
 CATEGORIES=	path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=robot-viewer/}
-MASTER_REPOSITORY=	${MASTER_REPOSITORY_JRL}gui/robot-viewer
+MASTER_REPOSITORY=	${MASTER_REPOSITORY_JRL}/gui/robot-viewer
 
 MAINTAINER=	hpp@laas.fr
 COMMENT=	A simple robot viewer/motion player
