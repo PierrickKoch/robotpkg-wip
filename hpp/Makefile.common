@@ -46,4 +46,6 @@ else
   PKG_SUGGESTED_OPTIONS+= verbose benchmark
 
   include ../../mk/sysdep/doxygen.mk
+  include ../../pkgtools/libtool/depend.mk
+  include ../../pkgtools/pkg-config/depend.mk
 endif # ${HPP_PACKAGE} == meta-pkg

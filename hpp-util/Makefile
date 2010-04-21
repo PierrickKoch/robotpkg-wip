@@ -16,34 +16,10 @@
 #                                      Thomas Moulard on Wed Apr 21 2010
 #
 
-DISTNAME=	hpp-util-${VERSION}
-PKGNAME=	hpp-util-${VERSION}
+HPP_PACKAGE=	hpp-util
 VERSION=	0.1
-
-CATEGORIES=		path
-MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=hpp-util/}
-MASTER_REPOSITORY=	${MASTER_REPOSITORY_JRL}algo/hpp-util
-
-MAINTAINER=	hpp@laas.fr
-#HOMEPAGE=
+CATEGORIES=	devel
 COMMENT=	Technical tools shared amongst HPP.
 
-USE_LANGUAGES+= c c++
-
-GNU_CONFIGURE=	yes
-
-DOXYGEN_PLIST_DIR+=	share/doc/hpp-util
-
-# options
-PKG_SUPPORTED_OPTIONS+=		verbose
-PKG_OPTION_DESCR.verbose=	Compile in verbose mode
-PKG_OPTION_SET.verbose:=	CPPFLAGS+=-DHPP_DEBUG
-
-PKG_SUPPORTED_OPTIONS+=		benchmark
-PKG_OPTION_DESCR.benchmark=	Measure computation times
-PKG_OPTION_SET.benchmark:=	CPPFLAGS+=-DHPP_ENABLE_BENCHMARK -DHPP_DEBUG
-
-include ../../mk/sysdep/doxygen.mk
-include ../../pkgtools/libtool/depend.mk
-include ../../pkgtools/pkg-config/depend.mk
+include ../../wip/hpp/Makefile.common
 include ../../mk/robotpkg.mk

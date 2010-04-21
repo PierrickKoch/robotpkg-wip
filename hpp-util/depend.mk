@@ -29,7 +29,7 @@ PREFER.hpp-util?=	robotpkg
 
 DEPEND_USE+=		hpp-util
 
-DEPEND_ABI.hpp-util?=hpp-util>=1.1
+DEPEND_ABI.hpp-util?=hpp-util>=0.1
 DEPEND_DIR.hpp-util?=../../wip/hpp-util
 
 SYSTEM_SEARCH.hpp-util=			\
