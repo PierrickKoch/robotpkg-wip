@@ -87,10 +87,10 @@ define PKG_OPTION_UNSET.openhrp
   CMAKE_ARGS+=		-DGENERATE_DYNFILES=OFF
 endef
 
-include ../../wip/jrl-mal/depend.mk
-include ../../wip/jrl-dynamics/depend.mk
-include ../../wip/hrp2-dynamics/depend.mk
-include ../../wip/jrl-walkgen/depend.mk
+include ../../interfaces/jrl-mal/depend.mk
+include ../../math/jrl-dynamics/depend.mk
+include ../../math/hrp2-dynamics/depend.mk
+include ../../path/jrl-walkgen/depend.mk
 
 include ../../math/lapack/depend.mk
 include ../../math/blas/depend.mk
