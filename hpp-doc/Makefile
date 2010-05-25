@@ -39,6 +39,6 @@ define PKG_OPTION_SET.hpp-core
 endef
 
 include ../../pkgtools/pkg-config/depend.mk
-include ../mk/sysdep/asciidoc.mk
+include ../../mk/sysdep/asciidoc.mk
 include ../../mk/sysdep/doxygen.mk
 include ../../mk/robotpkg.mk
