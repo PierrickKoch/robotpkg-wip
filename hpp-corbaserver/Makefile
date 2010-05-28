@@ -43,6 +43,7 @@ PKG_SUGGESTED_OPTIONS+=	openhrp
 PKG_OPTION_DESCR.openhrp=	Build an OpenHRP(tm) client.
 define PKG_OPTION_SET.openhrp
   CONFIGURE_ARGS+=	--with-openhrp
+  include ../../wip/hrp2-builder/depend.mk
   include ../../wip/hrp2-dynamics/depend.mk
   include ../../wip/hpp-openhrp/depend.mk
   include ../../devel/jrl-modelloader/depend.mk
@@ -56,7 +57,6 @@ PKG_OPTION_SET.verbose1:=	CXXFLAGS+=-DDEBUG=1
 
 # --------------------------------------------------------------------
 
-include ../../wip/hrp2-builder/depend.mk
 include ../../wip/hpp-core/depend.mk
 include ../../devel/omniORB/depend.mk
 include ../../pkgtools/libtool/depend.mk

@@ -34,9 +34,9 @@ GNU_CONFIGURE=	yes
 DOXYGEN_PLIST_DIR+=share/doc/kpp-interfacewalk
 
 # options
-PKG_SUPPORTED_OPTIONS+=	verbose1
-PKG_OPTION_DESCR.verbose1=	Define level of verbosity
-PKG_OPTION_SET.verbose1:=	CPPFLAGS+=-DHPP_DEBUG
+PKG_SUPPORTED_OPTIONS+=	verbose
+PKG_OPTION_DESCR.verbose=	Compile in verbose mode
+PKG_OPTION_SET.verbose:=	CPPFLAGS+=-DHPP_DEBUG
 
 include ../../mk/sysdep/doxygen.mk
 include ../../wip/hpp-openhrp/depend.mk

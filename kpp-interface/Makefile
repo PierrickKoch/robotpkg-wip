@@ -29,6 +29,7 @@ COMMENT=	Graphical user interface for HPP libraries.
 USE_LANGUAGES+= c c++
 
 GNU_CONFIGURE=	yes
+DOXYGEN_PLIST_DIR+=share/doc/kpp-interface
 
 # options
 PKG_SUPPORTED_OPTIONS+=	verbose1
@@ -38,6 +39,7 @@ PKG_OPTION_SET.verbose1:=	CXXFLAGS+=-DDEBUG=1
 include ../../wip/hpp-corbaserver/depend.mk
 include ../../pkgtools/libtool/depend.mk
 include ../../pkgtools/pkg-config/depend.mk
+include ../../mk/sysdep/doxygen.mk
 include ../../mk/sysdep/mesa.mk
 include ../../mk/sysdep/glu.mk
 include ../../mk/robotpkg.mk
