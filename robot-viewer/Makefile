@@ -31,7 +31,6 @@ USE_LANGUAGES= Python
 
 GNU_CONFIGURE=		no
 NO_CONFIGURE= 		yes
-NO_CHECKSUM= yes	# FIXME
 DOXYGEN_PLIST_DIR+=	
 
 #include ../../mk/sysdep/python.mk
