@@ -14,26 +14,37 @@
 #                                                  Duong Dang June 1 2010
 #
 
-DISTNAME=	sot-gui-${VERSION}
-PKGNAME=	sot-gui-${VERSION}
-VERSION=	0.2
+DISTNAME=		sot-gui-${VERSION}
+PKGNAME=		sot-gui-${VERSION}
+VERSION=		0.2
 
-CATEGORIES=	gui
+CATEGORIES=		interfaces
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=sot-gui/}
 MASTER_REPOSITORY=	${MASTER_REPOSITORY_JRL}gui/sot-gui
 
-MAINTAINER=	hpp@laas.fr
+MAINTAINER=		hpp@laas.fr
 COMMENT=
 
-USE_LANGUAGES+= python
+USE_LANGUAGES+= 	python
 
 GNU_CONFIGURE=		no
 NO_CONFIGURE= 		yes
-# DOXYGEN_PLIST_DIR+=	share/doc/sot-gui
 
-include ../../pkgtools/libtool/depend.mk
-include ../../pkgtools/pkg-config/depend.mk
-include ../../mk/sysdep/doxygen.mk
-include ../../mk/sysdep/pdflatex.mk
+
+include ../robot-viewer/depend.mk
+include ../stackoftasks/depend.mk
+
 include ../../mk/robotpkg.mk
-#include ../stackoftasks/depend.mk
+
+
+# Generate empty Makefile with targets RobotPkg expects.
+generate-dummmy-makefile:
+	echo -e "all install:\n\ttrue" > ${WRKSRC}/Makefile
+
+pre-build: generate-dummmy-makefile
+	cd ${WRKSRC} && python setup.py build
+
+install-bin:
+	cd ${WRKSRC} && python setup.py install --prefix ${PREFIX}
+
+pre-install: install-bin

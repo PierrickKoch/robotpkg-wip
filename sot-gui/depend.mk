@@ -14,24 +14,25 @@
 #                                      Duong Dang on Wed June 2 2010
 #
 
-# DEPEND_DEPTH:=		${DEPEND_DEPTH}+
-# SOT_GUI_DEPEND_MK:=	${SOT_GUI_DEPEND_MK}+
+DEPEND_DEPTH:=		${DEPEND_DEPTH}+
+SOT_GUI_DEPEND_MK:=	${SOT_GUI_DEPEND_MK}+
 
-# ifeq (+,$(DEPEND_DEPTH))
-# DEPEND_PKG+=		sot-gui
-# endif
+ifeq (+,$(DEPEND_DEPTH))
+DEPEND_PKG+=		sot-gui
+endif
 
-# ifeq (+,$(SOT_GUI_DEPEND_MK)) # --------------------------------------
+ifeq (+,$(SOT_GUI_DEPEND_MK)) # --------------------------------------
 
-# PREFER.sot-gui?=	robotpkg
+PREFER.sot-gui?=	robotpkg
 
-# SYSTEM_SEARCH.sot-gui=\
-# 	bin/sot-gui
-# DEPEND_USE+=		sot-gui
+DEPEND_USE+=		sot-gui
 
-# DEPEND_ABI.hpp-localstepper?=	sot-gui>=0.1
-# DEPEND_DIR.hpp-localstepper?=	../../wip/sot-gui
+DEPEND_ABI.sot-gui?=	sot-gui>=0.2
+DEPEND_DIR.sot-gui?=	../../wip/sot-gui
 
-# endif # SOT_GUI
+SYSTEM_SEARCH.sot-gui=			\
+			bin/sot_gui
 
-# DEPEND_DEPTH:=		${DEPEND_DEPTH:+=}
+endif # SOT_GUI
+
+DEPEND_DEPTH:=		${DEPEND_DEPTH:+=}
