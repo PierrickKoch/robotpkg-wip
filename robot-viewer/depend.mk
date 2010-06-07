@@ -1,6 +1,4 @@
-# $LAAS: depend.mk 2008/06/17 14:26:41 mallet $
-#
-# Copyright (c) 2008 LAAS/CNRS
+# Copyright (c) 2010 LAAS/CNRS
 # All rights reserved.
 #
 # Redistribution and use  in source  and binary  forms,  with or without
@@ -13,28 +11,28 @@
 #      notice and  this list of  conditions in the  documentation and/or
 #      other materials provided with the distribution.
 #
-#                                      Anthony Mallet on Wed May 14 2008
+#                                      Thomas Moulard on Mon Jun 7 2010
 #
 
-# DEPEND_DEPTH:=		${DEPEND_DEPTH}+
-# HPP_LOCALSTEPPER_DEPEND_MK:=	${HPP_LOCALSTEPPER_DEPEND_MK}+
+DEPEND_DEPTH:=			${DEPEND_DEPTH}+
+ROBOT_VIEWER_DEPEND_MK:=	${ROBOT_VIEWER_DEPEND_MK}+
 
-# ifeq (+,$(DEPEND_DEPTH))
-# DEPEND_PKG+=		hpp-localstepper
-# endif
+ifeq (+,$(DEPEND_DEPTH))
+DEPEND_PKG+=			robot-viewer
+endif
 
-# ifeq (+,$(HPP_LOCALSTEPPER_DEPEND_MK)) # --------------------------------------
+ifeq (+,$(ROBOT_VIEWER_DEPEND_MK)) # --------------------------------------
 
-# PREFER.hpp-localstepper?=	robotpkg
+PREFER.robot-viewer?=		robotpkg
 
-# SYSTEM_SEARCH.hpp-localstepper=\
-# 	include/hpp/localstepper/solver.hh \
-# 	lib/pkgconfig/hpp-localstepper.pc
-# DEPEND_USE+=		hpp-localstepper
+DEPEND_USE+=			robot-viewer
 
-# DEPEND_ABI.hpp-localstepper?=	hpp-localstepper>=0.1
-# DEPEND_DIR.hpp-localstepper?=	../../wip/hpp-localstepper
+DEPEND_ABI.robot-viewer?=	robot-viewer>=1.2
+DEPEND_DIR.robot-viewer?=	../../wip/robot-viewer
 
-# endif # HPP_LOCALSTEPPER_DEPEND_MK --------------------------------------------
+SYSTEM_SEARCH.robot-viewer=			\
+	lib/python2.6/site-packages/robot_viewer-1.2-py2.6.egg/robotviewer/__init__.py
 
-# DEPEND_DEPTH:=		${DEPEND_DEPTH:+=}
+endif # ROBOT_VIEWER_DEPEND_MK --------------------------------------------
+
+DEPEND_DEPTH:=		${DEPEND_DEPTH:+=}
