@@ -11,28 +11,27 @@
 #      notice  and this list of  conditions in the documentation   and/or
 #      other materials provided with the distribution.
 #
-#                                       Duong Dang on Mon Jun 07 2010
+#                                      Thomas Moulard on Mon Jun 07 2010
 #
 
-DISTNAME=	robot-viewer-${VERSION}
-PKGNAME=	robot-viewer-${VERSION}
-VERSION=	1.2
+PKGNAME=		python-simpleparse-${VERSION}
+DISTNAME=		SimpleParse-${VERSION}
+VERSION=		2.1.1a2
 
-CATEGORIES=		interfaces
-MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=robot-viewer/}
-MASTER_REPOSITORY=	${MASTER_REPOSITORY_JRL}/gui/robot-viewer
+CATEGORIES=		scripts
+MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=simpleparse/simpleparse/${VERSION}/}
+MASTER_REPOSITORY=
 
-MAINTAINER=		hpp@laas.fr
-COMMENT=		A simple robot viewer/motion player
+MAINTAINER=		mcfletch@vrplumber.com
 
-USE_LANGUAGES=		Python
+COMMENT= SimpleParse allows you to generate parsers directly from your	\
+EBNF grammar.
+
+USE_LANGUAGES=		c Python
 
 GNU_CONFIGURE=		no
 NO_CONFIGURE= 		yes
 
-include ../../wip/python-simpleparse/depend.mk
-include ../../wip/mk/sysdep/pyopengl.mk
-include ../../wip/mk/sysdep/python-sphinx.mk
 include ../../mk/robotpkg.mk
 
 # Generate empty Makefile with targets RobotPkg expects.
@@ -42,14 +41,5 @@ generate-dummmy-makefile:
 pre-build: generate-dummmy-makefile
 	cd ${WRKSRC} && python setup.py build
 
-install-bin:
+pre-install:
 	cd ${WRKSRC} && python setup.py install --prefix ${PREFIX}
-
-install-doc:
-	cd ${WRKSRC}/docs && make html
-
-pre-install: install-bin install-doc
-
-post-install:
-	cd ${WRKSRC} && LOCALBASE=${PREFIX} sh makeaux.sh
-
