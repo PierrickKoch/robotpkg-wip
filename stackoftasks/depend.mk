@@ -29,12 +29,12 @@ PREFER.stackoftasks?=	robotpkg
 
 DEPEND_USE+=		stackoftasks
 
-DEPEND_ABI.stackoftasks?=stackoftasks>=1.2
+DEPEND_ABI.stackoftasks?=stackoftasks>=1.2.3
 DEPEND_DIR.stackoftasks?=../../wip/stackoftasks
 
-SYSTEM_SEARCH.stackoftasks=\
-	include/StackOfTasks/sotSignalAbstract.h
-	lib/pkgconfig/stackoftasks.pc
+SYSTEM_SEARCH.stackoftasks=				\
+	'include/sot/sotSignalAbstract.h'		\
+	'lib/pkgconfig/StackOfTasks.pc:/Version/s/[^.0-9]//gp'
 
 endif # STACKOFTASKS_DEPEND_MK ---------------------------------------
 
