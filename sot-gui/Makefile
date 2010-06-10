@@ -16,7 +16,7 @@
 
 DISTNAME=		sot-gui-${VERSION}
 PKGNAME=		sot-gui-${VERSION}
-VERSION=		0.2
+VERSION=		0.2.1
 
 CATEGORIES=		interfaces
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=sot-gui/}
