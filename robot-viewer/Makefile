@@ -16,7 +16,7 @@
 
 DISTNAME=	robot-viewer-${VERSION}
 PKGNAME=	robot-viewer-${VERSION}
-VERSION=	1.2
+VERSION=	1.2.1
 
 CATEGORIES=		interfaces
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=robot-viewer/}
@@ -50,6 +50,4 @@ install-doc:
 
 pre-install: install-bin install-doc
 
-post-install:
-	cd ${WRKSRC} && LOCALBASE=${PREFIX} sh makeaux.sh
 
