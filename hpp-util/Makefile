@@ -20,6 +20,7 @@ HPP_PACKAGE=	hpp-util
 VERSION=	0.1
 CATEGORIES=	devel
 COMMENT=	Technical tools shared amongst HPP.
+GNU_CONFIGURE=	yes
 
 include ../../wip/hpp/Makefile.common
 include ../../mk/robotpkg.mk
