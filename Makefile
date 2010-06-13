@@ -15,6 +15,7 @@ SUBDIR+=	hpp-localstepper
 SUBDIR+=	hpp-model
 SUBDIR+=	hpp-model
 SUBDIR+=	hpp-openhrp
+SUBDIR+=	hpp-template-corba
 SUBDIR+=	hpp-walkplanner
 SUBDIR+=	hrp2-14
 SUBDIR+=	hrp2-builder
