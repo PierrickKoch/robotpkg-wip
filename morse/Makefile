@@ -25,27 +25,28 @@ CATEGORIES=		wip
 MAINTAINER=		morse-dev@laas.fr
 HOMEPAGE=		http://softs.laas.fr
 COMMENT=		A 3D simulator for robotics
+LICENSE=		modified-bsd
 
-USE_LANGUAGES+=		c python
+USE_LANGUAGES+=		c c++ python
 BUILD_TARGET=		all
 INSTALL_TARGET=		install
 
 # doc option
-PKG_SUPPORTED_OPTIONS+=	doc
-PKG_SUGGESTED_OPTIONS+=	doc
-PKG_OPTION_DESCR.doc?=	Install ${PKGBASE} documentation
-
-define PKG_OPTION_SET.doc
-  BUILD_TARGET+=	doc
-  INSTALL_TARGET+=	install-doc
-endef
+#PKG_SUPPORTED_OPTIONS+=	doc
+#PKG_SUGGESTED_OPTIONS+=	doc
+#PKG_OPTION_DESCR.doc?=	Install ${PKGBASE} documentation
+#
+#define PKG_OPTION_SET.doc
+#  BUILD_TARGET+=	doc
+#  INSTALL_TARGET+=	install-doc
+#endef
 
 # YARP support
 PKG_SUPPORTED_OPTIONS+=	yarp
 PKG_OPTION_DESCR.yarp?=	Install support for the YARP middleware
 
 define PKG_OPTION_SET.yarp
-  CMAKE_ARGS+=		-DBUILD_YARP_SUPPORT=ON
+  CMAKE_ARGS+=		-DBUILD_YARP2_SUPPORT=ON
   include ../../devel/libpyyarp/depend.mk
 endef
 
@@ -55,7 +56,11 @@ PKG_OPTION_DESCR.pocolibs?=	Install support for the Pocolibs communication libra
 
 define PKG_OPTION_SET.pocolibs
   CMAKE_ARGS+=		-DBUILD_POCOLIBS_SUPPORT=ON
+  include ../../architecture/genPos-genom/depend.mk
   include ../../devel/pocolibs/depend.mk
+  include ../../hardware/sick-genom/depend.mk
+  include ../../image/viam-genom/depend.mk
+  include ../../localization/pom-genom/depend.mk
 endef
 
 # build examples option
