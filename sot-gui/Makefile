@@ -16,7 +16,7 @@
 
 DISTNAME=		sot-gui-${VERSION}
 PKGNAME=		sot-gui-${VERSION}
-VERSION=		0.2.1
+VERSION=		0.3
 
 CATEGORIES=		interfaces
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=sot-gui/}
@@ -31,7 +31,7 @@ GNU_CONFIGURE=		no
 NO_CONFIGURE= 		yes
 
 
-include ../robot-viewer/depend.mk
+# include ../robot-viewer/depend.mk
 include ../stackoftasks/depend.mk
 
 include ../../mk/robotpkg.mk
