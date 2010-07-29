@@ -17,8 +17,8 @@
 #                                          Severin Lemaignan on Fri May 28 2010
 #
 
-DISTNAME=		morse-0.1a1
-MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=morse/}
+DISTNAME=		morse-0.1
+MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=}
 MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/morse
 
 CATEGORIES=		wip

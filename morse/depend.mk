@@ -29,11 +29,12 @@ ifeq (+,$(MORSE_DEPEND_MK)) # ---------------------------------------------
 PREFER.morse?=		robotpkg
 
 SYSTEM_SEARCH.morse=\
+	bin/morse \
 	share/data/morse/morse_default.blend
 
 DEPEND_USE+=		morse
 
-DEPEND_ABI.morse?=	liboro>=0.1
+DEPEND_ABI.morse?=	morse>=0.1
 DEPEND_DIR.morse?=	../../wip/morse
 
 endif # MORSE_DEPEND_MK ---------------------------------------------------
