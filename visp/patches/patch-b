@@ -1,0 +1,33 @@
+--- CMakeModules/VISPConfig.cmake.in~	2010-08-11 11:58:57.000000000 +0900
++++ CMakeModules/VISPConfig.cmake.in	2010-08-11 12:00:10.000000000 +0900
+@@ -59,7 +59,7 @@
+ SET(VISP_LIBRARY "@VISP_INTERN_LIBS@")
+ 
+ # Set VISP_ROOT_DIR
+-FIND_PATH(VISP_ROOT_DIR lib/VISPConfig.cmake
++FIND_PATH(VISP_ROOT_DIR share/cmake/VISPConfig.cmake
+   "${VISP_DIR}/.."
+ )
+ IF(NOT VISP_ROOT_DIR)
+@@ -104,10 +104,10 @@
+ #MESSAGE("VISP_LIBRARY_DIRS: ${VISP_LIBRARY_DIRS}")
+ 
+ # Tells the user project where to find ViSP build settings
+-SET(VISP_BUILD_SETTINGS_FILE "${VISP_ROOT_DIR}/lib/VISPBuildSettings.cmake")
++SET(VISP_BUILD_SETTINGS_FILE "${VISP_ROOT_DIR}/share/cmake/VISPBuildSettings.cmake")
+ 
+ # Tell the user project where to find ViSP dependencies
+-INCLUDE("${VISP_ROOT_DIR}/lib/VISPLibraryDepends.cmake")
++INCLUDE("${VISP_ROOT_DIR}/share/cmake/VISPLibraryDepends.cmake")
+ 
+ # export source dir for doxygen eventually
+ SET(VISP_SOURCE_DIR "@VISP_SOURCE_DIR@")
+@@ -123,7 +123,7 @@
+ #MESSAGE("VISP_LIBRARIES: ${VISP_LIBRARIES}")
+ 
+ # where to find the USE file to be used by user project
+-SET(VISP_USE_FILE "${VISP_ROOT_DIR}/lib/VISPUse.cmake")
++SET(VISP_USE_FILE "${VISP_ROOT_DIR}/share/cmake/VISPUse.cmake")
+ 
+ IF(BUILD_TEST_COVERAGE)
+   # Add build options for test coverage. Currently coverage is only supported
