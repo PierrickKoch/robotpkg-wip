@@ -1,0 +1,11 @@
+--- ./include/vpConfig.h.cmake~	2010-08-12 13:21:15.000000000 +0900
++++ ./include/vpConfig.h.cmake	2010-08-12 13:21:39.000000000 +0900
+@@ -216,7 +216,7 @@
+ 
+ // Add the material to produce a warning when deprecated functions are used
+ #ifndef vp_deprecated
+-#  if defined (UNIX)
++#  ifndef WIN32
+ #    define vp_deprecated __attribute__((deprecated))
+ #  else
+ #    define vp_deprecated __declspec(deprecated)
