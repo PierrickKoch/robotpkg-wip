@@ -1,0 +1,5 @@
+This is the VCG modified PLY library. PLY library was initially written by Greg 
+Turk(http://www.cc.gatech.edu/~turk) to read an write files of ply format.
+Claudio Rocchini(http://en.wikipedia.org/wiki/User:Rocchini) tuned it for C++. 
+VCG comes with some improvements to make it better suit the templated C++ VCG 
+Library.

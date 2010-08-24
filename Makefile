@@ -27,6 +27,7 @@ SUBDIR+=	jrl-walkgen
 SUBDIR+=	kineo-pp
 SUBDIR+=	kpp-interface
 SUBDIR+=	kpp-interfacewalk
+SUBDIR+=	libply-vcg
 SUBDIR+=	stackoftasks
 
 include ../mk/robotpkg.subdir.mk
