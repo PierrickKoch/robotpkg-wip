@@ -1,0 +1,75 @@
+--- Makefile.orig	2010-08-24 14:43:58.907036591 +0200
++++ Makefile	2010-08-24 16:55:02.219030788 +0200
+@@ -4,12 +4,17 @@
+ # * Revision:	$Revision: 233 $
+ # * Last Updated:	$LastChangedDate: 2006-11-10 15:03:28 -0500 (Fri, 10 Nov 2006) $
+ # ********************************************************************************************/
++LTCC	= libtool --mode=compile ${CC} ${CFLAGS}
++LTCXX	= libtool --tag=CXX --mode=compile ${CXX} ${CFLAGS}
++LINK	= libtool --mode=link ${CC} ${CFLAGS} -rpath ${PREFIX}
++LINXX	= libtool --tag=CXX --mode=link ${CXX} ${CFLAGS} -rpath ${PREFIX}
++INSTALL= libtool --mode=install install
+ 
+ TARGET=PoissonRecon
+-SOURCE=CmdLineParser.cpp Factor.cpp Geometry.cpp MarchingCubes.cpp ply.cpp plyfile.cpp Time.cpp MultiGridOctest.cpp
++SOURCE=Factor.cpp Geometry.cpp MarchingCubes.cpp ply.cpp plyfile.cpp Time.cpp
+ 
+-CFLAGS += -fpermissive
+-LFLAGS +=
++CFLAGS += -fpermissive -Wno-deprecated
++LFLAGS += libpoisson.la
+ 
+ CFLAGS_DEBUG = -DDEBUG -g3
+ LFLAGS_DEBUG =
+@@ -19,31 +24,38 @@
+ 
+ SRC = Src/
+ BIN = Bin/Linux/
+-INCLUDE = /usr/include/
++INCLUDE = ${PREFIX}/include/
+ 
+-CC=gcc
+-CXX=g++
+-
+-OBJECTS=$(addprefix $(BIN), $(addsuffix .o, $(basename $(SOURCE))))
++OBJECTS=$(addprefix $(BIN), $(addsuffix .lo, $(basename $(SOURCE))))
+ 
+ all: CFLAGS += $(CFLAGS_DEBUG)
+ all: LFLAGS += $(LFLAGS_DEBUG)
+-all: $(BIN)$(TARGET)
++all: $(BIN)$(TARGET) libpoisson.la
+ 
+ release: CFLAGS += $(CFLAGS_RELEASE)
+ release: LFLAGS += $(LFLAGS_RELEASE)
+-release: $(BIN)$(TARGET)
++release: $(BIN)$(TARGET) libpoisson.la
++
++install: 	
++	${INSTALL} -c libpoisson.la ${PREFIX}/lib/libpoisson.la
++	${INSTALL} -c $(BIN)$(TARGET) ${PREFIX}/bin/$(TARGET)
++	install -d ${PREFIX}/include/poisson
++	install -m 644 Src/*.h ${PREFIX}/include/poisson
+ 
+ clean:
+ 	rm -f $(BIN)$(TARGET)
+ 	rm -f $(OBJECTS)
++	rm -f libpoisson.la
++
++libpoisson.la: $(OBJECTS)
++	${LINXX} ${OBJECTS} -o $@
+ 
+-$(BIN)$(TARGET): $(OBJECTS)
+-	$(CXX) -o $@ $(OBJECTS) $(LFLAGS)
++$(BIN)$(TARGET): libpoisson.la $(SRC)CmdLineParser.cpp $(SRC)MultiGridOctest.cpp
++	$(LINXX) -I$(INCLUDE) $(SRC)CmdLineParser.cpp $(SRC)MultiGridOctest.cpp -o $@ $(LFLAGS)
+ 
+-$(BIN)%.o: $(SRC)%.c
+-	$(CC) -c -o $@ $(CFLAGS) -I$(INCLUDE) $<
++$(BIN)%.lo: $(SRC)%.c
++	$(LTCC) -c -o $@ $(CFLAGS) -I$(INCLUDE) $<
+ 
+-$(BIN)%.o: $(SRC)%.cpp
+-	$(CXX) -c -o $@ $(CFLAGS) -I$(INCLUDE) $<
++$(BIN)%.lo: $(SRC)%.cpp
++	$(LTCXX) -c -o $@ $(CFLAGS) -I$(INCLUDE) $<
+ 

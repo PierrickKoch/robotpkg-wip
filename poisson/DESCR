@@ -1,0 +1,5 @@
+Poisson is a library for surface reconstruction from oriented points cloud.
+It uses Poisson formula to solve a spatial problem and extracts ISO surfaces.
+It was originally pusblished here: M. Kazhdan, M. Bolitho, and H. Hoppe. 
+Poisson surface reconstruction. Eurographics Symposium on Geometry Processing, 
+2006.

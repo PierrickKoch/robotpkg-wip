@@ -28,6 +28,7 @@ SUBDIR+=	kineo-pp
 SUBDIR+=	kpp-interface
 SUBDIR+=	kpp-interfacewalk
 SUBDIR+=	libply-vcg
+SUBDIR+=	poisson
 SUBDIR+=	stackoftasks
 
 include ../mk/robotpkg.subdir.mk
