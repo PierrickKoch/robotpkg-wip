@@ -1,0 +1,5 @@
+@comment Tue Aug 24 15:17:53 CEST 2010
+include/vcg-plylib.h
+include/vcg-plystuff.h
+lib/libply.so
+lib/libply.so.${PKGVERSION}

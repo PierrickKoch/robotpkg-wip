@@ -1,4 +1,0 @@
-@comment Tue Aug 24 13:13:23 CEST 2010
-include/plylib.h
-include/plystuff.h
-lib/libply.so
