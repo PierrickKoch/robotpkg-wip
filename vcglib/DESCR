@@ -1,0 +1,8 @@
+A portable C++ templated library for the manipulation, processing of triangle 
+and tetrahedral meshes. The library, released under the GPL license, is the 
+result of the collaborative efforts of the Visual Computing Lab of the ISTI 
+- an institute of the Italian National Research Council (CNR).
+
+This package provides headers that permit creation, manipulation, read and 
+write of meshes in several formats.
+

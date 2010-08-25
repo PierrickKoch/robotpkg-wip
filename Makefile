@@ -30,5 +30,6 @@ SUBDIR+=	kpp-interfacewalk
 SUBDIR+=	libply-vcg
 SUBDIR+=	poisson
 SUBDIR+=	stackoftasks
+SUBDIR+=  vcglib
 
 include ../mk/robotpkg.subdir.mk
