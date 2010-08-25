@@ -81,6 +81,7 @@ vcglib-install-wrap:
 	cd ${WRKSRC}/wrap && ${PAX} -rw -pm qt ${PREFIX}/${INSTALLATION_DIRS}/wrap
 	cd ${WRKSRC}/wrap && ${PAX} -rw -pm system ${PREFIX}/${INSTALLATION_DIRS}/wrap
 
+.PHONY: vcglib-install-doc
 vcglib-install-doc:
 	cd ${WRKSRC}/docs/Doxygen && ${DOXYGEN} doxyfile	
 	${INSTALL} -d ${PREFIX}/share/doc/${PKGBASE}

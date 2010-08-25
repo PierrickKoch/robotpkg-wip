@@ -28,11 +28,11 @@ ifeq (+,$(VCGLIB_DEPEND_MK)) # -----------------------
 PREFER.vcglib?=		robotpkg
 
 SYSTEM_SEARCH.vcglib=\
-	include/vcglib/vcg/complex/all_types.h											\
+	include/vcglib/vcg/complex/all_types.h										\
 	include/vcglib/vcg/connectors/hedge.h											\
 	include/vcglib/vcg/container/container_allocation_table.h	\
-	include/vcglib/vcg/math/base.h															\
-	include/vcglib/vcg/simplex/vertex/base.h										\
+	include/vcglib/vcg/math/base.h														\
+	include/vcglib/vcg/simplex/vertex/base.h									\
 	include/vcglib/vcg/space/space.h
 
 DEPEND_USE+=				vcglib
