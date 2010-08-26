@@ -1,7 +1,0 @@
-This is the VCG modified PLY library, a modern C++ library for parsing the PLY
-file format.
-
-PLY library was initially written by Greg Turk
-(http://www.cc.gatech.edu/~turk). Claudio Rocchini
-(http://en.wikipedia.org/wiki/User:Rocchini) tuned it for C++. VCG comes with
-some improvements to make it better suit the templated C++ VCG Library.

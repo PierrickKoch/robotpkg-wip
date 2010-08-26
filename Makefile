@@ -17,7 +17,6 @@ SUBDIR+=	robot-viewer
 SUBDIR+=	sot-gui
 SUBDIR+=	stackoftasks
 SUBDIR+=	test
-SUBDIR+=	vcg-libply
 SUBDIR+=	vcglib
 SUBDIR+=	visp
 
