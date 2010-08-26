@@ -4,32 +4,21 @@
 COMMENT=	WIP packages
 
 SUBDIR+=	blender
-SUBDIR+=	hpp-corbaserver
-SUBDIR+=	hpp-corbaserver
-SUBDIR+=	hpp-core
-SUBDIR+=	hpp-gik
-SUBDIR+=	hpp-hik
-SUBDIR+=	hpp-kwsio
-SUBDIR+=	hpp-kwsplus
-SUBDIR+=	hpp-localstepper
-SUBDIR+=	hpp-model
-SUBDIR+=	hpp-model
-SUBDIR+=	hpp-openhrp
+SUBDIR+=	hpp
 SUBDIR+=	hpp-template-corba
-SUBDIR+=	hpp-walkplanner
-SUBDIR+=	hrp2-14
-SUBDIR+=	hrp2-builder
-SUBDIR+=	hrp2-dynamics
-SUBDIR+=	jrl-dynamics
-SUBDIR+=	jrl-interface-dynamics
-SUBDIR+=	jrl-mal
-SUBDIR+=	jrl-walkgen
+SUBDIR+=	hpp-util
 SUBDIR+=	kineo-pp
-SUBDIR+=	kpp-interface
-SUBDIR+=	kpp-interfacewalk
-SUBDIR+=	libply-vcg
+SUBDIR+=	mk
+SUBDIR+=	morse
+SUBDIR+=	openvrml
 SUBDIR+=	poisson
+SUBDIR+=	python-simpleparse
+SUBDIR+=	robot-viewer
+SUBDIR+=	sot-gui
 SUBDIR+=	stackoftasks
-SUBDIR+=  vcglib
+SUBDIR+=	test
+SUBDIR+=	vcg-libply
+SUBDIR+=	vcglib
+SUBDIR+=	visp
 
 include ../mk/robotpkg.subdir.mk
