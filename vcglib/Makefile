@@ -41,6 +41,7 @@ PKG_OPTION_DESCR.doc?=  Install ${PKGBASE} documentation
 define PKG_OPTION_SET.doc
   INSTALL_TARGET+=	doc
   INSTALLATION_DIRS+=	share/doc/vcglib/html
+  INSTALLATION_DIRS+=	share/doc/vcglib/examples
   DOXYGEN_PLIST_DIR+=	share/doc/vcglib/html
   CMAKE_ARGS+=-DDOXYGEN_EXECUTABLE=${DOXYGEN}
 
