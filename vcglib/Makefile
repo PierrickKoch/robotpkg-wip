@@ -39,25 +39,13 @@ PKG_SUGGESTED_OPTIONS+= doc
 PKG_OPTION_DESCR.doc?=  Install ${PKGBASE} documentation
 
 define PKG_OPTION_SET.doc
-  INSTALL_TARGET+=	doc
-  INSTALLATION_DIRS+=	share/doc/vcglib/html
-  INSTALLATION_DIRS+=	share/doc/vcglib/examples
-  DOXYGEN_PLIST_DIR+=	share/doc/vcglib/html
-  CMAKE_ARGS+=-DDOXYGEN_EXECUTABLE=${DOXYGEN}
 
   include ../../mk/sysdep/doxygen.mk
-  include ../../pkgtools/pax/depend.mk
 
-  post-install: vcglib-install-doc
-
-  .PHONY: vcglib-install-doc
-  vcglib-install-doc:
-	cd ${WRKSRC}/docs/Doxygen && \
-		${PAX} -rw -pm html ${PREFIX}/share/doc/${PKGBASE}
-	cd ${WRKSRC}/docs && \
-		${PAX} -rw -pm *.* ${PREFIX}/share/doc/${PKGBASE}
-	cd ${WRKSRC}/apps && \
-		${PAX} -rw -pm . ${PREFIX}/share/doc/${PKGBASE}/examples
+	INSTALL_TARGET+=		install-doc
+	WRKSRC=			${WRKDIR}/vcglib
+  DOXYGEN_PLIST_DIR+=	share/doc/vcglib/html
+  CMAKE_ARGS+=-DDOXYGEN_EXECUTABLE=${DOXYGEN}
 
 endef # doc ----------------------------------------------------------------
 
