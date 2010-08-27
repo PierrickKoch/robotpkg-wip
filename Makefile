@@ -16,8 +16,6 @@ SUBDIR+=	python-simpleparse
 SUBDIR+=	robot-viewer
 SUBDIR+=	sot-gui
 SUBDIR+=	stackoftasks
-SUBDIR+=	test
-SUBDIR+=	vcglib
 SUBDIR+=	visp
 
 include ../mk/robotpkg.subdir.mk
