@@ -1,20 +1,28 @@
-@comment Tue Aug 24 16:47:33 CEST 2010
+@comment Fri Aug 27 10:20:35 CEST 2010
 bin/PoissonRecon
 include/${PKGNAME}/Allocator.h
 include/${PKGNAME}/BinaryNode.h
 include/${PKGNAME}/CmdLineParser.h
 include/${PKGNAME}/Factor.h
 include/${PKGNAME}/FunctionData.h
+include/${PKGNAME}/FunctionData.inl
 include/${PKGNAME}/Geometry.h
+include/${PKGNAME}/Geometry.inl
 include/${PKGNAME}/Hash.h
 include/${PKGNAME}/MarchingCubes.h
 include/${PKGNAME}/MemoryUsage.h
 include/${PKGNAME}/MultiGridOctreeData.h
+include/${PKGNAME}/MultiGridOctreeData.inl
 include/${PKGNAME}/Octree.h
+include/${PKGNAME}/Octree.inl
 include/${PKGNAME}/ply.h
 include/${PKGNAME}/Polynomial.h
+include/${PKGNAME}/Polynomial.inl
 include/${PKGNAME}/PPolynomial.h
+include/${PKGNAME}/PPolynomial.inl
 include/${PKGNAME}/SparseMatrix.h
+include/${PKGNAME}/SparseMatrix.inl
 include/${PKGNAME}/Time.h
 include/${PKGNAME}/Vector.h
+include/${PKGNAME}/Vector.inl
 lib/lib${PKGNAME}.la

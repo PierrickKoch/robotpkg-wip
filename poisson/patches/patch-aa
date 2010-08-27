@@ -1,5 +1,5 @@
---- Makefile.orig	2010-08-24 14:43:58.907036591 +0200
-+++ Makefile	2010-08-24 16:55:02.219030788 +0200
+--- Makefile.orig	2010-08-24 20:28:59.707916210 +0200
++++ Makefile	2010-08-27 10:16:20.169759878 +0200
 @@ -4,12 +4,17 @@
  # * Revision:	$Revision: 233 $
  # * Last Updated:	$LastChangedDate: 2006-11-10 15:03:28 -0500 (Fri, 10 Nov 2006) $
@@ -21,7 +21,7 @@
  
  CFLAGS_DEBUG = -DDEBUG -g3
  LFLAGS_DEBUG =
-@@ -19,31 +24,38 @@
+@@ -19,31 +24,39 @@
  
  SRC = Src/
  BIN = Bin/Linux/
@@ -49,6 +49,7 @@
 +	${INSTALL} -c $(BIN)$(TARGET) ${PREFIX}/bin/$(TARGET)
 +	install -d ${PREFIX}/include/poisson
 +	install -m 644 Src/*.h ${PREFIX}/include/poisson
++	install -m 644 Src/*.inl ${PREFIX}/include/poisson
  
  clean:
  	rm -f $(BIN)$(TARGET)
