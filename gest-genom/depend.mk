@@ -16,27 +16,26 @@
 #
 
 DEPEND_DEPTH:=		${DEPEND_DEPTH}+
-BIOMOVE3D_DEPEND_MK:=	${BIOMOVE3D_DEPEND_MK}+
+GEST-GENOM_DEPEND_MK:=	${GEST-GENOM_DEPEND_MK}+
 
 ifeq (+,$(DEPEND_DEPTH))
-DEPEND_PKG+=		BioMove3D
+DEPEND_PKG+=		gest-genom
 endif
 
-ifeq (+,$(BIOMOVE3D_DEPEND_MK)) # ----------------------------------
+ifeq (+,$(GEST-GENOM_DEPEND_MK)) # ----------------------------------
 
-PREFER.BioMove3D?=	robotpkg
+PREFER.gest-genom?=	robotpkg
 
-SYSTEM_SEARCH.BioMove3D=\
-	include/BioMove3D/include/move3d.h	\
-	lib/libm3d.so
+SYSTEM_SEARCH.gest-genom=\
+	include/gest/gestStruct.h	\
+	lib/pkgconfig/gest.pc	\
+	bin/gest
 
-DEPEND_USE+=		BioMove3D
+DEPEND_USE+=		gest-genom
 
-DEPEND_ABI.BioMove3D?=BioMove3D>=3.5
-DEPEND_DIR.BioMove3D?=../../wip/BioMove3D
+DEPEND_ABI.gest-genom?=gest-genom>=1.0
+DEPEND_DIR.gest-genom?=../../image/gest-genom
 
-#include ../../wip/??
-
-endif # BIOMOVE3D_DEPEND_MK ----------------------------------------
+endif # GEST-GENOM_DEPEND_MK ----------------------------------------
 
 DEPEND_DEPTH:=		${DEPEND_DEPTH:+=}

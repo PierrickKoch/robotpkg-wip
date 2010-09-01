@@ -13,31 +13,45 @@ COMMENT=		Motion planning and geometric reasonning module
 # on GSL and GLPK that are 2 GLP librairies.
 LICENSE=		gnu-gpl-v2
 
-
 USE_LANGUAGES+=		c c++
 
 CMAKE_ARGS+= -DEigen_INCLUDE_DIR=${PREFIX.eigen2}/include/eigen2
 CMAKE_ARGS+= -DBOOST_INCLUDEDIR=${PREFIX.boost-headers}/include
 CMAKE_ARGS+= -DBOOST_LIBRARYDIR=${PREFIX.boost-libs}/lib
 
-PKG_OPTIONS_REQUIRED_GROUPS=	robot
-PKG_OPTIONS_GROUP.robot=	jido
+PKG_OPTIONS_REQUIRED_GROUPS=	mode
+PKG_OPTIONS_GROUP.mode=	standalone jido
 
-PKG_SUGGESTED_OPTIONS+=	jido
+##
+## Option standalone
+##
+PKG_OPTION_DESCR.standalone=	Compile BioMove3D as an executable
+define PKG_OPTION_SET.standalone
 
-PKG_OPTION_DESCR.jido=	Compile BioMove3D for Jido
+endef
+
+##
+## Option jido
+##
+PKG_OPTION_DESCR.jido=	Compile BioMove3D for Jido as a library only
 
 define PKG_OPTION_SET.jido
   CMAKE_ARGS+= -DCOMPILE_ON_JIDO=ON
+  CMAKE_ARGS+= -DMAKELIB=ON
+  
   include ../../mk/sysdep/gsl.mk
   
   include ../../wip/pqp-libs/depend.mk
   
   include ../../math/gbM/depend.mk
   include ../../motion/softMotion-libs/depend.mk
-
 endef
 
+
+## Default option
+PKG_SUGGESTED_OPTIONS+=	jido
+
+## Common includes
 include ../../mk/sysdep/cmake.mk
 include ../../devel/boost-headers/depend.mk
 include ../../devel/boost-libs/depend.mk
