@@ -5,7 +5,7 @@
 DISTNAME=		BioMove3D-3.5
 CATEGORIES=		path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=BioMove3D/}
-MASTER_REPOSITORY=	git /usr/local/motion/BioMove3d.git
+MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/BioMove3d
 
 MAINTAINER=		biomove3dgitrepo@laas.fr
 COMMENT=		Motion planning and geometric reasonning module
@@ -16,17 +16,38 @@ LICENSE=		gnu-gpl-v2
 
 USE_LANGUAGES+=		c c++
 
+CMAKE_ARGS+= -DEigen_INCLUDE_DIR=${PREFIX.eigen2}/include/eigen2
+CMAKE_ARGS+= -DBOOST_INCLUDEDIR=${PREFIX.boost-headers}/include
+CMAKE_ARGS+= -DBOOST_LIBRARYDIR=${PREFIX.boost-libs}/lib
+
 PKG_OPTIONS_REQUIRED_GROUPS=	robot
 PKG_OPTIONS_GROUP.robot=	jido
 
 PKG_SUGGESTED_OPTIONS+=	jido
 
 PKG_OPTION_DESCR.jido=	Compile BioMove3D for Jido
-PKG_OPTION_SET.jido:=	CMAKE_ARGS+= COMPILE_ON_JIDO
 
 define PKG_OPTION_SET.jido
+  CMAKE_ARGS+= -DCOMPILE_ON_JIDO=ON
+  include ../../mk/sysdep/gsl.mk
   
+  include ../../wip/pqp-libs/depend.mk
+  
+  include ../../math/gbM/depend.mk
+  include ../../motion/softMotion-libs/depend.mk
+
 endef
 
 include ../../mk/sysdep/cmake.mk
+include ../../devel/boost-headers/depend.mk
+include ../../devel/boost-libs/depend.mk
+
+include ../../mk/sysdep/glu.mk
+include ../../math/eigen2/depend.mk
+include ../../wip/sysdep/glpk.mk
+include ../../wip/sysdep/gts.mk
+include ../../wip/sysdep/qhull.mk
+include ../../wip/sysdep/libxpm.mk
+include ../../wip/sysdep/xforms.mk
+
 include ../../mk/robotpkg.mk
