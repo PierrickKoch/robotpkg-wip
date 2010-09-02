@@ -27,8 +27,9 @@ ifeq (+,$(MHP-GENOM_DEPEND_MK)) # ----------------------------------
 PREFER.mhp-genom?=	robotpkg
 
 SYSTEM_SEARCH.mhp-genom=\
-	include/??	\
-	lib/??
+	include/mhp/mhpStruct.h	\
+	lib/pkgconfig/mhp.pc	\
+	bin/mhp
 
 DEPEND_USE+=		mhp-genom
 
