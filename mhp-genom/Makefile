@@ -43,7 +43,7 @@ define PKG_OPTION_SET.jido
   GENOM_ARGS+= -DJIDO
   include ../../localization/pom-genom/depend.mk
   include ../../math/gbM/depend.mk
-  #include ../../manipulation/lwr-genom/depend.mk
+  include ../../wip/lwr-genom/depend.mk
   include ../../image/viman-genom/depend.mk
 endef
 
