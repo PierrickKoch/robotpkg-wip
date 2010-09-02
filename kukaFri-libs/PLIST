@@ -1,0 +1,8 @@
+@comment Thu Sep 2 16:36:44 CEST 2010
+bin/kukaFriFirstApp
+bin/kukaFriSecondApp
+include/kukaFri-libs/friComm.h
+include/kukaFri-libs/friremote.h
+include/kukaFri-libs/friudp.h
+lib/libkukaFri-libs.so
+lib/pkgconfig/kukaFri-libs.pc
