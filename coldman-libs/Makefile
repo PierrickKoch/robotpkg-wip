@@ -16,5 +16,6 @@ USE_LANGUAGES+=		c c++
 
 GNU_CONFIGURE=		yes
 
+include ../../wip/sysdep/freeglut.mk
 include ../../wip/pqp-libs/depend.mk
 include ../../mk/robotpkg.mk
