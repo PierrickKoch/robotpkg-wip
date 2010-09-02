@@ -1,0 +1,11 @@
+--- codels/Makefile.in.orig	2010-08-23 17:49:14.000000000 +0200
++++ codels/Makefile.in	2010-09-02 14:04:22.171742000 +0200
+@@ -12,7 +12,7 @@
+ INSTALL=  	@INSTALL@
+ 
+ #---  custom path ----
+-MOVE3D = /usr/local/openrobots/include/BioMove3D
++MOVE3D?= /usr/local/openrobots/include/BioMove3D
+ #---------------------
+ include $(MOVE3D)/move3DFlags
+ 
