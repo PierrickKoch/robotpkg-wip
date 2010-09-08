@@ -30,7 +30,7 @@ USE_LANGUAGES=		Python
 GNU_CONFIGURE=		no
 NO_CONFIGURE= 		yes
 
-include ../../wip/python-simpleparse/depend.mk
+include ../../devel/python-simpleparse/depend.mk
 include ../../wip/mk/sysdep/pyopengl.mk
 include ../../wip/mk/sysdep/python-sphinx.mk
 include ../../mk/robotpkg.mk
