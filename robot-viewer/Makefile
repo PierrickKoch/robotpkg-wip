@@ -16,7 +16,8 @@
 
 DISTNAME=	robot-viewer-${VERSION}
 PKGNAME=	robot-viewer-${VERSION}
-VERSION=	1.2.1
+VERSION=	1.3
+LICENSE=	gnu-lgpl-v3
 
 CATEGORIES=		interfaces
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=robot-viewer/}
@@ -30,7 +31,7 @@ USE_LANGUAGES=		Python
 GNU_CONFIGURE=		no
 NO_CONFIGURE= 		yes
 
-include ../../devel/python-simpleparse/depend.mk
+include ../../devel/py-simpleparse/depend.mk
 include ../../wip/mk/sysdep/pyopengl.mk
 include ../../wip/mk/sysdep/python-sphinx.mk
 include ../../mk/robotpkg.mk
