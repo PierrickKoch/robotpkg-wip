@@ -24,17 +24,16 @@ endif
 
 ifeq (+,$(GEST-GENOM_DEPEND_MK)) # ----------------------------------
 
-PREFER.gest-genom?=	robotpkg
+PREFER.gest-genom?=	system
 
 SYSTEM_SEARCH.gest-genom=\
 	include/gest/gestStruct.h	\
-	lib/pkgconfig/gest.pc	\
-	bin/gest
+	lib/pkgconfig/gest.pc
 
 DEPEND_USE+=		gest-genom
 
 DEPEND_ABI.gest-genom?=gest-genom>=1.0
-DEPEND_DIR.gest-genom?=../../image/gest-genom
+DEPEND_DIR.gest-genom?=../../wip/gest-genom
 
 endif # GEST-GENOM_DEPEND_MK ----------------------------------------
 
