@@ -45,6 +45,8 @@ define PKG_OPTION_SET.jido
   include ../../math/gbM/depend.mk
   include ../../wip/lwr-genom/depend.mk
   include ../../image/viman-genom/depend.mk
+  include ../../localization/mocap-genom/depend.mk
+  include ../../wip/gest-genom/depend.mk
 endef
 
 ##
@@ -78,6 +80,8 @@ REQD_BUILD_OPTIONS.BioMove3D:=	jido
 
 #Hack to set the Move3D path for mhp-genom/codels/Makefile
 MAKE_ENV+= MOVE3D=${PREFIX.BioMove3D}/include/BioMove3D
+
+include ../../wip/sysdep/xforms.mk
 
 include ../../wip/BioMove3D/depend.mk
 
