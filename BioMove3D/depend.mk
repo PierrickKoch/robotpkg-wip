@@ -28,7 +28,7 @@ PREFER.BioMove3D?=	robotpkg
 
 SYSTEM_SEARCH.BioMove3D=\
 	include/BioMove3D/include/move3d.h	\
-	lib/libm3d.so
+	lib/libBioMove3D.so
 
 DEPEND_USE+=		BioMove3D
 
