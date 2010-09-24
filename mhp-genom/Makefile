@@ -2,7 +2,7 @@
 # Created:			Severin Lemaignan on Tue, 31 Aug 2010
 #
 
-DISTNAME=		mhp-genom-2.2
+DISTNAME=		mhp-genom-2.5.1
 CATEGORIES=		path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=mhp-genom/}
 MASTER_REPOSITORY=	git ssh://softs/git/robots/mhp-genom
@@ -77,9 +77,6 @@ GENOM_MODULE=		mhp
 ## Build BioMove3D with the "Jido" profile to get all required options for
 # HRI with BioMove3D
 REQD_BUILD_OPTIONS.BioMove3D:=	jido
-
-#Hack to set the Move3D path for mhp-genom/codels/Makefile
-MAKE_ENV+= MOVE3D=${PREFIX.BioMove3D}/include/BioMove3D
 
 include ../../wip/sysdep/xforms.mk
 
