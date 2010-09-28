@@ -4,6 +4,7 @@
 COMMENT=	WIP packages
 
 SUBDIR+=	blender
+SUBDIR+=	boost-log
 SUBDIR+=	hpp
 SUBDIR+=	hpp-template-corba
 SUBDIR+=	hpp-util
