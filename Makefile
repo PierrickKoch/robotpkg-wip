@@ -8,7 +8,6 @@ SUBDIR+=	boost-log
 SUBDIR+=	hpp
 SUBDIR+=	hpp-template-corba
 SUBDIR+=	hpp-util
-SUBDIR+=	kineo-pp
 SUBDIR+=	mk
 SUBDIR+=	morse
 SUBDIR+=	openvrml
