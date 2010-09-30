@@ -5,7 +5,7 @@
 DISTNAME=		coldman-libs-1.0
 CATEGORIES=		manipulation
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=coldman-libs/}
-MASTER_REPOSITORY=	git ssh://trac/git/robots/coldman-libs
+MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/coldman-libs
 
 MAINTAINER=		xavier.broquere@laas.fr
 

@@ -7,7 +7,7 @@
 DISTNAME=		pqp-libs-1.1
 CATEGORIES=		manipulation
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=pqp-libs/}
-MASTER_REPOSITORY=	git ssh://trac/git/robots/pqp-libs
+MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/pqp-libs
 
 MAINTAINER=		openrobots@laas.fr
 HOMEPAGE=		http://gamma.cs.unc.edu/SSV/
