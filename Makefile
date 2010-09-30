@@ -3,18 +3,22 @@
 
 COMMENT=	WIP packages
 
+SUBDIR+=	BioMove3D
 SUBDIR+=	blender
 SUBDIR+=	boost-log
-SUBDIR+=	hpp
-SUBDIR+=	hpp-template-corba
-SUBDIR+=	hpp-util
+SUBDIR+=	coldman-genom
+SUBDIR+=	coldman-libs
+SUBDIR+=	gest-genom
+SUBDIR+=	kukaFri-libs
+SUBDIR+=	lwr-genom
+SUBDIR+=	mhp-genom
 SUBDIR+=	mk
 SUBDIR+=	morse
-SUBDIR+=	openvrml
 SUBDIR+=	poisson
-SUBDIR+=	python-simpleparse
+SUBDIR+=	pqp-libs
 SUBDIR+=	robot-viewer
 SUBDIR+=	sot-gui
+SUBDIR+=	spark-genom
 SUBDIR+=	stackoftasks
 SUBDIR+=	visp
 
