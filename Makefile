@@ -5,7 +5,6 @@ COMMENT=	WIP packages
 
 SUBDIR+=	BioMove3D
 SUBDIR+=	blender
-SUBDIR+=	boost-log
 SUBDIR+=	coldman-genom
 SUBDIR+=	coldman-libs
 SUBDIR+=	gest-genom
