@@ -38,6 +38,9 @@ SYSTEM_SEARCH.gts=	\
 	lib/libgts.so
 
 SYSTEM_PKG.Linux-fedora.gts=gts-devel
+SYSTEM_PKG.Linux-ubuntu.gts=libgts-dev
+SYSTEM_PKG.Linux-debian.gts=libgts-dev
+
 
 endif # GTS_DEPEND_MK ---------------------------------------------------
 

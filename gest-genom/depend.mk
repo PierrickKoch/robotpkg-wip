@@ -24,7 +24,7 @@ endif
 
 ifeq (+,$(GEST-GENOM_DEPEND_MK)) # ----------------------------------
 
-PREFER.gest-genom?=	system
+PREFER.gest-genom?=	robotpkg
 
 SYSTEM_SEARCH.gest-genom=\
 	include/gest/gestStruct.h	\
