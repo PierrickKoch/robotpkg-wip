@@ -1,7 +1,7 @@
 # Created:			Severin Lemaignan on Fri, 24 Sep 2010
 #
 
-DISTNAME=		spark-genom-1.0
+DISTNAME=		spark-genom-1.1
 CATEGORIES=		knowledge
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=spark-genom/}
 MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/spark-genom
@@ -20,7 +20,7 @@ USE_LANGUAGES+=		c c++
 #### SPARK OPTIONS ####
 #######################
 
-PKG_OPTIONS_NONEMPTY_SETS=	robot
+PKG_OPTIONS_GROUPS=	robot
 PKG_OPTIONS_SET.robot=	hrp2 pr2 jido simulation
 
 ##
@@ -63,8 +63,6 @@ endef
 ##
 PKG_OPTION_DESCR.simulation=	Compile SPARK for simulation only
 PKG_OPTION_SET.simulation:=	GENOM_ARGS+= -DSIMULATION
-
-PKG_SUGGESTED_OPTIONS+=	jido
 
 ##
 ## Ontology server
