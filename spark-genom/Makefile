@@ -70,9 +70,9 @@ PKG_OPTION_SET.simulation:=	GENOM_ARGS+= -DSIMULATION
 PKG_SUPPORTED_OPTIONS+=	oro
 PKG_SUGGESTED_OPTIONS+=	oro
 PKG_OPTION_DESCR.oro=	Enable the support of ORO ontology server
-PKG_OPTION_SET.oro:=	GENOM_ARGS+= -DORO
 
 define PKG_OPTION_SET.oro
+  GENOM_ARGS+= -DORO
   include ../../knowledge/liboro/depend.mk
 endef
 
