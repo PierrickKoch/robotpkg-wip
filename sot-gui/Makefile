@@ -24,6 +24,7 @@ MASTER_REPOSITORY=	${MASTER_REPOSITORY_JRL}gui/sot-gui
 
 MAINTAINER=		hpp@laas.fr
 COMMENT=
+LICENSE=		cnrs-hpp-closed-source
 
 USE_LANGUAGES+= 	python
 
