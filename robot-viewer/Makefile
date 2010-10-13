@@ -24,6 +24,7 @@ MASTER_REPOSITORY=	${MASTER_REPOSITORY_JRL}/gui/robot-viewer
 
 MAINTAINER=		hpp@laas.fr
 COMMENT=		A simple robot viewer/motion player
+LICENSE=		cnrs-hpp-closed-source
 
 USE_LANGUAGES=		Python
 
