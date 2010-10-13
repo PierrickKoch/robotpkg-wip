@@ -5,6 +5,7 @@
 DISTNAME=		kukaFri-libs-1.1
 CATEGORIES=		manipulation
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=kukaFri-libs/}
+# TODO: properly add an interactive fetch
 
 MAINTAINER=		xavier.broquere@laas.fr
 COMMENT=		KuKa low-level libraries for their arm

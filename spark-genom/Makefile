@@ -1,32 +1,32 @@
-# robotpkg Makefile for:	path/mhp-genom
-# Created:			Severin Lemaignan on Tue, 31 Aug 2010
+# Created:			Severin Lemaignan on Fri, 24 Sep 2010
 #
 
-DISTNAME=		mhp-genom-2.5.1
-CATEGORIES=		path
-MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=mhp-genom/}
-MASTER_REPOSITORY=	git ssh://softs.laas.fr/git/robots/mhp-genom
+DISTNAME=		spark-genom-1.1
+CATEGORIES=		knowledge
+MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=spark-genom/}
+MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/spark-genom
 
 MAINTAINER=		easisbot@laas.fr
-COMMENT=		Motion in Human Presence module
-#mhp-genom is currently GPL because it depends on BioMove3D that depends itself 
+COMMENT=		Spatial Reasoning and Knowledge module
+
+#spark-genom is currently GPL because it depends on BioMove3D that depends itself 
 # on GSL and GLPK that are 2 GLP librairies.
 LICENSE=		gnu-gpl-v2
 
 
 USE_LANGUAGES+=		c c++
 
-#####################
-#### MHP OPTIONS ####
-#####################
+#######################
+#### SPARK OPTIONS ####
+#######################
 
-PKG_OPTIONS_REQUIRED_GROUPS=	robot
-PKG_OPTIONS_GROUP.robot=	hrp2 jido simulation
+PKG_OPTIONS_GROUPS=	robot
+PKG_OPTIONS_SET.robot=	hrp2 pr2 jido simulation
 
 ##
 ## HRP2
 ##
-PKG_OPTION_DESCR.hrp2=	Compile MHP for HRP2
+PKG_OPTION_DESCR.hrp2=	Compile SPARK with support for HRP2
 
 define PKG_OPTION_SET.hrp2
   GENOM_ARGS+= -DHRP2
@@ -35,9 +35,18 @@ define PKG_OPTION_SET.hrp2
 endef
 
 ##
+## PR2
+##
+PKG_OPTION_DESCR.pr2=	Compile SPARK with support for PR2
+
+define PKG_OPTION_SET.pr2
+  GENOM_ARGS+= -DPR2
+endef
+
+##
 ## Jido
 ##
-PKG_OPTION_DESCR.jido=	Compile MHP for Jido
+PKG_OPTION_DESCR.jido=	Compile SPARK with support for Jido
 
 define PKG_OPTION_SET.jido
   GENOM_ARGS+= -DJIDO
@@ -52,10 +61,8 @@ endef
 ##
 ## Simulation
 ##
-PKG_OPTION_DESCR.simulation=	Compile MHP for simulation only
+PKG_OPTION_DESCR.simulation=	Compile SPARK for simulation only
 PKG_OPTION_SET.simulation:=	GENOM_ARGS+= -DSIMULATION
-
-PKG_SUGGESTED_OPTIONS+=	jido
 
 ##
 ## Ontology server
@@ -71,7 +78,7 @@ endef
 
 #####################
 
-GENOM_MODULE=		mhp
+GENOM_MODULE=		spark
 
 ## BioMove3D dependency
 ## Build BioMove3D with the "Jido" profile to get all required options for

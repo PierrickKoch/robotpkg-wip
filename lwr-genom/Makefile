@@ -5,7 +5,7 @@
 DISTNAME=		lwr-genom-1.0
 CATEGORIES=		manipulation
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=lwr-genom/}
-MASTER_REPOSITORY=	git ssh://trac/git/robots/lwr-genom
+MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/lwr-genom
 
 MAINTAINER=		xavier.broquere@laas.fr
 COMMENT=		Genom module for the KuKa arm

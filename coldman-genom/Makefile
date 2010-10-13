@@ -5,7 +5,7 @@
 DISTNAME=		coldman-genom-1.0
 CATEGORIES=		manipulation
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=coldman-genom/}
-MASTER_REPOSITORY=	git ssh://trac/git/robots/coldman-genom
+MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/coldman-genom
 
 MAINTAINER=		xavier.broquere@laas.fr
 

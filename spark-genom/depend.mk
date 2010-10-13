@@ -12,31 +12,30 @@
 #      the  documentation   and/or  other  materials   provided with  the
 #      distribution.
 #
-#                                    Severin Lemaignan on Tue 31 Aug 2010
+#                                    Severin Lemaignan on Fri 24 Sep 2010
 #
 
 DEPEND_DEPTH:=		${DEPEND_DEPTH}+
-BIOMOVE3D_DEPEND_MK:=	${BIOMOVE3D_DEPEND_MK}+
+SPARK-GENOM_DEPEND_MK:=	${SPARK-GENOM_DEPEND_MK}+
 
 ifeq (+,$(DEPEND_DEPTH))
-DEPEND_PKG+=		BioMove3D
+DEPEND_PKG+=		spark-genom
 endif
 
-ifeq (+,$(BIOMOVE3D_DEPEND_MK)) # ----------------------------------
+ifeq (+,$(SPARK-GENOM_DEPEND_MK)) # ----------------------------------
 
-PREFER.BioMove3D?=	robotpkg
+PREFER.spark-genom?=	robotpkg
 
-SYSTEM_SEARCH.BioMove3D=\
-	include/BioMove3D/include/move3d.h	\
-	lib/libBioMove3D.so
+SYSTEM_SEARCH.spark-genom=\
+	include/spark/sparkStruct.h	\
+	lib/pkgconfig/spark.pc	\
+	bin/spark
 
-DEPEND_USE+=		BioMove3D
+DEPEND_USE+=		spark-genom
 
-DEPEND_ABI.BioMove3D?=BioMove3D>=3.7.4
-DEPEND_DIR.BioMove3D?=../../wip/BioMove3D
+DEPEND_ABI.spark-genom?=spark-genom>=1.0
+DEPEND_DIR.spark-genom?=../../wip/spark-genom
 
-#include ../../wip/??
-
-endif # BIOMOVE3D_DEPEND_MK ----------------------------------------
+endif # SPARK-GENOM_DEPEND_MK ----------------------------------------
 
 DEPEND_DEPTH:=		${DEPEND_DEPTH:+=}
