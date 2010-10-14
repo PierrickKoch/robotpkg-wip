@@ -11,5 +11,5 @@ include/coldman-libs/robot.h
 include/coldman-libs/texture.h
 include/coldman-libs/vector3D.h
 include/coldman-libs/workspace.h
-lib/libcoldman.a
+lib/libcoldman-libs.so
 lib/pkgconfig/coldman-libs.pc
