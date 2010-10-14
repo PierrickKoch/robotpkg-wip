@@ -2,7 +2,7 @@
 # Created:			Severin Lemaignan on Tue, 31 Aug 2010
 #
 
-DISTNAME=		coldman-genom-1.0
+DISTNAME=		coldman-genom-1.2
 CATEGORIES=		manipulation
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=coldman-genom/}
 MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/coldman-genom
