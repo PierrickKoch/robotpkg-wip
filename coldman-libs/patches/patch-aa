@@ -1,0 +1,12 @@
+Add version information to the library.
+
+--- src/CMakeLists.txt.orig	2010-10-15 11:39:03.524159143 +0200
++++ src/CMakeLists.txt	2010-10-14 17:31:06.000000000 +0200
+@@ -72,6 +72,7 @@
+ SHARED
+ ${source_files}
+ )
++set_property(TARGET coldman-libs PROPERTY VERSION ${PACKAGE_VERSION})
+ 
+ SET_TARGET_PROPERTIES(coldman-libs PROPERTIES LINKER_LANGUAGE CXX)
+ TARGET_LINK_LIBRARIES(coldman-libs ${LIBS})

@@ -1,0 +1,14 @@
+Don't overwrite compiler path.
+
+--- src/CMakeLists.txt.orig	2010-10-15 11:54:05.702159430 +0200
++++ src/CMakeLists.txt	2010-10-15 11:54:16.851158998 +0200
+@@ -20,9 +20,6 @@
+ 
+ file(GLOB source_files ./*.cpp)
+ 
+-SET(CMAKE_C_COMPILER g++)
+-SET(CMAKE_CXX_COMPILER g++)
+-
+ SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/script/CMake")
+ set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/lib/${CMAKE_BUILD_TYPE})
+ 

@@ -1,3 +1,6 @@
 SHA1 (coldman-libs-1.2.tar.gz) = 98b4c4d608d582f323e7ccf007847e420a13fff0
 RMD160 (coldman-libs-1.2.tar.gz) = 3f0f0106c56c8e0fd798ddf8c41f580fa416beeb
 Size (coldman-libs-1.2.tar.gz) = 381827 bytes
+SHA1 (patch-aa) = 1567d85b6eaa0556c672743982a8460ed6ab9abb
+SHA1 (patch-ab) = a6d8226688c44fb661c2d7d2f3580d318083d466
+SHA1 (patch-ac) = 21369670ce01d9a861241caea4e76b82466049a5

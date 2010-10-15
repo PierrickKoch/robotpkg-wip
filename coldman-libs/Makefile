@@ -15,7 +15,17 @@ LICENSE=		gnu-lgpl-v3
 
 USE_LANGUAGES+=		c c++
 
-include ../../wip/sysdep/freeglut.mk
+# option for display using glut
+PKG_SUPPORTED_OPTIONS+=	display
+PKG_SUGGESTED_OPTIONS+=	display
+
+PKG_OPTION_DESCR.display=	Enable embedded display facility.
+define PKG_OPTION_SET.display
+  CMAKE_ARGS+=-DENABLE_DISPLAY=ON
+  include ../../wip/sysdep/freeglut.mk
+endef
+PKG_OPTION_UNSET.display:=	CMAKE_ARGS+=-DENABLE_DISPLAY=OFF
+
 include ../../graphics/pqp/depend.mk
 include ../../mk/sysdep/cmake.mk
 include ../../mk/robotpkg.mk

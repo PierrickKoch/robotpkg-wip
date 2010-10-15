@@ -1,4 +1,4 @@
-@comment Tue Aug 31 19:02:41 CEST 2010
+@comment Fri Oct 15 11:57:38 CEST 2010
 include/coldman-libs/body.h
 include/coldman-libs/bounding_volume.h
 include/coldman-libs/camera.h
@@ -12,4 +12,5 @@ include/coldman-libs/texture.h
 include/coldman-libs/vector3D.h
 include/coldman-libs/workspace.h
 lib/libcoldman-libs.so
+lib/libcoldman-libs.so.${PKGVERSION}
 lib/pkgconfig/coldman-libs.pc
