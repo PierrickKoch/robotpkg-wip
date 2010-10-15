@@ -32,7 +32,7 @@ SYSTEM_SEARCH.coldman-libs=\
 
 DEPEND_USE+=		coldman-libs
 
-DEPEND_ABI.coldman-libs?=coldman-libs>=1.2
+DEPEND_ABI.coldman-libs?=coldman-libs>=1.3
 DEPEND_DIR.coldman-libs?=../../wip/coldman-libs
 
 endif # COLDMAN-LIBS_DEPEND_MK ----------------------------------------

@@ -2,7 +2,7 @@
 # Created:			Severin Lemaignan on Tue, 31 Aug 2010
 #
 
-PKGVERSION=		1.2
+PKGVERSION=		1.3
 DISTNAME=		coldman-libs-${PKGVERSION}
 CATEGORIES=		manipulation
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=coldman-libs/}
