@@ -28,11 +28,11 @@ PREFER.coldman-libs?=	robotpkg
 
 SYSTEM_SEARCH.coldman-libs=\
 	include/coldman-libs/coldman.h	\
-	lib/libcoldman.a
+	lib/libcoldman-libs.so
 
 DEPEND_USE+=		coldman-libs
 
-DEPEND_ABI.coldman-libs?=coldman-libs>=1.0
+DEPEND_ABI.coldman-libs?=coldman-libs>=1.2
 DEPEND_DIR.coldman-libs?=../../wip/coldman-libs
 
 endif # COLDMAN-LIBS_DEPEND_MK ----------------------------------------
