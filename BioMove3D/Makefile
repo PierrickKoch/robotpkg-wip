@@ -5,7 +5,7 @@
 DISTNAME=		BioMove3D-3.7.6
 CATEGORIES=		path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=BioMove3D/}
-MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/BioMove3D
+MASTER_REPOSITORY=	git http://trac.laas.fr/git/robots/BioMove3D
 
 MAINTAINER=		biomove3dgitrepo@laas.fr
 COMMENT=		Motion planning and geometric reasonning module
