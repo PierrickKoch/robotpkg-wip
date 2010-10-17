@@ -1,10 +1,10 @@
 # Created:			Severin Lemaignan on Fri, 24 Sep 2010
 #
 
-DISTNAME=		spark-genom-1.1
+DISTNAME=		spark-genom-1.2
 CATEGORIES=		knowledge
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=spark-genom/}
-MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/spark-genom
+MASTER_REPOSITORY=	git http://trac.laas.fr/git/robots/spark-genom
 
 MAINTAINER=		easisbot@laas.fr
 COMMENT=		Spatial Reasoning and Knowledge module
@@ -21,7 +21,7 @@ USE_LANGUAGES+=		c c++
 #######################
 
 PKG_OPTIONS_GROUPS=	robot
-PKG_OPTIONS_SET.robot=	hrp2 pr2 jido simulation
+PKG_OPTIONS_SET.robot=	hrp2 pr2 jido
 
 ##
 ## HRP2
@@ -50,6 +50,7 @@ PKG_OPTION_DESCR.jido=	Compile SPARK with support for Jido
 
 define PKG_OPTION_SET.jido
   GENOM_ARGS+= -DJIDO
+  include ../../manipulation/genManip-genom/depend.mk
   include ../../localization/pom-genom/depend.mk
   include ../../math/gbM/depend.mk
   include ../../wip/lwr-genom/depend.mk

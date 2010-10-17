@@ -1,0 +1,24 @@
+@comment Sun Oct 17 18:23:22 CEST 2010
+bin/spark
+bin/sparkSendInitRqst
+bin/sparkTest
+include/spark/server/sparkEndian.h
+include/spark/server/sparkError.h
+include/spark/server/sparkMsgLib.h
+include/spark/server/sparkPosterLib.h
+include/spark/server/sparkPosterLibStruct.h
+include/spark/server/sparkPosterReadLibProto.h
+include/spark/server/sparkPosterShowLib.h
+include/spark/server/sparkPosterWriteLibProto.h
+include/spark/server/sparkPosterXMLLib.h
+include/spark/server/sparkPrint.h
+include/spark/server/sparkPrintXML.h
+include/spark/server/sparkScan.h
+include/spark/server/sparkType.h
+include/spark/sparkConst.h
+include/spark/sparkStruct.h
+lib/libsparkClient.la
+lib/pkgconfig/spark.pc
+lib/tclserv/libsparkTclServ.la
+share/modules/gen/spark.gen
+share/modules/tcl/sparkClient.tcl
