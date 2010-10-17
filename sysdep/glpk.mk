@@ -35,7 +35,7 @@ DEPEND_USE+=		glpk
 DEPEND_ABI.glpk?=	glpk>=4.36
 
 SYSTEM_SEARCH.glpk=	\
-	include/{,glpk/}glpk.h \
+	include/glpk/glpk.h \
 	lib/libglpk.so
 
 SYSTEM_PKG.Linux-fedora.glpk=glpk-devel
