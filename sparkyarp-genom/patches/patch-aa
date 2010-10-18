@@ -1,0 +1,19 @@
+diff --git a/codels/Makefile.in b/codels/Makefile.in
+index 7018bef..2bc4af0 100644
+--- codels/Makefile.in
++++ codels/Makefile.in
+@@ -26,12 +26,10 @@ codels_src = \
+ 	sparkyarpCntrlTaskCodels.cc 
+ 
+ # Add extra flags for the preprocessor (external libraries, ...)
+- EXTRA_INCLUDES += -I/${CHRIS_INCLUDES} -I/${CHRIS_CLASSES}/OPDBClient -I/${CHRIS_CLASSES}/EgoSphereClient
++ EXTRA_INCLUDES += -I/${CHRIS_INCLUDES}
+ #
+ # Add extra link flags (external libraries, ...)
+- EXTRA_LIBS += -lYARP_OS -lYARP_init -lYARP_dev -lACE \
+-	${CHRIS_CLASSES}/OPDBClient/libOPDBClient.so \
+-	${CHRIS_CLASSES}/EgoSphereClient/libEgoSphereClient.so
++ EXTRA_LIBS += -lYARP_OS -lYARP_init -lYARP_dev -lACE -lOPDBClient -lEgoSphereClient
+ #
+ # Install files here (any header that is not included in the .gen for instance)
+ # Files that are included in the GenoM file are automatically installed

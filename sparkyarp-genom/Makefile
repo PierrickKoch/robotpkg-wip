@@ -4,7 +4,7 @@
 DISTNAME=		sparkyarp-genom-0.4
 CATEGORIES=		knowledge
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=sparkyarp-genom/}
-MASTER_REPOSITORY=	git http://trac.laas.fr/git/robots/sparkyarp-genom
+MASTER_REPOSITORY=	git http://trac.laas.fr/git/robots/sparkyarp-genom.git
 
 MAINTAINER=		easisbot@laas.fr
 COMMENT=		Yarp bridge to SPARK for Chris Project
