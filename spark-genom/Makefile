@@ -87,9 +87,7 @@ GENOM_MODULE=		spark
 REQD_BUILD_OPTIONS.BioMove3D:=	jido
 
 include ../../wip/sysdep/xforms.mk
-
 include ../../wip/BioMove3D/depend.mk
-
+include ../../architecture/genBasic-genom/depend.mk
 include ../../architecture/genom/depend.mk
-
 include ../../mk/robotpkg.mk
