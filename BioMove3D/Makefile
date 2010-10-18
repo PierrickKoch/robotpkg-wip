@@ -2,7 +2,7 @@
 # Created:			Severin Lemaignan on Tue, 31 Aug 2010
 #
 
-DISTNAME=		BioMove3D-3.7.6
+DISTNAME=		BioMove3D-3.7.7
 CATEGORIES=		path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=BioMove3D/}
 MASTER_REPOSITORY=	git http://trac.laas.fr/git/robots/BioMove3D
