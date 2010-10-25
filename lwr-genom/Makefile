@@ -22,7 +22,7 @@ include ../../architecture/genBasic-genom/depend.mk
 include ../../manipulation/genManip-genom/depend.mk
 include ../../wip/kukaFri-libs/depend.mk
 include ../../motion/softMotion-libs/depend.mk
-include ../../wip/pqp-libs/depend.mk
-include ../../wip/coldman-libs/depend.mk
+include ../../graphics/pqp/depend.mk
+include ../../graphics/coldman-libs/depend.mk
 include ../../math/gbM/depend.mk
 include ../../mk/robotpkg.mk
