@@ -4,7 +4,7 @@
 DISTNAME=		spark-genom-1.2
 CATEGORIES=		knowledge
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=spark-genom/}
-MASTER_REPOSITORY=	git http://trac.laas.fr/git/robots/spark-genom
+MASTER_REPOSITORY=	git http://trac.laas.fr/git/robots/spark-genom.git
 
 MAINTAINER=		easisbot@laas.fr
 COMMENT=		Spatial Reasoning and Knowledge module
