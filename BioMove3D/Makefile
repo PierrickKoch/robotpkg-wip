@@ -5,7 +5,7 @@
 DISTNAME=		BioMove3D-3.7.7
 CATEGORIES=		path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=BioMove3D/}
-MASTER_REPOSITORY=	git http://trac.laas.fr/git/robots/BioMove3D
+MASTER_REPOSITORY=	git http://trac.laas.fr/git/robots/BioMove3D.git
 
 MAINTAINER=		biomove3dgitrepo@laas.fr
 COMMENT=		Motion planning and geometric reasonning module
@@ -37,12 +37,7 @@ PKG_OPTION_DESCR.jido=	Compile BioMove3D for Jido as a library only
 
 define PKG_OPTION_SET.jido
   CMAKE_ARGS+= -DCOMPILE_ON_JIDO=ON
-  CMAKE_ARGS+= -DMAKELIB=ON
-  
-  include ../../mk/sysdep/gsl.mk
-  
-  include ../../wip/pqp-libs/depend.mk
-  
+  include ../../graphics/pqp/depend.mk
   include ../../math/gbM/depend.mk
   include ../../motion/softMotion-libs/depend.mk
 endef
@@ -55,9 +50,10 @@ PKG_SUGGESTED_OPTIONS+=	jido
 include ../../mk/sysdep/cmake.mk
 include ../../devel/boost-headers/depend.mk
 include ../../devel/boost-libs/depend.mk
-
 include ../../mk/sysdep/glu.mk
 include ../../math/eigen2/depend.mk
+include ../../mk/sysdep/gsl.mk
+
 include ../../wip/sysdep/glpk.mk
 include ../../wip/sysdep/gts.mk
 include ../../wip/sysdep/qhull.mk
