@@ -1,17 +1,25 @@
-# robotpkg Makefile for:	manipulation/kukaFri-libs
-# Created:			Severin Lemaignan on Tue, 31 Aug 2010
+# robotpkg Makefile for:	hardware/kukaFri-libs
+# Created:			Xavier Broquere on Tue, 26 Oct 2010
 #
 
-DISTNAME=		kukaFri-libs-1.2
-CATEGORIES=		manipulation
-MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=kukaFri-libs/}
-# TODO: properly add an interactive fetch
-
+VERSION=		1.2
+DISTNAME=		kukaFri-libs-${VERSION}
+CATEGORIES=		hardware
+COMMENT=		Package based on the Fast Research Interface (FRI) provided by Kuka
 MAINTAINER=		xavier.broquere@laas.fr
-COMMENT=		KuKa low-level libraries for their arm
+
+
 LICENSE=		kuka-license
 
 USE_LANGUAGES+=		c c++
+
+INTERACTIVE_STAGE=	fetch
+FETCH_MESSAGE+= " The file ${DISTNAME}${EXTRACT_SUFX} containing the kukaFri-libs version ${VERSION}"
+FETCH_MESSAGE+= ""
+FETCH_MESSAGE+= " must be put manually into:"
+FETCH_MESSAGE+= "       ${DISTDIR}/${DISTNAME}${EXTRACT_SUFX}"
+
+
 
 include ../../mk/sysdep/cmake.mk
 include ../../mk/robotpkg.mk
