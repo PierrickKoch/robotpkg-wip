@@ -12,7 +12,6 @@ SUBDIR+=	mhp-genom
 SUBDIR+=	mk
 SUBDIR+=	morse
 SUBDIR+=	poisson
-SUBDIR+=	pqp-libs
 SUBDIR+=	robot-viewer
 SUBDIR+=	sot-gui
 SUBDIR+=	spark-genom
