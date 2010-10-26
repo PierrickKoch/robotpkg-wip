@@ -1,0 +1,48 @@
+--- /dev/null	2010-10-18 10:15:35.677043131 +0200
++++ code/Makefile.in	2010-10-26 12:05:35.821166324 +0200
+@@ -0,0 +1,45 @@
++# top level targets
++all: depend genom
++install:;
++
++# compilation pour genom :
++genom:
++	cd src; make DEBUG=0
++	make dox
++
++# compilation pour main (crétion d'un exécutable pour une utilisation du suivi seul et sans genom)
++main:
++	cd src; make DEBUG=1
++	cd src/LeMain; make DEBUG=1
++
++# construction des dépendances
++depend:
++	mkdir include;\
++	mkdir lib;\
++	cd src;\
++	make depend;\
++	cd LeMain; make depend
++
++# nettoyage
++clean:
++	rm -f lib/*; rm -f include/*; rm -f doc.html
++	cd src; make clean; cd LeMain; make clean
++	cd doc; make clean
++
++# nettoyer et reconstruire pour genom
++regen:
++	make clean
++	make depend
++	make genom
++
++# nettoyer et reconstruire pour main
++remain:
++	make clean
++	make depend
++	make main
++
++# construction de documentation automatique
++dox:
++	cd doc; make
++	ln -s doc/html/index.html doc.html
++
