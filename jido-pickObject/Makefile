@@ -20,6 +20,9 @@
 # Created:			Xavier BROQUERE on Mon, 25 Oct 2010
 #
 JIDO_DATE=      	20101026
+
+# can't it be named jido-pick-object to be more consistent with other pkgs?
+# the directory name should reflect the pkg name as much as possible
 DISTNAME=		laas-jido-pickObject-${JIDO_DATE}
 
 CATEGORIES=		meta-pkg
@@ -30,14 +33,16 @@ MAINTAINER=	xavier.broquere@laas.fr
 COMMENT=	Meta-package for package needed for the jido-pickObject demo
 
 REQD_BUILD_OPTIONS.pilo-genom=	jido
-PKG_OPTIONS.sick-genom=	h2
-PKG_OPTIONS.viam-libs=	opencv
-PKG_DEFAULT_OPTIONS=	openprs
 
-PREFER.festival=	robotpkg
-PREFER.OGIlexicon=      robotpkg
-PREFER.festlex-poslex=		robotpkg
-PREFER.boost=	robotpkg
+# Those are user options
+# PKG_OPTIONS.sick-genom=	h2
+# PKG_OPTIONS.viam-libs=	opencv
+# PKG_DEFAULT_OPTIONS=	openprs
+
+# PREFER.festival=	robotpkg
+# PREFER.OGIlexicon=      robotpkg
+# PREFER.festlex-poslex=		robotpkg
+# PREFER.boost=	robotpkg
 
 include ../../hardware/sahand-libs/depend.mk
 include ../../wip/kukaFri-libs/depend.mk
