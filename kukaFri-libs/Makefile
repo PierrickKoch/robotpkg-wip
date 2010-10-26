@@ -2,7 +2,7 @@
 # Created:			Severin Lemaignan on Tue, 31 Aug 2010
 #
 
-DISTNAME=		kukaFri-libs-1.1
+DISTNAME=		kukaFri-libs-1.2
 CATEGORIES=		manipulation
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=kukaFri-libs/}
 # TODO: properly add an interactive fetch

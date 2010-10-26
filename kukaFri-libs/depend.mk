@@ -32,7 +32,7 @@ SYSTEM_SEARCH.kukaFri-libs=\
 
 DEPEND_USE+=		kukaFri-libs
 
-DEPEND_ABI.kukaFri-libs?=kukaFri-libs>=1.1
+DEPEND_ABI.kukaFri-libs?=kukaFri-libs>=1.2
 DEPEND_DIR.kukaFri-libs?=../../wip/kukaFri-libs
 
 endif # KUKAFRI_LIBS_DEPEND_MK ----------------------------------------
