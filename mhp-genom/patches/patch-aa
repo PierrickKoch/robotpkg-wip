@@ -1,0 +1,13 @@
+diff --git a/codels/mhpEnvironmentCodels.cc b/codels/mhpEnvironmentCodels.cc
+index dd47800..9d81745 100644
+--- codels/mhpEnvironmentCodels.cc
++++ codels/mhpEnvironmentCodels.cc
+@@ -190,7 +190,7 @@ static int mhp_push_position_to_history(MHP_AGENT_HISTORY *history, int agent_no
+ /* -------------------------------------------------------------- */
+ 
+ 
+-#if !defined(SIMULATION)
++#if !defined(SIMULATION) && !defined(SPARK)
+ 
+ /* ----------------------- OBJECT READ ------------------------ */
+ 
