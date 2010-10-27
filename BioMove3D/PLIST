@@ -1,4 +1,4 @@
-@comment Mon Oct 18 17:50:17 CEST 2010
+@comment Wed Oct 27 15:39:31 CEST 2010
 bin/move3d
 include/BioMove3D/animation/proto/anim_charac_traj_interface_proto.h
 include/BioMove3D/animation/proto/anim_charac_traj_proto.h
@@ -237,6 +237,7 @@ include/BioMove3D/include/Graphic-pkg.h
 include/BioMove3D/include/GraspPlanning-pkg.h
 include/BioMove3D/include/GroundHeight-pkg.h
 include/BioMove3D/include/Hri_planner-pkg.h
+include/BioMove3D/include/LightPlanner-pkg.h
 include/BioMove3D/include/Localpath-pkg.h
 include/BioMove3D/include/Move3d-pkg.h
 include/BioMove3D/include/P3d-pkg.h
@@ -279,7 +280,9 @@ include/BioMove3D/lightPlanner/proto/DlrParser.h
 include/BioMove3D/lightPlanner/proto/DlrPlan.h
 include/BioMove3D/lightPlanner/proto/DlrPlanner.h
 include/BioMove3D/lightPlanner/proto/Manipulation.h
+include/BioMove3D/lightPlanner/proto/ManipulationPlanner.hpp
 include/BioMove3D/lightPlanner/proto/ManipulationStruct.h
+include/BioMove3D/lightPlanner/proto/ManipulationUtils.hpp
 include/BioMove3D/lightPlanner/proto/lightPlanner.h
 include/BioMove3D/lightPlanner/proto/lightPlannerApi.h
 include/BioMove3D/lightPlanner/proto/robotPos.h
@@ -405,6 +408,7 @@ include/BioMove3D/planner/proto/p3d_potential_proto.h
 include/BioMove3D/planner/proto/p3d_rrt_proto.h
 include/BioMove3D/planner/proto/p3d_sample_proto.h
 include/BioMove3D/planner/proto/p3d_set_param_proto.h
+include/BioMove3D/planner/proto/p3d_softMotion_traj_proto.h
 include/BioMove3D/planner/proto/p3d_trajectory_proto.h
 include/BioMove3D/planner/proto/planner_proto.h
 include/BioMove3D/planner/rwGraph/proto/p3d_readDefaultGraph_proto.h
@@ -503,7 +507,6 @@ include/BioMove3D/qtWindow/qtMainInterface/sideWidgets/qtUtil.hpp
 include/BioMove3D/qtWindow/qtOpenGL/Widget.hpp
 include/BioMove3D/qtWindow/qtOpenGL/g3dQtConnection.hpp
 include/BioMove3D/qtWindow/qtOpenGL/glwidget.hpp
-include/BioMove3D/qtWindow/qtOpenGL/qtG3DWindow.hpp
 include/BioMove3D/qtWindow/qtOpenGL/qtGLWindow.hpp
 include/BioMove3D/qtWindow/qtOpenGL/qtMobileCamera.h
 include/BioMove3D/qtWindow/qtOpenGL/qtopenglviewer.hpp
