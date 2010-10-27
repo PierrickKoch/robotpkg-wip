@@ -1,7 +1,7 @@
 # Created:			Severin Lemaignan on Fri, 24 Sep 2010
 #
 
-DISTNAME=		spark-genom-1.2
+DISTNAME=		spark-genom-1.3
 CATEGORIES=		knowledge
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=spark-genom/}
 MASTER_REPOSITORY=	git http://trac.laas.fr/git/robots/spark-genom.git
@@ -48,7 +48,7 @@ endef
 ##
 PKG_OPTION_DESCR.jido=	Compile SPARK with support for Jido
 
-define PKG_OPTION_SET.jido
+#define PKG_OPTION_SET.jido
   GENOM_ARGS+= -DJIDO
   include ../../manipulation/genManip-genom/depend.mk
   include ../../localization/pom-genom/depend.mk
@@ -57,7 +57,7 @@ define PKG_OPTION_SET.jido
   include ../../image/viman-genom/depend.mk
   include ../../localization/mocap-genom/depend.mk
   include ../../wip/gest-genom/depend.mk
-endef
+#endef
 
 ##
 ## Simulation
