@@ -2,7 +2,7 @@
 # Created:			Severin Lemaignan on Tue, 31 Aug 2010
 #
 
-DISTNAME=		mhp-genom-2.5.1
+DISTNAME=		mhp-genom-2.9
 CATEGORIES=		path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=mhp-genom/}
 MASTER_REPOSITORY=	git ssh://softs.laas.fr/git/robots/mhp-genom
@@ -55,13 +55,22 @@ endef
 PKG_OPTION_DESCR.simulation=	Compile MHP for simulation only
 PKG_OPTION_SET.simulation:=	GENOM_ARGS+= -DSIMULATION
 
-PKG_SUGGESTED_OPTIONS+=	jido
+##
+## SPARK synchonization
+##
+PKG_SUPPORTED_OPTIONS+=	spark
+PKG_OPTION_DESCR.spark=	Enable the support of synchro between spark and mhp
+
+define PKG_OPTION_SET.spark
+  GENOM_ARGS+= -DSPARK
+  include ../../wip/spark-genom/depend.mk
+endef
+
 
 ##
 ## Ontology server
 ##
 PKG_SUPPORTED_OPTIONS+=	oro
-PKG_SUGGESTED_OPTIONS+=	oro
 PKG_OPTION_DESCR.oro=	Enable the support of ORO ontology server
 
 define PKG_OPTION_SET.oro
@@ -70,6 +79,8 @@ define PKG_OPTION_SET.oro
 endef
 
 #####################
+
+PKG_SUGGESTED_OPTIONS+=	simulation
 
 GENOM_MODULE=		mhp
 
