@@ -54,7 +54,7 @@ endef
 ##
 PKG_OPTION_DESCR.simulation=	Compile MHP for simulation only
 PKG_OPTION_SET.simulation:=	GENOM_ARGS+= -DSIMULATION
-
+PKG_SUGGESTED_OPTIONS+=	simulation
 ##
 ## SPARK synchonization
 ##
@@ -79,8 +79,6 @@ define PKG_OPTION_SET.oro
 endef
 
 #####################
-
-PKG_SUGGESTED_OPTIONS+=	simulation
 
 GENOM_MODULE=		mhp
 
