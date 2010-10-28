@@ -31,10 +31,10 @@ MAINTAINER=	xavier.broquere@laas.fr
 COMMENT=	Meta-package for package needed for the jido-pick-object demo
 
 REQD_BUILD_OPTIONS.pilo-genom=	jido
+REQD_BUILD_OPTIONS.sick-genom=	h2
+REQD_BUILD_OPTIONS.viam-libs=	opencv
 
 # Those are user options
-# PKG_OPTIONS.sick-genom=	h2
-# PKG_OPTIONS.viam-libs=	opencv
 # PKG_DEFAULT_OPTIONS=	openprs
 
 # only on the jido robot:
@@ -45,9 +45,13 @@ REQD_BUILD_OPTIONS.pilo-genom=	jido
 # PREFER.festlex-poslex=		robotpkg
 # PREFER.boost=	robotpkg
 
+
+include ../../shell/eltclsh/depend.mk
+#include ../../graphics/laaswm-libs/depend.mk
+#include ../../graphics/laaswm/depend.mk
+include ../../graphics/pqp/depend.mk
 include ../../hardware/sahand-libs/depend.mk
 include ../../wip/lwr-genom/depend.mk
-include ../../graphics/pqp/depend.mk
 include ../../motion/pilo-genom/depend.mk
 include ../../localization/segloc-genom/depend.mk
 include ../../localization/pom-genom/depend.mk
@@ -56,10 +60,12 @@ include ../../hardware/sahand-genom/depend.mk
 include ../../graphics/coldman-genom/depend.mk
 include ../../motion/softMotion-libs/depend.mk
 include ../../image/viman-genom/depend.mk
-
+include ../../wip/gest-genom/depend.mk
 include ../../wip/mhp-genom/depend.mk
+include ../../wip/spark-genom/depend.mk
 
-include ../../shell/eltclsh/depend.mk
+
 include ../../mk/sysdep/tcl.mk
 include ../../mk/sysdep/tk.mk
 include ../../mk/robotpkg.mk
+
