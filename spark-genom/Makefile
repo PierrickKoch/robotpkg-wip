@@ -20,8 +20,8 @@ USE_LANGUAGES+=		c c++
 #### SPARK OPTIONS ####
 #######################
 
-PKG_OPTIONS_GROUPS=	robot
-PKG_OPTIONS_SET.robot=	hrp2 pr2 jido
+PKG_OPTIONS_OPTIONAL_GROUPS=	robot
+PKG_OPTIONS_GROUP.robot=	hrp2 pr2 jido
 
 ##
 ## HRP2
