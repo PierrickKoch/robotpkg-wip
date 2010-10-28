@@ -1,0 +1,154 @@
+diff --git a/codels/sparkEnvironmentCodels.cc b/codels/sparkEnvironmentCodels.cc
+index 4f299da..12dac4a 100644
+--- codels/sparkEnvironmentCodels.cc
++++ codels/sparkEnvironmentCodels.cc
+@@ -25,6 +25,7 @@ static POSTER_ID gSparkObjectPosterID; // Object position poster with spark_obje
+ static POSTER_ID gArmConfPosterID; // Arm or full robot configuration poster (depends on the robot)
+ static POSTER_ID gPosPosterID;     // Position (POM) poster
+ static POSTER_ID gPTPosterID;      // Pan tilt unit poster 
++static POSTER_ID gRobotHandPosterID;    // Robot Hand configuration poster
+ static POSTER_ID gMocapPosterID;   // Motion capture poster 
+ static POSTER_ID gGestPosterID;    // Gest poster 
+ static POSTER_ID gHumanConfPosterID;   // Morse Simulator poster 
+@@ -373,13 +374,41 @@ static void Arm2ConfigPt(Gb_q7 *gbconfig, configPt m3dconfig)
+   m3dconfig[19] = gbconfig->q6;
+   m3dconfig[20] = gbconfig->q7;
+ }
++
++static void SAHand2ConfigPt(GENMANIP_SAHAND_STR *handCfg, configPt m3dconfig)
++{
++  if(handCfg!=NULL) {
++    m3dconfig[21] = handCfg->handRight.thumbRotation;
++    m3dconfig[22] = handCfg->handRight.thumb.base;
++    m3dconfig[23] = handCfg->handRight.thumb.phaProx;
++    m3dconfig[24] = handCfg->handRight.thumb.phaMid;
++    m3dconfig[25] = handCfg->handRight.thumb.phaDist;
++    
++    m3dconfig[26] = handCfg->handRight.fore.base;
++    m3dconfig[27] = handCfg->handRight.fore.phaProx;
++    m3dconfig[28] = handCfg->handRight.fore.phaMid;
++    m3dconfig[29] = handCfg->handRight.fore.phaDist;
++    
++    m3dconfig[30] = handCfg->handRight.middle.base;
++    m3dconfig[31] = handCfg->handRight.middle.phaProx;
++    m3dconfig[32] = handCfg->handRight.middle.phaMid;
++    m3dconfig[33] = handCfg->handRight.middle.phaDist;
++    
++    m3dconfig[34] = handCfg->handRight.ring.base;
++    m3dconfig[35] = handCfg->handRight.ring.phaProx;
++    m3dconfig[36] = handCfg->handRight.ring.phaMid;
++    m3dconfig[37] = handCfg->handRight.ring.phaDist;
++  }
++}
+ #endif
++
+ static void Pt2ConfigPt(double pan, double tilt,  configPt m3dconfig)
+ {
+   m3dconfig[12]  = pan; 
+   m3dconfig[13]  = -tilt;
+ }
+ 
++
+ /* sparkReadRobotStart  -  codel START of ReadRobot
+    Returns:  START EXEC END ETHER FAIL ZOMBIE */
+ ACTIVITY_EVENT
+@@ -398,6 +427,13 @@ sparkReadRobotStart(SPARK_ROBOT_POSTERS *robotPosters, int *report)
+   else {
+     SDI_F->state.armConfPosterAv = TRUE;
+   }
++  if(posterFind(robotPosters->handConfPostername.name, &gRobotHandPosterID) == ERROR) {
++    printf(" Can't find %s Poster\n",robotPosters->handConfPostername.name);
++    SDI_F->state.robotHandPosterAv = FALSE;
++  }
++  else {
++    SDI_F->state.robotHandPosterAv = TRUE;
++  }
+   if(posterFind(robotPosters->posPostername.name, &gPosPosterID) == ERROR) {
+     printf(" Can't find %s Poster\n",robotPosters->posPostername.name);
+     SDI_F->state.posPosterAv = FALSE;
+@@ -414,17 +450,18 @@ sparkReadRobotStart(SPARK_ROBOT_POSTERS *robotPosters, int *report)
+     SDI_F->state.ptPosterAv = TRUE;
+   }
+   
+-  if(FALSE) { // TODO: There is bug somewhere which bloks in posterfind when a poster doesn't exist.
+-    if(posterFind(robotPosters->confPosterName.name, &gRobotConfPosterID) == ERROR) {
+-      printf(" Can't find %s Poster\n", robotPosters->confPosterName.name);
+-      SDI_F->state.robotConfPosterAv = FALSE;
+-    }
+-    else {
+-      SDI_F->state.robotConfPosterAv = TRUE;
+-    }
++#if !defined(JIDO)   // TODO: There is bug somewhere which bloks in posterfind when a poster doesn't exist.
++  if(posterFind(robotPosters->confPosterName.name, &gRobotConfPosterID) == ERROR) {
++    printf(" Can't find %s Poster\n", robotPosters->confPosterName.name);
++    SDI_F->state.robotConfPosterAv = FALSE;
++  }
++  else {
++    SDI_F->state.robotConfPosterAv = TRUE;
+   }
++#else
+   SDI_F->state.robotConfPosterAv = FALSE;
+-  
++#endif
++
+   gRRRobotQ = MY_ALLOC(double, gRobot->robotPt->nb_dof); /* Allocation of temporary robot configuration */
+   gRRPrevRobotQ = MY_ALLOC(double, gRobot->robotPt->nb_dof); /* Allocation of temporary robot configuration */
+   
+@@ -445,6 +482,7 @@ sparkReadRobotMain(SPARK_ROBOT_POSTERS *robotPosters, int *report)
+   POM_SENSOR_POS platineCfg;
+   T3D platineFrame;
+   POM_POS basePos;
++  GENMANIP_SAHAND_STR handCfg;
+ #endif
+   double eefPos[3];
+   int panQIdx, tiltQIdx;
+@@ -501,6 +539,16 @@ sparkReadRobotMain(SPARK_ROBOT_POSTERS *robotPosters, int *report)
+     // copy head platine position to config
+     Pt2ConfigPt(platineFrame.euler.euler[0], platineFrame.euler.euler[1], gRRRobotQ);
+   }
++  
++  if(SDI_F->state.robotHandPosterAv) {
++    if (posterRead(gRobotHandPosterID, 0, &handCfg, sizeof(handCfg)) != sizeof(handCfg)) {
++      *report =  S_spark_POSTER_NOT_READ;
++      return END;
++    }
++    // copy hand configuration to config
++    SAHand2ConfigPt(&handCfg, gRRRobotQ);
++  }
++
+ #endif
+   // Test if the object states need to be updated
+   panQIdx  = gRobot->robotPt->joints[gRobot->perspective->pan_jnt_idx]->index_dof;
+diff --git a/spark.gen b/spark.gen
+index bbf8317..479cdae 100644
+--- spark.gen
++++ spark.gen
+@@ -261,6 +261,7 @@ request ReadRobot {
+     exec_task:		MainTask;
+     input:		robotPosters:: robotPosters;
+     input_info:		"lwrCurrentPoseArmRight"::"Arm/FullBody config poster name",
++			"sahandPosterHand"::"Hand configuration poster",
+ 			"pomPos"::"Pom position poster",
+                         "pomPlatineFramePos"::"Platine poster - NA for HRP2",
+                         "sparkyarpRobotConfig"::"Configuration Poster";
+diff --git a/sparkStruct.h b/sparkStruct.h
+index e4ca513..1b4faa4 100644
+--- sparkStruct.h
++++ sparkStruct.h
+@@ -47,7 +47,7 @@ typedef struct STRUCT_SPARK_STATE {
+   int bodyPartsPosterAv;
+   int oroConnectionAv;
+   int mightabilitiesEnabled;
+-  int unused;
++  int robotHandPosterAv;
+ } SPARK_STATE;
+ 
+ 
+@@ -126,6 +126,7 @@ typedef struct STRUCT_SPARK_OBJECT_MOTION_HISTORY_ARRAY {
+ 
+ typedef struct STRUCT_SPARK_ROBOT_POSTERS {
+   GEN_STRING64 armConfPostername;
++  GEN_STRING64 handConfPostername;
+   GEN_STRING64 posPostername; 
+   GEN_STRING64 ptPostername;
+   GEN_STRING64 confPosterName;
