@@ -48,7 +48,7 @@ endef
 ##
 PKG_OPTION_DESCR.jido=	Compile SPARK with support for Jido
 
-#define PKG_OPTION_SET.jido
+define PKG_OPTION_SET.jido
   GENOM_ARGS+= -DJIDO
   include ../../manipulation/genManip-genom/depend.mk
   include ../../localization/pom-genom/depend.mk
@@ -57,7 +57,7 @@ PKG_OPTION_DESCR.jido=	Compile SPARK with support for Jido
   include ../../image/viman-genom/depend.mk
   include ../../localization/mocap-genom/depend.mk
   include ../../wip/gest-genom/depend.mk
-#endef
+endef
 
 ##
 ## Simulation
