@@ -47,8 +47,8 @@ REQD_BUILD_OPTIONS.viam-libs=	opencv
 
 
 include ../../shell/eltclsh/depend.mk
-#include ../../graphics/laaswm-libs/depend.mk
-#include ../../graphics/laaswm/depend.mk
+include ../../graphics/laaswm-libs/depend.mk
+include ../../graphics/laaswm/depend.mk
 include ../../graphics/pqp/depend.mk
 include ../../hardware/sahand-libs/depend.mk
 include ../../wip/lwr-genom/depend.mk
