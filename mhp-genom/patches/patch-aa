@@ -11,3 +11,17 @@ index dd47800..9d81745 100644
  
  /* ----------------------- OBJECT READ ------------------------ */
  
+diff --git a/codels/mhpMainTaskCodels.cc b/codels/mhpMainTaskCodels.cc
+index b12ba3a..400d1f2 100644
+--- codels/mhpMainTaskCodels.cc
++++ codels/mhpMainTaskCodels.cc
+@@ -111,8 +111,7 @@ ACTIVITY_EVENT mhpLoadP3dMain(MHP_P3D *P3d, int *report)
+ 
+   p3d_set_env_dmax(0.02); 
+   if(SDI_F->P3d.enableGraphic){
+-    g3d_create_main_form();
+-    fl_hide_form(MAIN_FORM);
++    g3d_create_buttonless_main_form();   
+   }
+ 
+ 
