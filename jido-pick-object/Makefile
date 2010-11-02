@@ -60,6 +60,8 @@ include ../../hardware/sahand-genom/depend.mk
 include ../../graphics/coldman-genom/depend.mk
 include ../../motion/softMotion-libs/depend.mk
 include ../../image/viman-genom/depend.mk
+include ../../audio/textos-genom/depend.mk
+include ../../audio/speett-genom/depend.mk
 include ../../wip/gest-genom/depend.mk
 include ../../wip/mhp-genom/depend.mk
 include ../../wip/spark-genom/depend.mk
