@@ -1,3 +1,7 @@
+# robotpkg Makefile for:	graphics/assimp
+# Created:			Matthieu Herrb on Thu, 4 Nov 2010
+#
+
 DISTNAME=	assimp--${PKGVERSION}-sdk
 PKGVERSION=	1.1.700
 PKGNAME=	assimp-${PKGVERSION}

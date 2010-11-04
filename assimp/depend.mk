@@ -1,5 +1,5 @@
 # robotpkg depend.mk for:	graphics/assimp
-# Created:			matthieu on Thursday, November  4, 2010
+# Created:			Matthieu Herrb on Thu, 4 Nov 2010
 #
 
 DEPEND_DEPTH:=		${DEPEND_DEPTH}+
