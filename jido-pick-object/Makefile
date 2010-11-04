@@ -34,6 +34,10 @@ REQD_BUILD_OPTIONS.pilo-genom=	jido
 REQD_BUILD_OPTIONS.sick-genom=	h2
 REQD_BUILD_OPTIONS.viam-libs=	opencv
 
+REQD_BUILD_OPTIONS.spark-genom+= jido
+REQD_BUILD_OPTIONS.mhp-genom+= jido
+REQD_BUILD_OPTIONS.mhp-genom+= spark
+
 # Those are user options
 # PKG_DEFAULT_OPTIONS=	openprs
 
