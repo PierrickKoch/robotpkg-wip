@@ -2,7 +2,7 @@
 # Created:			Severin Lemaignan on Tue, 31 Aug 2010
 #
 
-DISTNAME=		BioMove3D-3.7.8
+DISTNAME=		BioMove3D-3.7.11
 CATEGORIES=		path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=BioMove3D/}
 MASTER_REPOSITORY=	git http://trac.laas.fr/git/robots/BioMove3D.git
@@ -36,7 +36,7 @@ endef
 PKG_OPTION_DESCR.jido=	Compile BioMove3D for Jido as a library only
 
 define PKG_OPTION_SET.jido
-  CMAKE_ARGS+= -DCOMPILE_ON_JIDO=ON
+  CMAKE_ARGS+= -DCOMPILE_FOR_GENOM=ON
   include ../../graphics/pqp/depend.mk
   include ../../math/gbM/depend.mk
   include ../../motion/softMotion-libs/depend.mk
@@ -58,6 +58,6 @@ include ../../wip/sysdep/glpk.mk
 include ../../wip/sysdep/gts.mk
 include ../../wip/sysdep/qhull.mk
 include ../../wip/sysdep/libxpm.mk
-include ../../wip/sysdep/xforms.mk
+include ../../wip/sysdep/qt.mk
 
 include ../../mk/robotpkg.mk

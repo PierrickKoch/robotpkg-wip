@@ -1,4 +1,4 @@
-@comment Wed Oct 27 15:39:31 CEST 2010
+@comment Sun Nov 7 11:10:34 CET 2010
 bin/move3d
 include/BioMove3D/animation/proto/anim_charac_traj_interface_proto.h
 include/BioMove3D/animation/proto/anim_charac_traj_proto.h
@@ -210,6 +210,7 @@ include/BioMove3D/hri_planner/include/hri_bitmap_bin_heap.h
 include/BioMove3D/hri_planner/include/hri_bitmap_cost.h
 include/BioMove3D/hri_planner/include/hri_bitmap_draw.h
 include/BioMove3D/hri_planner/include/hri_bitmap_util.h
+include/BioMove3D/hri_planner/include/hri_distance.h
 include/BioMove3D/hri_planner/include/hri_graphic.h
 include/BioMove3D/hri_planner/include/hri_manip.h
 include/BioMove3D/hri_planner/include/hrp2_gik.h
@@ -242,6 +243,7 @@ include/BioMove3D/include/Localpath-pkg.h
 include/BioMove3D/include/Move3d-pkg.h
 include/BioMove3D/include/P3d-pkg.h
 include/BioMove3D/include/Planner-pkg.h
+include/BioMove3D/include/Qt-pkg.h
 include/BioMove3D/include/Rrt-pkg.h
 include/BioMove3D/include/Sdk-pkg.h
 include/BioMove3D/include/UdpClient.h
@@ -425,6 +427,8 @@ include/BioMove3D/planner_cxx/API/ConfigSpace/localpath_factory.hpp
 include/BioMove3D/planner_cxx/API/ConfigSpace/sampling_api.hpp
 include/BioMove3D/planner_cxx/API/Device/joint.hpp
 include/BioMove3D/planner_cxx/API/Device/robot.hpp
+include/BioMove3D/planner_cxx/API/Graphic/drawCost.hpp
+include/BioMove3D/planner_cxx/API/Graphic/drawModule.hpp
 include/BioMove3D/planner_cxx/API/Grids/BaseCell.hpp
 include/BioMove3D/planner_cxx/API/Grids/BaseGrid.hpp
 include/BioMove3D/planner_cxx/API/Grids/GridCube.h

@@ -32,7 +32,7 @@ SYSTEM_SEARCH.BioMove3D=\
 
 DEPEND_USE+=		BioMove3D
 
-DEPEND_ABI.BioMove3D?=BioMove3D>=3.7.8
+DEPEND_ABI.BioMove3D?=BioMove3D>=3.7.11
 DEPEND_DIR.BioMove3D?=../../wip/BioMove3D
 
 #include ../../wip/??
