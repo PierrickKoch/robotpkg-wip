@@ -1,7 +1,7 @@
 # Created:			Severin Lemaignan on Fri, 24 Sep 2010
 #
 
-DISTNAME=		spark-genom-1.3
+DISTNAME=		spark-genom-2.0
 CATEGORIES=		knowledge
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=spark-genom/}
 MASTER_REPOSITORY=	git http://trac.laas.fr/git/robots/spark-genom.git
@@ -86,8 +86,9 @@ GENOM_MODULE=		spark
 # HRI with BioMove3D
 REQD_BUILD_OPTIONS.BioMove3D:=	jido
 
-include ../../wip/sysdep/xforms.mk
+include ../../wip/sysdep/qt.mk
 include ../../wip/BioMove3D/depend.mk
+
 include ../../architecture/genBasic-genom/depend.mk
 include ../../architecture/genom/depend.mk
 include ../../mk/robotpkg.mk
