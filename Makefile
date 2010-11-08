@@ -17,6 +17,5 @@ SUBDIR+=	sot-gui
 SUBDIR+=	spark-genom
 SUBDIR+=	stackoftasks
 SUBDIR+=	visp
-SUBDIR+=  liblbfgs
 
 include ../mk/robotpkg.subdir.mk
