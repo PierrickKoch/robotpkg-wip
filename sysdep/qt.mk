@@ -30,7 +30,7 @@ ifeq (+,$(QT_DEPEND_MK)) # ---------------------------------------------
 
 PREFER.qt?=		system
 DEPEND_USE+=		qt
-DEPEND_ABI.qt?=		qt>=3.0
+DEPEND_ABI.qt?=		qt>=4.0
 
 SYSTEM_SEARCH.qt=	\
 	include/QtGui/QApplication \
