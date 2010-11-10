@@ -33,7 +33,7 @@ SYSTEM_SEARCH.lwr-genom=\
 
 DEPEND_USE+=		lwr-genom
 
-DEPEND_ABI.lwr-genom?=lwr-genom>=2.0
+DEPEND_ABI.lwr-genom?=lwr-genom>=2.1
 DEPEND_DIR.lwr-genom?=../../wip/lwr-genom
 
 endif # LWR-GENOM_DEPEND_MK ----------------------------------------
