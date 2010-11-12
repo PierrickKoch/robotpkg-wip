@@ -11,15 +11,15 @@ endif
 
 ifeq (+,$(LIBANN_DEPEND_MK)) # -------------------------------------------
 
-PREFER.libann?=	robotpkg
+PREFER.libANN?=	robotpkg
 
 DEPEND_USE+=		libANN
-DEPEND_ABI.libann?=	libANN>=1.1.2
-DEPEND_DIR.libann?=	../../wip/libANN
+DEPEND_ABI.libANN?=	libANN>=1.1.2
+DEPEND_DIR.libANN?=	../../wip/libANN
 
-SYSTEM_SEARCH.libann=\
+SYSTEM_SEARCH.libANN=\
 	include/ANN/ANN.h				\
-	lib/libann.a
+	lib/libANN.so.0
 
 endif # LIBANN_DEPEND_MK -------------------------------------------------
 

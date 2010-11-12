@@ -15,13 +15,12 @@ LICENSE=	gnu-lgpl-v2
 INSTALLATION_DIRS= include/ANN
 NO_CONFIGURE= yes
 
-BUILD_TARGET=linux-g++
+BUILD_TARGET=unix-libtool
 
+include ../../pkgtools/libtool/depend.mk
 include ../../pkgtools/pax/depend.mk
 include ../../mk/robotpkg.mk
 
 do-install:
 	cd ${WRKSRC}/include/ANN &&  \
 	   ${PAX} -rw -pm . ${PREFIX}/${INSTALLATION_DIRS}
-	cd ${WRKSRC}/lib &&  \
-	   ${PAX} -rw -pm . ${PREFIX}/lib

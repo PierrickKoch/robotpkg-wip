@@ -1,0 +1,9 @@
+@comment Sat Nov 13 00:22:01 CET 2010
+include/ANN/ANN.h
+include/ANN/ANNperf.h
+include/ANN/ANNx.h
+lib/libANN.so.0
+lib/libANN.so.0.0.0
+bin/ann_test
+bin/ann_sample
+bin/ann2fig

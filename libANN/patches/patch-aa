@@ -1,0 +1,319 @@
+diff -r -u ann2fig/Makefile ann2fig/Makefile
+--- ann2fig/Makefile	2010-01-28 05:40:01.000000000 +0100
++++ ann2fig/Makefile	2010-11-13 00:08:00.590587683 +0100
+@@ -49,7 +49,7 @@
+ 
+ ANN2FIG = ann2fig
+ SOURCES = ann2fig.cpp
+-OBJECTS = $(SOURCES:.cpp=.o)
++OBJECTS = $(SOURCES:.cpp=.lo)
+ 
+ #-----------------------------------------------------------------------------
+ # Make the program
+@@ -58,11 +58,20 @@
+ default: 
+ 	@echo "Specify a target configuration"
+ 
+-targets: $(BINDIR)/$(ANN2FIG)
++targets: build install
+ 
+-$(BINDIR)/$(ANN2FIG): $(OBJECTS)
+-	$(C++) $(OBJECTS) -o $(ANN2FIG) $(LDFLAGS) $(ANNLIBS) $(OTHERLIBS)
+-	mv $(ANN2FIG) $(BINDIR)
++.PHONY: targets
++
++build: $(BINDIR)/$(ANN2FIG)
++
++$(BINDIR)/$(ANN2FIG): $(OBJECTS) $(LIBDIR)/$(ANNLIB)
++	$(MAKELIB) $(BINDIR)/$(ANN2FIG) $(OBJECTS) $(LIBDIR)/$(ANNLIB)
++
++#-----------------------------------------------------------------------------
++# Install
++#-----------------------------------------------------------------------------
++install:
++	$(INSTALL) -c $(BINDIR)/$(ANN2FIG) $(PREFIX)/bin/$(ANN2FIG)
+ 
+ #-----------------------------------------------------------------------------
+ # configuration definitions
+@@ -74,7 +83,7 @@
+ # Objects
+ #-----------------------------------------------------------------------------
+ 
+-ann2fig.o: ann2fig.cpp
++ann2fig.lo: ann2fig.cpp
+ 	$(C++) -c -I$(INCDIR) ann2fig.cpp
+ 
+ #-----------------------------------------------------------------------------
+@@ -82,6 +91,6 @@
+ #-----------------------------------------------------------------------------
+ 
+ clean:
+-	-rm -f *.o core
++	-rm -f *.o *.lo core
+ 
+ realclean: clean
+diff -r -u Make-config Make-config
+--- Make-config	2010-01-28 05:40:01.000000000 +0100
++++ Make-config	2010-11-12 23:52:35.362587057 +0100
+@@ -67,6 +67,16 @@
+ #				files in the MS_WIN32 directory).
+ #-----------------------------------------------------------------------------
+ 
++#					UNIX using libtool
++unix-libtool:
++	$(MAKE) targets \
++	"ANNLIB = libANN.la" \
++	"C++ = libtool --mode=compile g++" \
++	"CFLAGS = -O3" \
++	"MAKELIB = libtool --mode=link g++ -rpath $(PREFIX) -o" \
++	"RANLIB = false" \
++	"INSTALL = libtool --mode=install install"
++
+ #					Linux using g++
+ linux-g++:
+ 	$(MAKE) targets \
+@@ -191,4 +201,3 @@
+ 	"CFLAGS = -fPIC -O3" \
+ 	"MAKELIB = ld -assert pure-text -o" \
+ 	"RANLIB = true"
+-
+diff -r -u Makefile Makefile
+--- Makefile	2010-01-28 05:40:01.000000000 +0100
++++ Makefile	2010-11-12 23:37:27.018587157 +0100
+@@ -56,7 +56,7 @@
+ #-----------------------------------------------------------------------------
+ # main make entry point
+ #-----------------------------------------------------------------------------
+-alpha-g++ macosx-g++ linux-g++ sgi sunos4 sunos4-g++ sunos5 sunos5-g++ sunos5-g++-sl authors-debug authors-perf:
++alpha-g++ macosx-g++ linux-g++ sgi sunos4 sunos4-g++ sunos5 sunos5-g++ sunos5-g++-sl authors-debug authors-perf unix-libtool:
+ 	cd src ; $(MAKE) $@
+ 	cd test ; $(MAKE) $@
+ 	cd sample ; $(MAKE) $@
+@@ -113,3 +113,9 @@
+ 	cd ../$(DISTR); mkdir doc
+ 	cp doc/*.pdf ../$(DISTR)/doc
+ #	cd .. ; tar -cfv $(DISTR).tar $(DISTR) ; gzip $(DISTR).tar
++
++install:
++	cd src ; $(MAKE) $@
++	# cd test ; $(MAKE) $@
++	# cd sample ; $(MAKE) $@
++	# cd ann2fig ; $(MAKE) $@
+diff -r -u sample/Makefile sample/Makefile
+--- sample/Makefile	2010-01-28 05:40:01.000000000 +0100
++++ sample/Makefile	2010-11-13 00:07:24.654087589 +0100
+@@ -52,7 +52,7 @@
+ ANNSAMP = ann_sample
+ 
+ SAMPSOURCES = ann_sample.cpp
+-SAMPOBJECTS = $(SAMPSOURCES:.cpp=.o)
++SAMPOBJECTS = $(SAMPSOURCES:.cpp=.lo)
+ 
+ #-----------------------------------------------------------------------------
+ # Make the program
+@@ -61,11 +61,20 @@
+ default: 
+ 	@echo "Specify a target configuration"
+ 
+-targets: $(BINDIR)/$(ANNSAMP)
++targets: build install
++
++.PHONY: targets
++
++build: $(BINDIR)/$(ANNSAMP)
+ 
+ $(BINDIR)/$(ANNSAMP): $(SAMPOBJECTS) $(LIBDIR)/$(ANNLIB)
+-	$(C++) $(SAMPOBJECTS) -o $(ANNSAMP) $(LDFLAGS) $(ANNLIBS)
+-	mv $(ANNSAMP) $(BINDIR)
++	$(MAKELIB) $(BINDIR)/$(ANNSAMP) $(LIBDIR)/$(ANNLIB) $(SAMPOBJECTS) $(OTHERLIBS)
++
++#-----------------------------------------------------------------------------
++# Install
++#-----------------------------------------------------------------------------
++install:
++	$(INSTALL) -c $(BINDIR)/$(ANNSAMP) $(PREFIX)/bin/$(ANNSAMP)
+ 
+ #-----------------------------------------------------------------------------
+ # configuration definitions
+@@ -77,7 +86,7 @@
+ # Objects
+ #-----------------------------------------------------------------------------
+ 
+-ann_sample.o: ann_sample.cpp
++ann_sample.lo: ann_sample.cpp
+ 	$(C++) -c -I$(INCDIR) $(CFLAGS) ann_sample.cpp
+ 
+ #-----------------------------------------------------------------------------
+@@ -85,6 +94,7 @@
+ #-----------------------------------------------------------------------------
+ 
+ clean:
+-	-rm -f *.o *.out core
++	-rm -f *.o *.lo *.out core
+ 
+ realclean: clean
++
+diff -r -u src/Makefile src/Makefile
+--- src/Makefile	2010-01-28 05:40:01.000000000 +0100
++++ src/Makefile	2010-11-13 00:10:30.674588939 +0100
+@@ -42,7 +42,7 @@
+ HEADERS = kd_tree.h kd_split.h kd_util.h kd_search.h \
+ 	kd_pr_search.h kd_fix_rad_search.h perf.h pr_queue.h pr_queue_k.h
+ 
+-OBJECTS = $(SOURCES:.cpp=.o)
++OBJECTS = $(SOURCES:.cpp=.lo)
+ 
+ #-----------------------------------------------------------------------------
+ # Make the library
+@@ -51,60 +51,68 @@
+ default:
+ 	@echo "Specify a target configuration"
+ 
+-targets: $(LIBDIR)/$(ANNLIB)
++targets: build install
++
++.PHONY: targets
++
++build: $(LIBDIR)/$(ANNLIB)
+ 
+ $(LIBDIR)/$(ANNLIB): $(OBJECTS)
+-	$(MAKELIB) $(ANNLIB) $(OBJECTS)
+-	$(RANLIB) $(ANNLIB)
+-	mv $(ANNLIB) $(LIBDIR)
++	$(MAKELIB) $(LIBDIR)/$(ANNLIB) $(OBJECTS)
+ 
+ #-----------------------------------------------------------------------------
+ # Make object files
+ #-----------------------------------------------------------------------------
+ 
+-ANN.o: ANN.cpp
++ANN.lo: ANN.cpp
+ 	$(C++) -c -I$(INCDIR) $(CFLAGS) ANN.cpp
+ 
+-brute.o: brute.cpp
++brute.lo: brute.cpp
+ 	$(C++) -c -I$(INCDIR) $(CFLAGS) brute.cpp
+ 
+-kd_tree.o: kd_tree.cpp
++kd_tree.lo: kd_tree.cpp
+ 	$(C++) -c -I$(INCDIR) $(CFLAGS) kd_tree.cpp
+ 
+-kd_util.o: kd_util.cpp
++kd_util.lo: kd_util.cpp
+ 	$(C++) -c -I$(INCDIR) $(CFLAGS) kd_util.cpp
+ 
+-kd_split.o: kd_split.cpp
++kd_split.lo: kd_split.cpp
+ 	$(C++) -c -I$(INCDIR) $(CFLAGS) kd_split.cpp
+ 
+-kd_search.o: kd_search.cpp
++kd_search.lo: kd_search.cpp
+ 	$(C++) -c -I$(INCDIR) $(CFLAGS) kd_search.cpp
+ 
+-kd_pr_search.o: kd_pr_search.cpp
++kd_pr_search.lo: kd_pr_search.cpp
+ 	$(C++) -c -I$(INCDIR) $(CFLAGS) kd_pr_search.cpp
+ 
+-kd_fix_rad_search.o: kd_fix_rad_search.cpp
++kd_fix_rad_search.lo: kd_fix_rad_search.cpp
+ 	$(C++) -c -I$(INCDIR) $(CFLAGS) kd_fix_rad_search.cpp
+ 
+-kd_dump.o: kd_dump.cpp
++kd_dump.lo: kd_dump.cpp
+ 	$(C++) -c -I$(INCDIR) $(CFLAGS) kd_dump.cpp
+ 
+-bd_tree.o: bd_tree.cpp
++bd_tree.lo: bd_tree.cpp
+ 	$(C++) -c -I$(INCDIR) $(CFLAGS) bd_tree.cpp
+ 
+-bd_search.o: bd_search.cpp
++bd_search.lo: bd_search.cpp
+ 	$(C++) -c -I$(INCDIR) $(CFLAGS) bd_search.cpp
+ 
+-bd_pr_search.o: bd_pr_search.cpp
++bd_pr_search.lo: bd_pr_search.cpp
+ 	$(C++) -c -I$(INCDIR) $(CFLAGS) bd_pr_search.cpp
+ 
+-bd_fix_rad_search.o: bd_fix_rad_search.cpp
++bd_fix_rad_search.lo: bd_fix_rad_search.cpp
+ 	$(C++) -c -I$(INCDIR) $(CFLAGS) bd_fix_rad_search.cpp
+ 
+-perf.o: perf.cpp
++perf.lo: perf.cpp
+ 	$(C++) -c -I$(INCDIR) $(CFLAGS) perf.cpp
+ 
+ #-----------------------------------------------------------------------------
++# Install
++#-----------------------------------------------------------------------------
++install:
++	$(INSTALL) -c $(LIBDIR)/$(ANNLIB) $(PREFIX)/lib/$(ANNLIB)
++
++#-----------------------------------------------------------------------------
+ # Configuration definitions
+ #-----------------------------------------------------------------------------
+ 
+@@ -115,7 +123,6 @@
+ #-----------------------------------------------------------------------------
+ 
+ clean:
+-	-rm -f *.o core
++	rm -f *.o *.lo core
+ 
+ realclean: clean
+-
+diff -r -u test/Makefile test/Makefile
+--- test/Makefile	2010-01-28 05:40:01.000000000 +0100
++++ test/Makefile	2010-11-13 00:07:43.834087418 +0100
+@@ -55,7 +55,7 @@
+ 
+ HEADERS = rand.h
+ TESTSOURCES = ann_test.cpp rand.cpp
+-TESTOBJECTS = $(TESTSOURCES:.cpp=.o)
++TESTOBJECTS = $(TESTSOURCES:.cpp=.lo)
+ 
+ #-----------------------------------------------------------------------------
+ # Make the program
+@@ -64,11 +64,19 @@
+ default: 
+ 	@echo "Specify a target configuration"
+ 
+-targets: $(BINDIR)/$(ANNTEST)
++targets: build install
++.PHONY: targets
++
++build: $(BINDIR)/$(ANNTEST)
+ 
+ $(BINDIR)/$(ANNTEST): $(TESTOBJECTS) $(LIBDIR)/$(ANNLIB)
+-	$(C++) $(TESTOBJECTS) -o $(ANNTEST) $(LDFLAGS) $(ANNLIBS) $(OTHERLIBS)
+-	mv $(ANNTEST) $(BINDIR)
++	$(MAKELIB) $(BINDIR)/$(ANNTEST) $(TESTOBJECTS) $(LIBDIR)/$(ANNLIB) $(OTHERLIBS)
++
++#-----------------------------------------------------------------------------
++# Install
++#-----------------------------------------------------------------------------
++install:
++	$(INSTALL) -c $(BINDIR)/$(ANNTEST) $(PREFIX)/bin/$(ANNTEST)
+ 
+ #-----------------------------------------------------------------------------
+ # configuration definitions
+@@ -80,10 +88,10 @@
+ # Objects
+ #-----------------------------------------------------------------------------
+ 
+-ann_test.o: ann_test.cpp
++ann_test.lo: ann_test.cpp
+ 	$(C++) -c -I$(INCDIR) $(CFLAGS) ann_test.cpp
+ 
+-rand.o: rand.cpp
++rand.lo: rand.cpp
+ 	$(C++) -c -I$(INCDIR) $(CFLAGS) rand.cpp
+ 
+ #-----------------------------------------------------------------------------
+@@ -91,6 +99,6 @@
+ #-----------------------------------------------------------------------------
+ 
+ clean:
+-	-rm -f *.o *.out core
++	-rm -f *.o *.lo *.out core
+ 
+ realclean: clean
