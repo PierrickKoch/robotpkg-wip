@@ -37,6 +37,7 @@ include ../../architecture/genom/depend.mk
 include ../../localization/pom-genom/depend.mk
 include ../../architecture/genBasic-genom/depend.mk
 include ../../manipulation/genManip-genom/depend.mk
+include ../../architecture/genHum-genom/depend.mk
 include ../../motion/softMotion-libs/depend.mk
 include ../../graphics/pqp/depend.mk
 include ../../graphics/coldman-libs/depend.mk
