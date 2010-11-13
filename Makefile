@@ -11,6 +11,7 @@ SUBDIR+=	lwr-genom
 SUBDIR+=	mhp-genom
 SUBDIR+=	mk
 SUBDIR+=	morse
+SUBDIR+=	openkinect
 SUBDIR+=	poisson
 SUBDIR+=	robot-viewer
 SUBDIR+=	sot-gui
