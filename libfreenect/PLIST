@@ -1,0 +1,3 @@
+@comment Sat Nov 13 15:09:14 CET 2010
+include/libfreenect.h
+lib/libfreenect.a
