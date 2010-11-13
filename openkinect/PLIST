@@ -1,3 +1,4 @@
-@comment Sat Nov 13 15:09:14 CET 2010
+@comment Sat Nov 13 19:05:55 CET 2010
+bin/openkinect-glview
 include/libfreenect.h
 lib/libfreenect.a
