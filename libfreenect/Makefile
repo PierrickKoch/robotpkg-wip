@@ -1,3 +1,7 @@
+# robotpkg Makefile for:	hardware/libfreenect
+# Created:			Matthieu Herrb on Sat, 13 Nov 2010
+#
+
 COMMENT= Horribly hacky first take at a Kinect Camera driver
 CATEGORIES = hardware image
 LICENSE = gnu-gpl-v2
