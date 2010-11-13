@@ -28,6 +28,3 @@ do-install:
 	${INSTALL_DATA} ${WRKSRC}/include/libfreenect.h \
 		${DESTDIR}${PREFIX}/include
 	${INSTALL_LIB} ${WRKSRC}/lib/libfreenect.a ${DESTDIR}${PREFIX}/lib
-
-
-
