@@ -7,12 +7,12 @@ CATEGORIES = hardware image
 LICENSE = gnu-gpl-v2
 PKG_VERSION=50fdac
 
-DISTNAME= openkinect-${PKG_VERSION}
+DISTNAME= libfreenect-${PKG_VERSION}
 HOMEPAGE= https://github.com/OpenKinect
 
 FETCH_BEFORE_ARGS= -v
 FETCH_METHOD= git
-MASTER_SITES= https://github.com/OpenKinect/openkinect.git@${PKG_VERSION}+c
+MASTER_SITES= https://github.com/OpenKinect/libfreenect.git@${PKG_VERSION}+c
 
 WRKSRC=${WRKDIR}/${DISTNAME}/c
 
