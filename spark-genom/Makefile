@@ -1,7 +1,7 @@
 # Created:			Severin Lemaignan on Fri, 24 Sep 2010
 #
 
-DISTNAME=		spark-genom-2.1
+DISTNAME=		spark-genom-2.2
 CATEGORIES=		knowledge
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=spark-genom/}
 MASTER_REPOSITORY=	git http://trac.laas.fr/git/robots/spark-genom.git
@@ -90,5 +90,6 @@ include ../../wip/sysdep/qt.mk
 include ../../wip/BioMove3D/depend.mk
 
 include ../../architecture/genBasic-genom/depend.mk
+include ../../architecture/genHum-genom/depend.mk
 include ../../architecture/genom/depend.mk
 include ../../mk/robotpkg.mk
