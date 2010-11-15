@@ -1,4 +1,4 @@
-# robotpkg Makefile for:	hardware/openkinect
+# robotpkg Makefile for:	hardware/libfreenect
 # Created:			Matthieu Herrb on Sat, 13 Nov 2010
 #
 
