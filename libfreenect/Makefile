@@ -29,5 +29,5 @@ do-install:
 		${DESTDIR}${PREFIX}/include
 	${INSTALL_LIB} ${WRKSRC}/lib/libfreenect.a ${DESTDIR}${PREFIX}/lib
 	${INSTALL_PROGRAM} ${WRKSRC}/examples/glview \
-		${DESTDIR}${PREFIX}/bin/openkinect-glview
+		${DESTDIR}${PREFIX}/bin/libfreenect-glview
 
