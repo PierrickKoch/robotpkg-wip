@@ -20,7 +20,7 @@ DEPEND_DIR.libfreenect?=	../../hardware/libfreenect
 SYSTEM_SEARCH.libfreenect=\
 	bin/libfreenect-glview \
 	include/libfreenect/libfreenect.h \
-	lib/libfreenect.a
+	lib/libfreenect.so
 endif
 
 DEPEND_DEPTH:=		${DEPEND_DEPTH:+=}
