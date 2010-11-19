@@ -5,14 +5,15 @@
 COMMENT= Horribly hacky first take at a Kinect Camera driver
 CATEGORIES = hardware image
 LICENSE = apache-2.0
-PKG_VERSION=9f2802
+COMMIT=9f2802
+PKG_VERSION=20101119-9f2802
 
 DISTNAME= libfreenect-${PKG_VERSION}
 HOMEPAGE= https://github.com/ros-pkg-git/libfreenect/
 
 FETCH_BEFORE_ARGS= -v
 FETCH_METHOD= git
-MASTER_SITES= https://github.com/ros-pkg-git/libfreenect.git@${PKG_VERSION}+c
+MASTER_SITES= https://github.com/ros-pkg-git/libfreenect.git@${COMMIT}+c
 
 WRKSRC=${WRKDIR}/${DISTNAME}/c
 
