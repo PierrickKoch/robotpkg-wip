@@ -14,7 +14,7 @@ PREFER.libfreenect?=	robotpkg
 
 DEPEND_USE+=		libfreenect
 
-DEPEND_ABI.libfreenect?=	libfreenect>=0
+DEPEND_ABI.libfreenect?=	libfreenect>=20101119
 DEPEND_DIR.libfreenect?=	../../hardware/libfreenect
 
 SYSTEM_SEARCH.libfreenect=\
