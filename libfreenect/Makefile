@@ -5,17 +5,17 @@
 COMMENT= Kinect Camera driver
 CATEGORIES = hardware image
 LICENSE = apache-2.0
-COMMIT=57b8d6
-PKG_VERSION=20101119.${COMMIT}
+COMMIT=539b28
+PKG_VERSION=20101124.${COMMIT}
 
 DISTNAME= libfreenect-${PKG_VERSION}
 HOMEPAGE= http://openkinect.org/
 
 FETCH_BEFORE_ARGS= -v
 FETCH_METHOD= git
-MASTER_SITES= https://github.com/OpenKinect/libfreenect.git@${COMMIT}+c
+MASTER_SITES= https://github.com/OpenKinect/libfreenect.git@${COMMIT}+
 
-WRKSRC=${WRKDIR}/${DISTNAME}/c
+WRKSRC=${WRKDIR}/${DISTNAME}
 
 USE_LANGUAGES= c c++
 

@@ -1,7 +1,9 @@
-@comment Fri Nov 19 14:11:20 CET 2010
+@comment Wed Nov 24 18:58:39 CET 2010
 bin/glview
 include/libfreenect/libfreenect.h
+include/libfreenect/libfreenect.hpp
 lib/libfreenect.a
 lib/libfreenect.so
 lib/libfreenect.so.0.0
-lib/libfreenect.so.0.0.0
+lib/libfreenect.so.0.0.1
+lib/pkgconfig/libfreenect.pc
