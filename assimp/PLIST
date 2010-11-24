@@ -1,4 +1,4 @@
-@comment Thu Nov 4 15:33:14 CET 2010
+@comment Wed Nov 24 18:23:56 CET 2010
 bin/assimp
 include/assimp/Compiler/poppack1.h
 include/assimp/Compiler/pstdint.h
@@ -9,6 +9,7 @@ include/assimp/IOSystem.h
 include/assimp/LogStream.h
 include/assimp/Logger.h
 include/assimp/NullLogger.h
+include/assimp/ProgressHandler.h
 include/assimp/aiAnim.h
 include/assimp/aiAssert.h
 include/assimp/aiCamera.h
@@ -37,5 +38,6 @@ include/assimp/aiVersion.h
 include/assimp/assimp.h
 include/assimp/assimp.hpp
 lib/libassimp.so
-lib/libassimp.so.1
-lib/libassimp.so.1.0.0
+lib/libassimp.so.2
+lib/libassimp.so.2.0.0
+lib/pkgconfig/assimp.pc

@@ -3,7 +3,7 @@
 #
 
 DISTNAME=	assimp--${PKGVERSION}-sdk
-PKGVERSION=	1.1.700
+PKGVERSION=	2.0.858
 PKGNAME=	assimp-${PKGVERSION}
 EXTRACT_SUFX=	.zip
 
@@ -15,9 +15,6 @@ HOMEPAGE=	http://assimp.sourceforge.net
 COMMENT=	Portable library to import various well-known 3D model formats
 
 LICENSE=	modified-bsd
-
-EXTRACT_OPTS=	-d assimp
-WRKSRC=		${WRKDIR}/assimp
 
 USE_LANGUAGES=	c c++
 
