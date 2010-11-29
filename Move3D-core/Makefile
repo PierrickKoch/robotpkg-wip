@@ -1,5 +1,5 @@
 # robotpkg Makefile for:	path/Move3D-core
-# Created:			Severin Lemaignan on Tue, 31 Aug 2010
+# Created:			Jim Mainprice on Mon, 29 Nov 2010
 #
 
 DISTNAME=		Move3D-core-3.7.14
@@ -19,31 +19,10 @@ CMAKE_ARGS+= -DEigen_INCLUDE_DIR=${PREFIX.eigen2}/include/eigen2
 CMAKE_ARGS+= -DBOOST_INCLUDEDIR=${PREFIX.boost-headers}/include
 CMAKE_ARGS+= -DBOOST_LIBRARYDIR=${PREFIX.boost-libs}/lib
 
-PKG_OPTIONS_REQUIRED_GROUPS=	mode
-PKG_OPTIONS_GROUP.mode= standalone jido
-
-## Default option
-PKG_SUGGESTED_OPTIONS+=	jido
-
-##
-## Option standalone
-##
-PKG_OPTION_DESCR.standalone=	Compile BioMove3D as an executable
-define PKG_OPTION_SET.standalone
-
-endef
-
-##
-## Option jido
-##
-PKG_OPTION_DESCR.jido=	Compile BioMove3D for Jido as a library only
-
-define PKG_OPTION_SET.jido
-  CMAKE_ARGS+= -DCOMPILE_MOVE3DCORE=ON
-  include ../../graphics/pqp/depend.mk
-  include ../../math/gbM/depend.mk
-  include ../../motion/softMotion-libs/depend.mk
-endef
+CMAKE_ARGS+= -DCOMPILE_MOVE3DCORE=ON
+include ../../graphics/pqp/depend.mk
+include ../../math/gbM/depend.mk
+include ../../motion/softMotion-libs/depend.mk
 
 ## Common includes
 include ../../mk/sysdep/cmake.mk

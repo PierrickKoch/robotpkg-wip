@@ -16,15 +16,15 @@
 #
 
 DEPEND_DEPTH:=		${DEPEND_DEPTH}+
-BIOMOVE3D_DEPEND_MK:=	${BIOMOVE3D_DEPEND_MK}+
+MOVE3D_CORE_DEPEND_MK:=	${MOVE3D_CORE_DEPEND_MK}+
 
 ifeq (+,$(DEPEND_DEPTH))
 DEPEND_PKG+=		Move3D-core
 endif
 
-ifeq (+,$(BIOMOVE3D_DEPEND_MK)) # ----------------------------------
+ifeq (+,$(MOVE3D_CORE_DEPEND_MK)) # ----------------------------------
 
-PREFER.BioMove3D?=	robotpkg
+PREFER.Move3d-core?=	robotpkg
 
 SYSTEM_SEARCH.Move3D-core=\
 	include/Move3D-core/include/move3d.h	\
@@ -37,7 +37,7 @@ DEPEND_DIR.Move3D-core?=../../wip/Move3D-core
 
 #include ../../wip/??
 
-endif # BIOMOVE3D_DEPEND_MK ----------------------------------------
+endif # MOVE3D_CORE_DEPEND_MK ----------------------------------------
 
 DEPEND_DEPTH:=		${DEPEND_DEPTH:+=}
 
