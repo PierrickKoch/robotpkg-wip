@@ -16,27 +16,27 @@
 #
 
 DEPEND_DEPTH:=		${DEPEND_DEPTH}+
-MOVE3D-MOTIONPLANNER-LIBS_DEPEND_MK:=	${MOVE3D-MOTIONPLANNER-LIBS_DEPEND_MK}+
+MOVE3D-QT-GUI-LIBS_DEPEND_MK:=	${MOVE3D-QT-GUI-LIBS_DEPEND_MK}+
 
 ifeq (+,$(DEPEND_DEPTH))
-DEPEND_PKG+=		Move3D-motionPlanner-libs
+DEPEND_PKG+=		Move3D-Qt-Gui-libs
 endif
 
-ifeq (+,$(MOVE3D-MOTIONPLANNER-LIBS_DEPEND_MK)) # ----------------------------------
+ifeq (+,$(MOVE3D-QT-GUI-LIBS_DEPEND_MK)) # ----------------------------------
 
-PREFER.Move3D-motionPlanner-libs?=	robotpkg
+PREFER.Move3D-Qt-Gui-libs?=	robotpkg
 
-SYSTEM_SEARCH.Move3D-motionPlanner-libs=\
-	include/Move3D-motionPlanner-libs/include/planner/planner.hpp	\
-	lib/libMove3D-motionPlanner-libs.so
+SYSTEM_SEARCH.Move3D-Qt-Gui-libs=\
+	include/Move3D-Qt-Gui/src/qtLibrary.hpp	\
+	lib/libMove3D-Qt-Gui.so
 
-DEPEND_USE+=		Move3D-motionPlanner-libs
+DEPEND_USE+=		Move3D-Qt-Gui-libs
 
-DEPEND_ABI.Move3D-motionPlanner-libs?=Move3D-motionPlanner-libs>=0.0.1
-DEPEND_DIR.Move3D-motionPlanner-libs?=../../wip/Move3D-motionPlanner-libs
+DEPEND_ABI.Move3D-Qt-Gui-libs?=Move3D-Qt-Gui-libs>=1.0.0
+DEPEND_DIR.Move3D-Qt-Gui-libs?=../../wip/Move3D-Qt-Gui-libs
 
 #include ../../wip/??
 
-endif # Move3D-motionPlanner-libs_DEPEND_MK ----------------------------------------
+endif # Move3D-Qt-Gui-libs_DEPEND_MK ----------------------------------------
 
 DEPEND_DEPTH:=		${DEPEND_DEPTH:+=}
