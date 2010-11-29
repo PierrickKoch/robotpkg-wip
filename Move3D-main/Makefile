@@ -18,24 +18,11 @@ USE_LANGUAGES+=		c c++
 CMAKE_ARGS+= -DBOOST_INCLUDEDIR=${PREFIX.boost-headers}/include
 CMAKE_ARGS+= -DBOOST_LIBRARYDIR=${PREFIX.boost-libs}/lib
 
-PKG_OPTIONS_REQUIRED_GROUPS=	mode
-PKG_OPTIONS_GROUP.mode=	standalone GUI
-
-##
-## Option GUI
-##
-PKG_OPTION_DESCR.GUI= Compile Move3D-motionPlanner-libs with GUI
-
-define PKG_OPTION_SET.GUI
-	CMAKE_ARGS+= -DCOMPILE_WITH_GUI=ON
-	include ../../wip/sysdep/qt.mk
-endef
-
-
-## Default option
-PKG_SUGGESTED_OPTIONS+=	standalone
-
 ## Common includes
+include ../../wip/Move3D-core/depend.mk
+include ../../wip/Move3D-motionPlanner-libs/depend.mk
+include ../../wip/Move3D-Qt-Gui-libs/depend.mk
+
 include ../../mk/sysdep/cmake.mk
 include ../../wip/sysdep/qt.mk
 
