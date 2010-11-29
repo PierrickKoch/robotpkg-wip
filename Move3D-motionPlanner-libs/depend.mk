@@ -27,12 +27,12 @@ ifeq (+,$(MOVE3D-MOTIONPLANNER-LIBS_DEPEND_MK)) # ------------------------------
 PREFER.Move3D-motionPlanner-libs?=	robotpkg
 
 SYSTEM_SEARCH.Move3D-motionPlanner-libs=\
-	include/Move3D-motionPlanner-libs/include/planner/planner.hpp	\
-	lib/libMove3D-motionPlanner-libs.so
+	include/Move3D-motionPlanner/src/planner/planner.hpp	\
+	lib/libMove3D-motionPlanner.so
 
 DEPEND_USE+=		Move3D-motionPlanner-libs
 
-DEPEND_ABI.Move3D-motionPlanner-libs?=Move3D-motionPlanner-libs>=0.0.1
+DEPEND_ABI.Move3D-motionPlanner-libs?=Move3D-motionPlanner-libs>=1.0.0
 DEPEND_DIR.Move3D-motionPlanner-libs?=../../wip/Move3D-motionPlanner-libs
 
 #include ../../wip/??
