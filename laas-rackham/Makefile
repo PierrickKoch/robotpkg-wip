@@ -24,6 +24,6 @@ include ../../path/ndd-genom/depend.mk
 # city
 include ../../image/viam-genom/depend.mk
 include ../../hardware/platine-genom/depend.mk
-include ../../audio/clone-genom/depend.mk
+# include ../../audio/clone-genom/depend.mk
 
 include ../../mk/robotpkg.mk
