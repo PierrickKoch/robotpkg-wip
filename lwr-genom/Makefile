@@ -2,7 +2,7 @@
 # Created:			Xavier Broquere on Wed, 27 Oct 2010
 #
 
-DISTNAME=		lwr-genom-2.1
+DISTNAME=		lwr-genom-2.2
 CATEGORIES=		manipulation
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=lwr-genom/}
 MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/lwr-genom
