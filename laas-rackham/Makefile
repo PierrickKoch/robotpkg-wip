@@ -13,11 +13,14 @@ REQD_BUILD_OPTIONS.libp3d=		b21r
 REQD_BUILD_OPTIONS.rflex-genom=		b21r
 REQD_BUILD_OPTIONS.sick-genom=		xr4000
 
-include ../../image/viam-genom/depend.mk
-include ../../localization/pom-genom/depend.mk
-include ../../path/ndd-genom/depend.mk
-include ../../architecture/genBasic-genom/depend.mk
-include ../../hardware/platine-genom/depend.mk
+# space
 include ../../robots/rflex-genom/depend.mk
 include ../../localization/segloc-genom/depend.mk
+include ../../path/ndd-genom/depend.mk
+
+# city
+include ../../image/viam-genom/depend.mk
+include ../../hardware/platine-genom/depend.mk
+include ../../audio/clone-genom/depend.mk
+
 include ../../mk/robotpkg.mk
