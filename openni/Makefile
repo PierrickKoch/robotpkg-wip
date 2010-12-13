@@ -15,35 +15,38 @@ FETCH_BEFORE_ARGS= -v
 FETCH_METHOD= git
 MASTER_SITES= https://github.com/OpenNI/OpenNI.git@${PKG_VERSION}
 
-#WRKSRC=${WRKDIR}/${DISTNAME}/Platform/Linux-x86/Build
-
 USE_LANGUAGES= c c++
 
-OPENNI= $(PREFIX)/bin
+OPENNI= $(WRKDIR)
 OPENNI_LIB= $(PREFIX)/lib
+OPENNI_SHARE= $(PREFIX)/share/openni
 
-SUBST_CLASSES += main-makefile
-SUBST_STAGE.main-makefile = post-patch
-SUBST_MESSAGE.main-makefile = "### Patching the main Makefile for OpenNI..."
-SUBST_SED.main-makefile = -e 's/CFG=$$(CFG)//g'
-SUBST_FILES.main-makefile = Platform/Linux-x86/Build/Makefile
+BUILD_DIRS = Platform/Linux-x86/Build
 
 SUBST_CLASSES += output-lib
-SUBST_STAGE.output-lib = post-patch
-SUBST_MESSAGE.output-lib = "### Patching the output library for OpenNI..."
+SUBST_STAGE.output-lib = post-extract
+SUBST_MESSAGE.output-lib = Patching the output library for OpenNI...
 SUBST_SED.output-lib = \
     -e 's!BIN_DIR = ../../Bin!CFG=lib\nCFLAGS+=-O3 -msse3\nBIN_DIR=$(OPENNI)!g'
 SUBST_FILES.output-lib = \
-	Platform/Linux-x86/Build/OpenNI/Makefile \
+	Platform/Linux-x86/Build/OpenNI/Makefile
+
+SUBST_CLASSES += output-modules
+SUBST_STAGE.output-modules = post-extract
+SUBST_MESSAGE.output-modules = Patching the output library for all modules...
+SUBST_SED.output-modules = \
+    -e 's!BIN_DIR = ../../../Bin!CFG=lib\nCFLAGS+=-O3 -msse3\n\nLDFLAGS+=-Wl,-rpath,$(OPENNI_LIB)\nBIN_DIR=$(OPENNI)!g'
+SUBST_FILES.output-modules = \
 	Platform/Linux-x86/Build/Modules/nimCodecs/Makefile \
 	Platform/Linux-x86/Build/Modules/nimMockNodes/Makefile \
 	Platform/Linux-x86/Build/Modules/nimRecorder/Makefile
 
 SUBST_CLASSES += samples
-SUBST_STAGE.samples = post-patch
-SUBST_MESSAGE.samples = "### Patching the output location for all samples..."
+SUBST_STAGE.samples = post-extract
+SUBST_MESSAGE.samples = Patching the output location for all samples...
 SUBST_SED.samples = -e 's!BIN_DIR = ../../../Bin!CFG=bin\nCFLAGS+=-O3 -msse3\nLDFLAGS+=-Wl,-rpath,$(OPENNI_LIB)\nLIB_DIRS=$(OPENNI_LIB)\nBIN_DIR=$(OPENNI)!g'
 SUBST_FILES.samples = \
+	Platform/Linux-x86/Build/Samples/NiViewer/Makefile \
 	Platform/Linux-x86/Build/Samples/NiAudioSample/Makefile \
 	Platform/Linux-x86/Build/Samples/NiBackRecorder/Makefile \
 	Platform/Linux-x86/Build/Samples/NiConvertXToONI/Makefile \
@@ -58,18 +61,20 @@ SUBST_FILES.samples = \
 	Platform/Linux-x86/Build/Utils/niReg/Makefile 
 
 SUBST_CLASSES += xml
-SUBST_STAGE.xml = post-patch
-SUBST_MESSAGE.xml = "### Patching the location of modules.xml..."
-SUBST_SED.xml = -e 's!/var/lib/ni/modules.xml!$(OPENNI_SHARE)/modules.xml!g'
-SUBST_FILES.modules-xml = \
+SUBST_STAGE.xml = post-extract
+SUBST_MESSAGE.xml = Patching the location of modules.xml...
+SUBST_SED.xml = \
+	-e 's!/var/lib/ni/modules.xml!$(OPENNI_SHARE)/modules.xml!g' \
+	-e 's!/var/lib/ni/licenses.xml!$(OPENNI_SHARE)/licenses.xml!g'
+SUBST_FILES.xml = \
 	Source/OpenNI/XnModuleLoader.cpp \
-	Source/OpenNI/XnLicensing.cpp \
+	Source/OpenNI/XnLicensing.cpp
 
 SUBST_CLASSES += data-xml
-SUBST_STAGE.data=xml = post-patch
-SUBST_MESSAGE.data-xml = ### Patching the location of SamplesConfig.xml..."
+SUBST_STAGE.data-xml = post-extract
+SUBST_MESSAGE.data-xml = Patching the location of SamplesConfig.xml...
 SUBST_SED.data-xml = \
-	-e 's!/var/lib/ni/licenses.xml!$(OPENNI_SHARE)/licenses.xml!g' 
+	-e 's!../../../../Data/SamplesConfig.xml!$(OPENNI_SHARE)/SamplesConfig.xml!g'
 SUBST_FILES.data-xml = \
 	Samples/NiAudioSample/NiAudioSample.cpp \
 	Samples/NiViewer/NiViewer.cpp \
@@ -78,7 +83,22 @@ SUBST_FILES.data-xml = \
 	Samples/NiSimpleRead/NiSimpleRead.cpp \
 	Samples/NiUserTracker/main.cpp
 
-BUILD_DIRS = Platform/Linux-x86/Build
+foo: 
+	@echo ${SUBST_SED.main-makefile}
+
+do-install:
+	-mkdir -p ${PREFIX}/include/ni
+	cd ${WRKSRC}/Include; ${PAX} -rwp ma . ${PREFIX}/include/ni
+	-mkdir -p ${PREFIX}/share/openni
+	${INSTALL_DATA} ${WRKSRC}/Data/SamplesConfig.xml ${PREFIX}/share/openni
+	${INSTALL_DATA} ${WRKSRC}/Platform/Linux-x86/Build/CommonMakefile \
+		${PREFIX}/include/ni
+	cd ${WRKDIR}/bin; ${PAX} -rwp ma . ${PREFIX}/bin
+	cd ${WRKDIR}/lib; ${PAX} -rwp ma . ${PREFIX}/lib
+	cd ${WRKSRC}; for file in `cat Platform/Linux-x86/CreateRedist/install.sh | grep MODULES= | sed 's/\"//g' | awk -F "=" {'print $$2'}`; do \
+		echo "${PREFIX}/lib/$$file"; \
+		${PREFIX}/bin/niReg -r ${PREFIX}/lib/$$file ${OPENNI_SHARE}; \
+	done
 
 include ../../pkgtools/install-sh/depend.mk
 include ../../mk/robotpkg.mk
