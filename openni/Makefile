@@ -1,19 +1,19 @@
 # robotpkg Makefile for:	hardware/openni
-# Created:			Matthieu Herrb on Sat, 13 Nov 2010
+# Created:			Matthieu Herrb on Mon, 13 Dec 2010
 #
 
+COMMIT= 43c256
+PKG_VERSION= 20101213.${COMMIT}
 COMMENT= Primesense OpenNI framework for Natural Interaction
 CATEGORIES = hardware image
 LICENSE = gnu-lgpl-v3
-
-PKG_VERSION= 43c256
 
 DISTNAME= openni-${PKG_VERSION}
 HOMEPAGE= http://openni.org
 
 FETCH_BEFORE_ARGS= -v
 FETCH_METHOD= git
-MASTER_SITES= https://github.com/OpenNI/OpenNI.git@${PKG_VERSION}
+MASTER_SITES= https://github.com/OpenNI/OpenNI.git@${COMMIT}
 
 USE_LANGUAGES= c c++
 
@@ -88,9 +88,6 @@ SUBST_FILES.data-xml = \
 	Samples/NiSimpleViewer/NiSimpleViewer.cpp \
 	Samples/NiSimpleRead/NiSimpleRead.cpp \
 	Samples/NiUserTracker/main.cpp
-
-foo: 
-	@echo ${SUBST_SED.main-makefile}
 
 do-install:
 	-mkdir -p ${PREFIX}/include/ni
