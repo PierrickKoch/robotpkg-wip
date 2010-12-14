@@ -1,0 +1,4 @@
+@comment Tue Dec 14 14:18:42 CET 2010
+lib/libXnDeviceFile.so
+lib/libXnDeviceSensorV2.so
+share/openni/GlobalDefaults.ini
