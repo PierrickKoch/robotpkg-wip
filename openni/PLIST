@@ -1,4 +1,4 @@
-@comment Mon Dec 13 23:30:58 CET 2010
+@comment Tue Dec 14 11:04:54 CET 2010
 bin/NiViewer
 bin/Sample-NiAudioSample
 bin/Sample-NiBackRecorder
@@ -9,7 +9,6 @@ bin/Sample-NiSimpleCreate
 bin/Sample-NiSimpleRead
 bin/Sample-NiSimpleViewer
 bin/Sample-NiUserTracker
-bin/libSample-NiSampleModule.so
 bin/niLicense
 bin/niReg
 include/ni/CommonMakefile
@@ -63,8 +62,8 @@ include/ni/XnUSB.h
 include/ni/XnUtils.h
 include/ni/XnVersion.h
 lib/libOpenNI.so
+lib/libSample-NiSampleModule.so
 lib/libnimCodecs.so
 lib/libnimMockNodes.so
 lib/libnimRecorder.so
 share/openni/SamplesConfig.xml
-share/openni/modules.xml
