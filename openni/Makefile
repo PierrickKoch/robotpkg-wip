@@ -44,7 +44,7 @@ SUBST_FILES.output-modules = \
 SUBST_CLASSES += samples
 SUBST_STAGE.samples = post-extract
 SUBST_MESSAGE.samples = Patching the output location for samples programs...
-SUBST_SED.samples = -e 's!BIN_DIR = ../../../Bin!CFG=bin\nCFLAGS+=-O3 -msse3\nLDFLAGS+=-Wl,-rpath,$(OPENNI_LIB)\nLIB_DIRS=$(OPENNI_LIB)\nBIN_DIR=$(OPENNI)!g'
+SUBST_SED.samples = -e 's!BIN_DIR = ../../../Bin!CFG=bin\nCFLAGS+=-O3 -msse3\nLDFLAGS+=-Wl,-rpath,$(OPENNI_LIB)\nLIB_DIRS=$(OPENNI)/lib\nBIN_DIR=$(OPENNI)!g'
 SUBST_FILES.samples = \
 	Platform/Linux-x86/Build/Samples/NiViewer/Makefile \
 	Platform/Linux-x86/Build/Samples/NiAudioSample/Makefile \
@@ -62,7 +62,7 @@ SUBST_FILES.samples = \
 SUBST_CLASSES += lib-samples
 SUBST_STAGE.lib-samples = post-extract
 SUBST_MESSAGE.lib-samples = Patching the output location for sample library...
-SUBST_SED.lib-samples =  -e 's!BIN_DIR = ../../../Bin!CFG=lib\nCFLAGS+=-O3 -msse3\nLDFLAGS+=-Wl,-rpath,$(OPENNI_LIB)\nLIB_DIRS=$(OPENNI_LIB)\nBIN_DIR=$(OPENNI)!g'
+SUBST_SED.lib-samples =  -e 's!BIN_DIR = ../../../Bin!CFG=lib\nCFLAGS+=-O3 -msse3\nLDFLAGS+=-Wl,-rpath,$(OPENNI_LIB)\nLIB_DIRS=$(OPENNI)/lib\nBIN_DIR=$(OPENNI)!g'
 SUBST_FILES.lib-samples = \
 	Platform/Linux-x86/Build/Samples/NiSampleModule/Makefile
 
