@@ -55,8 +55,8 @@ do-install:
 	-mkdir -p ${PREFIX}/lib
 	${INSTALL_DATA} ${WRKSRC}/Data/GlobalDefaults.ini \
 		${PREFIX}/share/openni
-	cd ${WRKSRC}; for file in `cat Platform/Linux-x86/CreateRedist/install.sh | grep MODULES= | sed 's/\"//g' | awk -F "=" {'print $$2'}`; do \
-		echo "${PREFIX}/lib/$$file"; \
+	@cd ${WRKSRC}; for file in `cat Platform/Linux-x86/CreateRedist/install.sh | grep MODULES= | sed 's/\"//g' | awk -F "=" {'print $$2'}`; do \
+		echo "Installing $$file"; \
 		${INSTALL} ${WRKDIR}/lib/$$file ${PREFIX}/lib ; \
 		${PREFIX}/bin/niReg -r ${PREFIX}/lib/$$file ${OPENNI_SHARE}; \
 	done
