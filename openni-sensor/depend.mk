@@ -3,13 +3,13 @@
 #
 
 DEPEND_DEPTH:=		${DEPEND_DEPTH}+
-RMP_LIBS_DEPEND_MK:=${RMP_LIBS_DEPEND_MK}+
+OPENNI_SENSOR_DEPEND_MK:=${OPENNI_SENSOR_DEPEND_MK}+
 
 ifeq (+,$(DEPEND_DEPTH))
 DEPEND_PKG+=		openni-sensor
 endif
 
-ifeq (+,$(RMP_LIBS_DEPEND_MK))
+ifeq (+,$(OPENNI_SENSOR_DEPEND_MK))
 PREFER.openni-sensor?=	robotpkg
 
 DEPEND_USE+=		openni-sensor
