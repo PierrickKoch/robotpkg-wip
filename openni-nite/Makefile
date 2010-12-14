@@ -42,5 +42,6 @@ do-install:
 	niLicense PrimeSense 0KOIk2JeIBYClPWVnMoRKn5cdY4=
 
 include ../../wip/openni/depend.mk
+include ../../wip/openni-sensor/depend.mk
 include ../../pkgtools/install-sh/depend.mk
 include ../../mk/robotpkg.mk
