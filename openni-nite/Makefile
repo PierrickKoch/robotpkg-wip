@@ -9,7 +9,9 @@ ifeq (${MACHINE_ARCH},i386)
 endif
 
 PKG_VERSION=1.3.0.17
+PKGNAME= openni-nite-${PKG_VERSION}
 DISTNAME= NITE-Bin-Ubuntu-${NI_ARCH}-${PKG_VERSION}
+COMMENT= Primesense OpenNI nite binary blob
 EXTRACT_SUFX=	.tar.bz2
 CATEGORIES= hardware devel
 MASTER_SITES= http://downloads.primesense.com/
