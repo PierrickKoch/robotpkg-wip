@@ -1,0 +1,24 @@
+@comment Wed Dec 15 13:05:35 CET 2010
+bin/icu
+bin/icuSendInitRqst
+bin/icuTest
+include/icu/icuConst.h
+include/icu/icuStruct.h
+include/icu/server/icuEndian.h
+include/icu/server/icuError.h
+include/icu/server/icuMsgLib.h
+include/icu/server/icuPosterLib.h
+include/icu/server/icuPosterLibStruct.h
+include/icu/server/icuPosterReadLibProto.h
+include/icu/server/icuPosterShowLib.h
+include/icu/server/icuPosterWriteLibProto.h
+include/icu/server/icuPosterXMLLib.h
+include/icu/server/icuPrint.h
+include/icu/server/icuPrintXML.h
+include/icu/server/icuScan.h
+include/icu/server/icuType.h
+lib/libicuClient.la
+lib/pkgconfig/icu.pc
+lib/tclserv/libicuTclServ.la
+share/modules/gen/icu.gen
+share/modules/tcl/icuClient.tcl
