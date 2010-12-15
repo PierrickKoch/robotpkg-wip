@@ -23,7 +23,7 @@ OPENNI_SHARE= $(PREFIX)/share/openni
 
 BUILD_DIRS = Platform/Linux-x86/Build
 
-ENGINE_BIN = ${WRKDIR}/bin
+ENGINE_BIN = ${PREFIX.openni}/bin
 ENGINE_LIB = ${WRKDIR}/lib
 OPENNI_LIB = ${PREFIX.openni}/lib
 
@@ -52,10 +52,17 @@ SUBST_SED.sensor = -e 's!/usr/bin!$(ENGINE_BIN)!g'
 SUBST_FILES.sensor = Source/XnDeviceSensorV2/XnSensorClient.cpp
 
 do-install:
+	-mkdir -p ${PREFIX}/bin
+	${INSTALL} ${WRKDIR}/bin/XnSensorServer ${PREFIX}/bin
 	-mkdir -p ${PREFIX}/lib
 	${INSTALL_DATA} ${WRKSRC}/Data/GlobalDefaults.ini \
 		${PREFIX}/share/openni
-	@cd ${WRKSRC}; for file in `cat Platform/Linux-x86/CreateRedist/install.sh | grep MODULES= | sed 's/\"//g' | awk -F "=" {'print $$2'}`; do \
+	@for file in libXnCore.so libXnDDK.so libXnFormats.so ; do \
+		echo "Installing $$file"; \
+		${INSTALL} ${WRKDIR}/lib/$$file ${PREFIX}/lib ; \
+	done
+	@cd ${WRKSRC} ; \
+	for file in `cat Platform/Linux-x86/CreateRedist/install.sh | grep MODULES= | sed 's/\"//g' | awk -F "=" {'print $$2'}`; do \
 		echo "Installing $$file"; \
 		${INSTALL} ${WRKDIR}/lib/$$file ${PREFIX}/lib ; \
 		${PREFIX}/bin/niReg -r ${PREFIX}/lib/$$file ${OPENNI_SHARE}; \
