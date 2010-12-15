@@ -98,8 +98,8 @@ do-install:
 		${PREFIX}/include/ni
 	cd ${WRKDIR}/bin; ${PAX} -rwp ma . ${PREFIX}/bin
 	cd ${WRKDIR}/lib; ${PAX} -rwp ma . ${PREFIX}/lib
-	cd ${WRKSRC}; for file in `cat Platform/Linux-x86/CreateRedist/install.sh | grep MODULES= | sed 's/\"//g' | awk -F "=" {'print $$2'}`; do \
-		echo "${PREFIX}/lib/$$file"; \
+	@cd ${WRKSRC}; for file in `cat Platform/Linux-x86/CreateRedist/install.sh | grep MODULES= | sed 's/\"//g' | awk -F "=" {'print $$2'}`; do \
+		echo "Installing $$file"; \
 		${PREFIX}/bin/niReg -r ${PREFIX}/lib/$$file ${OPENNI_SHARE}; \
 	done
 

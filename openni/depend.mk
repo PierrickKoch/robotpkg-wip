@@ -3,21 +3,21 @@
 #
 
 DEPEND_DEPTH:=		${DEPEND_DEPTH}+
-RMP_LIBS_DEPEND_MK:=${RMP_LIBS_DEPEND_MK}+
+OPENNI_DEPEND_MK:=${OPENNI_DEPEND_MK}+
 
 ifeq (+,$(DEPEND_DEPTH))
-DEPEND_PKG+=		openi
+DEPEND_PKG+=		openni
 endif
 
-ifeq (+,$(RMP_LIBS_DEPEND_MK))
-PREFER.openi?=	robotpkg
+ifeq (+,$(OPENNI_DEPEND_MK))
+PREFER.openni?=	robotpkg
 
-DEPEND_USE+=		openi
+DEPEND_USE+=		openni
 
-DEPEND_ABI.openi?=	openi>=20101212
-DEPEND_DIR.openi?=	../../hardware/openi
+DEPEND_ABI.openni?=	openni>=20101212
+DEPEND_DIR.openni?=	../../wip/openni
 
-SYSTEM_SEARCH.openi=\
+SYSTEM_SEARCH.openni=\
 	bin/niReg \
 	bin/niLicense \
 	include/ni/XnTypes.h \
