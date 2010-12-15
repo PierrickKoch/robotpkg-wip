@@ -33,7 +33,7 @@ SYSTEM_SEARCH.icu-genom=\
 
 DEPEND_USE+=		icu-genom
 
-DEPEND_ABI.icu-genom?=icu-genom>=1.1
+DEPEND_ABI.icu-genom?=icu-genom>=1.0
 DEPEND_DIR.icu-genom?=../../wip/icu-genom
 
 endif # ICU-GENOM_DEPEND_MK ----------------------------------------
