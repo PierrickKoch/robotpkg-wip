@@ -19,5 +19,6 @@ SUBDIR+=	spark-genom
 SUBDIR+=	stackoftasks
 SUBDIR+=	visp
 SUBDIR+=  libANN
+SUBDIR+=  flann
 
 include ../mk/robotpkg.subdir.mk
