@@ -73,5 +73,6 @@ endef
 #endef
 
 include ../../mk/sysdep/cmake.mk
-include ../../mk/sysdep/blender.mk
+include ../../wip/blender/depend.mk
+#include ../../mk/sysdep/blender.mk
 include ../../mk/robotpkg.mk
