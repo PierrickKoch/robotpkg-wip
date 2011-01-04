@@ -33,7 +33,7 @@ SYSTEM_SEARCH.spark-genom=\
 
 DEPEND_USE+=		spark-genom
 
-DEPEND_ABI.spark-genom?=spark-genom>=2.2
+DEPEND_ABI.spark-genom?=spark-genom>=3.0
 DEPEND_DIR.spark-genom?=../../wip/spark-genom
 
 endif # SPARK-GENOM_DEPEND_MK ----------------------------------------

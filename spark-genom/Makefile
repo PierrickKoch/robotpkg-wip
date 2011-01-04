@@ -1,7 +1,7 @@
 # Created:			Severin Lemaignan on Fri, 24 Sep 2010
 #
 
-DISTNAME=		spark-genom-2.2
+DISTNAME=		spark-genom-3.0
 CATEGORIES=		knowledge
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=spark-genom/}
 MASTER_REPOSITORY=	git http://trac.laas.fr/git/robots/spark-genom.git
