@@ -17,8 +17,8 @@
 #                                          Severin Lemaignan on Fri May 28 2010
 #
 
-DISTNAME=		morse-0.1
-MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=}
+DISTNAME=		morse-0.2b1
+MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=morse/}
 MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/morse
 
 CATEGORIES=		wip
@@ -27,7 +27,7 @@ HOMEPAGE=		http://softs.laas.fr
 COMMENT=		A 3D simulator for robotics
 LICENSE=		modified-bsd
 
-USE_LANGUAGES+=		c c++ python
+USE_LANGUAGES+=		c c++
 BUILD_TARGET=		all
 INSTALL_TARGET=		install
 
@@ -63,14 +63,14 @@ define PKG_OPTION_SET.pocolibs
   include ../../localization/pom-genom/depend.mk
 endef
 
-# build examples option
-PKG_SUPPORTED_OPTIONS+=	examples
-PKG_SUGGESTED_OPTIONS+=	examples
-PKG_OPTION_DESCR.examples?=	Build and install scenarii examples
-
-define PKG_OPTION_SET.examples
-  CMAKE_ARGS+=		-DBUILD_EXAMPLES=ON
-endef
+# build examples option -- OPTION DOES NOT EXIST ANYMORE IN THE CMAKELISTS
+#PKG_SUPPORTED_OPTIONS+=	examples
+#PKG_SUGGESTED_OPTIONS+=	examples
+#PKG_OPTION_DESCR.examples?=	Build and install scenarii examples
+#
+#define PKG_OPTION_SET.examples
+#  CMAKE_ARGS+=		-DBUILD_EXAMPLES=ON
+#endef
 
 include ../../mk/sysdep/cmake.mk
 include ../../mk/sysdep/blender.mk
