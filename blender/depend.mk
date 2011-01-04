@@ -30,7 +30,7 @@ ifeq (+,$(BLENDER_DEPEND_MK)) # -----------------------------------------------
 PREFER.blender?=		robotpkg
 
 DEPEND_USE+=		blender
-DEPEND_ABI.blender?=	blender>=2.5
+DEPEND_ABI.blender?=	blender>=2.56
 DEPEND_DIR.blender?=	../../graphics/blender
 
 SYSTEM_SEARCH.blender=\

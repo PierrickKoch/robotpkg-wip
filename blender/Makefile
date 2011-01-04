@@ -18,40 +18,36 @@
 #                                           Séverin Lemaignan on Mon Dec 7 2009
 #
 
-DISTNAME=		blender-2.50-alpha0
+PKGNAME= 			blender-${VERSION}
+DISTNAME=			${PKGNAME}
+VERSION=			2.56-beta
 
 CATEGORIES=		graphics
-MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=blender/}
+MASTER_SITES=	http://download.blender.org/source/
 
 MAINTAINER=		openrobots@laas.fr
 HOMEPAGE=		http://www.blender.org/
 COMMENT=		Blender is an open source 3D content creation suite
+
+WRKSRC=${WRKDIR}/${DISTNAME}-source
 
 CMAKE_ARG_PATH=		..
 CONFIGURE_DIRS=		_build
 
 USE_LANGUAGES+=		c c++
 
+CMAKE_ARGS+=		-DWITH_GAMEENGINE=ON  #GameEngine
+CMAKE_ARGS+=		-DWITH_IK_ITASC=ON  #Inverse Kinematics
+CMAKE_ARGS+=		-DWITH_OPENCOLLADA=OFF  #Collada support - OFF for now, waiting for stabilization
+CMAKE_ARGS+=		-DWITH_PLAYER=ON  #Stand-alone Blender player
+
+# For now, let Blender embed Python
 PYTHON_REQD=		3.1
-
-CMAKE_ARGS+=		-DWITH_PLAYER=OFF
-CMAKE_ARGS+=		-DWITH_ELBEEM=ON #Internal fluid simulation
-CMAKE_ARGS+=		-DWITH_OPENEXR=OFF
-CMAKE_ARGS+=		-DWITH_DDS=OFF #DirectDraw Surface textures plugin
-CMAKE_ARGS+=		-DWITH_FFMPEG=OFF
-CMAKE_ARGS+=		-DWITH_OPENAL=OFF
-CMAKE_ARGS+=		-DWITH_WEBPLUGIN=OFF
-CMAKE_ARGS+=		-DWITH_SDL=OFF
-CMAKE_ARGS+=		-DWITH_JACK=OFF
-CMAKE_ARGS+=		-DWITH_SNDFILE=OFF
-CMAKE_ARGS+=		-DWITH_JACK=OFF
-CMAKE_ARGS+=		-DWITH_OPENCOLLADA=OFF
-CMAKE_ARGS+=		-DWITH_OPENMP=ON
-
-include ../python3/depend.mk
-
+#include ../python3/depend.mk
 CMAKE_ARGS+=		-DPYTHON_INC=${PREFIX}/include/python${PYTHON_REQD}
 CMAKE_ARGS+=		-DPYTHON_LIBPATH=${PREFIX}/lib
+CMAKE_ARGS+=		-DWITH_PYTHON=ON
+CMAKE_ARGS+=		-DWITH_PYTHON_INSTALL=ON
 
 pre-configure:
 	${MKDIR} ${WRKSRC}/_build
