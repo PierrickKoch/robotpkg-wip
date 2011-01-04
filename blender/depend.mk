@@ -31,7 +31,7 @@ PREFER.blender?=		robotpkg
 
 DEPEND_USE+=		blender
 DEPEND_ABI.blender?=	blender>=2.56
-DEPEND_DIR.blender?=	../../graphics/blender
+DEPEND_DIR.blender?=	../../wip/blender
 
 SYSTEM_SEARCH.blender=\
 	bin/blender

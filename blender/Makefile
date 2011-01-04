@@ -29,6 +29,8 @@ MAINTAINER=		openrobots@laas.fr
 HOMEPAGE=		http://www.blender.org/
 COMMENT=		Blender is an open source 3D content creation suite
 
+LICENSE=		gnu-gpl-v2
+
 WRKSRC=${WRKDIR}/${DISTNAME}-source
 
 CMAKE_ARG_PATH=		..
@@ -42,7 +44,7 @@ CMAKE_ARGS+=		-DWITH_OPENCOLLADA=OFF  #Collada support - OFF for now, waiting fo
 CMAKE_ARGS+=		-DWITH_PLAYER=ON  #Stand-alone Blender player
 
 # For now, let Blender embed Python
-PYTHON_REQD=		3.1
+PYTHON_REQD?=		3.1
 #include ../python3/depend.mk
 CMAKE_ARGS+=		-DPYTHON_INC=${PREFIX}/include/python${PYTHON_REQD}
 CMAKE_ARGS+=		-DPYTHON_LIBPATH=${PREFIX}/lib
