@@ -1,0 +1,8 @@
+This package installs a large (>200MB) set of models for Move3D.
+
+These models include:
+- Jido, PR2 robots
+- Households objets used in manipulation/supervision tasks
+- several environments including the LAAS 'Grande Salle'
+
+All those models are BSD licensed.
