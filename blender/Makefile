@@ -19,35 +19,38 @@
 #
 
 PKGNAME= 			blender-${VERSION}
-DISTNAME=			${PKGNAME}
-VERSION=			2.56-beta
+DISTNAME=			blender-2.56-beta
+VERSION=			2.56b
 
-CATEGORIES=		graphics
-MASTER_SITES=	http://download.blender.org/source/
+CATEGORIES=			graphics
+MASTER_SITES=		http://download.blender.org/source/
 
-MAINTAINER=		openrobots@laas.fr
-HOMEPAGE=		http://www.blender.org/
-COMMENT=		Blender is an open source 3D content creation suite
+MAINTAINER=			openrobots@laas.fr
+HOMEPAGE=			http://www.blender.org/
+COMMENT=			Blender is an open source 3D content creation suite
 
-LICENSE=		gnu-gpl-v2
+LICENSE=			gnu-gpl-v2
 
 WRKSRC=${WRKDIR}/${DISTNAME}-source
 
 CMAKE_ARG_PATH=		..
 CONFIGURE_DIRS=		_build
 
-USE_LANGUAGES+=		c c++
+USE_LANGUAGES+=		c c++ python
+PKG_SUGGESTED_OPTIONS+=	python3 #Force use of Python3 option
 
 CMAKE_ARGS+=		-DWITH_GAMEENGINE=ON  #GameEngine
 CMAKE_ARGS+=		-DWITH_IK_ITASC=ON  #Inverse Kinematics
 CMAKE_ARGS+=		-DWITH_OPENCOLLADA=OFF  #Collada support - OFF for now, waiting for stabilization
 CMAKE_ARGS+=		-DWITH_PLAYER=ON  #Stand-alone Blender player
+CMAKE_ARGS+=		-DWITH_SAMPLERATE=OFF  # Fix bug with audaspace
+CMAKE_ARGS+=		-DWITH_JACK=OFF  # Fix bug with audaspace
+CMAKE_ARGS+=		-DWITH_OPENAL=OFF  # Fix bug with audaspace
+CMAKE_ARGS+=		-DWITH_SDL=OFF  # Fix bug with audaspace
 
-# For now, let Blender embed Python
-PYTHON_REQD?=		3.1
-#include ../python3/depend.mk
 CMAKE_ARGS+=		-DPYTHON_INC=${PREFIX}/include/python${PYTHON_REQD}
 CMAKE_ARGS+=		-DPYTHON_LIBPATH=${PREFIX}/lib
+# For now, let Blender embed Python
 CMAKE_ARGS+=		-DWITH_PYTHON=ON
 CMAKE_ARGS+=		-DWITH_PYTHON_INSTALL=ON
 
