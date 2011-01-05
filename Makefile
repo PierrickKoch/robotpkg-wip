@@ -4,7 +4,6 @@
 COMMENT=	WIP packages
 
 SUBDIR+=	BioMove3D
-SUBDIR+=	blender
 SUBDIR+=	gest-genom
 SUBDIR+=	kukaFri-libs
 SUBDIR+=	lwr-genom
