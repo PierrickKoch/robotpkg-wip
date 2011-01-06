@@ -27,7 +27,9 @@ HOMEPAGE=		http://softs.laas.fr
 COMMENT=		A 3D simulator for robotics
 LICENSE=		modified-bsd
 
-USE_LANGUAGES+=		c c++
+USE_LANGUAGES+=		c c++ python
+PYTHON_REQUIRED=	>=3
+
 BUILD_TARGET=		all
 INSTALL_TARGET=		install
 
@@ -63,7 +65,7 @@ define PKG_OPTION_SET.pocolibs
   include ../../localization/pom-genom/depend.mk
 endef
 
-# build examples option -- OPTION DOES NOT EXIST ANYMORE IN THE CMAKELISTS
+# build examples option -- OPTION DOES NOT EXIST YET IN THE CMAKELISTS
 #PKG_SUPPORTED_OPTIONS+=	examples
 #PKG_SUGGESTED_OPTIONS+=	examples
 #PKG_OPTION_DESCR.examples?=	Build and install scenarii examples
@@ -72,7 +74,8 @@ endef
 #  CMAKE_ARGS+=		-DBUILD_EXAMPLES=ON
 #endef
 
+DEPEND_ABI.blender=	blender>=2.55
+
 include ../../mk/sysdep/cmake.mk
-include ../../wip/blender/depend.mk
-#include ../../mk/sysdep/blender.mk
+include ../../graphics/blender/depend.mk
 include ../../mk/robotpkg.mk
