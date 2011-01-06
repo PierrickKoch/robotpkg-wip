@@ -58,6 +58,6 @@ include ../../wip/sysdep/glpk.mk
 include ../../wip/sysdep/gts.mk
 include ../../wip/sysdep/qhull.mk
 include ../../wip/sysdep/libxpm.mk
-include ../../wip/sysdep/qt.mk
+include ../../mk/sysdep/qt4-libs.mk
 
 include ../../mk/robotpkg.mk
