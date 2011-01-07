@@ -70,7 +70,7 @@ include ../../audio/speett-genom/depend.mk
 include ../../wip/gest-genom/depend.mk
 include ../../wip/mhp-genom/depend.mk
 include ../../wip/spark-genom/depend.mk
-
+include ../../wip/move3d-assets/depend.mk
 
 include ../../mk/sysdep/tcl.mk
 include ../../mk/sysdep/tk.mk
