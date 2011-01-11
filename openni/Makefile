@@ -105,5 +105,7 @@ do-install:
 		${PREFIX}/bin/niReg -r ${PREFIX}/lib/$$file ${OPENNI_SHARE}; \
 	done
 
+include ../../mk/sysdep/freeglut.mk
+include ../../mk/sysdep/libusb1.mk
 include ../../pkgtools/install-sh/depend.mk
 include ../../mk/robotpkg.mk
