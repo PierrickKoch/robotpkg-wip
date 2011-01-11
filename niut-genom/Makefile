@@ -1,3 +1,7 @@
+# robotpkg Makefile for:	image/niut-genom
+# Created:			Matthieu Herrb on Tue, 11 Jan 2011
+#
+
 DISTNAME=	niut-genom-0.1
 CATEGORIES=	image
 
