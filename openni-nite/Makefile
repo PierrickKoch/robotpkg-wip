@@ -21,8 +21,9 @@ MASTER_SITES= http://www.openni.org/downloadfiles/openni-compliant-middleware-bi
 LICENSE = gnu-lgpl-v3
 
 FETCH_METHOD=   custom
-FETCH_CMD=      wget
+FETCH_CMD=      ${WGET}
 FETCH_BEFORE_ARGS= --content-disposition
+DEPEND_METHOD.wget+= bootstrap
 
 WRKSRC= ${WRKDIR}/Nite-${PKG_VERSION}
 
@@ -54,4 +55,5 @@ do-install:
 include ../../wip/openni/depend.mk
 include ../../wip/openni-sensor/depend.mk
 include ../../pkgtools/install-sh/depend.mk
+include ../../mk/sysdep/wget.mk
 include ../../mk/robotpkg.mk
