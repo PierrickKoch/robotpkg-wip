@@ -89,12 +89,14 @@ SUBST_FILES.data-xml = \
 	Samples/NiSimpleRead/NiSimpleRead.cpp \
 	Samples/NiUserTracker/main.cpp
 
+INSTALLATION_DIRS = \
+	${PREFIX}/bin \
+	${PREFIX}/include/ni \
+	${PREFIX}/lib \
+	${PREFIX}/share/openni
+
 do-install:
-	-mkdir -p ${PREFIX}/bin
-	-mkdir -p ${PREFIX}/lib
-	-mkdir -p ${PREFIX}/include/ni
 	cd ${WRKSRC}/Include; ${PAX} -rwp ma . ${PREFIX}/include/ni
-	-mkdir -p ${PREFIX}/share/openni
 	${INSTALL_DATA} ${WRKSRC}/Data/SamplesConfig.xml ${PREFIX}/share/openni
 	${INSTALL_DATA} ${WRKSRC}/Platform/Linux-x86/Build/CommonMakefile \
 		${PREFIX}/include/ni
