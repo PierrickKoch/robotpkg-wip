@@ -90,6 +90,8 @@ SUBST_FILES.data-xml = \
 	Samples/NiUserTracker/main.cpp
 
 do-install:
+	-mkdir -p ${PREFIX}/bin
+	-mkdir -p ${PREFIX}/lib
 	-mkdir -p ${PREFIX}/include/ni
 	cd ${WRKSRC}/Include; ${PAX} -rwp ma . ${PREFIX}/include/ni
 	-mkdir -p ${PREFIX}/share/openni
