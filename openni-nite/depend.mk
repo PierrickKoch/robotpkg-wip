@@ -1,5 +1,5 @@
 # robotpkg depend.mk for:	hardware/openni-nite
-# Created:			Matthieu Herrb on Tue, 14 Dec 2010
+# Created:			Matthieu Herrb on Tue, 11 Jan 2011
 #
 
 DEPEND_DEPTH:=		${DEPEND_DEPTH}+
