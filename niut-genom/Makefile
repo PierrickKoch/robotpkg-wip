@@ -1,0 +1,19 @@
+DISTNAME=	niut-genom-0.1
+CATEGORIES=	image
+
+MASTER_SITES=	${MASTER_SITE_OPENROBOTS:=niut-genom/}
+MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/niut-genom
+
+MAINTAINER=	openrobots@laas.fr
+COMMENT=	GenoM module for the NITE user tracker from PrimeSense
+LICENSE=	isc
+
+GENOM_MODULE=	niut
+
+USE_LANGUAGES=	c c++
+
+
+include ../../wip/openni-nite/depend.mk
+include ../../architecture/genBasic-genom/depend.mk
+include ../../architecture/genom/depend.mk
+include ../../mk/robotpkg.mk
