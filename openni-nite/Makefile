@@ -3,12 +3,12 @@
 #
 
 ifeq (${MACHINE_ARCH},x86_64)
-	NI_ARCH=x64
-	NI_BITS=64
+	NI_ARCH= x64
+	MASTER_SITES= "http://www.openni.org/downloadfiles/openni-compliant-middleware-binaries/stable/53-primesense-nite-beta-build-for-for-ubuntu-10-10-x64-64-bit-v1-3-0/download"
 endif
 ifeq (${MACHINE_ARCH},i386)
 	NI_ARCH=x86
-	NI_BITS=32
+	MASTER_SITES= "http://www.openni.org/downloadfiles/openni-compliant-middleware-binaries/stable/54-primesense-nite-beta-build-for-for-ubuntu-10-10-x86-32-bit-v1-3-0/download"
 endif
 
 PKG_VERSION=1.3.0.17
@@ -17,7 +17,6 @@ DISTNAME= NITE-Bin-Ubuntu-${NI_ARCH}-${PKG_VERSION}
 COMMENT= Primesense OpenNI nite binary blob
 EXTRACT_SUFX=	.tar.bz2
 CATEGORIES= hardware devel
-MASTER_SITES= http://www.openni.org/downloadfiles/openni-compliant-middleware-binaries/stable/54-primesense-nite-beta-build-for-for-ubuntu-10-10-${NI_ARCH}-${NI_BITS}-bit-v1-3-0/download
 LICENSE = gnu-lgpl-v3
 
 FETCH_METHOD=   custom
