@@ -51,10 +51,14 @@ SUBST_MESSAGE.sensor = Patching the output directory for sensor
 SUBST_SED.sensor = -e 's!/usr/bin!$(ENGINE_BIN)!g' 
 SUBST_FILES.sensor = Source/XnDeviceSensorV2/XnSensorClient.cpp
 
+UDEV_RULES=55-primesense-usb.rules
+MESSAGE_SUBST = UDEV_RULES=${UDEV_RULES}
+
 INSTALLATION_DIRS = \
 	${PREFIX}/bin \
 	${PREFIX}/lib \
-	${PREFIX}/share/openni
+	${PREFIX}/share/openni \
+	${PREFIX}/etc/udev/rules.d
 
 do-install:
 	${INSTALL} ${WRKDIR}/bin/XnSensorServer ${PREFIX}/bin
@@ -70,6 +74,8 @@ do-install:
 		${INSTALL} ${WRKDIR}/lib/$$file ${PREFIX}/lib ; \
 		${PREFIX}/bin/niReg -r ${PREFIX}/lib/$$file ${OPENNI_SHARE}; \
 	done
+	${INSTALL_DATA} ${WRKSRC}/Platform/Linux-x86/Install/${UDEV_RULES} \
+	  ${PREFIX}/etc/udev/rules.d
 
 include ../../wip/openni/depend.mk
 include ../../pkgtools/install-sh/depend.mk
