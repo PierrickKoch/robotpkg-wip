@@ -23,20 +23,21 @@ NO_CONFIGURE = yes
 
 NO_BUILD = yes
 
+INSTALLATION_DIRS = \
+	${PREFIX}/lib \
+	${PREFIX}/include/nite \
+	${PREFIX}/share/openni/XnVFeatures \
+	${PREFIX}/share/openni/XnVHandGenerator
 
 do-install:
-	mkdir -p ${PREFIX}/lib
 	${INSTALL} ${WRKSRC}/Bin/libXnVNite.so ${PREFIX}/lib
-	mkdir -p ${PREFIX}/include/nite
 	cd ${WRKSRC}/Include; ${PAX} -rwp ma . ${PREFIX}/include/nite
 	cd ${WRKSRC}/XnVFeatures/Bin; ${PAX} -rwp ma . ${PREFIX}/lib
-	mkdir -p ${PREFIX}/share/openni/XnVFeatures
 	cd ${WRKSRC}/XnVFeatures/Data; \
 		${PAX} -rwp ma . ${PREFIX}/share/openni/XnVFeatures
 	niReg ${PREFIX}/lib/libXnVFeatures.so \
 		${PREFIX}/share/openni/XnVFeatures
 	cd ${WRKSRC}/XnVHandGenerator/Bin; ${PAX} -rwp ma . ${PREFIX}/lib
-	mkdir -p ${PREFIX}/share/openni/XnVHandGenerator
 	cd ${WRKSRC}/XnVHandGenerator/Data; \
 		${PAX} -rwp ma . ${PREFIX}/share/openni/XnVHandGenerator
 	niReg ${PREFIX}/lib/libXnVHandGenerator.so \
