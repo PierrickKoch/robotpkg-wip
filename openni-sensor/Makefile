@@ -51,10 +51,13 @@ SUBST_MESSAGE.sensor = Patching the output directory for sensor
 SUBST_SED.sensor = -e 's!/usr/bin!$(ENGINE_BIN)!g' 
 SUBST_FILES.sensor = Source/XnDeviceSensorV2/XnSensorClient.cpp
 
+INSTALLATION_DIRS = \
+	${PREFIX}/bin \
+	${PREFIX}/lib \
+	${PREFIX}/share/openni
+
 do-install:
-	-mkdir -p ${PREFIX}/bin
 	${INSTALL} ${WRKDIR}/bin/XnSensorServer ${PREFIX}/bin
-	-mkdir -p ${PREFIX}/lib
 	${INSTALL_DATA} ${WRKSRC}/Data/GlobalDefaults.ini \
 		${PREFIX}/share/openni
 	@for file in libXnCore.so libXnDDK.so libXnFormats.so ; do \
