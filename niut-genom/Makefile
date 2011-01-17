@@ -18,6 +18,6 @@ USE_LANGUAGES=	c c++
 
 
 include ../../wip/openni-nite/depend.mk
-include ../../architecture/genBasic-genom/depend.mk
+include ../../interfaces/genBasic-genom/depend.mk
 include ../../architecture/genom/depend.mk
 include ../../mk/robotpkg.mk

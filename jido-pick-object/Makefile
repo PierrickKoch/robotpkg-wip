@@ -51,7 +51,7 @@ REQD_BUILD_OPTIONS.mhp-genom+= spark
 
 
 include ../../shell/eltclsh/depend.mk
-include ../../architecture/genHum-genom/depend.mk
+include ../../interfaces/genHum-genom/depend.mk
 include ../../graphics/laaswm-libs/depend.mk
 include ../../graphics/laaswm/depend.mk
 include ../../graphics/pqp/depend.mk

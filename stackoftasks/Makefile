@@ -78,7 +78,7 @@ define PKG_OPTION_SET.openhrp
   CMAKE_ARGS+=		-DHRP2_CONFIG_DIRECTORY=${PREFIX.hrp2_14}/share/hrp2_14
   CMAKE_ARGS+=		-DGENERATE_DYNFILES=ON
 
-  include ../../architecture/openhrp/depend.mk
+  include ../../simulation/openhrp/depend.mk
   include ../../robots/hrpsys-jrl/depend.mk
   include ../../robots/hrp2-14/depend.mk
 endef

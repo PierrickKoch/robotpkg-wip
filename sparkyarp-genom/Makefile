@@ -24,7 +24,7 @@ USE_LANGUAGES+=		c c++
 GENOM_MODULE=		sparkyarp
 
 include ../../wip/spark-genom/depend.mk
-include ../../architecture/genBasic-genom/depend.mk
-include ../../architecture/yarp/depend.mk
+include ../../interfaces/genBasic-genom/depend.mk
+include ../../middleware/yarp/depend.mk
 include ../../architecture/genom/depend.mk
 include ../../mk/robotpkg.mk

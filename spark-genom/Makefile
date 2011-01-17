@@ -89,7 +89,7 @@ REQD_BUILD_OPTIONS.BioMove3D:=	jido
 include ../../wip/sysdep/qt.mk
 include ../../wip/BioMove3D/depend.mk
 
-include ../../architecture/genBasic-genom/depend.mk
-include ../../architecture/genHum-genom/depend.mk
+include ../../interfaces/genBasic-genom/depend.mk
+include ../../interfaces/genHum-genom/depend.mk
 include ../../architecture/genom/depend.mk
 include ../../mk/robotpkg.mk

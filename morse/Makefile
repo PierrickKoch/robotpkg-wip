@@ -49,7 +49,7 @@ PKG_OPTION_DESCR.yarp?=	Install support for the YARP middleware
 
 define PKG_OPTION_SET.yarp
   CMAKE_ARGS+=		-DBUILD_YARP2_SUPPORT=ON
-  include ../../devel/libpyyarp/depend.mk
+  include ../../middleware/libpyyarp/depend.mk
 endef
 
 # Pocolibs support
@@ -58,8 +58,8 @@ PKG_OPTION_DESCR.pocolibs?=	Install support for the Pocolibs communication libra
 
 define PKG_OPTION_SET.pocolibs
   CMAKE_ARGS+=		-DBUILD_POCOLIBS_SUPPORT=ON
-  include ../../architecture/genPos-genom/depend.mk
-  include ../../devel/pocolibs/depend.mk
+  include ../../interfaces/genPos-genom/depend.mk
+  include ../../middleware/pocolibs/depend.mk
   include ../../hardware/sick-genom/depend.mk
   include ../../image/viam-genom/depend.mk
   include ../../localization/pom-genom/depend.mk
