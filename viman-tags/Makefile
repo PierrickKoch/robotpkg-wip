@@ -22,7 +22,7 @@ include ../../pkgtools/install-sh/depend.mk
 include ../../mk/robotpkg.mk
 
 do-install:
-	install -d ${PREFIX}/share/viman/tags
-	cd ${WRKSRC} && ${PAX} -rwp ma . ${PREFIX}/share/viman/tags
+	install -d ${PREFIX}/share/viman/
+	cd ${WRKSRC} && ${PAX} -rwp ma . ${PREFIX}/share/viman/
 
 
