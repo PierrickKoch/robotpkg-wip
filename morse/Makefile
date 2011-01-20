@@ -17,7 +17,8 @@
 #                                          Severin Lemaignan on Fri May 28 2010
 #
 
-DISTNAME=		morse-0.2b1
+DISTNAME=	    	morse-${PKGVERSION}
+PKGVERSION=	    	0.2
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=morse/}
 MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/morse
 
@@ -34,14 +35,14 @@ BUILD_TARGET=		all
 INSTALL_TARGET=		install
 
 # doc option
-#PKG_SUPPORTED_OPTIONS+=	doc
-#PKG_SUGGESTED_OPTIONS+=	doc
-#PKG_OPTION_DESCR.doc?=	Install ${PKGBASE} documentation
-#
-#define PKG_OPTION_SET.doc
-#  BUILD_TARGET+=	doc
-#  INSTALL_TARGET+=	install-doc
-#endef
+PKG_SUPPORTED_OPTIONS+=	doc
+PKG_SUGGESTED_OPTIONS+=	doc
+PKG_OPTION_DESCR.doc?=	Install ${PKGBASE} documentation
+
+define PKG_OPTION_SET.doc
+  BUILD_TARGET+=	doc
+  #TODO! include ../../mk/sysdep/python-sphinx.mk
+endef
 
 # YARP support
 PKG_SUPPORTED_OPTIONS+=	yarp
@@ -53,29 +54,84 @@ define PKG_OPTION_SET.yarp
 endef
 
 # Pocolibs support
-PKG_SUPPORTED_OPTIONS+=	pocolibs
-PKG_OPTION_DESCR.pocolibs?=	Install support for the Pocolibs communication library
 
-define PKG_OPTION_SET.pocolibs
+PKG_OPTIONS_OPTIONAL_GROUPS=	pocolibs
+PKG_OPTIONS_GROUP.pocolibs=	pocolibs-all pocolibs-outdoor pocolibs-hri
+
+PKG_SUPPORTED_OPTIONS+=	pocolibs-outdoor
+PKG_OPTION_DESCR.pocolibs-outdoor?=	Install support for Pocolibs modules useful for field robotics
+
+define PKG_OPTION_SET.pocolibs-outdoor
   CMAKE_ARGS+=		-DBUILD_POCOLIBS_SUPPORT=ON
-  include ../../interfaces/genPos-genom/depend.mk
-  include ../../middleware/pocolibs/depend.mk
+  CMAKE_ARGS+=		-DBUILD_POCOLIBS_POM_SUPPORT=ON
+  CMAKE_ARGS+=		-DBUILD_POCOLIBS_VIAM_SUPPORT=ON
+  CMAKE_ARGS+=		-DBUILD_POCOLIBS_SICK_SUPPORT=ON
+  CMAKE_ARGS+=		-DBUILD_POCOLIBS_PLATINE_SUPPORT=ON
+  CMAKE_ARGS+=		-DBUILD_POCOLIBS_GENPOS_SUPPORT=ON
+
+  include ../../architecture/genPos-genom/depend.mk
   include ../../hardware/sick-genom/depend.mk
   include ../../image/viam-genom/depend.mk
   include ../../localization/pom-genom/depend.mk
+
 endef
 
-# build examples option -- OPTION DOES NOT EXIST YET IN THE CMAKELISTS
-#PKG_SUPPORTED_OPTIONS+=	examples
-#PKG_SUGGESTED_OPTIONS+=	examples
-#PKG_OPTION_DESCR.examples?=	Build and install scenarii examples
-#
-#define PKG_OPTION_SET.examples
-#  CMAKE_ARGS+=		-DBUILD_EXAMPLES=ON
-#endef
+PKG_SUPPORTED_OPTIONS+=	pocolibs-hri
+PKG_OPTION_DESCR.pocolibs-hri?=	Install support for Pocolibs modules useful for human-robot interaction
+
+define PKG_OPTION_SET.pocolibs-hri
+  CMAKE_ARGS+=		-DBUILD_POCOLIBS_SUPPORT=ON
+  CMAKE_ARGS+=		-DBUILD_POCOLIBS_POM_SUPPORT=ON
+  CMAKE_ARGS+=		-DBUILD_POCOLIBS_LWR_SUPPORT=ON
+  CMAKE_ARGS+=		-DBUILD_POCOLIBS_VIMAN_SUPPORT=ON
+  CMAKE_ARGS+=		-DBUILD_POCOLIBS_HUMAN_POSTURE_SUPPORT=ON
+  CMAKE_ARGS+=		-DBUILD_POCOLIBS_GENPOS_SUPPORT=ON
+  CMAKE_ARGS+=		-DBUILD_POCOLIBS_PLATINE_SUPPORT=ON
+
+  include ../../architecture/genPos-genom/depend.mk
+  include ../../localization/pom-genom/depend.mk
+  include ../../wip/lwr-genom/depend.mk
+  include ../../wip/spark-genom/depend.mk
+  include ../../wip/viman-genom/depend.mk
+
+endef
+
+
+PKG_SUPPORTED_OPTIONS+=	pocolibs-all
+PKG_OPTION_DESCR.pocolibs-all?=	Install support for all Pocolibs modules
+
+define PKG_OPTION_SET.pocolibs-all
+  CMAKE_ARGS+=		-DBUILD_POCOLIBS_SUPPORT=ON
+  CMAKE_ARGS+=		-DBUILD_POCOLIBS_POM_SUPPORT=ON
+  CMAKE_ARGS+=		-DBUILD_POCOLIBS_VIAM_SUPPORT=ON
+  CMAKE_ARGS+=		-DBUILD_POCOLIBS_SICK_SUPPORT=ON
+  CMAKE_ARGS+=		-DBUILD_POCOLIBS_PLATINE_SUPPORT=ON
+  CMAKE_ARGS+=		-DBUILD_POCOLIBS_GENPOS_SUPPORT=ON
+  CMAKE_ARGS+=		-DBUILD_POCOLIBS_LWR_SUPPORT=ON
+  CMAKE_ARGS+=		-DBUILD_POCOLIBS_VIMAN_SUPPORT=ON
+  CMAKE_ARGS+=		-DBUILD_POCOLIBS_HUMAN_POSTURE_SUPPORT=ON
+ 
+  include ../../architecture/genPos-genom/depend.mk
+  include ../../hardware/sick-genom/depend.mk
+  include ../../image/viam-genom/depend.mk
+  include ../../localization/pom-genom/depend.mk
+  include ../../wip/lwr-genom/depend.mk
+  include ../../wip/spark-genom/depend.mk
+  include ../../wip/viman-genom/depend.mk
+
+endef
+
+# ROS support (only partial)
+PKG_SUPPORTED_OPTIONS+=	ros
+PKG_OPTION_DESCR.ros?=	Install support for the ROS middleware
+
+define PKG_OPTION_SET.ros
+  CMAKE_ARGS+=		-DBUILD_ROS_SUPPORT=ON
+  include ../../meta-pkgs/ros-base/depend.mk
+endef
 
 DEPEND_ABI.blender=	blender>=2.55
 
-include ../../mk/sysdep/cmake.mk
 include ../../graphics/blender/depend.mk
+include ../../mk/sysdep/cmake.mk
 include ../../mk/robotpkg.mk
