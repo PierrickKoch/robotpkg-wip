@@ -1,0 +1,14 @@
+Pkgconfig for opencv produces -I${prefix}/include/opencv, zap opencv/ from 
+include directives and include cv.h only once. 
+ 
+--- wrappers/opencv/cvdemo.c~	2011-01-06 06:03:39.000000000 +0100
++++ wrappers/opencv/cvdemo.c	2011-01-20 16:58:02.937129000 +0100
+@@ -1,7 +1,6 @@
+-#include <opencv/cv.h>
+-#include <opencv/highgui.h>
+ #include <stdio.h>
+ #include "libfreenect_cv.h"
++#include <highgui.h>
+ 
+ IplImage *GlViewColor(IplImage *depth)
+ {

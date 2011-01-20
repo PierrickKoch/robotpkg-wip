@@ -1,0 +1,20 @@
+Zap opencv/ from include directives.
+
+--- wrappers/opencv/libfreenect_cv.h~	2011-01-06 06:03:39.000000000 +0100
++++ wrappers/opencv/libfreenect_cv.h	2011-01-20 16:54:27.903830000 +0100
+@@ -5,7 +5,7 @@
+ extern "C" {
+ #endif
+ 
+-#include <opencv/cv.h>
++#include <cv.h>
+ 
+ 	IplImage *freenect_sync_get_depth_cv(int index);
+ 	IplImage *freenect_sync_get_rgb_cv(int index);
+@@ -14,4 +14,4 @@
+ }
+ #endif
+ 
+-#endif
+\ No newline at end of file
++#endif

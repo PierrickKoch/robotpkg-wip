@@ -1,9 +1,25 @@
-@comment Wed Nov 24 18:58:39 CET 2010
+@comment Tue Jan 18 16:28:19 CET 2011
+bin/cppview
+${PLIST.opencv}bin/cvdemo
+bin/glpclview
 bin/glview
+bin/tiltdemo
+include/libfreenect.hpp
 include/libfreenect/libfreenect.h
-include/libfreenect/libfreenect.hpp
+${PLIST.opencv}include/libfreenect/libfreenect_cv.h
+include/libfreenect/libfreenect_sync.h
+lib/fakenect/libfreenect.so
+lib/fakenect/libfreenect.so.0.0
+lib/fakenect/libfreenect.so.0.0.1
 lib/libfreenect.a
 lib/libfreenect.so
 lib/libfreenect.so.0.0
 lib/libfreenect.so.0.0.1
+${PLIST.opencv}lib/libfreenect_cv.so
+${PLIST.opencv}lib/libfreenect_cv.so.0.0
+${PLIST.opencv}lib/libfreenect_cv.so.0.0.1
+lib/libfreenect_sync.a
+lib/libfreenect_sync.so
+lib/libfreenect_sync.so.0.0
+lib/libfreenect_sync.so.0.0.1
 lib/pkgconfig/libfreenect.pc
