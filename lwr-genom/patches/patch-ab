@@ -1,0 +1,19 @@
+--- codels/lwrCmdCodels.cc~	2011-01-20 14:40:53.000000000 +0100
++++ codels/lwrCmdCodels.cc	2011-01-21 11:13:04.897729846 +0100
+@@ -2340,11 +2340,15 @@
+     if(smTraj.nbAxis != 24) {
+       printf("ERROR: lwr::TrackQ traj.nbAxis (%d) != 24 \n", smTraj.nbAxis);
+       return ETHER;
++    } else { 
++      printf("INFO: lwr::TrackQ there are %d axes in the trajectory \n", smTraj.nbAxis);
+     }
+ 
++
+     currentMotion.traj.clear();
+     currentMotion.traj.importFromSM_TRAJ_STR(&smTraj);
+-
++    currentMotion.traj.computeTimeOnTraj();
++    //currentMotion.traj.print();
+     break;
+   default:
+     *report = S_lwr_BAD_MODE;
