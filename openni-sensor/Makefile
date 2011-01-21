@@ -4,6 +4,7 @@
 
 COMMIT= 7a39cd
 PKG_VERSION= 20101214.${COMMIT}
+PKGREVISION= 1
 COMMENT= Primesense OpenNI Sensor Engine
 CATEGORIES = hardware image
 LICENSE = gnu-lgpl-v3
@@ -74,7 +75,7 @@ do-install:
 		${INSTALL} ${WRKDIR}/lib/$$file ${PREFIX}/lib ; \
 		${PREFIX}/bin/niReg -r ${PREFIX}/lib/$$file ${OPENNI_SHARE}; \
 	done
-	${INSTALL_DATA} ${WRKSRC}/Platform/Linux-x86/Install/${UDEV_RULES} \
+	${INSTALL_DATA} ${FILESDIR}/${UDEV_RULES} \
 	  ${PREFIX}/etc/udev/rules.d
 
 include ../../wip/openni/depend.mk
