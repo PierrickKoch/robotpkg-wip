@@ -1,0 +1,1 @@
+pypoco is a Python binding for the LAAS tclServ protocol used to control Pocolibs-based modules.
