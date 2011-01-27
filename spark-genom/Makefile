@@ -107,10 +107,10 @@ GENOM_MODULE=		spark
 # HRI with BioMove3D
 REQD_BUILD_OPTIONS.BioMove3D:=	jido
 
-include ../../wip/sysdep/qt.mk
 include ../../wip/BioMove3D/depend.mk
 
 include ../../interfaces/genBasic-genom/depend.mk
 include ../../interfaces/genHum-genom/depend.mk
 include ../../architecture/genom/depend.mk
+include ../../mk/sysdep/qt4-libs.mk
 include ../../mk/robotpkg.mk
