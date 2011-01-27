@@ -5,7 +5,7 @@
 DISTNAME=	NITE-Bin-Ubuntu-${NI_ARCH}-${PKG_VERSION}
 PKGNAME=	openni-nite-${PKG_VERSION}
 PKG_VERSION=	1.3.0.17
-CATEGORIES=	hardware devel
+CATEGORIES=	image
 EXTRACT_SUFX=	.tar.bz2
 
 COMMENT=	Primesense OpenNI nite binary blob
