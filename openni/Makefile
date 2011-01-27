@@ -5,7 +5,7 @@
 COMMIT= 43c256
 PKG_VERSION= 20101213.${COMMIT}
 COMMENT= Primesense OpenNI framework for Natural Interaction
-CATEGORIES = hardware image
+CATEGORIES = middleware image
 LICENSE = gnu-lgpl-v3
 
 DISTNAME= openni-${PKG_VERSION}
