@@ -85,7 +85,7 @@ PKG_OPTION_DESCR.niut=	Enable kinect/niut support
 
 define PKG_OPTION_SET.niut
   GENOM_ARGS+= -DNIUT
-  #include ../../wip/niut-genom/depend.mk
+  include ../../wip/niut-genom/depend.mk
 endef
 
 ##
