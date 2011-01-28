@@ -3,6 +3,7 @@
 #
 
 DISTNAME=		BioMove3D-3.8.1
+PKGREVISION=		1
 CATEGORIES=		path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=BioMove3D/}
 MASTER_REPOSITORY=	git http://trac.laas.fr/git/robots/BioMove3D.git
