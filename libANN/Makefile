@@ -2,6 +2,7 @@
 # Created:			Nizar Sallem on Fri, 12 Nov 2010
 #
 
+PKGNAME= 	ann-${VERSION}
 DISTNAME=	ann_${VERSION}
 VERSION=1.1.2
 CATEGORIES=	math
