@@ -17,8 +17,9 @@
 #                                          Severin Lemaignan on Fri May 28 2010
 #
 
-DISTNAME=	    	morse-${PKGVERSION}
-PKGVERSION=	    	0.2
+DISTNAME=	    	morse-${VERSION}
+VERSION=	    	0.2
+PKGREVISION=		1
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=morse/}
 MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/morse
 
@@ -30,6 +31,10 @@ LICENSE=		modified-bsd
 
 USE_LANGUAGES+=		c c++ python
 PYTHON_REQUIRED=	>=3
+
+CMAKE_ARGS+=            -DPYTHON3_EXECUTABLE=${PYTHON}
+CMAKE_ARGS+=            -DPYTHON3_INCLUDE_PATH=${PYTHON_INCLUDE}
+CMAKE_ARGS+=            -DPYTHON3_LIBRARY=${PYTHON_LIB}
 
 BUILD_TARGET=		all
 INSTALL_TARGET=		install
@@ -65,12 +70,10 @@ define PKG_OPTION_SET.pocolibs-outdoor
   CMAKE_ARGS+=		-DBUILD_POCOLIBS_SUPPORT=ON
   CMAKE_ARGS+=		-DBUILD_POCOLIBS_POM_SUPPORT=ON
   CMAKE_ARGS+=		-DBUILD_POCOLIBS_VIAM_SUPPORT=ON
-  CMAKE_ARGS+=		-DBUILD_POCOLIBS_SICK_SUPPORT=ON
   CMAKE_ARGS+=		-DBUILD_POCOLIBS_PLATINE_SUPPORT=ON
   CMAKE_ARGS+=		-DBUILD_POCOLIBS_GENPOS_SUPPORT=ON
 
-  include ../../architecture/genPos-genom/depend.mk
-  include ../../hardware/sick-genom/depend.mk
+  include ../../interfaces/genPos-genom/depend.mk
   include ../../image/viam-genom/depend.mk
   include ../../localization/pom-genom/depend.mk
 
@@ -88,11 +91,11 @@ define PKG_OPTION_SET.pocolibs-hri
   CMAKE_ARGS+=		-DBUILD_POCOLIBS_GENPOS_SUPPORT=ON
   CMAKE_ARGS+=		-DBUILD_POCOLIBS_PLATINE_SUPPORT=ON
 
-  include ../../architecture/genPos-genom/depend.mk
+  include ../../interfaces/genPos-genom/depend.mk
   include ../../localization/pom-genom/depend.mk
   include ../../wip/lwr-genom/depend.mk
   include ../../wip/spark-genom/depend.mk
-  include ../../wip/viman-genom/depend.mk
+  include ../../image/viman-genom/depend.mk
 
 endef
 
@@ -104,20 +107,18 @@ define PKG_OPTION_SET.pocolibs-all
   CMAKE_ARGS+=		-DBUILD_POCOLIBS_SUPPORT=ON
   CMAKE_ARGS+=		-DBUILD_POCOLIBS_POM_SUPPORT=ON
   CMAKE_ARGS+=		-DBUILD_POCOLIBS_VIAM_SUPPORT=ON
-  CMAKE_ARGS+=		-DBUILD_POCOLIBS_SICK_SUPPORT=ON
   CMAKE_ARGS+=		-DBUILD_POCOLIBS_PLATINE_SUPPORT=ON
   CMAKE_ARGS+=		-DBUILD_POCOLIBS_GENPOS_SUPPORT=ON
   CMAKE_ARGS+=		-DBUILD_POCOLIBS_LWR_SUPPORT=ON
   CMAKE_ARGS+=		-DBUILD_POCOLIBS_VIMAN_SUPPORT=ON
   CMAKE_ARGS+=		-DBUILD_POCOLIBS_HUMAN_POSTURE_SUPPORT=ON
  
-  include ../../architecture/genPos-genom/depend.mk
-  include ../../hardware/sick-genom/depend.mk
+  include ../../interfaces/genPos-genom/depend.mk
   include ../../image/viam-genom/depend.mk
   include ../../localization/pom-genom/depend.mk
   include ../../wip/lwr-genom/depend.mk
   include ../../wip/spark-genom/depend.mk
-  include ../../wip/viman-genom/depend.mk
+  include ../../image/viman-genom/depend.mk
 
 endef
 
