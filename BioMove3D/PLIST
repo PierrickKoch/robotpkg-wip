@@ -1,4 +1,4 @@
-@comment Tue Nov 30 11:55:55 CET 2010
+@comment Thu Feb 3 18:29:21 CET 2011
 bin/move3d
 include/BioMove3D/animation/proto/anim_charac_traj_interface_proto.h
 include/BioMove3D/animation/proto/anim_charac_traj_proto.h
