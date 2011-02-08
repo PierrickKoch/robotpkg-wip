@@ -41,8 +41,9 @@ SYSTEM_SEARCH.xforms=	\
 	lib/libformsGL.so	\
 
 SYSTEM_PKG.Linux-fedora.xforms=xforms-devel
-SYSTEM_PKG.Linux-ubuntu.xforms=libforms-dev
-SYSTEM_PKG.Linux-debian.xforms=libforms-dev
+SYSTEM_PKG.Linux-ubuntu.xforms=libforms-dev libformsgl-dev
+SYSTEM_PKG.Linux-debian.xforms=libforms-dev libformsgl-dev
+
 
 endif # XFORMS_DEPEND_MK ---------------------------------------------------
 
