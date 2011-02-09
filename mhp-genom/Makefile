@@ -31,7 +31,6 @@ PKG_OPTION_DESCR.hrp2=	Compile MHP for HRP2
 define PKG_OPTION_SET.hrp2
   GENOM_ARGS+= -DHRP2
   include ../../localization/pom-genom/depend.mk
-  include ../../image/viman-genom/depend.mk
 endef
 
 ##
@@ -44,17 +43,24 @@ define PKG_OPTION_SET.jido
   include ../../localization/pom-genom/depend.mk
   include ../../math/gbM/depend.mk
   include ../../wip/lwr-genom/depend.mk
-  include ../../image/viman-genom/depend.mk
-  include ../../localization/mocap-genom/depend.mk
-  include ../../wip/gest-genom/depend.mk
+  include ../../motion/pilo-genom/depend.mk
 endef
 
+PKG_SUGGESTED_OPTIONS+=	jido
 ##
 ## Simulation
 ##
+
+## TODO!! The -DSIMULATION option seems broken in MHP.
+## If not solved before 09/03/2011, I'll remove it from robotpkg
 PKG_OPTION_DESCR.simulation=	Compile MHP for simulation only
-PKG_OPTION_SET.simulation:=	GENOM_ARGS+= -DSIMULATION
-PKG_SUGGESTED_OPTIONS+=	simulation
+
+define PKG_OPTION_SET.simulation
+  GENOM_ARGS+= -DSIMULATION
+  include ../../motion/pilo-genom/depend.mk
+endef
+
+
 ##
 ## SPARK synchonization
 ##
@@ -66,6 +72,7 @@ define PKG_OPTION_SET.spark
   include ../../wip/spark-genom/depend.mk
 endef
 
+PKG_SUGGESTED_OPTIONS+=	spark
 
 ##
 ## Ontology server
@@ -81,11 +88,6 @@ endef
 #####################
 
 GENOM_MODULE=		mhp
-
-## BioMove3D dependency
-## Build BioMove3D with the "Jido" profile to get all required options for
-# HRI with BioMove3D
-REQD_BUILD_OPTIONS.BioMove3D:=	jido
 
 include ../../wip/sysdep/xforms.mk
 
