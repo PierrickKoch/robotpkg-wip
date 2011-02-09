@@ -77,27 +77,6 @@ define PKG_OPTION_SET.oro
   include ../../knowledge/liboro/depend.mk
 endef
 
-##
-## Kinect niut module (Human localization)
-##
-PKG_SUPPORTED_OPTIONS+=	niut
-PKG_OPTION_DESCR.niut=	Enable kinect/niut support
-
-define PKG_OPTION_SET.niut
-  GENOM_ARGS+= -DNIUT
-  include ../../image/niut-genom/depend.mk
-endef
-
-##
-## Interface (work-around the main thread limitation)
-##
-PKG_SUPPORTED_OPTIONS+=	beta_interface
-PKG_OPTION_DESCR.beta_interface = The Qt event loop is launched in a separate thread
-
-define PKG_OPTION_SET.beta_interface
-  GENOM_ARGS+= -DBETA_INTERFACE
-endef
-
 #####################
 
 GENOM_MODULE=		spark
