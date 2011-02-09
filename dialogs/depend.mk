@@ -26,7 +26,7 @@ ifeq (+,$(DIALOGS_DEPEND_MK)) # -----------------------------------------------
 PREFER.dialogs?=		robotpkg
 
 DEPEND_USE+=		dialogs
-DEPEND_ABI.dialogs?=	dialogs>=0.4
+DEPEND_ABI.dialogs?=	dialogs>=0.5
 DEPEND_DIR.dialogs?=	../../wip/dialogs
 
 SYSTEM_SEARCH.dialogs=\

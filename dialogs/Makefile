@@ -17,18 +17,18 @@
 
 
 DISTNAME=	    	dialogs-${PKGVERSION}
-PKGVERSION=	    	0.4
+PKGVERSION=	    	0.5
 
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=dialogs/}
 MASTER_REPOSITORY=	git http://trac.laas.fr/git/robots/dialogs.git
 
 CATEGORIES=	wip
-LICENSE=	bsd
-MAINTAINER=	openrobots@laas.fr
-COMMENT=    A natural language processor for human-robot interaction using ontologies
+LICENSE=	2-clause-bsd
+MAINTAINER=	slemaign@laas.fr
+COMMENT=    A natural language processor for human-robot interaction
 
 USE_LANGUAGES+=		python
-PYTHON_REQUIRED=	>=2.5<3
+PYTHON_REQUIRED=	>=2.5 <3
 
 PYDISTUTILSPKG=		yes
 
