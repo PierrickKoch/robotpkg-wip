@@ -74,17 +74,6 @@ endef
 
 PKG_SUGGESTED_OPTIONS+=	spark
 
-##
-## Ontology server
-##
-PKG_SUPPORTED_OPTIONS+=	oro
-PKG_OPTION_DESCR.oro=	Enable the support of ORO ontology server
-
-define PKG_OPTION_SET.oro
-  GENOM_ARGS+= -DORO
-  include ../../knowledge/liboro/depend.mk
-endef
-
 #####################
 
 GENOM_MODULE=		mhp
