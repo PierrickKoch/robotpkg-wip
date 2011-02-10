@@ -21,7 +21,7 @@ GENOM_MODULE=		gest
 
 # Lots of missing dependencies : at least latex.
 include ../../localization/pom-genom/depend.mk
-include ../../image/viam-libs/depend.mk
+include ../../image/viam-genom/depend.mk
 include ../../image/opencv/depend.mk
 include ../../architecture/genom/depend.mk
 
