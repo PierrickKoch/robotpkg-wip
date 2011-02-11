@@ -3,7 +3,7 @@
 
 COMMENT=	WIP packages
 
-SUBDIR+=	BioMove3D
+SUBDIR+=	libmove3d
 SUBDIR+=	gest-genom
 SUBDIR+=	kukaFri-libs
 SUBDIR+=	libfreenect
