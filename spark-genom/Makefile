@@ -1,7 +1,7 @@
 # Created:			Severin Lemaignan on Fri, 24 Sep 2010
 #
 
-DISTNAME=		spark-genom-3.0
+DISTNAME=		spark-genom-3.2
 CATEGORIES=		knowledge
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=spark-genom/}
 MASTER_REPOSITORY=	git http://trac.laas.fr/git/robots/spark-genom.git
@@ -50,6 +50,7 @@ PKG_OPTION_DESCR.jido=	Compile SPARK with support for Jido
 
 define PKG_OPTION_SET.jido
   GENOM_ARGS+= -DJIDO
+  GENOM_ARGS+= -DUSE_GLUT
   include ../../manipulation/genManip-genom/depend.mk
   include ../../localization/pom-genom/depend.mk
   include ../../math/gbM/depend.mk
@@ -57,6 +58,7 @@ define PKG_OPTION_SET.jido
   include ../../image/viman-genom/depend.mk
   include ../../localization/mocap-genom/depend.mk
   include ../../wip/gest-genom/depend.mk
+  include ../../image/niut-genom/depend.mk
 endef
 
 ##
@@ -86,7 +88,7 @@ GENOM_MODULE=		spark
 # HRI with BioMove3D
 REQD_BUILD_OPTIONS.BioMove3D:=	jido
 
-include ../../wip/BioMove3D/depend.mk
+include ../../wip/libmove3d/depend.mk
 
 include ../../interfaces/genBasic-genom/depend.mk
 include ../../interfaces/genHum-genom/depend.mk
