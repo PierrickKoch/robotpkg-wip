@@ -2,18 +2,17 @@
 # Created:			Severin Lemaignan on Fri, 11 Feb 2011
 #
 
-DISTNAME=		libmove3d-3.9.1
-CATEGORIES=		path
+DISTNAME=			libmove3d-3.9.1
+CATEGORIES=			path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=BioMove3D/}
-#MASTER_REPOSITORY=	git http://trac.laas.fr/git/robots/BioMove3D.git
-MASTER_REPOSITORY=	git /home/slemaign/softs-local/BioMove3D 
+MASTER_REPOSITORY=	git http://trac.laas.fr/git/robots/BioMove3D.git
 
-MAINTAINER=		biomove3dgitrepo@laas.fr
-COMMENT=		Library for motion planning and geometric reasonning
+MAINTAINER=			biomove3dgitrepo@laas.fr
+COMMENT=			Library for motion planning and geometric reasonning
 
 #libmove3d is currently GPL because it depends
 # on GSL and GLPK that are 2 GLP librairies.
-LICENSE=		gnu-gpl-v2
+LICENSE=			gnu-gpl-v2
 
 USE_LANGUAGES+=		c c++
 
