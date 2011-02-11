@@ -2,7 +2,7 @@
 # Created:			Severin Lemaignan on Tue, 31 Aug 2010
 #
 
-DISTNAME=		mhp-genom-3.4
+DISTNAME=		mhp-genom-3.5
 CATEGORIES=		path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=mhp-genom/}
 MASTER_REPOSITORY=	git ssh://softs.laas.fr/git/robots/mhp-genom
@@ -40,6 +40,7 @@ PKG_OPTION_DESCR.jido=	Compile MHP for Jido
 
 define PKG_OPTION_SET.jido
   GENOM_ARGS+= -DJIDO
+  GENOM_ARGS+= -DUSE_GLUT
   include ../../localization/pom-genom/depend.mk
   include ../../math/gbM/depend.mk
   include ../../wip/lwr-genom/depend.mk
@@ -78,9 +79,8 @@ PKG_SUGGESTED_OPTIONS+=	spark
 
 GENOM_MODULE=		mhp
 
-include ../../wip/sysdep/xforms.mk
+include ../../wip/libmove3d/depend.mk
 
-include ../../wip/BioMove3D/depend.mk
 include ../../manipulation/genManip-genom/depend.mk
 include ../../architecture/genom/depend.mk
 
