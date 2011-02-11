@@ -4,6 +4,7 @@
 COMMENT=	WIP packages
 
 SUBDIR+=	libmove3d
+SUBDIR+=	move3d-studio
 SUBDIR+=	gest-genom
 SUBDIR+=	kukaFri-libs
 SUBDIR+=	libfreenect
