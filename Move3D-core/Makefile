@@ -2,7 +2,7 @@
 # Created:			Jim Mainprice on Mon, 29 Nov 2010
 #
 
-DISTNAME=		Move3D-core-3.7.14
+DISTNAME=		Move3D-core-3.9.1
 CATEGORIES=		path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=Move3D-libs/}
 MASTER_REPOSITORY=	git http://trac.laas.fr/git/robots/BioMove3D.git
@@ -13,14 +13,15 @@ COMMENT=		Motion planning and geometric reasonning module
 # on GSL and GLPK that are 2 GLP librairies.
 LICENSE=		gnu-gpl-v2
 
+NOT_FOR_PLATFORM=
 USE_LANGUAGES+=		c c++
+
+CMAKE_ARGS+= -DGENERATE_VIEWER_LIB=ON
 
 CMAKE_ARGS+= -DEigen_INCLUDE_DIR=${PREFIX.eigen2}/include/eigen2
 CMAKE_ARGS+= -DBOOST_INCLUDEDIR=${PREFIX.boost-headers}/include
 CMAKE_ARGS+= -DBOOST_LIBRARYDIR=${PREFIX.boost-libs}/lib
 
-CMAKE_ARGS+= -DCOMPILE_MOVE3DCORE=ON
-include ../../graphics/pqp/depend.mk
 include ../../math/gbM/depend.mk
 include ../../motion/softMotion-libs/depend.mk
 
@@ -28,14 +29,17 @@ include ../../motion/softMotion-libs/depend.mk
 include ../../mk/sysdep/cmake.mk
 include ../../devel/boost-headers/depend.mk
 include ../../devel/boost-libs/depend.mk
-include ../../mk/sysdep/glu.mk
 include ../../math/eigen2/depend.mk
-include ../../mk/sysdep/gsl.mk
 
 include ../../wip/sysdep/glpk.mk
 include ../../wip/sysdep/gts.mk
 include ../../wip/sysdep/qhull.mk
 include ../../wip/sysdep/libxpm.mk
-include ../../wip/sysdep/qt.mk
 
+include ../../mk/sysdep/glu.mk
+include ../../mk/sysdep/gsl.mk
+include ../../mk/sysdep/libxml2.mk
+include ../../mk/sysdep/glib2.mk
+
+include ../../mk/sysdep/qt4-libs.mk
 include ../../mk/robotpkg.mk
