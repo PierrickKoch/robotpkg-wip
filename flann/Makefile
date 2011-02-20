@@ -4,7 +4,7 @@
 
 PKGNAME= 			flann-${VERSION}
 DISTNAME=			flann-${VERSION}-src
-VERSION=			1.6.6
+VERSION=			1.6.7
 EXTRACT_SUFX= .zip
 CATEGORIES=		math
 MASTER_SITES=	http://www.cs.ubc.ca/~mariusm/uploads/FLANN/
@@ -52,10 +52,10 @@ define PKG_OPTION_UNSET.matlab
   CMAKE_ARGS+=			-DBUILD_MATLAB_BINDINGS=OFF
 endef
 
-#option for matlab bindings generation
+#option for using mpi 
 PKG_SUPPORTED_OPTIONS+=		mpi
 PKG_SUGGESTED_OPTIONS-=		mpi
-PKG_OPTION_DESCR.mpi=	Enable mpi using.
+PKG_OPTION_DESCR.mpi=	Enable message parsing interface using.
 define PKG_OPTION_SET.mpi
   CMAKE_ARGS+=			-DUSE_MPI=ON
 endef
