@@ -134,5 +134,6 @@ endef
 DEPEND_ABI.blender=	blender>=2.55
 
 include ../../graphics/blender/depend.mk
+include ../../pkgtools/pkg-config/depend.mk
 include ../../mk/sysdep/cmake.mk
 include ../../mk/robotpkg.mk
