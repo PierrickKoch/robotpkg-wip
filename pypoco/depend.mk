@@ -29,8 +29,9 @@ DEPEND_USE+=		pypoco
 DEPEND_ABI.pypoco?=	pypoco>=1.2
 DEPEND_DIR.pypoco?=	../../wip/pypoco
 
+_pynamespec=python{2.6,2.5,2.4,[0-9].[0-9],}
 SYSTEM_SEARCH.pypoco=\
-	lib/python2.6/{site|dist}-packages/pypoco.py
+	'lib/${_pynamespec}/{site,dist}-packages/pypoco.py'
 
 endif # PYPOCO_DEPEND_MK -----------------------------------------------------
 
