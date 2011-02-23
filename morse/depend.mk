@@ -34,7 +34,7 @@ SYSTEM_SEARCH.morse=\
 
 DEPEND_USE+=		morse
 
-DEPEND_ABI.morse?=	morse>=0.2b1
+DEPEND_ABI.morse?=	morse>=0.2
 DEPEND_DIR.morse?=	../../wip/morse
 
 endif # MORSE_DEPEND_MK ---------------------------------------------------

@@ -18,8 +18,7 @@
 #
 
 DISTNAME=	    	morse-${VERSION}
-VERSION=	    	0.2
-PKGREVISION=		1
+VERSION=	    	0.2.1
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=morse/}
 MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/morse
 
@@ -123,13 +122,13 @@ define PKG_OPTION_SET.pocolibs-all
 endef
 
 # ROS support (only partial)
-PKG_SUPPORTED_OPTIONS+=	ros
-PKG_OPTION_DESCR.ros?=	Install support for the ROS middleware
-
-define PKG_OPTION_SET.ros
-  CMAKE_ARGS+=		-DBUILD_ROS_SUPPORT=ON
-  include ../../meta-pkgs/ros-base/depend.mk
-endef
+#PKG_SUPPORTED_OPTIONS+=	ros
+#PKG_OPTION_DESCR.ros?=	Install support for the ROS middleware
+#
+#define PKG_OPTION_SET.ros
+#  CMAKE_ARGS+=		-DBUILD_ROS_SUPPORT=ON
+#  include ../../meta-pkgs/ros-base/depend.mk
+#endef
 
 DEPEND_ABI.blender=	blender>=2.55
 
