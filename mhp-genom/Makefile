@@ -2,7 +2,7 @@
 # Created:			Severin Lemaignan on Tue, 31 Aug 2010
 #
 
-DISTNAME=		mhp-genom-3.5
+DISTNAME=		mhp-genom-3.6
 CATEGORIES=		path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=mhp-genom/}
 MASTER_REPOSITORY=	git ssh://softs.laas.fr/git/robots/mhp-genom
