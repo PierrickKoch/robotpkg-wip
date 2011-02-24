@@ -1,7 +1,7 @@
 # Created:			Severin Lemaignan on Fri, 24 Sep 2010
 #
 
-DISTNAME=		spark-genom-3.2
+DISTNAME=		spark-genom-3.3
 CATEGORIES=		knowledge
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=spark-genom/}
 MASTER_REPOSITORY=	git http://trac.laas.fr/git/robots/spark-genom.git
@@ -56,9 +56,8 @@ define PKG_OPTION_SET.jido
   include ../../math/gbM/depend.mk
   include ../../wip/lwr-genom/depend.mk
   include ../../image/viman-genom/depend.mk
-  include ../../localization/mocap-genom/depend.mk
-  include ../../wip/gest-genom/depend.mk
   include ../../image/niut-genom/depend.mk
+  include ../../localization/mocap-genom/depend.mk
 endef
 
 ##
