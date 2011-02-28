@@ -17,7 +17,7 @@
 #
 
 DISTNAME=			PoissonRecon
-PKGNAME=			poisson
+PKGNAME=			poisson-2
 EXTRACT_SUFX= .zip
 CATEGORIES=		modeling
 MASTER_SITES=	http://www.cs.jhu.edu/~misha/Code/PoissonRecon/Version2/
