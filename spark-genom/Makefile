@@ -92,5 +92,5 @@ include ../../wip/libmove3d/depend.mk
 include ../../interfaces/genBasic-genom/depend.mk
 include ../../interfaces/genHum-genom/depend.mk
 include ../../architecture/genom/depend.mk
-include ../../devel/boost/depend.mk
+include ../../devel/boost-headers/depend.mk
 include ../../mk/robotpkg.mk
