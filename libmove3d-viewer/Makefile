@@ -2,9 +2,9 @@
 # Created:			Jim Mainprice on Mon, 29 Nov 2010
 #
 
-DISTNAME=		Move3D-core-3.9.1
+DISTNAME=		libmove3d-viewer-3.10.1
 CATEGORIES=		path
-MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=Move3D-libs/}
+MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=BioMove3D/}
 MASTER_REPOSITORY=	git http://trac.laas.fr/git/robots/BioMove3D.git
 
 MAINTAINER=		biomove3dgitrepo@laas.fr
