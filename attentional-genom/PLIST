@@ -1,0 +1,25 @@
+@comment Mon Sep 6 14:30:58 CEST 2010
+bin/attentional
+bin/attentionalSendInitRqst
+bin/attentionalTest
+include/attentional/attentionalConst.h
+include/attentional/attentionalStruct.h
+include/attentional/server/attentionalEndian.h
+include/attentional/server/attentionalError.h
+include/attentional/server/attentionalMsgLib.h
+include/attentional/server/attentionalPosterLib.h
+include/attentional/server/attentionalPosterLibStruct.h
+include/attentional/server/attentionalPosterReadLibProto.h
+include/attentional/server/attentionalPosterShowLib.h
+include/attentional/server/attentionalPosterWriteLibProto.h
+include/attentional/server/attentionalPosterXMLLib.h
+include/attentional/server/attentionalPrint.h
+include/attentional/server/attentionalPrintXML.h
+include/attentional/server/attentionalScan.h
+include/attentional/server/attentionalType.h
+lib/libattentionalClient.la
+lib/pkgconfig/attentional.pc
+lib/tclserv/libattentionalTclServ.la
+share/modules/gen/attentional.gen
+share/modules/tcl/attentionalClient.tcl
+
