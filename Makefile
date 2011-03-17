@@ -18,7 +18,8 @@ SUBDIR+=	sot-gui
 SUBDIR+=	spark-genom
 SUBDIR+=	stackoftasks
 SUBDIR+=	visp
-SUBDIR+=  libANN
-SUBDIR+=  flann
+SUBDIR+=	libANN
+SUBDIR+=	flann
+SUBDIR+=	jafar-kernel
 
 include ../mk/robotpkg.subdir.mk
