@@ -21,5 +21,6 @@ SUBDIR+=	visp
 SUBDIR+=	libANN
 SUBDIR+=	flann
 SUBDIR+=	jafar-kernel
+SUBDIR+=	jafar-lgl
 
 include ../mk/robotpkg.subdir.mk
