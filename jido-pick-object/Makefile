@@ -56,6 +56,7 @@ include ../../graphics/laaswm-libs/depend.mk
 include ../../graphics/laaswm/depend.mk
 include ../../graphics/pqp/depend.mk
 include ../../hardware/sahand-libs/depend.mk
+include ../../robots/fingers-genom/depend.mk
 include ../../wip/lwr-genom/depend.mk
 include ../../motion/pilo-genom/depend.mk
 include ../../localization/segloc-genom/depend.mk
