@@ -1,3 +1,6 @@
+# robotpkg depend.mk for:	wip/jafar-kernel
+# Created:			Redouane Boumghar on Thu, 17 Mar 2011
+#
 
 DEPEND_DEPTH:=		${DEPEND_DEPTH}+
 jafar-kernel_DEPEND_MK:=	${jafar-kernel_DEPEND_MK}+
