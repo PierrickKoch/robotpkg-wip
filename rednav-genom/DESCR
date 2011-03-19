@@ -1,0 +1,5 @@
+rednav-genom is a genom wrapper against jafar-lgl and jafar-rednav. The main
+goal of rednav-genom is to compute long term navigation trajectory, possibly in
+cooperation with some other robots, on the top of traversability map (see
+mapping/regionMap-genom)
+
