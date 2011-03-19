@@ -1,3 +1,6 @@
+# robotpkg depend.mk for:	wip/jafar-rednav
+# Created:			Redouane Boumghar on Thu, 17 Mar 2011
+#
 
 DEPEND_DEPTH:=		${DEPEND_DEPTH}+
 jafar-rednav_DEPEND_MK:=	${jafar-rednav_DEPEND_MK}+
