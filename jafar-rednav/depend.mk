@@ -14,7 +14,7 @@ ifeq (+,$(jafar-rednav_DEPEND_MK)) # -------------------------------------------
 PREFER.jafar-rednav?=		robotpkg
 
 DEPEND_USE+=		jafar-rednav
-DEPEND_ABI.jafar-rednav?=	jafar-rednav>=0.1
+DEPEND_ABI.jafar-rednav?=	jafar-rednav>=0.2
 DEPEND_DIR.jafar-rednav?=	../../wip/jafar-rednav
 
 SYSTEM_SEARCH.jafar-rednav=\
