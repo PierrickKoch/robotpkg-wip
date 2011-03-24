@@ -2,7 +2,7 @@
 # Created:			Redouane Boumghar on Thu, 17 Mar 2011
 #
 
-PKGVERSION=		1.2
+PKGVERSION=		1.3
 DISTNAME=		jafar-lgl-${PKGVERSION}
 CATEGORIES=		wip
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=jafar-lgl/}
@@ -34,5 +34,5 @@ include ../../wip/jafar-kernel/depend.mk
 include ../../devel/boost-headers/depend.mk
 include ../../pkgtools/pkg-config/depend.mk
 include ../../mk/sysdep/cmake.mk
-include ../../mk/sysdep/gdal.mk
+#include ../../mk/sysdep/gdal.mk
 include ../../mk/robotpkg.mk
