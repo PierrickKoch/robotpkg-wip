@@ -1,0 +1,8 @@
+@comment Thu Mar 31 15:57:27 CEST 2011
+${PYTHON_SITELIB}/morse/middleware/pocolibs/__init__.py
+${PYTHON_SITELIB}/morse/middleware/pocolibs/controllers/__init__.py
+${PYTHON_SITELIB}/morse/middleware/pocolibs/sensors/General_Poster/__init__.py
+${PYTHON_SITELIB}/morse/middleware/pocolibs/sensors/General_Poster/_ors_poster.so
+${PYTHON_SITELIB}/morse/middleware/pocolibs/sensors/General_Poster/ors_poster.py
+${PYTHON_SITELIB}/morse/middleware/pocolibs/sensors/__init__.py
+${PYTHON_SITELIB}/morse/middleware/pocolibs_mw.py
