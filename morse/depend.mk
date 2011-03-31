@@ -1,20 +1,5 @@
-#
-# Copyright (c) 2010 LAAS/CNRS
-# All rights reserved.
-#
-# Permission to use, copy, modify, and distribute this software for any purpose
-# with or without   fee is hereby granted, provided   that the above  copyright
-# notice and this permission notice appear in all copies.
-#
-# THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-# REGARD TO THIS  SOFTWARE INCLUDING ALL  IMPLIED WARRANTIES OF MERCHANTABILITY
-# AND FITNESS. IN NO EVENT SHALL THE AUTHOR  BE LIABLE FOR ANY SPECIAL, DIRECT,
-# INDIRECT, OR CONSEQUENTIAL DAMAGES OR  ANY DAMAGES WHATSOEVER RESULTING  FROM
-# LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
-# OTHER TORTIOUS ACTION,   ARISING OUT OF OR IN    CONNECTION WITH THE USE   OR
-# PERFORMANCE OF THIS SOFTWARE.
-#
-#                                          Severin Lemaignan on Fri May 28 2010
+# robotpkg depend.mk for:	simulation/morse
+# Created:			Séverin Lemaignan on Fri, 28 May 2010
 #
 
 DEPEND_DEPTH:=		${DEPEND_DEPTH}+
@@ -24,12 +9,12 @@ ifeq (+,$(DEPEND_DEPTH))
 DEPEND_PKG+=		morse
 endif
 
-ifeq (+,$(MORSE_DEPEND_MK)) # ---------------------------------------------
+ifeq (+,$(MORSE_DEPEND_MK)) # ----------------------------------------------
 
 PREFER.morse?=		robotpkg
 
 SYSTEM_SEARCH.morse=\
-	bin/morse \
+	'bin/morse:1s/[^0-9.]//gp:% --version' \
 	share/data/morse/morse_default.blend
 
 DEPEND_USE+=		morse
@@ -37,6 +22,6 @@ DEPEND_USE+=		morse
 DEPEND_ABI.morse?=	morse>=0.2
 DEPEND_DIR.morse?=	../../wip/morse
 
-endif # MORSE_DEPEND_MK ---------------------------------------------------
+endif # MORSE_DEPEND_MK ----------------------------------------------------
 
 DEPEND_DEPTH:=		${DEPEND_DEPTH:+=}
