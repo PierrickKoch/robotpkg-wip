@@ -41,6 +41,14 @@ PKG_OPTION_DESCR.pr2=	Compile SPARK with support for PR2
 
 define PKG_OPTION_SET.pr2
   GENOM_ARGS+= -DPR2
+  GENOM_ARGS+= -DUSE_GLUT
+  include ../../manipulation/genManip-genom/depend.mk
+  include ../../localization/pom-genom/depend.mk
+  include ../../math/gbM/depend.mk
+  include ../../image/viman-genom/depend.mk
+  include ../../image/niut-genom/depend.mk
+  include ../../localization/mocap-genom/depend.mk
+  include ../../interfaces/openrobots-pose/depend.mk
 endef
 
 ##
@@ -70,7 +78,7 @@ PKG_OPTION_SET.simulation:=	GENOM_ARGS+= -DSIMULATION
 ## Ontology server
 ##
 PKG_SUPPORTED_OPTIONS+=	oro
-PKG_SUGGESTED_OPTIONS+=	oro
+#PKG_SUGGESTED_OPTIONS+=	oro
 PKG_OPTION_DESCR.oro=	Enable the support of ORO ontology server
 
 define PKG_OPTION_SET.oro
@@ -88,7 +96,7 @@ GENOM_MODULE=		spark
 REQD_BUILD_OPTIONS.BioMove3D:=	jido
 
 include ../../wip/libmove3d/depend.mk
-
+include ../../wip/attentional-genom/depend.mk
 include ../../interfaces/genBasic-genom/depend.mk
 include ../../interfaces/genHum-genom/depend.mk
 include ../../architecture/genom/depend.mk
