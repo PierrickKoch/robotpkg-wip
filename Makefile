@@ -12,7 +12,6 @@ SUBDIR+=	lwr-genom
 SUBDIR+=	mhp-genom
 SUBDIR+=	mk
 SUBDIR+=	morse
-SUBDIR+=	morse-yarp
 SUBDIR+=	morse-pocolibs
 SUBDIR+=	poisson
 SUBDIR+=	robot-viewer
