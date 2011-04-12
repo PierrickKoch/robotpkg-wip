@@ -4,7 +4,7 @@
 
 PKGNAME=		morse-pocolibs-${MORSE_VERSION}
 
-include ../../wip/morse/Makefile.common
+include ../../simulation/morse/Makefile.common
 
 COMMENT+=		(pocolibs bindings)
 
@@ -51,6 +51,6 @@ define PKG_OPTION_SET.hri
   include ../../image/viman-genom/depend.mk
 endef
 
-include ../../wip/morse/depend.mk
+include ../../simulation/morse/depend.mk
 include ../../mk/sysdep/swig.mk
 include ../../mk/robotpkg.mk
