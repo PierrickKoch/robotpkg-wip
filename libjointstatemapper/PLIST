@@ -1,0 +1,3 @@
+lib/libjointstatemapper.so
+include/jointStateMapper/jointMapParser.hpp
+include/jointStateMapper/jointStateMapper.hpp
