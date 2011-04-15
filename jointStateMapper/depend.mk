@@ -12,11 +12,11 @@ PREFER.jointStateMapper?=	robotpkg
 
 SYSTEM_SEARCH.jointStateMapper=\
 	include/jointStateMapper/jointStateMapper.hpp	\
-	lib/libjointstatemapper.so
+	lib/libjointStateMapper.so
 
 DEPEND_USE+=		jointStateMapper
 
-DEPEND_ABI.jointStateMapper?=jointStateMapper>=1.0
+DEPEND_ABI.jointStateMapper?=jointStateMapper>=1.2.0
 DEPEND_DIR.jointStateMapper?=../../wip/jointStateMapper
 
 endif # JOINTSTATEMAPPER_DEPEND_MK ----------------------------------------

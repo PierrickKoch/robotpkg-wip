@@ -2,7 +2,7 @@
 # Created:			Mokhtar Gharbi on Fri, 25 Mar 2011
 #
 
-DISTNAME=			libjointstatemapper-1.0.1
+DISTNAME=			jointStateMapper-1.2.1
 CATEGORIES=			interface
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=jointStateMapper/}
 MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/jointStateMapper

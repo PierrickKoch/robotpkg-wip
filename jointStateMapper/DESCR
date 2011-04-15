@@ -1,4 +1,4 @@
-libJointStateMapper is a library that maps a joint configuration from one joint
+JointStateMapper is a library that maps a joint configuration from one joint
 convention to another one.
 
 It relies at initialization on two lists of joint name (one for the source, one
