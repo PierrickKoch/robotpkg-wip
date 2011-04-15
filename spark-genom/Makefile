@@ -49,6 +49,7 @@ define PKG_OPTION_SET.pr2
   include ../../image/niut-genom/depend.mk
   include ../../localization/mocap-genom/depend.mk
   include ../../interfaces/openrobots-pose/depend.mk
+  include ../../wip/jointStateMapper/depend.mk
 endef
 
 ##
