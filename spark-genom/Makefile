@@ -1,7 +1,7 @@
 # Created:			Severin Lemaignan on Fri, 24 Sep 2010
 #
 
-DISTNAME=		spark-genom-3.3
+DISTNAME=		spark-genom-3.4
 CATEGORIES=		knowledge
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=spark-genom/}
 MASTER_REPOSITORY=	git http://trac.laas.fr/git/robots/spark-genom.git
@@ -97,6 +97,7 @@ GENOM_MODULE=		spark
 REQD_BUILD_OPTIONS.BioMove3D:=	jido
 
 include ../../wip/libmove3d/depend.mk
+include ../../wip/libhri/depend.mk
 include ../../wip/attentional-genom/depend.mk
 include ../../interfaces/genBasic-genom/depend.mk
 include ../../interfaces/genHum-genom/depend.mk
