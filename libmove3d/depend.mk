@@ -14,12 +14,12 @@ ifeq (+,$(LIBMOVE3D_DEPEND_MK)) # ----------------------------------
 PREFER.libmove3d?=	robotpkg
 
 SYSTEM_SEARCH.libmove3d=\
-	include/libmove3d/include/move3d.h	\
+	include/libmove3d/include/move3d-headless.h	\
 	lib/libmove3d.so
 
 DEPEND_USE+=		libmove3d
 
-DEPEND_ABI.libmove3d?=libmove3d>=3.10
+DEPEND_ABI.libmove3d?=libmove3d>=3.12.0
 DEPEND_DIR.libmove3d?=../../wip/libmove3d
 
 endif # LIBMOVE3D_DEPEND_MK ----------------------------------------
