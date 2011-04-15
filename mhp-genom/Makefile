@@ -2,7 +2,7 @@
 # Created:			Severin Lemaignan on Tue, 31 Aug 2010
 #
 
-DISTNAME=		mhp-genom-3.6
+DISTNAME=		mhp-genom-3.7
 CATEGORIES=		path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=mhp-genom/}
 MASTER_REPOSITORY=	git ssh://softs.laas.fr/git/robots/mhp-genom
@@ -21,7 +21,7 @@ USE_LANGUAGES+=		c c++
 #####################
 
 PKG_OPTIONS_REQUIRED_GROUPS=	robot
-PKG_OPTIONS_GROUP.robot=	hrp2 jido simulation
+PKG_OPTIONS_GROUP.robot=	hrp2 jido pr2 simulation
 
 ##
 ## HRP2
@@ -61,6 +61,19 @@ define PKG_OPTION_SET.simulation
   include ../../motion/pilo-genom/depend.mk
 endef
 
+##
+## Pr2
+##
+PKG_OPTION_DESCR.pr2=  Compile MHP for Pr2
+
+define PKG_OPTION_SET.pr2
+  GENOM_ARGS+= -DPR2
+  GENOM_ARGS+= -DUSE_GLUT
+  include ../../localization/pom-genom/depend.mk
+  include ../../math/gbM/depend.mk
+endef
+
+PKG_SUGGESTED_OPTIONS+= pr2
 
 ##
 ## SPARK synchonization
@@ -80,7 +93,7 @@ PKG_SUGGESTED_OPTIONS+=	spark
 GENOM_MODULE=		mhp
 
 include ../../wip/libmove3d/depend.mk
-
+include ../../wip/libhri/depend.mk
 include ../../manipulation/genManip-genom/depend.mk
 include ../../architecture/genom/depend.mk
 
