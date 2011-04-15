@@ -14,7 +14,7 @@ ifeq (+,$(LIBHRI_DEPEND_MK)) # ----------------------------------
 PREFER.libhri?=	robotpkg
 
 SYSTEM_SEARCH.libhri=\
-	include/libhri/hri.h	\
+	include/hri/hri.h	\
 	lib/libhri.so
 
 DEPEND_USE+=		libhri
