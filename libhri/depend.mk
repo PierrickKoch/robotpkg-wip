@@ -19,7 +19,7 @@ SYSTEM_SEARCH.libhri=\
 
 DEPEND_USE+=		libhri
 
-DEPEND_ABI.libhri?=libhri>=3.10
+DEPEND_ABI.libhri?=libhri>=1.0
 DEPEND_DIR.libhri?=../../wip/libhri
 
 endif # LIBHRI_DEPEND_MK ----------------------------------------
