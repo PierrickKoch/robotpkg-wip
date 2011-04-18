@@ -30,12 +30,12 @@ META_PACKAGE=	yes
 MAINTAINER=	xavier.broquere@laas.fr
 COMMENT=	Meta-package for package needed for the jido-pick-object demo
 
-REQD_BUILD_OPTIONS.pilo-genom=	jido
+#REQD_BUILD_OPTIONS.pilo-genom=	jido
 REQD_BUILD_OPTIONS.sick-genom=	h2
 REQD_BUILD_OPTIONS.viam-libs=	opencv
 
-REQD_BUILD_OPTIONS.spark-genom+= jido
-REQD_BUILD_OPTIONS.mhp-genom+= jido
+REQD_BUILD_OPTIONS.spark-genom+= pr2
+REQD_BUILD_OPTIONS.mhp-genom+= pr2
 REQD_BUILD_OPTIONS.mhp-genom+= spark
 
 # Those are user options
@@ -52,28 +52,28 @@ REQD_BUILD_OPTIONS.mhp-genom+= spark
 
 include ../../shell/eltclsh/depend.mk
 include ../../interfaces/genHum-genom/depend.mk
-include ../../graphics/laaswm-libs/depend.mk
-include ../../graphics/laaswm/depend.mk
+#include ../../graphics/laaswm-libs/depend.mk
+#include ../../graphics/laaswm/depend.mk
 include ../../graphics/pqp/depend.mk
-include ../../hardware/sahand-libs/depend.mk
-include ../../robots/fingers-genom/depend.mk
-include ../../wip/lwr-genom/depend.mk
-include ../../motion/pilo-genom/depend.mk
-include ../../localization/segloc-genom/depend.mk
+#include ../../hardware/sahand-libs/depend.mk
+#include ../../robots/fingers-genom/depend.mk
+#include ../../wip/lwr-genom/depend.mk
+#include ../../motion/pilo-genom/depend.mk
+#include ../../localization/segloc-genom/depend.mk
 include ../../localization/pom-genom/depend.mk
-include ../../hardware/platine-genom/depend.mk
-include ../../hardware/sahand-genom/depend.mk
+#include ../../hardware/platine-genom/depend.mk
+#include ../../hardware/sahand-genom/depend.mk
 include ../../graphics/coldman-genom/depend.mk
 include ../../motion/softMotion-libs/depend.mk
 include ../../image/viman-genom/depend.mk
-include ../../audio/textos-genom/depend.mk
-include ../../audio/speett-genom/depend.mk
-include ../../wip/gest-genom/depend.mk
+#include ../../audio/textos-genom/depend.mk
+#include ../../audio/speett-genom/depend.mk
+#include ../../wip/gest-genom/depend.mk
 include ../../wip/mhp-genom/depend.mk
 include ../../wip/spark-genom/depend.mk
 #include ../../wip/move3d-assets/depend.mk
-include ../../graphics/laaswm/depend.mk
-include ../../graphics/laaswm-libs/depend.mk
+#include ../../graphics/laaswm/depend.mk
+#include ../../graphics/laaswm-libs/depend.mk
 
 include ../../mk/sysdep/tcl.mk
 include ../../mk/sysdep/tk.mk
