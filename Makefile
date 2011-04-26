@@ -23,5 +23,6 @@ SUBDIR+=	flann
 SUBDIR+=	jafar-kernel
 SUBDIR+=	jafar-lgl
 SUBDIR+=	jafar-rednav
+SUBDIR+=  eigen3
 
 include ../mk/robotpkg.subdir.mk
