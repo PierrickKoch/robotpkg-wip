@@ -2,7 +2,6 @@
 bin/attentional
 bin/attentionalSendInitRqst
 bin/attentionalTest
-include/attentional/attentionalConst.h
 include/attentional/attentionalStruct.h
 include/attentional/server/attentionalEndian.h
 include/attentional/server/attentionalError.h
