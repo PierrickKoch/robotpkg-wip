@@ -2,8 +2,8 @@
 # Created:			Arnaud Degroote on Sat, 19 Mar 2011
 #
 
+VERSION=		0.6
 DISTNAME=		rednav-genom-${VERSION}
-VERSION=		0.4.1
 CATEGORIES=		wip
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=rednav-genom/}
 MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/rednav-genom
