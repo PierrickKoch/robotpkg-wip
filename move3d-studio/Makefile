@@ -3,13 +3,13 @@
 #
 
 PKGNAME=		move3d-studio-${VERSION}
-DISTNAME=		libmove3d-${VERSION}
+DISTNAME=		move3d-studio-${VERSION}
 VERSION=		3.9.1
 
 CATEGORIES=		path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=BioMove3D/}
 #MASTER_REPOSITORY=	git http://trac.laas.fr/git/robots/BioMove3D.git
-MASTER_REPOSITORY=	git /home/slemaign/softs-local/BioMove3D 
+MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/move3d-studio.git
 
 MAINTAINER=		biomove3dgitrepo@laas.fr
 COMMENT=		The BioMove3D development studio
@@ -36,6 +36,9 @@ include ../../wip/sysdep/gts.mk
 include ../../wip/sysdep/qhull.mk
 include ../../wip/sysdep/libxpm.mk
 include ../../wip/sysdep/xforms.mk
+
+include ../../wip/libmove3d/depend.mk
+include ../../wip/libhri/depend.mk
 
 include ../../mk/sysdep/cmake.mk
 include ../../mk/robotpkg.mk
