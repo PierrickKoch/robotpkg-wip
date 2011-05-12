@@ -2,7 +2,7 @@
 # Created:			Arnaud Degroote on Sat, 19 Mar 2011
 #
 
-VERSION=		0.6
+VERSION=		0.7
 DISTNAME=		rednav-genom-${VERSION}
 CATEGORIES=		wip
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=rednav-genom/}
