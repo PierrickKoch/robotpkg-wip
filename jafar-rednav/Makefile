@@ -2,13 +2,13 @@
 # Created:			Redouane Boumghar on Thu, 17 Mar 2011
 #
 
-PKGVERSION=		0.7
+PKGVERSION=		0.8
 DISTNAME=		jafar-rednav-${PKGVERSION}
 CATEGORIES=		wip
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=jafar-rednav/}
 MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/jafar/modules/rednav
 
-MAINTAINER=		jafar@laas.fr
+MAINTAINER=		redouane.boumghar@laas.fr
 HOMEPAGE=		https://intranet.laas.fr/intranet/robots/wiki/Jafar
 COMMENT=		Cooperative navigation mission library
 LICENSE=		isc
