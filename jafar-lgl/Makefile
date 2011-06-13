@@ -2,7 +2,7 @@
 # Created:			Redouane Boumghar on Thu, 17 Mar 2011
 #
 
-PKGVERSION=		1.4
+PKGVERSION=		1.5
 DISTNAME=		jafar-lgl-${PKGVERSION}
 CATEGORIES=		wip
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=jafar-lgl/}
