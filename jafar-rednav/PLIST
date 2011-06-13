@@ -1,11 +1,11 @@
-@comment Wed Apr 27 12:55:29 CEST 2011
+@comment Mon Jun 13 18:56:48 CEST 2011
 include/jafar/rednav/navigator.hpp
 include/jafar/rednav/pathTool.hpp
 include/jafar/rednav/rednavException.hpp
 include/jafar/rednav/sensorModel.hpp
 lib/libjafar-rednav.so
-lib/libjafar-rednav.so.${PKGVERSION}
 lib/libjafar-rednav.so.0
+lib/libjafar-rednav.so.0.8
 lib/pkgconfig/jafar-rednav.pc
 share/cmake/jafar/rednav-headers.cmake
 share/cmake/jafar/rednav-release.cmake
