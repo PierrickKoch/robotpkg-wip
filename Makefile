@@ -29,5 +29,6 @@ SUBDIR+=	jafar-image
 SUBDIR+=	jafar-correl
 SUBDIR+=	jafar-qdisplay
 SUBDIR+=	jafar-gdhe
+SUBDIR+=	jafar-rtslam
 
 include ../mk/robotpkg.subdir.mk
