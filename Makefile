@@ -25,5 +25,9 @@ SUBDIR+=	jafar-lgl
 SUBDIR+=	jafar-rednav
 SUBDIR+=	rednav-genom
 SUBDIR+=	jafar-jmath
+SUBDIR+=	jafar-image
+SUBDIR+=	jafar-correl
+SUBDIR+=	jafar-qdisplay
+SUBDIR+=	jafar-gdhe
 
 include ../mk/robotpkg.subdir.mk
