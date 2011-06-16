@@ -4,13 +4,13 @@
 
 
 DEPEND_DEPTH:=		${DEPEND_DEPTH}+
-RMP_LIBS_DEPEND_MK:=${RMP_LIBS_DEPEND_MK}+
+MANA_EMERGENCY_DEPEND_MK:=${MANA_EMERGENCY_DEPEND_MK}+
 
 ifeq (+,$(DEPEND_DEPTH))
 DEPEND_PKG+=		mana-emergency
 endif
 
-ifeq (+,$(RMP_LIBS_DEPEND_MK))
+ifeq (+,$(MANA_EMERGENCY_DEPEND_MK))
 PREFER.mana-emergency?=	robotpkg
 
 DEPEND_USE+=		mana-emergency
