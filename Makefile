@@ -9,6 +9,7 @@ SUBDIR+=	gest-genom
 SUBDIR+=	kukaFri-libs
 SUBDIR+=	libfreenect
 SUBDIR+=	lwr-genom
+SUBDIR+=	mana-emergency
 SUBDIR+=	mhp-genom
 SUBDIR+=	mk
 SUBDIR+=	morse-pocolibs
