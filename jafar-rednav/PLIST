@@ -5,7 +5,7 @@ include/jafar/rednav/rednavException.hpp
 include/jafar/rednav/sensorModel.hpp
 lib/libjafar-rednav.so
 lib/libjafar-rednav.so.0
-lib/libjafar-rednav.so.0.8
+lib/libjafar-rednav.so.${PKGVERSION}
 lib/pkgconfig/jafar-rednav.pc
 share/cmake/jafar/rednav-headers.cmake
 share/cmake/jafar/rednav-release.cmake

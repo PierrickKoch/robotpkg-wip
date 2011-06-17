@@ -2,7 +2,7 @@
 # Created:			Redouane Boumghar on Thu, 17 Mar 2011
 #
 
-PKGVERSION=		0.8.1
+PKGVERSION=		0.9
 DISTNAME=		jafar-rednav-${PKGVERSION}
 CATEGORIES=		wip
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=jafar-rednav/}
