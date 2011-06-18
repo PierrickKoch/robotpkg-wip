@@ -1,0 +1,41 @@
+diff -u CMakeLists.txt CMakeLists.txt
+--- CMakeLists.txt	2011-06-19 00:34:10.000000000 +0200
++++ CMakeLists.txt	2011-06-19 00:56:10.000000000 +0200
+@@ -75,7 +75,7 @@
+ #-----------------------------------------------------------------------------
+ # Go find them
+ #-----------------------------------------------------------------------------
+-foreach(package  GDHE VIAM POSTERLIB OpenCV)
++foreach(package  GDHE VIAM POSTERLIB)
+   find_robots_package("${package}")
+   string(TOUPPER "HAVE_${package}" HAVE_PACKAGE)
+   string(TOUPPER "${package}_FOUND" PACKAGE_FOUND)
+@@ -89,6 +89,28 @@
+   endif(${PACKAGE_FOUND})
+ endforeach(package)
+ 
++###
++# PkgConfig
++###
++include(FindPkgConfig)
++
++###
++# OpenCV
++###
++#include(FindOpenCV)
++#find_package(OpenCV)
++pkg_check_modules(OpenCV opencv)
++set(HAVE_OPENCV ${OpenCV_FOUND})
++set(OPENCV_FOUND ${OpenCV_FOUND})
++if(OpenCV_FOUND)
++  include_directories(${OpenCV_INCLUDE_DIRS})
++  link_directories(${OpenCV_LIBRARY_DIRS})
++  set(LIBS ${LIBS} ${OpenCV_LIBRARIES})
++    message(STATUS "version ${OpenCV_VERSION}")
++  set(LIBS_MAP_OPENCV "OpenCV")
++endif(OpenCV_FOUND)
++set(ROBOTPKG_MAP_OPENCV "image/opencv")
++
+ 
+ #-----------------------------------------------------------------------------
+ # Check for Boost
