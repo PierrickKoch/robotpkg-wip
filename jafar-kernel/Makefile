@@ -16,6 +16,9 @@ LICENSE=		isc
 USE_LANGUAGES+=		c c++ fortran
 USE_PKGLOCALEDIR=	yes
 
+CPPFLAGS += -DJFR_NDEBUG
+CXXFLAGS += -pthread
+
 CMAKE_ARGS+=		-DBOOST_INCLUDEDIR=${PREFIX.boost-headers}/include
 CMAKE_ARGS+=		-DBOOST_LIBDIR=${PREFIX.boost-libs}/include
 
