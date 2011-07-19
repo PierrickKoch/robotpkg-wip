@@ -1,23 +1,39 @@
 A list of suggested todo items, sorted by priority.
 New entries normally go to the end; earlier entries have higher priority.
 
+This list is automatically processed by a cron job that review, fix, import
+and package everything every night.
+
+If for some reason you don't see your package ready the next day, send a 
+mail of complaints to anthony.mallet@laas.fr
+
+
+Suggested packages to move to robotpkg core
+===========================================
+
+ * libmove3d
+ * libhri
+ * spark-genom
+
 Suggested package updates
 =========================
 
         o middleware/openni-1.3.2.1
-        o
+        o knowledge/oro-server-1.0
+        o knowledge/liboro-1.1
 
 
 Suggested new packages
 ======================
 
         o modeling/pcl-1.1
+        o knowledge/pyoro
 
 
 Suggested ready to import packages
 ==================================
 
-        o
+        o JsonCpp (http://jsoncpp.sourceforge.net/)
 
 
 Suggested package fixes
@@ -29,4 +45,4 @@ Suggested package fixes
 Suggested infrastructure improvements
 =====================================
 
-        o
+	o
