@@ -14,7 +14,7 @@ ifeq (+,$(jafar-lgl_DEPEND_MK)) # ----------------------------------------------
 PREFER.jafar-lgl?=		robotpkg
 
 DEPEND_USE+=		jafar-lgl
-DEPEND_ABI.jafar-lgl?=	jafar-lgl>=1.1
+DEPEND_ABI.jafar-lgl?=	jafar-lgl>=1.5
 DEPEND_DIR.jafar-lgl?=	../../wip/jafar-lgl
 
 SYSTEM_SEARCH.jafar-lgl=\

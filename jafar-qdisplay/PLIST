@@ -1,0 +1,25 @@
+@comment Wed Jun 15 20:26:47 CEST 2011
+include/jafar/qdisplay/AbstractEventHandler.hpp
+include/jafar/qdisplay/Ellipsoid.hpp
+include/jafar/qdisplay/ImageView.hpp
+include/jafar/qdisplay/ImageView.hpp~
+include/jafar/qdisplay/Line.hpp
+include/jafar/qdisplay/PolyLine.hpp
+include/jafar/qdisplay/Shape.hpp
+include/jafar/qdisplay/Shape.hpp~
+include/jafar/qdisplay/Viewer.hpp
+include/jafar/qdisplay/Viewer.hpp~
+include/jafar/qdisplay/ViewerManager.hpp
+include/jafar/qdisplay/imout.hpp
+include/jafar/qdisplay/imout.hpp~
+include/jafar/qdisplay/init.hpp
+include/jafar/qdisplay/init.hpp~
+include/jafar/qdisplay/iout.hpp~
+include/jafar/qdisplay/qdisplayException.hpp
+lib/libjafar-qdisplay.so
+lib/libjafar-qdisplay.so.${PKGVERSION}
+lib/libjafar-qdisplay.so.0
+lib/pkgconfig/jafar-qdisplay.pc
+share/cmake/jafar/qdisplay-headers.cmake
+share/cmake/jafar/qdisplay-release.cmake
+share/cmake/jafar/qdisplay.cmake

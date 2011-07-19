@@ -1,4 +1,4 @@
-@comment Wed Mar 16 17:51:03 CET 2011
+@comment Mon Jun 13 18:48:27 CEST 2011
 include/jafar/lgl/Attributes.hpp
 include/jafar/lgl/CostManager.hpp
 include/jafar/lgl/Decomp.hpp
@@ -24,10 +24,12 @@ include/jafar/lgl/Quadtree.hpp
 include/jafar/lgl/QuadtreeMatrix.hpp
 include/jafar/lgl/Raster.hpp
 include/jafar/lgl/RasterBand.hpp
+include/jafar/lgl/VisibilityMap.hpp
+include/jafar/lgl/VisibleArea.hpp
 include/jafar/lgl/lglException.hpp
 lib/libjafar-lgl.so
-lib/libjafar-lgl.so.${PKGVERSION}
 lib/libjafar-lgl.so.1
+lib/libjafar-lgl.so.${PKGVERSION}
 lib/pkgconfig/jafar-lgl.pc
 share/cmake/jafar/lgl-headers.cmake
 share/cmake/jafar/lgl-release.cmake

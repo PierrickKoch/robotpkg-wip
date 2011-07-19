@@ -1,16 +1,11 @@
-# robotpkg Makefile for:	wip/jafar-kernel
-# Created:			Redouane Boumghar on Thu, 17 Mar 2011
-#
-
-PKGVERSION=		0.3
-DISTNAME=		jafar-kernel-${PKGVERSION}
+PKGVERSION=		0.1
+DISTNAME=		jafar-qdisplay-0.1
+PKGNAME=		jafar-qdisplay-0.1
 CATEGORIES=		wip
-MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=jafar-kernel/}
-MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/jafar/jafar.git
-
+MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=jafar-qdisplay/}
 MAINTAINER=		jafar@laas.fr
 HOMEPAGE=		https://intranet.laas.fr/intranet/robots/wiki/Jafar
-COMMENT=		Defines some jafar common tools: exceptions, debug message facility, data logging facility,...
+COMMENT=		Jafar module to display objects of type jafar::image::JfrImage.
 LICENSE=		isc
 
 USE_LANGUAGES+=		c c++ fortran
@@ -22,8 +17,14 @@ CXXFLAGS += -pthread
 CMAKE_ARGS+=		-DBOOST_INCLUDEDIR=${PREFIX.boost-headers}/include
 CMAKE_ARGS+=		-DBOOST_LIBDIR=${PREFIX.boost-libs}/include
 
+include ../../wip/jafar-kernel/depend.mk
+include ../../wip/jafar-image/depend.mk
+include ../../wip/jafar-jmath/depend.mk
 include ../../devel/boost-headers/depend.mk
 include ../../devel/boost-libs/depend.mk
+include ../../math/boost-numeric-bindings/depend.mk
+
+include ../../pkgtools/libtool/depend.mk
 include ../../pkgtools/pkg-config/depend.mk
 include ../../mk/sysdep/cmake.mk
 include ../../mk/robotpkg.mk

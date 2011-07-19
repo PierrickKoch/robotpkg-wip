@@ -1,0 +1,67 @@
+--- CMakeLists.txt	2011-06-19 02:21:44.000000000 +0200
++++ CMakeLists.txt	2011-06-19 02:22:44.000000000 +0200
+@@ -35,6 +35,55 @@
+ set(CMAKE_CXX_FLAGS_RELEASE "-o2 -g0 -DNDEBUG -DJAFAR_NDEBUG -DBOOST_UBLAS_NDEBUG")
+ set(CMAKE_CXX_FLAGS_DEBUG "-o0 -g3 -ggdb")
+ 
++#------------------------------------------------------------------------------
++#This macro generates qt special files
++#------------------------------------------------------------------------------
++macro(GENERATE_QT_FILES JAFAR_MODULENAME CPPFLAGS)
++  #include qt specific macros
++  include(${QT_USE_FILE})
++
++MESSAGE(STATUS, "QT_MOC_SRCS: ${QT_MOC_SRCS}")
++  string(TOUPPER "${JAFAR_MODULENAME}_WRAPPED_HEADERS" QTUI_H_SRC)
++  string(TOUPPER "${JAFAR_MODULENAME}_WRAPPED_CPPS" QT_MOC_SRCS)
++
++  #generate headers from ui files
++  file(GLOB UI_FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/*.ui)
++#  QT4_WRAP_UI(${QTUI_H_SRC} ${UI_FILES})
++    foreach(ui_file ${UI_FILES})
++        get_filename_component(generated_header ${ui_file} NAME_WE)
++        set(generated_header ${CMAKE_CURRENT_SOURCE_DIR}/src/${generated_header}.h)
++    execute_process(
++                COMMAND ${QT_UIC_EXECUTABLE} ${ui_file} -o ${generated_header}
++                OUTPUT_FILE ${generated_header}
++                INPUT_FILE ${ui_file}
++                )
++        set(${QTUI_H_SRC} ${${QTUI_H_SRC}} ${generated_header})
++    endforeach(ui_file)
++
++  # generate moc files from headers contining \"Q_OBJECT\"
++  file(GLOB HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/include/${JAFAR_MODULENAME}/*.hpp" "${CMAKE_CURRENT_SOURCE_DIR}/src/*.hpp")
++  foreach(header ${HEADERS})
++    file(STRINGS ${header} Q_OBJECT_STRING REGEX "Q_OBJECT")
++    if(NOT("${Q_OBJECT_STRING}" STREQUAL ""))
++      get_filename_component(generated_moc ${header} NAME_WE)
++            set(generated_moc ${CMAKE_CURRENT_SOURCE_DIR}/src/${generated_moc}.moc)
++
++      set(MYCPPFLAGS "${CPPFLAGS}")
++      string(STRIP "${MYCPPFLAGS}" MYCPPFLAGS)
++      string(REPLACE " " ";" MYCPPFLAGS "${MYCPPFLAGS}")
++      execute_process(
++                COMMAND ${QT_MOC_EXECUTABLE} ${MYCPPFLAGS} ${header} -o ${generated_moc}
++                )
++            set(${QT_MOC_SRCS} ${${QT_MOC_SRCS}} ${generated_moc})
++#      QT4_GENERATE_MOC(${header} ${CMAKE_CURRENT_SOURCE_DIR}/src/${HEADER_NAME}.moc)
++    endif(NOT("${Q_OBJECT_STRING}" STREQUAL ""))
++  endforeach(header)
++
++#  QT4_WRAP_CPP(${QT_MOC_SRCS} ${HEADERS_TO_MOC})
++
++endmacro(GENERATE_QT_FILES)
++
++
+ #-----------------------------------------------------------------------------
+ # Macro to help find other robotpkg modules
+ #-----------------------------------------------------------------------------
+@@ -189,6 +238,8 @@
+ endforeach(potential_include)
+ include_directories(${headers_folders})
+ 
++generate_qt_files(rtslam "-DHAVE_MODULE_QDISPLAY")
++
+ # build the library
+ add_library(jafar-rtslam SHARED ${module_sources})
+ 
