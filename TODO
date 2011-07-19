@@ -12,8 +12,8 @@ Suggested package updates
 =========================
 
         o middleware/openni-1.3.2.1
-        o knowledge/oro-server-1.0
-        o knowledge/liboro-1.1
+        o knowledge/oro-server-1.0: cannot find the distfile
+        o knowledge/liboro-1.1: cannot find the distfile
 
 
 Suggested new packages
