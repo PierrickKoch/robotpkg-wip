@@ -8,13 +8,6 @@ If for some reason you don't see your package ready the next day, send a
 mail of complaints to anthony.mallet@laas.fr
 
 
-Suggested packages to move to robotpkg core
-===========================================
-
- * libmove3d
- * libhri
- * spark-genom
-
 Suggested package updates
 =========================
 
@@ -28,12 +21,15 @@ Suggested new packages
 
         o modeling/pcl-1.1
         o knowledge/pyoro
+        o JsonCpp (http://jsoncpp.sourceforge.net/)
 
 
 Suggested ready to import packages
 ==================================
 
-        o JsonCpp (http://jsoncpp.sourceforge.net/)
+        o libmove3d
+        o libhri
+        o spark-genom
 
 
 Suggested package fixes
