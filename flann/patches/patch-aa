@@ -1,0 +1,18 @@
+diff -r -u src/cpp/CMakeLists.txt src/cpp/CMakeLists.txt
+--- src/cpp/CMakeLists.txt	2011-05-17 07:34:24.000000000 +0100
++++ src/cpp/CMakeLists.txt	2011-07-20 11:52:24.265513215 +0100
+@@ -35,12 +35,12 @@
+ #debug libraries
+ add_library(flann_cpp-gd SHARED ${CPP_SOURCES})
+ set_target_properties(flann_cpp-gd PROPERTIES 
+-    COMPILE_FLAGS ${CMAKE_CXX_FLAGS_DEBUG}
++    COMPILE_FLAGS "${CMAKE_CXX_FLAGS_DEBUG}"
+     DEFINE_SYMBOL FLANN_EXPORTS
+ )
+ 
+ add_library(flann_cpp_s-gd STATIC ${CPP_SOURCES})
+-set_target_properties(flann_cpp_s-gd PROPERTIES COMPILE_FLAGS ${CMAKE_CXX_FLAGS_DEBUG})
++set_target_properties(flann_cpp_s-gd PROPERTIES COMPILE_FLAGS "${CMAKE_CXX_FLAGS_DEBUG}")
+ set_property(TARGET flann_cpp_s-gd PROPERTY COMPILE_DEFINITIONS FLANN_STATIC)
+ 
+ if (BUILD_C_BINDINGS)
