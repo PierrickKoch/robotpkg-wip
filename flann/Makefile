@@ -17,6 +17,7 @@ LICENSE=	2-clause-bsd
 USE_LANGUAGES+=	c c++
 #you need it to disable cmake error since we do in-source build
 CMAKE_ARGS+= -DLATEX_OUTPUT_PATH=${WRKSRC}
+CMAKE_ARGS+= -DBUILD_PYTHON_BINDINGS=OFF
 
 #option for c bindings generation
 PKG_SUPPORTED_OPTIONS+=		c
@@ -27,18 +28,6 @@ define PKG_OPTION_SET.c
 endef
 define PKG_OPTION_UNSET.c
   CMAKE_ARGS+=			-DBUILD_C_BINDINGS=OFF
-endef
-
-#option for python bindings generation
-PKG_SUPPORTED_OPTIONS+=		python
-PKG_SUGGESTED_OPTIONS-=		python
-PKG_OPTION_DESCR.python=	Enable python bindings.
-define PKG_OPTION_SET.python
-  CMAKE_ARGS+=			-DBUILD_PYTHON_BINDINGS=ON
-	include ../../mk/sysdep/python.mk
-endef
-define PKG_OPTION_UNSET.python
-  CMAKE_ARGS+=			-DBUILD_PYTHON_BINDINGS=OFF
 endef
 
 #option for matlab bindings generation
