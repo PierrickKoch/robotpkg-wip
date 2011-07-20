@@ -4,7 +4,7 @@
 
 PKGNAME= 			flann-${VERSION}
 DISTNAME=			flann-${VERSION}-src
-VERSION=			1.6.7
+VERSION=			1.6.11
 EXTRACT_SUFX= .zip
 CATEGORIES=		math
 MASTER_SITES=	http://www.cs.ubc.ca/~mariusm/uploads/FLANN/
@@ -35,7 +35,7 @@ PKG_SUGGESTED_OPTIONS-=		python
 PKG_OPTION_DESCR.python=	Enable python bindings.
 define PKG_OPTION_SET.python
   CMAKE_ARGS+=			-DBUILD_PYTHON_BINDINGS=ON
-	include ../../mk/sysdep/python2.mk
+	include ../../mk/sysdep/python.mk
 endef
 define PKG_OPTION_UNSET.python
   CMAKE_ARGS+=			-DBUILD_PYTHON_BINDINGS=OFF
