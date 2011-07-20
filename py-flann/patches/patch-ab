@@ -1,0 +1,25 @@
+diff -ru src/python/CMakeLists.txt src/python/CMakeLists.txt
+--- src/python/CMakeLists.txt	2011-07-20 13:32:34.259315161 +0100
++++ src/python/CMakeLists.txt	2011-07-20 13:36:41.860542952 +0100
+@@ -1,7 +1,7 @@
+ configure_file( setup.py.tpl setup.py )
+ 
+-install( DIRECTORY pyflann DESTINATION share/flann/python )
+-install( FILES ${CMAKE_CURRENT_BINARY_DIR}/setup.py DESTINATION share/flann/python )
++install( DIRECTORY pyflann DESTINATION ${PYTHON_SITELIB} )
++#install( FILES ${CMAKE_CURRENT_BINARY_DIR}/setup.py DESTINATION share/flann/python )
+ 
+ 
+ # python instalation
+diff -ru src/python/setup.py.tpl src/python/setup.py.tpl
+--- src/python/setup.py.tpl	2011-07-20 13:32:34.259315161 +0100
++++ src/python/setup.py.tpl	2011-07-20 13:38:14.965004632 +0100
+@@ -7,7 +7,7 @@
+ 
+ 
+ def find_path():
+-    lib_paths = [ os.path.abspath('@LIBRARY_OUTPUT_PATH@'), abspath(join(dirname(dirname(sys.argv[0])), '../../../lib')) ]
++    lib_paths = [ os.path.abspath('@LIBRARY_OUTPUT_PATH@'), abspath(join(dirname(dirname(sys.argv[0])), '../../../lib')), abspath(join(os.path.abspath('@CMAKE_INSTALL_PREFIX@'), '/lib')) ]
+     possible_libs = ['libflann.so', 'flann.dll', 'libflann.dll', 'libflann.dylib']
+ 
+     for path in lib_paths:
