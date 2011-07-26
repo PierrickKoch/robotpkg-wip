@@ -3,6 +3,7 @@
 #
 
 DISTNAME=			jointStateMapper-1.2.1
+PKGREVISION=			1
 CATEGORIES=			interface
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=jointStateMapper/}
 MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/jointStateMapper
