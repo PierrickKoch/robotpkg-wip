@@ -1,0 +1,16 @@
+--- spark.gen~	2011-07-26 17:28:20.725084941 +0200
++++ spark.gen	2011-07-26 17:28:20.726084854 +0200
+@@ -13,7 +13,7 @@
+     version:			"3.4";
+     email:			"easisbot@laas.fr";
+     requires:			viman, mocap, pom, niut, genManip, genBasic, genHum;
+-    codels_requires:		"libmove3d >= 3.12.0", "libhri >= 1.0", libjointstatemapper, t3d;
++    codels_requires:		"libmove3d >= 3.12.0", "libhri >= 1.0", jointStateMapper, t3d;
+ 
+ #if defined(JIDO)
+     codels_requires:		pom-euler, gbM;
+@@ -685,4 +685,3 @@
+     fail_reports:	    SPARK_INIT_FAILED;
+ #endif
+ };
+-
