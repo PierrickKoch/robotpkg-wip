@@ -14,9 +14,8 @@ ifeq (+,$(PY_FLANN_DEPEND_MK)) # -------------------------------------------
 PREFER.py-flann?=	robotpkg
 
 DEPEND_USE+=		py-flann
-DEPEND_ABI.py-flann?=	${PYPKGPREFIX}-flann>=1.6.11
+DEPEND_ABI.py-flann?=	${PKGTAG.python-}flann>=1.6.11
 DEPEND_DIR.py-flann?=	../../wip/py-flann
-DEPEND_VARS.py-flann+=	ALTERNATIVE.python
 
 SYSTEM_SEARCH.py-flann=\
 	'${PYTHON_SYSLIBSEARCH}/pyflann/index.py'

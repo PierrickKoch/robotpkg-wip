@@ -3,7 +3,7 @@
 #
 
 VERSION=			1.6.11
-PKGNAME= 			${PYPKGPREFIX}-flann-${VERSION}
+PKGNAME= 			${PKGTAG.python-}-flann-${VERSION}
 DISTNAME=			flann-${VERSION}-src
 EXTRACT_SUFX= .zip
 CATEGORIES=		math
