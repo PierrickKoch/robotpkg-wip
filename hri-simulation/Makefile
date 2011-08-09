@@ -17,10 +17,9 @@ COMMENT=		Simulation environment for Human Robot Interaction
 
 LICENSE=		isc
 
-USE_LANGUAGES+=		python
-PYTHON_REQUIRED=	>=2.5<3
+DEPEND_ABI.python+=	python<3
+PYDISTUTILSPKG= 	ON
 
-PYDISTUTILSPKG=		yes
 
 # Required dependencies
 include ../../localization/pom-genom/depend.mk
@@ -35,12 +34,12 @@ REQD_BUILD_OPTIONS.pilo-genom+=fake
 include ../../wip/mhp-genom/depend.mk
 include ../../wip/move3d-assets/depend.mk
 
-REQD_BUILD_OPTIONS.morse+= pocolibs-hri
-include ../../wip/morse/depend.mk
+REQD_BUILD_OPTIONS.morse-pocolibs+= hri
+include ../../wip/morse-pocolibs/depend.mk
 
 include ../../sysutils/alog/depend.mk
 
-include ../../wip/pypoco/depend.mk
+include ../../wip/py-poco/depend.mk
 
-include ../../mk/sysdep/py-setuptools.mk
+include ../../mk/sysdep/python.mk
 include ../../mk/robotpkg.mk
