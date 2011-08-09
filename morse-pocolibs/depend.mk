@@ -19,10 +19,9 @@ DEPEND_ABI.morse-pocolibs?=	morse-pocolibs>=0.2
 DEPEND_DIR.morse-pocolibs?=	../../wip/morse-pocolibs
 
 SYSTEM_SEARCH.morse-pocolibs=\
-	${PYTHON_SITELIB}/morse/middleware/pocolibs_mw.py
+	lib/python*/{site,dist}-packages/morse/middleware/pocolibs_mw.py
 
-DEPEND_METHOD.python3+=		bootstrap
-include ../../lang/python3/depend.mk
+include ../../mk/sysdep/python.mk
 
 endif # MORSE_POCOLIBS_DEPEND_MK -------------------------------------------
 

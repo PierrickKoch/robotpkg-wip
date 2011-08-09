@@ -52,5 +52,5 @@ define PKG_OPTION_SET.hri
 endef
 
 include ../../simulation/morse/depend.mk
-include ../../mk/sysdep/swig.mk
+include ../../devel/swig/depend.mk
 include ../../mk/robotpkg.mk
