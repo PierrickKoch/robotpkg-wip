@@ -1,5 +1,5 @@
-# robotpkg Makefile for:	knowledge/py-oro
-# Created:			Severin Lemaignan on Fri, 05 Aug 2011
+# robotpkg Makefile for:	knowledge/py26-oro
+# Created:			Séverin Lemaignan on Fri, 5 Aug 2011
 #
 
 VERSION=		1.0
@@ -15,8 +15,10 @@ HOMEPAGE=	http://oro.openrobots.org
 COMMENT=	Python bindings for oro-server
 LICENSE=	2-clause-bsd
 
-PYTHON_REQUIRED+=	<3
+DEPEND_ABI.python+=	python<3
 PYDISTUTILSPKG= 	ON
 
 include ../../mk/sysdep/python.mk
 include ../../mk/robotpkg.mk
+
+post-install: python-compile-all(${PREFIX}/${PYTHON_SITELIB}/pyoro.py)

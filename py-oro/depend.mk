@@ -1,28 +1,27 @@
-# robotpkg depend.mk for:	math/py-flann
-# Created:			Nizar Sallem on Wed, 20 Jul 2011
+# robotpkg depend.mk for:	knowledge/py-oro
+# Created:			Séverin Lemaignan on Fri, 5 Aug 2011
 #
 
 DEPEND_DEPTH:=		${DEPEND_DEPTH}+
-PY_FLANN_DEPEND_MK:=	${PY_FLANN_DEPEND_MK}+
+PY_ORO_DEPEND_MK:=	${PY_ORO_DEPEND_MK}+
 
 ifeq (+,$(DEPEND_DEPTH))
-DEPEND_PKG+=		py-flann
+DEPEND_PKG+=		py-oro
 endif
 
-ifeq (+,$(PY_FLANN_DEPEND_MK)) # -------------------------------------------
+ifeq (+,$(PY_ORO_DEPEND_MK)) # -------------------------------------------
 
-PREFER.py-flann?=	robotpkg
+PREFER.py-oro?=	robotpkg
 
-DEPEND_USE+=		py-flann
-DEPEND_ABI.py-flann?=	${PKGTAG.python-}flann>=1.6.11
-DEPEND_DIR.py-flann?=	../../wip/py-flann
+DEPEND_USE+=		py-oro
+DEPEND_ABI.py-oro?=	${PKGTAG.python-}oro>=1.0
+DEPEND_DIR.py-oro?=	../../wip/py-oro
 
-SYSTEM_SEARCH.py-flann=\
-	'${PYTHON_SYSLIBSEARCH}/pyflann/index.py'
+SYSTEM_SEARCH.py-oro=\
+	'${PYTHON_SYSLIBSEARCH}/pyoro.py'
 
-include ../../wip/flann/depend.mk
 include ../../mk/sysdep/python.mk
 
-endif # PY_FLANN_DEPEND_MK -------------------------------------------------
+endif # PY_ORO_DEPEND_MK -------------------------------------------------
 
 DEPEND_DEPTH:=		${DEPEND_DEPTH:+=}
