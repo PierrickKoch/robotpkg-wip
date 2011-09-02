@@ -31,5 +31,6 @@ SUBDIR+=	jafar-correl
 SUBDIR+=	jafar-qdisplay
 SUBDIR+=	jafar-gdhe
 SUBDIR+=	jafar-rtslam
+SUBDIR+=	collada-dom
 
 include ../mk/robotpkg.subdir.mk
