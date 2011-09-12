@@ -4,6 +4,7 @@
 
 PKGNAME= 			flann-${VERSION}
 DISTNAME=			flann-${VERSION}-src
+PKGREVISION=			1
 VERSION=			1.6.11
 EXTRACT_SUFX= .zip
 CATEGORIES=		math
