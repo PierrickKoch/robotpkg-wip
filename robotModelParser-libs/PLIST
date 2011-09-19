@@ -1,0 +1,12 @@
+@comment Fri Sep 16 17:09:15 CEST 2011
+include/robotModelParser/parsers/collada_parser.h
+include/robotModelParser/parsers/urdf_parser.h
+include/robotModelParser/urdf_interface/color.h
+include/robotModelParser/urdf_interface/joint.h
+include/robotModelParser/urdf_interface/link.h
+include/robotModelParser/urdf_interface/model.h
+include/robotModelParser/urdf_interface/pose.h
+include/robotModelParser/urdf_interface/tinyxml/tinystr.h
+include/robotModelParser/urdf_interface/tinyxml/tinyxml.h
+include/robotModelParser/urdf_model.h
+lib/librobotModelParser.so

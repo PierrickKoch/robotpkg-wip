@@ -1,0 +1,2 @@
+This C++ library offers a class URDFModel, which can be used to parse URDF or Collada 1.5 files. It constructs an object model (C++ URDF) of the robot.
+This library is based on the robot_model stack (http://www.ros.org/wiki/robot_model) 
