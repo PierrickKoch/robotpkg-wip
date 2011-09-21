@@ -3,7 +3,6 @@
 
 COMMENT=	WIP packages
 
-SUBDIR+=	collada-dom
 SUBDIR+=	flann
 SUBDIR+=	gest-genom
 SUBDIR+=	jafar-kernel

@@ -13,6 +13,6 @@ LICENSE=		original-bsd
 
 USE_LANGUAGES+=		c c++
 
-include ../../wip/collada-dom/depend.mk
+include ../../graphics/collada-dom/depend.mk
 include ../../mk/sysdep/cmake.mk
 include ../../mk/robotpkg.mk
