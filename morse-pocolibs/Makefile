@@ -54,3 +54,6 @@ endef
 include ../../simulation/morse/depend.mk
 include ../../devel/swig/depend.mk
 include ../../mk/robotpkg.mk
+
+post-install: python-compile-all( \
+	${PREFIX}/${PYTHON_SITELIB}/morse/middleware/pocolibs*)
