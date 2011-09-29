@@ -31,3 +31,4 @@ include ../../mk/sysdep/glu.mk
 include ../../math/eigen2/depend.mk
 include ../../wip/sysdep/libxpm.mk
 include ../../mk/robotpkg.mk
+include ../../pkgtools/pkg-config/depend.mk
