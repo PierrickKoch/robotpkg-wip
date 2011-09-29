@@ -15,7 +15,8 @@ PREFER.libmove3d?=	robotpkg
 
 SYSTEM_SEARCH.libmove3d=\
 	include/libmove3d/include/move3d-headless.h	\
-	lib/libmove3d.so
+	lib/libmove3d.so \
+	lib/pkgconfig/libmove3d.pc
 
 DEPEND_USE+=		libmove3d
 

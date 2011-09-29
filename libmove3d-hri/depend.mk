@@ -15,7 +15,8 @@ PREFER.libhri?=	robotpkg
 
 SYSTEM_SEARCH.libmove3d-hri=\
 	include/libmove3d/hri/hri.h	\
-	lib/libmove3d-hri.so
+	lib/libmove3d-hri.so \
+	lib/pkgconfig/libmove3d-hri.pc
 
 DEPEND_USE+=		libmove3d-hri
 
