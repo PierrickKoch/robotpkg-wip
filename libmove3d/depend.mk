@@ -19,7 +19,7 @@ SYSTEM_SEARCH.libmove3d=\
 
 DEPEND_USE+=		libmove3d
 
-DEPEND_ABI.libmove3d?=libmove3d>=3.12.0
+DEPEND_ABI.libmove3d?=libmove3d>=3.13.1
 DEPEND_DIR.libmove3d?=../../wip/libmove3d
 
 endif # LIBMOVE3D_DEPEND_MK ----------------------------------------
