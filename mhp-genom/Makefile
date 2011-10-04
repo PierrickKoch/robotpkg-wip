@@ -93,7 +93,7 @@ PKG_SUGGESTED_OPTIONS+=	spark
 GENOM_MODULE=		mhp
 
 include ../../wip/libmove3d/depend.mk
-include ../../wip/libhri/depend.mk
+include ../../wip/libmove3d-hri/depend.mk
 include ../../manipulation/genManip-genom/depend.mk
 include ../../architecture/genom/depend.mk
 
