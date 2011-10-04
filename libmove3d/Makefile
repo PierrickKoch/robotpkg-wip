@@ -5,7 +5,7 @@
 DISTNAME=			libmove3d-3.13.1
 CATEGORIES=			path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=libmove3d/}
-MASTER_REPOSITORY=	git http://trac.laas.fr/git/robots/BioMove3D.git
+MASTER_REPOSITORY=	git http://trac.laas.fr/git/robots/libmove3d.git
 
 MAINTAINER=			biomove3dgitrepo@laas.fr
 COMMENT=			Library for motion planning and geometric reasonning
