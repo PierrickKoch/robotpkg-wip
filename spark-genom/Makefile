@@ -5,7 +5,7 @@ DISTNAME=		spark-genom-3.4
 PKGREVISION=		1
 CATEGORIES=		knowledge
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=spark-genom/}
-MASTER_REPOSITORY=	git http://trac.laas.fr/git/robots/spark-genom.git
+MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/spark-genom.git
 
 MAINTAINER=		easisbot@laas.fr
 COMMENT=		Spatial Reasoning and Knowledge module
@@ -98,7 +98,7 @@ GENOM_MODULE=		spark
 REQD_BUILD_OPTIONS.BioMove3D:=	jido
 
 include ../../wip/libmove3d/depend.mk
-include ../../wip/libhri/depend.mk
+include ../../wip/libmove3d-hri/depend.mk
 include ../../wip/attentional-genom/depend.mk
 include ../../interfaces/genBasic-genom/depend.mk
 include ../../interfaces/genHum-genom/depend.mk
