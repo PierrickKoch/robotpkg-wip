@@ -23,7 +23,7 @@ CMAKE_ARGS+= -DBOOST_LIBRARYDIR=${PREFIX.boost-libs}/lib
 
 ## Common includes
 include ../../wip/libmove3d/depend.mk
-
+include ../../wip/libmove3d-hri/depend.mk
 include ../../mk/sysdep/cmake.mk
 include ../../devel/boost-headers/depend.mk
 include ../../devel/boost-libs/depend.mk
