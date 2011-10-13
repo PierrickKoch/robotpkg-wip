@@ -14581,7 +14581,7 @@ p3d_col_activate_robot(envPt_MM->robot[rob_indx.VISBALL_MIGHTABILITY]);
       for ( o_ctr=0;o_ctr<no;o_ctr++ )
 	{
 
-	  o = envPt_MM->o[r_ctr];
+	  o = envPt_MM->o[o_ctr];
 	  //// printf(" o->name = %s, \n",o->name);
 	  double BBx;
 	  for ( BBx=o->BB.xmin;BBx<o->BB.xmax;BBx+=increment )
