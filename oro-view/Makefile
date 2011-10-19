@@ -2,7 +2,7 @@
 # Created:			Séverin Lemaignan, on Wed 19/10/2011
 #
 
-DISTNAME=	oro-view-1.0
+DISTNAME=	oro-view-1.0.1
 CATEGORIES=	knowledge
 MASTER_SITES=	${MASTER_SITE_OPENROBOTS:=oro-view/}
 MASTER_REPOSITORY=	git ssh://softs.laas.fr/git/robots/oro-view
@@ -20,8 +20,4 @@ include ../../wip/jsoncpp/depend.mk
 include ../../mk/sysdep/ftgl.mk
 include ../../mk/sysdep/SDL.mk
 include ../../mk/sysdep/SDL_image.mk
-include ../../mk/sysdep/autoconf.mk
-include ../../mk/sysdep/automake.mk
 include ../../mk/robotpkg.mk
-
-pre-configure: autoreconf
