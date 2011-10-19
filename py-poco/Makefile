@@ -1,5 +1,5 @@
 
-VERSION=		1.2
+VERSION=		1.4
 PKGNAME= 		${PKGTAG.python}-poco-${VERSION}
 DISTNAME=		pypoco-${VERSION}
 
