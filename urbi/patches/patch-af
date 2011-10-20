@@ -1,0 +1,15 @@
+--- sdk-remote/src/tests/bin/wrapper.in~	2010-03-19 10:50:11.000000000 +0100
++++ sdk-remote/src/tests/bin/wrapper.in	2011-10-20 17:17:52.138706184 +0200
+@@ -27,10 +27,10 @@
+ abs_top_srcdir='@abs_top_srcdir@'
+ 
+ # Find urbi headers.
+-EXTRA_CPPFLAGS+=" -I$abs_top_srcdir/include -I$abs_top_builddir/include"
++EXTRA_CPPFLAGS="${EXTRA_CPPFLAGS} -I$abs_top_srcdir/include -I$abs_top_builddir/include"
+ 
+ # Find libport headers.
+-EXTRA_CPPFLAGS+=" -I$abs_top_srcdir/libport/include -I$abs_top_builddir/libport/include"
++EXTRA_CPPFLAGS="${EXTRA_CPPFLAGS} -I$abs_top_srcdir/libport/include -I$abs_top_builddir/libport/include"
+ 
+ test -d "$abs_top_builddir" ||
+   fatal "cannot find top build directory: $abs_top_builddir"

@@ -1,0 +1,11 @@
+--- sdk-remote/libport/configure~	2011-10-20 17:02:15.366705853 +0200
++++ sdk-remote/libport/configure	2011-10-20 17:02:20.722706041 +0200
+@@ -20717,7 +20717,7 @@
+           boost_cv_lib_filesystem_LIBS="-l$boost_lib";;
+       esac
+       boost_save_LIBS=$LIBS
+-      LIBS="$boost_cv_lib_filesystem_LIBS $LIBS"
++      LIBS="$boost_cv_lib_filesystem_LIBS -lboost_system $LIBS"
+       test x"$boost_ldpath" != x && LDFLAGS="$LDFLAGS -L$boost_ldpath"
+       rm -f conftest$ac_exeext
+ boost_save_ac_ext=$ac_ext

@@ -1,0 +1,22 @@
+--- sdk-remote/jpeg/configure~	2010-04-23 16:41:01.000000000 +0200
++++ sdk-remote/jpeg/configure	2011-10-20 16:51:32.202706277 +0200
+@@ -14215,13 +14215,13 @@
+   { $as_echo "$as_me:$LINENO: creating $ac_prefix_conf_OUT - prefix $ac_prefix_conf_UPP for $ac_prefix_conf_INP defines" >&5
+ $as_echo "$as_me: creating $ac_prefix_conf_OUT - prefix $ac_prefix_conf_UPP for $ac_prefix_conf_INP defines" >&6;}
+   if test -f $ac_prefix_conf_INP ; then
+-    echo "s/#undef  *\\([ABCDEFGHIJKLMNOPQRSTUVWXYZ_]\\)/#undef $ac_prefix_conf_UPP""_\\1/" > conftest.prefix
+-    echo "s/#undef  *\\([abcdefghijklmnopqrstuvwxyz]\\)/#undef $ac_prefix_conf_LOW""_\\1/" >> conftest.prefix
+-    echo "s/#define  *\\([ABCDEFGHIJKLMNOPQRSTUVWXYZ_][abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_]*\\)\\(.*\\)/#ifndef $ac_prefix_conf_UPP""_\\1 \\" >> conftest.prefix
+-    echo "#define $ac_prefix_conf_UPP""_\\1 \\2 \\" >> conftest.prefix
++    $as_echo "s/#undef  *\\([ABCDEFGHIJKLMNOPQRSTUVWXYZ_]\\)/#undef $ac_prefix_conf_UPP""_\\1/" > conftest.prefix
++    $as_echo "s/#undef  *\\([abcdefghijklmnopqrstuvwxyz]\\)/#undef $ac_prefix_conf_LOW""_\\1/" >> conftest.prefix
++    $as_echo "s/#define  *\\([ABCDEFGHIJKLMNOPQRSTUVWXYZ_][abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_]*\\)\\(.*\\)/#ifndef $ac_prefix_conf_UPP""_\\1 \\" >> conftest.prefix
++    $as_echo "#define $ac_prefix_conf_UPP""_\\1 \\2 \\" >> conftest.prefix
+     echo "#endif/" >>conftest.prefix
+-    echo "s/#define  *\\([abcdefghijklmnopqrstuvwxyz][abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_]*\\)\\(.*\\)/#ifndef $ac_prefix_conf_LOW""_\\1 \\" >> conftest.prefix
+-    echo "#define $ac_prefix_conf_LOW""_\\1 \\2 \\" >> conftest.prefix
++    $as_echo "s/#define  *\\([abcdefghijklmnopqrstuvwxyz][abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_]*\\)\\(.*\\)/#ifndef $ac_prefix_conf_LOW""_\\1 \\" >> conftest.prefix
++    $as_echo "#define $ac_prefix_conf_LOW""_\\1 \\2 \\" >> conftest.prefix
+     echo "#endif/" >> conftest.prefix
+     # now executing _script on _DEF input to create _OUT output file
+     echo "#ifndef $ac_prefix_conf_DEF"      >$tmp/pconfig.h

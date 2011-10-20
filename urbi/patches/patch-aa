@@ -1,0 +1,20 @@
+--- configure~	2010-05-05 16:36:02.000000000 +0200
++++ configure	2011-10-20 16:37:26.750705372 +0200
+@@ -418,7 +418,7 @@
+   while true
+   do
+     eval res="$dir"
+-    if test x"$dir" == x"$res"; then
++    if test x"$dir" = x"$res"; then
+       break
+     fi
+     dir=$res
+@@ -2287,7 +2287,7 @@
+   $as_echo_n "(cached) " >&6
+ else
+   ac_cv_distcheck_configure_flags=
+-eval distcheck_configure_flags $ac_configure_args
++#eval distcheck_configure_flags $ac_configure_args
+ 
+ fi
+ { $as_echo "$as_me:$LINENO: result: $ac_cv_distcheck_configure_flags" >&5
