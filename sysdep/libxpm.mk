@@ -32,7 +32,9 @@ SYSTEM_SEARCH.libXpm=	\
 	include/X11/xpm.h \
 	lib/libXpm.so
 
-SYSTEM_PKG.Linux-fedora.libXpm=libXpm-devel
+SYSTEM_PKG.Fedora.libXpm=libXpm-devel
+SYSTEM_PKG.Ubuntu.libXpm=libxpm-dev
+SYSTEM_PKG.Debian.libXpm=libXpm-dev
 
 endif # LIBXPM_DEPEND_MK ---------------------------------------------------
 

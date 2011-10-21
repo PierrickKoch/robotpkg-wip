@@ -37,9 +37,9 @@ SYSTEM_SEARCH.gts=	\
 	include/gts.h \
 	lib/libgts.so
 
-SYSTEM_PKG.Linux-fedora.gts=gts-devel
-SYSTEM_PKG.Linux-ubuntu.gts=libgts-dev
-SYSTEM_PKG.Linux-debian.gts=libgts-dev
+SYSTEM_PKG.Fedora.gts=gts-devel
+SYSTEM_PKG.Ubuntu.gts=libgts-dev
+SYSTEM_PKG.Debian.gts=libgts-dev
 
 
 endif # GTS_DEPEND_MK ---------------------------------------------------

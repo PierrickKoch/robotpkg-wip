@@ -38,9 +38,9 @@ SYSTEM_SEARCH.glpk=	\
 	'include/{,glpk/}glpk.h' \
 	lib/libglpk.so
 
-SYSTEM_PKG.Linux-fedora.glpk=glpk-devel
-SYSTEM_PKG.Linux-ubuntu.glpk=glpk
-SYSTEM_PKG.Linux-debian.glpk=glpk
+SYSTEM_PKG.Fedora.glpk=glpk-devel
+SYSTEM_PKG.Ubuntu.glpk=glpk
+SYSTEM_PKG.Debian.glpk=glpk
 
 endif # GLPK_DEPEND_MK ---------------------------------------------------
 

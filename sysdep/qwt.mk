@@ -37,9 +37,9 @@ SYSTEM_SEARCH.qwt=	\
 	include/qwt/qwt.h \
 	lib/libqwt.so	\
 
-SYSTEM_PKG.Linux-fedora.qwt=qwt
-#SYSTEM_PKG.Linux-ubuntu.qwt=libforms-dev
-#SYSTEM_PKG.Linux-debian.qwt=libforms-dev
+SYSTEM_PKG.Fedora.qwt=qwt
+SYSTEM_PKG.Ubuntu.qwt=libqwt-dev
+SYSTEM_PKG.Debian.qwt=libqwt-dev
 
 endif # QWT_DEPEND_MK ---------------------------------------------------
 

@@ -38,9 +38,9 @@ SYSTEM_SEARCH.qhull=	\
 	include/qhull/qhull.h \
 	lib/libqhull.so
 
-SYSTEM_PKG.Linux-fedora.qhull=qhull-devel
-SYSTEM_PKG.Linux-ubuntu.qhull=libqhull-dev
-SYSTEM_PKG.Linux-debian.qhull=libqhull-dev
+SYSTEM_PKG.Fedora.qhull=qhull-devel
+SYSTEM_PKG.Ubuntu.qhull=libqhull-dev
+SYSTEM_PKG.Debian.qhull=libqhull-dev
 
 endif # QHULL_DEPEND_MK ---------------------------------------------------
 
