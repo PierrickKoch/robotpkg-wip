@@ -1,4 +1,4 @@
-@comment Fri Apr 15 17:32:29 CEST 2011
+@comment Mon Nov 7 13:32:54 CET 2011
 include/libmove3d/animation/proto/anim_charac_traj_interface_proto.h
 include/libmove3d/animation/proto/anim_charac_traj_proto.h
 include/libmove3d/animation/proto/anim_compute_path_interface_proto.h
@@ -134,9 +134,6 @@ include/libmove3d/collision/proto/p3d_kcd_proto.h
 include/libmove3d/collision/proto/p3d_pqp_proto.h
 include/libmove3d/collision/proto/p3d_triangles_proto.h
 include/libmove3d/collision/proto/p3d_v_collide_proto.h
-include/libmove3d/graphic/cppDev/drawCost.hpp
-include/libmove3d/graphic/cppDev/drawModule.hpp
-include/libmove3d/graphic/move3d-gui.h
 include/libmove3d/graphic/proto/g3d_draw_env_proto.h
 include/libmove3d/graphic/proto/g3d_draw_graph_proto.h
 include/libmove3d/graphic/proto/g3d_draw_proto.h
@@ -184,9 +181,6 @@ include/libmove3d/graspPlanning/qhull/random.h
 include/libmove3d/graspPlanning/qhull/stat.h
 include/libmove3d/graspPlanning/qhull/user.h
 include/libmove3d/groundHeight/doc/additionalDoc/package.h
-include/libmove3d/groundHeight/doc/figures/partition.png
-include/libmove3d/groundHeight/doc/footer.html
-include/libmove3d/groundHeight/doc/header.html
 include/libmove3d/groundHeight/src/groundHeight.h
 include/libmove3d/groundHeight/src/groundWrapper.h
 include/libmove3d/include/Animation-pkg.h
@@ -218,16 +212,15 @@ include/libmove3d/include/g3d_states.h
 include/libmove3d/include/g3d_window.h
 include/libmove3d/include/list.h
 include/libmove3d/include/localpath.h
+include/libmove3d/include/move3d-gui.h
 include/libmove3d/include/move3d-headless.h
 include/libmove3d/include/p3d.h
 include/libmove3d/include/p3d_matrix.h
 include/libmove3d/include/p3d_poly.h
 include/libmove3d/include/p3d_sys.h
 include/libmove3d/include/p3d_type.h
-include/libmove3d/include/p3d_type.h.bleo
 include/libmove3d/include/polyhedre.h
 include/libmove3d/include/roadmap.h
-include/libmove3d/include/roadmap.h.bleo
 include/libmove3d/include/rs.h
 include/libmove3d/include/stat.h
 include/libmove3d/include/traj.h
@@ -271,7 +264,6 @@ include/libmove3d/p3d/proto/p3d_BB_proto.h
 include/libmove3d/p3d/proto/p3d_autocol_proto.h
 include/libmove3d/p3d/proto/p3d_config_proto.h
 include/libmove3d/p3d/proto/p3d_constraints_proto.h
-include/libmove3d/p3d/proto/p3d_constraints_proto.h.bak030707
 include/libmove3d/p3d/proto/p3d_copy_robot.h
 include/libmove3d/p3d/proto/p3d_del_proto.h
 include/libmove3d/p3d/proto/p3d_env_proto.h
@@ -283,7 +275,6 @@ include/libmove3d/p3d/proto/p3d_ik_lwr_proto.h
 include/libmove3d/p3d/proto/p3d_ik_pa10_proto.h
 include/libmove3d/p3d/proto/p3d_ik_pr2_proto.h
 include/libmove3d/p3d/proto/p3d_ik_proto.h
-include/libmove3d/p3d/proto/p3d_ik_proto.h.bak030707
 include/libmove3d/p3d/proto/p3d_info_proto.h
 include/libmove3d/p3d/proto/p3d_jacobian_proto.h
 include/libmove3d/p3d/proto/p3d_jnt_base_proto.h
@@ -294,6 +285,7 @@ include/libmove3d/p3d/proto/p3d_jnt_plan_proto.h
 include/libmove3d/p3d/proto/p3d_jnt_rotate_proto.h
 include/libmove3d/p3d/proto/p3d_jnt_translate_proto.h
 include/libmove3d/p3d/proto/p3d_joints_proto.h
+include/libmove3d/p3d/proto/p3d_load_model.h
 include/libmove3d/p3d/proto/p3d_matrix_proto.h
 include/libmove3d/p3d/proto/p3d_parallel_proto.h
 include/libmove3d/p3d/proto/p3d_poly_proto.h
@@ -311,6 +303,7 @@ include/libmove3d/p3d/proto/p3d_rw_util_proto.h
 include/libmove3d/p3d/proto/p3d_set_proto.h
 include/libmove3d/p3d/proto/p3d_setpos_proto.h
 include/libmove3d/p3d/proto/polyhedre_proto.h
+include/libmove3d/p3d/proto/urdf_p3d_converter.h
 include/libmove3d/planner/Diffusion/proto/Diffusion_proto.h
 include/libmove3d/planner/Diffusion/proto/p3d_Diffusion_proto.h
 include/libmove3d/planner/Diffusion/proto/p3d_DynamicDomain_proto.h

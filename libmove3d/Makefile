@@ -2,7 +2,7 @@
 # Created:			Severin Lemaignan on Fri, 11 Feb 2011
 #
 
-DISTNAME=			libmove3d-3.13.1
+DISTNAME=			libmove3d-3.14.1
 CATEGORIES=			path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=libmove3d/}
 MASTER_REPOSITORY=	git http://trac.laas.fr/git/robots/libmove3d.git
@@ -16,7 +16,7 @@ LICENSE=			gnu-gpl-v2
 
 USE_LANGUAGES+=		c c++
 
-CMAKE_ARGS+= -DGENERATE_LIBMOVE3D=ON
+CMAKE_ARGS+= -DGENERATE_VIEWER_LIB=ON
 
 ## Dependencies 
 include ../../math/gbM/depend.mk
