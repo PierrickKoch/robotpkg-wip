@@ -16,13 +16,13 @@
 #
 
 DEPEND_DEPTH:=		${DEPEND_DEPTH}+
-LIBMOVE3D_PLANNERS_DEPEND_MK:=	${LIBMOVE3D_PLANNERS-LIBS_DEPEND_MK}+
+LIBMOVE3D_PLANNERS_DEPEND_MK:=	${LIBMOVE3D_PLANNERS_DEPEND_MK}+
 
 ifeq (+,$(DEPEND_DEPTH))
 DEPEND_PKG+=		libmove3d-planners
 endif
 
-ifeq (+,$(LIBMOVE3D_PLANNERS-LIBS_DEPEND_MK)) # ----------------------------------
+ifeq (+,$(LIBMOVE3D_PLANNERS_DEPEND_MK)) # ----------------------------------
 
 PREFER.libmove3d-planners?=	robotpkg
 
