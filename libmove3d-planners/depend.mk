@@ -27,8 +27,9 @@ ifeq (+,$(LIBMOVE3D_PLANNERS_DEPEND_MK)) # ----------------------------------
 PREFER.libmove3d-planners?=	robotpkg
 
 SYSTEM_SEARCH.libmove3d-planners=\
-	include/libmove3d-planners/planner/planner.hpp	\
-	lib/libmove3d-planners.so
+	include/libmove3d/planners/planner/planner.hpp	\
+	lib/libmove3d-planners.so \
+	lib/pkgconfig/libmove3d-planners.pc
 
 DEPEND_USE+=		libmove3d-planners
 
