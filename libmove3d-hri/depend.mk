@@ -11,7 +11,7 @@ endif
 
 ifeq (+,$(LIBMOVE3D_HRI_DEPEND_MK)) # ----------------------------------
 
-PREFER.libhri?=	robotpkg
+PREFER.libmove3d-hri?=	robotpkg
 
 SYSTEM_SEARCH.libmove3d-hri=\
 	include/libmove3d/hri/hri.h	\
