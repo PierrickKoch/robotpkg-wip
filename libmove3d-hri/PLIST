@@ -1,4 +1,6 @@
-@comment Fri Apr 15 20:00:15 CEST 2011
+@comment Tue Nov 8 10:33:09 CET 2011
+include/libmove3d/hri/Agent_State_Analysis.h
+include/libmove3d/hri/Agent_State_Analysis_proto.h
 include/libmove3d/hri/HRI_tasks.h
 include/libmove3d/hri/HRP2_gik_proto.h
 include/libmove3d/hri/Mightability_Analysis.h
