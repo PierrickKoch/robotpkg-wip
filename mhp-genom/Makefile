@@ -2,7 +2,7 @@
 # Created:			Severin Lemaignan on Tue, 31 Aug 2010
 #
 
-DISTNAME=		mhp-genom-3.8
+DISTNAME=		mhp-genom-3.9
 CATEGORIES=		path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=mhp-genom/}
 MASTER_REPOSITORY=	git ssh://softs.laas.fr/git/robots/mhp-genom
@@ -21,7 +21,7 @@ USE_LANGUAGES+=		c c++
 #####################
 
 PKG_OPTIONS_REQUIRED_GROUPS=	robot
-PKG_OPTIONS_GROUP.robot=	hrp2 jido pr2 simulation
+PKG_OPTIONS_GROUP.robot=	hrp2 jido pr2 simulation 
 
 ##
 ## HRP2
@@ -60,6 +60,17 @@ define PKG_OPTION_SET.simulation
   GENOM_ARGS+= -DSIMULATION
   include ../../motion/pilo-genom/depend.mk
 endef
+
+##                                                                                                   
+## HRI_COSTSPACE                                                         
+##                                                                                                   
+PKG_SUPPORTED_OPTIONS+= hri_costspace
+PKG_OPTION_DESCR.hri_costspace=  Compile MHP for costspaces
+
+define PKG_OPTION_SET.hri_costspace
+  GENOM_ARGS+= -DHRI_COSTSPACE                                                                       
+  include ../../wip/libmove3d-planners/depend.mk                                                     
+endef      
 
 ##
 ## Pr2
