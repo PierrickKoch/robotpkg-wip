@@ -34,5 +34,5 @@ include ../../wip/jafar-kernel/depend.mk
 include ../../devel/boost-headers/depend.mk
 include ../../pkgtools/pkg-config/depend.mk
 include ../../mk/sysdep/cmake.mk
-#include ../../mk/sysdep/gdal.mk
+include ../../mk/sysdep/gdal.mk
 include ../../mk/robotpkg.mk
