@@ -6,7 +6,7 @@ DISTNAME=		gest-genom-1.0
 PKGREVISION=		1
 CATEGORIES=		image
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=gest-genom/}
-MASTER_REPOSITORY=	git ssh://softs.laas.fr/git/robots/gest-genom
+MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/gest-genom
 
 MAINTAINER=		openrobots@laas.fr
 COMMENT=		GeNoM module for human posture recognition, based on skin patches detection
