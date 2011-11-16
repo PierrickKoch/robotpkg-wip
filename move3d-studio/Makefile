@@ -8,7 +8,6 @@ VERSION=		3.9.1
 
 CATEGORIES=		path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=BioMove3D/}
-#MASTER_REPOSITORY=	git http://trac.laas.fr/git/robots/BioMove3D.git
 MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/move3d-studio.git
 
 MAINTAINER=		biomove3dgitrepo@laas.fr
