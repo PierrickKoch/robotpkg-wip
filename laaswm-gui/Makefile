@@ -5,7 +5,7 @@ DISTNAME=		laaswm-libs-${VERSION}
 CATEGORIES=	    graphics
 
 MASTER_SITES=	${MASTER_SITE_OPENROBOTS:=laaswm-libs/}
-MASTER_REPOSITORY=	git http://trac.laas.fr/git/robots/laaswm-libs.git
+MASTER_REPOSITORY=	${MASTER_REPOSITORY_OPENROBOTS}laaswm-libs.git
 LICENSE=	isc
 
 MAINTAINER=	openrobots@laas.fr
