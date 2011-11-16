@@ -5,7 +5,7 @@
 DISTNAME=	oro-view-1.0.1
 CATEGORIES=	knowledge
 MASTER_SITES=	${MASTER_SITE_OPENROBOTS:=oro-view/}
-MASTER_REPOSITORY=	git ssh://softs.laas.fr/git/robots/oro-view
+MASTER_REPOSITORY=	${MASTER_REPOSITORY_OPENROBOTS}oro-view
 
 COMMENT=	OpenGL-based viewer for ontologies exposed by oro-server
 MAINTAINER=	severin.lemaignan@laas.fr

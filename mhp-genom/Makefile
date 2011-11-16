@@ -5,7 +5,7 @@
 DISTNAME=		mhp-genom-3.9
 CATEGORIES=		path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=mhp-genom/}
-MASTER_REPOSITORY=	git ssh://softs.laas.fr/git/robots/mhp-genom
+MASTER_REPOSITORY=	${MASTER_REPOSITORY_OPENROBOTS}mhp-genom
 
 MAINTAINER=		easisbot@laas.fr
 COMMENT=		Motion in Human Presence module

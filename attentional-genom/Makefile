@@ -5,7 +5,7 @@
 DISTNAME=		attentional-genom-1.2
 CATEGORIES=		manipulation
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=attentional-genom/}
-MASTER_REPOSITORY=	git ssh://softs.laas.fr/git/robots/attentional-genom
+MASTER_REPOSITORY=	${MASTER_REPOSITORY_OPENROBOTS}attentional-genom
 
 MAINTAINER=		xavier.broquere@laas.fr
 COMMENT=		Genom module to control the motion law of the robot
