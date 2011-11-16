@@ -6,7 +6,7 @@ COMMENT=	    Python bindings to remotely control windows in laaswm
 CATEGORIES=	    graphics
 
 MASTER_SITES=	${MASTER_SITE_OPENROBOTS:=laaswm-libs/}
-MASTER_REPOSITORY=	${MASTER_REPOSITORY_OPENROBOTS}laaswm-libs.git
+MASTER_REPOSITORY=	${MASTER_REPOSITORY_OPENROBOTS}laaswm-libs
 LICENSE=	isc
 
 MAINTAINER=	openrobots@laas.fr
