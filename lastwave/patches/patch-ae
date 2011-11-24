@@ -1,0 +1,31 @@
+--- LastWave/package_wtrans1d/include/wtrans1d.h~	2005-03-21 11:39:48.000000000 +0100
++++ LastWave/package_wtrans1d/include/wtrans1d.h	2011-11-24 13:51:06.671760545 +0100
+@@ -34,10 +34,9 @@
+ /**************************************************************/
+ 
+ #ifndef WTRANS_H
+-
+ #define WTRANS_H
+ 
+-
++#include "wt1d.h"
+ /**********************/
+ /* Some constants ... */
+ /**********************/
+@@ -149,7 +148,15 @@
+ /* Display a wtrans */
+ extern void DefineGraphWtrans(void);
+ 
+-#include "wt1d.h"
++/* Computes the continuous wavelet transform using wavelets defined in the physical space */
++extern void CWtd(WTRANS wtrans,LWFLOAT aMin,int nOct,int nVoi,Wavelet *wavelet,
++                  int borderType,int flagMemoryOptimized,int flagCausal,
++		 LWFLOAT expo);
++
++/* The corresponding command */
++extern void C_CWtd(char **argv);
++
++
+ 
+ #endif
+ 

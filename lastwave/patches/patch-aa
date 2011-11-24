@@ -1,0 +1,11 @@
+--- LastWave/package_image/src/image_file.c~	2009-02-04 13:14:11.000000000 +0100
++++ LastWave/package_image/src/image_file.c	2011-11-24 13:51:06.655760544 +0100
+@@ -197,7 +197,7 @@
+     for(i = 0; i < ncol*nrow; i++) {
+ #ifdef NUMDOUBLE     
+       fscanf(stream,"%lf ",values+i);
+-#elif      
++#else      
+       fscanf(stream,"%f ",values+i);
+ #endif
+     } 

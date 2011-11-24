@@ -1,0 +1,13 @@
+--- LastWave/wxsystem/src/wxsystem.cc~	2008-09-16 14:21:08.000000000 +0200
++++ LastWave/wxsystem/src/wxsystem.cc	2011-11-24 13:51:06.675760545 +0100
+@@ -148,8 +148,8 @@
+   
+   // This is the user directory where to put the config files : history and scriptDir
+   // We create it if necessary.
+-  wxString str = SOFTVERSION;
+-  wxString str1 = wxStandardPaths::Get().GetUserDataDir()+"."+str;
++  wxString str = wxT(SOFTVERSION);
++  wxString str1 = wxStandardPaths::Get().GetUserDataDir()+wxT(".")+str;
+ 
+   strcpy(_LWUserDataDir_,WXSTRING2ANSI(str1));
+ 

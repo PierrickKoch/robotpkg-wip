@@ -1,0 +1,4 @@
+LastWave is a signal processing oriented command language.
+It allows to deal with high-level structures such as signals, 
+images, wavelet transforms, extrema representation, short time 
+fourier transform,...

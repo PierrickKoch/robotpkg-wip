@@ -1,0 +1,71 @@
+--- LastWave/package_wtrans1d/src/cwt1d.c~	2006-10-13 15:47:56.000000000 +0200
++++ LastWave/package_wtrans1d/src/cwt1d.c	2011-11-24 13:51:06.671760545 +0100
+@@ -41,10 +41,12 @@
+ #include "lastwave.h"
+ #include "wtrans1d.h"
+ #include "extrema1d.h"
++#include "xx_terminal.h"
++#include "xx_system.h"
+ 
+ 
+ /* Computes the continuous wavelet transform using wavelets defined in the physical space */
+-void CWtd(WTRANS wtrans,LWFLOAT aMin,int nOct,int nVoi,Wavelet *wavelet,
++void CWtd_mytest(WTRANS wtrans,LWFLOAT aMin,int nOct,int nVoi,Wavelet *wavelet,
+                   int borderType,int flagMemoryOptimized,int flagCausal,
+                   LWFLOAT expo)
+ {
+@@ -64,6 +66,7 @@
+   double (*d_r_fct_ptr)(double,double);
+   double (*d_i_fct_ptr)(double,double);
+ 
++  printf("Enter in CWtd\n");
+   wt1d_get_wavelet_attributes(wavelet,&type,&d_r_fct_ptr,&d_i_fct_ptr,NULL,NULL,
+                               &d_x_min,&d_x_max,NULL,NULL,NULL,NULL);
+ 
+@@ -89,10 +92,10 @@
+   for (o = 1, a = (double) aMin ; o <= nOct ; o++)   
+     for(v=0;v<nVoi;v++)
+       {   
+-        if (v == 0 && o == 1) Printf("Start octave %d",o);
+-        else if (v == 0 && o != 1) Printf("\nStart octave %d",o);
+-        else Printf(".");
+-        Flush();
++        if (v == 0 && o == 1) printf("Start octave %d",o);
++        else if (v == 0 && o != 1) printf("\nStart octave %d",o);
++        else printf(".");
++	// Flush();
+         
+         SizeSignal(wtrans->D[o][v],size,YSIG);
+ 
+@@ -169,11 +172,11 @@
+             if (type == WAVE_CPLX_REAL || type == WAVE_CPLX_CPLX) ClearSignal(wtrans->A[o][v]);
+           }
+       }
+-  Printf("\n");
++  printf("\n");
+   
+   if (flagMemoryOptimized == YES)
+     {
+-      Printf("nb of extrema : %d\n",nb);
++      printf("nb of extrema : %d\n",nb);
+       wtrans->nOct = 0;
+       wtrans->nVoice = 0;
+     }
+@@ -269,7 +272,7 @@
+   wtrans->wName = CopyStr(waveName);
+   
+   time = MyTime();
+-  CWtd(wtrans,aMin,nOct,nVoi,wavelet,border,flagMemoryOptimized,
++  CWtd_mytest(wtrans,aMin,nOct,nVoi,wavelet,border,flagMemoryOptimized,
+                  flagCausal,expo);
+ 
+   SetResultFloat(MyTime()-time);                 
+@@ -277,7 +280,7 @@
+ 
+ void C_Wt1dNoctMax(char **argv)
+ {
+-  LWFLOAT aMin,aMinWavelet,aMaxWavelet;
++  LWFLOAT aMin,aMinWavelet,aMaxWavelet; 
+   int signalSize,nvoice;
+   Wavelet *wavelet;
+   char *waveName;

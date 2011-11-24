@@ -1,0 +1,47 @@
+--- LastWave/package_signal/src/cv.c~	2006-01-20 12:00:36.000000000 +0100
++++ LastWave/package_signal/src/cv.c	2011-11-24 13:51:06.663760545 +0100
+@@ -12,6 +12,7 @@
+ 
+ #include "lastwave.h"
+ #include "cv_int.h"
++#include <assert.h>
+ 
+ 
+ extern void (*cv_fft_r)  (real    *in, complex *out, int n);
+@@ -228,10 +229,7 @@
+ void
+ cv_set_method (int method)
+ {
+-  assert ((method == CV_UNDEFINED)
+-	  || (method == CV_DI)
+-	  || (method == CV_MP)
+-	  || (method == CV_FT));
++  assert ((method == CV_UNDEFINED) || (method == CV_DI) || (method == CV_MP) || (method == CV_FT));
+ 
+   cv_method = method;
+ }
+@@ -240,11 +238,7 @@
+  * cv_compute --
+  */
+ 
+-void *
+-cv_compute (int  border_effect,
+-	    void *res_data,
+-	    int  *first_exact_ptr,
+-	    int  *last_exact_ptr)
++void * cv_compute (int  border_effect, void *res_data,int  *first_exact_ptr,int  *last_exact_ptr)
+ {
+   void * ret_value = 0;
+   real * old_sig_d_data_r;
+@@ -263,10 +257,7 @@
+   assert (sig_form != CV_UNDEFINED);
+   assert (sig_n >= flt_d_n);
+ 
+-  assert ((border_effect == CV_PERIODIC)
+-	  || (border_effect == CV_MIRROR)
+-	  || (border_effect == CV_PADDING)
+-	  || (border_effect == CV_0_PADDING));
++  assert ((border_effect == CV_PERIODIC)|| (border_effect == CV_MIRROR)|| (border_effect == CV_PADDING)|| (border_effect == CV_0_PADDING));
+   assert (res_data != 0);
+   assert (first_exact_ptr != 0);
+   assert (last_exact_ptr != 0);

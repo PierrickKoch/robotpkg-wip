@@ -1,0 +1,11 @@
+--- LastWave/kernel/src/int_parser.c~	2006-12-11 17:41:38.000000000 +0100
++++ LastWave/kernel/src/int_parser.c	2011-11-24 13:51:06.615760543 +0100
+@@ -2841,7 +2841,7 @@
+       
+     /* read the pointer to the next type */
+     type = va_arg(ap,int);
+-    if (type == END) {
++    if (type == LWEND) {
+       flagMoreArgs = NO;
+       break;
+     }

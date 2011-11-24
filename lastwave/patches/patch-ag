@@ -1,0 +1,14 @@
+--- LastWave/package_wtrans1d/src/wtrans_alloc.c~	2006-11-03 13:54:36.000000000 +0100
++++ LastWave/package_wtrans1d/src/wtrans_alloc.c	2011-11-24 13:51:06.671760545 +0100
+@@ -53,9 +53,9 @@
+ void PrintWtrans(WTRANS wtrans)
+ {  
+   if (wtrans->name == NULL)
+-    Printf("<&wtrans[%d,%d];%p>\n",wtrans->nOct,wtrans->nVoice,wtrans);
++    printf("<&wtrans[%d,%d];%p>\n",wtrans->nOct,wtrans->nVoice,wtrans);
+   else
+-    Printf("<'%s';&wtrans[%d,%d];%p>\n",wtrans->name,wtrans->nOct,wtrans->nVoice,wtrans);
++    printf("<'%s';&wtrans[%d,%d];%p>\n",wtrans->name,wtrans->nOct,wtrans->nVoice,wtrans);
+ }
+ 
+ char *ToStrWtrans(WTRANS wtrans, char flagShort)
