@@ -37,7 +37,9 @@ include ../../wip/sysdep/libxpm.mk
 include ../../wip/sysdep/xforms.mk
 
 include ../../wip/libmove3d/depend.mk
-include ../../wip/libhri/depend.mk
+
+# XXX: no such package
+# include ../../wip/libhri/depend.mk
 
 include ../../mk/sysdep/cmake.mk
 include ../../mk/robotpkg.mk
