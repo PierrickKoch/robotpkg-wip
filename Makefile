@@ -22,7 +22,6 @@ SUBDIR+=	libmove3d
 SUBDIR+=	lwr-genom
 SUBDIR+=	mana-emergency
 SUBDIR+=	mhp-genom
-SUBDIR+=	mk
 SUBDIR+=	morse-pocolibs
 SUBDIR+=	move3d-studio
 SUBDIR+=	poisson
