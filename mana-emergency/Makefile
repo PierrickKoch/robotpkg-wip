@@ -14,6 +14,7 @@ COMMENT=	interface library for the Mana robot emergency stop
 LICENSE=	isc
 
 GNU_CONFIGURE=	yes
+MAKE_JOBS_SAFE=	no
 
 pre-configure:	autoreconf
 
