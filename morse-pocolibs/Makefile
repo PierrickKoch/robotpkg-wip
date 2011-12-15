@@ -44,15 +44,16 @@ define PKG_OPTION_SET.hri
   CMAKE_ARGS+=		-DBUILD_POCOLIBS_GENPOS_SUPPORT=ON
   CMAKE_ARGS+=		-DBUILD_POCOLIBS_PLATINE_SUPPORT=ON
 
+  include ../../image/viman-genom/depend.mk
   include ../../interfaces/genPos-genom/depend.mk
   include ../../localization/pom-genom/depend.mk
   include ../../wip/lwr-genom/depend.mk
   include ../../wip/spark-genom/depend.mk
-  include ../../image/viman-genom/depend.mk
 endef
 
-include ../../simulation/morse/depend.mk
 include ../../devel/swig/depend.mk
+include ../../middleware/pocolibs/depend.mk
+include ../../simulation/morse/depend.mk
 include ../../mk/robotpkg.mk
 
 _pycompile_dir=${PREFIX}/${PYTHON_SITELIB}/morse/middleware/pocolibs*
