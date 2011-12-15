@@ -20,7 +20,6 @@ SUBDIR+=	libANN
 SUBDIR+=	libfreenect
 SUBDIR+=	libmove3d
 SUBDIR+=	lwr-genom
-SUBDIR+=	mana-emergency
 SUBDIR+=	mhp-genom
 SUBDIR+=	morse-pocolibs
 SUBDIR+=	move3d-studio
