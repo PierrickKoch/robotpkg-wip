@@ -22,6 +22,7 @@ include ../../wip/jafar-jmath/depend.mk
 include ../../image/opencv/depend.mk
 include ../../devel/boost-headers/depend.mk
 include ../../devel/boost-libs/depend.mk
+include ../../math/boost-numeric-bindings/depend.mk
 
 include ../../pkgtools/libtool/depend.mk
 include ../../pkgtools/pkg-config/depend.mk
