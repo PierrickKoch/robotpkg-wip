@@ -27,4 +27,5 @@ include ../../math/boost-numeric-bindings/depend.mk
 include ../../pkgtools/libtool/depend.mk
 include ../../pkgtools/pkg-config/depend.mk
 include ../../mk/sysdep/cmake.mk
+include ../../mk/sysdep/qt4-libs.mk
 include ../../mk/robotpkg.mk
