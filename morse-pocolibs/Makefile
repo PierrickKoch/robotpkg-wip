@@ -27,6 +27,8 @@ define PKG_OPTION_SET.outdoor
   CMAKE_ARGS+=		-DBUILD_POCOLIBS_PLATINE_SUPPORT=ON
   CMAKE_ARGS+=		-DBUILD_POCOLIBS_GENPOS_SUPPORT=ON
 
+  PLIST_SRC= PLIST PLIST.common PLIST.outdoor
+
   include ../../interfaces/genPos-genom/depend.mk
   include ../../image/viam-genom/depend.mk
   include ../../localization/pom-genom/depend.mk
@@ -43,6 +45,8 @@ define PKG_OPTION_SET.hri
   CMAKE_ARGS+=		-DBUILD_POCOLIBS_HUMAN_POSTURE_SUPPORT=ON
   CMAKE_ARGS+=		-DBUILD_POCOLIBS_GENPOS_SUPPORT=ON
   CMAKE_ARGS+=		-DBUILD_POCOLIBS_PLATINE_SUPPORT=ON
+
+  PLIST_SRC= PLIST PLIST.common PLIST.hri
 
   include ../../image/viman-genom/depend.mk
   include ../../interfaces/genPos-genom/depend.mk

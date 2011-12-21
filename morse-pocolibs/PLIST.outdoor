@@ -1,0 +1,11 @@
+@comment Thu Sep 22 14:50:28 CEST 2011
+${PYTHON_SITELIB}/morse/middleware/pocolibs/sensors/${PYTHON_PYCACHE}/viam${PYTHON_TAG}.pyc
+${PYTHON_SITELIB}/morse/middleware/pocolibs/sensors/${PYTHON_PYCACHE}/viam${PYTHON_TAG}.pyo
+${PYTHON_SITELIB}/morse/middleware/pocolibs/sensors/Viam_Poster/${PYTHON_PYCACHE}/__init__${PYTHON_TAG}.pyc
+${PYTHON_SITELIB}/morse/middleware/pocolibs/sensors/Viam_Poster/${PYTHON_PYCACHE}/__init__${PYTHON_TAG}.pyo
+${PYTHON_SITELIB}/morse/middleware/pocolibs/sensors/Viam_Poster/${PYTHON_PYCACHE}/ors_viam_poster${PYTHON_TAG}.pyc
+${PYTHON_SITELIB}/morse/middleware/pocolibs/sensors/Viam_Poster/${PYTHON_PYCACHE}/ors_viam_poster${PYTHON_TAG}.pyo
+${PYTHON_SITELIB}/morse/middleware/pocolibs/sensors/Viam_Poster/__init__.py
+${PYTHON_SITELIB}/morse/middleware/pocolibs/sensors/Viam_Poster/_ors_viam_poster.so
+${PYTHON_SITELIB}/morse/middleware/pocolibs/sensors/Viam_Poster/ors_viam_poster.py
+${PYTHON_SITELIB}/morse/middleware/pocolibs/sensors/__init__.py
