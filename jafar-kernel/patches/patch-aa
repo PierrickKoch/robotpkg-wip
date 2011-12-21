@@ -1,0 +1,20 @@
+execinfo.h is, by default, only available on Linux + GLibc. 
+So build it only if we are on linux
+
+--- src/jafarException.cpp.old	2011-12-21 18:22:22.021107884 +0100
++++ src/jafarException.cpp	2011-12-21 18:22:42.521137944 +0100
+@@ -18,12 +18,12 @@
+ namespace kernel {
+ 
+ 		#include <stdlib.h>
+-#ifndef WIN32
++#ifdef __linux__
+ 		#include <execinfo.h>
+ #endif
+ 		std::string get_system_trace ()
+ 		{
+-#ifndef WIN32
++#ifdef __linux__
+ 			void *array[15];
+ 			size_t size;
+ 			char **strings;
