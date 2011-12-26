@@ -29,7 +29,7 @@ include/jafar/lgl/VisibleArea.hpp
 include/jafar/lgl/lglException.hpp
 lib/libjafar-lgl.so
 lib/libjafar-lgl.so.1
-lib/libjafar-lgl.so.${PKGVERSION}
+lib/libjafar-lgl.so.1.6
 lib/pkgconfig/jafar-lgl.pc
 share/cmake/jafar/lgl-headers.cmake
 share/cmake/jafar/lgl-release.cmake
