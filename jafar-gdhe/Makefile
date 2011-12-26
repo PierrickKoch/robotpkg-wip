@@ -1,4 +1,5 @@
 PKGVERSION=		0.1
+PKGREVISION=	1
 DISTNAME=		jafar-gdhe-0.1
 PKGNAME=		jafar-gdhe-0.1
 CATEGORIES=		wip
