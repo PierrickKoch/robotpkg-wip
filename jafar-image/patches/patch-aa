@@ -1,0 +1,16 @@
+diff --git a/include/image/Image.hpp b/include/image/Image.hpp
+nearbyint is not supported on NetBSD. Moreover, the lrint semantic is more
+correct in this case.
+
+index 53f32f3..c37d501 100644
+--- include/image/Image.hpp
++++ include/image/Image.hpp
+@@ -594,7 +594,7 @@ namespace jafar {
+       {
+         case JfrImage_INTERP_NEAREST:
+         {
+-          return getPixelValue<channeltype>( (int)nearbyint( x_ ), (int)nearbyint( y_ ), channel_ );
++          return getPixelValue<channeltype>( lrint( x_ ), lrint( y_ ), channel_ );
+         }
+         case JfrImage_INTERP_BILINEAR:
+         {
