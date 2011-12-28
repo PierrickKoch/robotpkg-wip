@@ -1,5 +1,5 @@
 PKGVERSION=		2.1
-PKGREVISION=	1
+PKGREVISION=	2
 DISTNAME=		jafar-image-2.1
 PKGNAME=		jafar-image-2.1
 CATEGORIES=		image
