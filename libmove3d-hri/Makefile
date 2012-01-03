@@ -16,6 +16,9 @@ LICENSE=			gnu-gpl-v2
 
 USE_LANGUAGES+=		c c++
 
+PKG_SUPPORTED_OPTIONS+=	mightability_maps
+PKG_OPTION_DESCR.mightability_maps = Compile with mightability maps support
+PKG_OPTION_SET.mightability_maps:= CMAKE_ARGS+= -DUSE_MIGHTABILITY_MAPS=ON
 
 ## Dependencies 
 include ../../wip/libmove3d/depend.mk
