@@ -54,6 +54,8 @@ include ../../shell/eltclsh/depend.mk
 include ../../interfaces/genHum-genom/depend.mk
 include ../../graphics/laaswm-libs/depend.mk
 include ../../graphics/laaswm/depend.mk
+include ../../image/viam-dc1394-driver/depend.mk
+include ../../www/picoweb/depend.mk
 include ../../graphics/pqp/depend.mk
 include ../../hardware/sahand-libs/depend.mk
 include ../../robots/fingers-genom/depend.mk
@@ -68,12 +70,10 @@ include ../../motion/softMotion-libs/depend.mk
 include ../../image/viman-genom/depend.mk
 include ../../audio/textos-genom/depend.mk
 include ../../audio/speett-genom/depend.mk
-include ../../wip/gest-genom/depend.mk
+#include ../../wip/gest-genom/depend.mk
 include ../../wip/mhp-genom/depend.mk
 include ../../wip/spark-genom/depend.mk
 #include ../../wip/move3d-assets/depend.mk
-include ../../graphics/laaswm/depend.mk
-include ../../graphics/laaswm-libs/depend.mk
 
 include ../../mk/sysdep/tcl.mk
 include ../../mk/sysdep/tk.mk
