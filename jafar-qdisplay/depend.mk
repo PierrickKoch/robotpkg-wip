@@ -1,3 +1,6 @@
+# robotpkg depend.mk for:	wip/jafar-qdisplay
+# Created:			Cyril Roussillon on Wed, 15 Jun 2011
+#
 
 DEPEND_DEPTH:=		${DEPEND_DEPTH}+
 jafar-qdisplay_DEPEND_MK:=	${jafar-qdisplay_DEPEND_MK}+
