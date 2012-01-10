@@ -1,0 +1,4 @@
+Given the continuous control trajectory provided by the navigation module (MPC
+avoidObs), the MPC controller is aimed at cheking if the control trajectory is
+still valid and admissible for the robotic system (respects its motion
+constraints) and computing a command to provide as input of the robotic system. 
