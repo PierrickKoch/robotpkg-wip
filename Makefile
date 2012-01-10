@@ -22,6 +22,7 @@ SUBDIR+=	libfreenect
 SUBDIR+=	libmove3d
 SUBDIR+=	lwr-genom
 SUBDIR+=	MPC
+SUBDIR+=	MPC_avoidObs-genom
 SUBDIR+=	MPC_planner-genom
 SUBDIR+=	MPC_DEMTreatment-genom
 SUBDIR+=	mhp-genom

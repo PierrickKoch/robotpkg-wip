@@ -1,0 +1,37 @@
+@comment Thu Aug 6 15:08:46 CEST 2009
+${PLIST.noapi}bin/MPC_avoidObs
+${PLIST.noapi}bin/MPC_avoidObsSendInitRqst
+${PLIST.noapi}bin/MPC_avoidObsTest
+include/MPC_avoidObs/MPC_avoidObs-Struct.h
+${PLIST.openprs}include/MPC_avoidObs/server/openprs/MPC_avoidObsDecodeOpenprs.h
+${PLIST.openprs}include/MPC_avoidObs/server/openprs/MPC_avoidObsEncodeOpenprs.h
+${PLIST.openprs}include/MPC_avoidObs/server/openprs/MPC_avoidObsRequestsOpenprsProto.h
+include/MPC_avoidObs/server/MPC_avoidObsEndian.h
+include/MPC_avoidObs/server/MPC_avoidObsError.h
+${PLIST.noapi}include/MPC_avoidObs/server/MPC_avoidObsMsgLib.h
+include/MPC_avoidObs/server/MPC_avoidObsPosterLib.h
+include/MPC_avoidObs/server/MPC_avoidObsPosterLibStruct.h
+${PLIST.noapi}include/MPC_avoidObs/server/MPC_avoidObsPosterReadLibProto.h
+${PLIST.noapi}include/MPC_avoidObs/server/MPC_avoidObsPosterShowLib.h
+${PLIST.noapi}include/MPC_avoidObs/server/MPC_avoidObsPosterWriteLibProto.h
+${PLIST.noapi}include/MPC_avoidObs/server/MPC_avoidObsPosterXMLLib.h
+include/MPC_avoidObs/server/MPC_avoidObsPrint.h
+include/MPC_avoidObs/server/MPC_avoidObsPrintXML.h
+include/MPC_avoidObs/server/MPC_avoidObsScan.h
+include/MPC_avoidObs/server/MPC_avoidObsType.h
+${PLIST.tclserv_client}include/MPC_avoidObs/server/tclservClient/MPC_avoidObsTclservClientDecode.h
+${PLIST.tclserv_client}include/MPC_avoidObs/server/tclservClient/MPC_avoidObsTclservClientEncode.h
+${PLIST.tclserv_client}include/MPC_avoidObs/server/tclservClient/MPC_avoidObsTclservClientMsgLib.h
+lib/libMPC_avoidObsClient.la
+${PLIST.openprs}lib/openprs/libMPC_avoidObsOpenprs.la
+${PLIST.openprs}lib/pkgconfig/MPC_avoidObs-oprs.pc
+lib/pkgconfig/MPC_avoidObs.pc
+${PLIST.tclserv_client}lib/pkgconfig/MPC_avoidObs-tclserv_client.pc
+${PLIST.tclserv_client}lib/tclservClient/libMPC_avoidObsTclservClient.la
+${PLIST.tcl}lib/tclserv/libMPC_avoidObsTclServ.la
+share/modules/gen/MPC_avoidObs.gen
+${PLIST.openprs}share/modules/openprs/MPC_avoidObsOpenprs.inc
+${PLIST.openprs}share/modules/openprs/MPC_avoidObsOpenprs.opf
+${PLIST.openprs}share/modules/openprs/MPC_avoidObsOpenprs.sym
+${PLIST.noapi}${PLIST.tcl}share/modules/tcl/MPC_avoidObsClient.tcl
+${PLIST.openprs}@dirrm include/MPC_avoidObs/server/openprs

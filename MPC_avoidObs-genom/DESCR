@@ -1,0 +1,17 @@
+The MPC avoidObs module encapsulates several navigation algorithms. All of them
+are closed-loop algorithms, taking as input the localization provided by the
+POM genom module, and they have been focused on navigating in either flat or
+rough terrain, taking a data elevation map (DEM) as model of the environment
+provided by the DTM genom module. The main algorthms provided here are : 
+
+    - A trajectory selection approach : a reactive navigation method allowing
+      to navigate in a unknown environment by computing at each time step a set
+      of candidate trajectories and selecting the best one
+
+    - A trajectory following with obstacle avoidance approach : a reactive
+      method trying to follow a reference trajectory while avoiding unforseen
+      obstacles 
+
+Every navigation method provides at each time step a parametric continuous
+control trajectory (continuous sequence of input commands) until a given time
+horizon. 
