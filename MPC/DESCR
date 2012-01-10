@@ -1,0 +1,30 @@
+The MPC library propose several motion planning algorithms that may be devided
+into three parts :
+
+    - Local motion planning: real-time motion planning of a path or a trajectory
+      between two close end points.
+      Two main algorithms:
+        - A non-holonomic path generator using straight lines, circle bows and clothoids
+        - A variational trajectory generator by constraints optimization
+          designed to be used with arbitrary system dynamics 
+
+    - Global motion planning: deliberative motion planning to compute a
+      complete path or trajectory amidst static obstacles between two end
+      points.
+      Four main algorithms:
+        - A* search on a probabilitic roadmap
+        - A* search on a probabilistic occupancy grid using target and
+          obstacles potential fields
+        - Trajectory refinement thanks to the variational trajectory generator
+        - Path-velocity decomposition for arbitrary system dynamics 
+
+    - Reactive obstacle avoidance : Real-time algorithms allowing to move
+      safely amongst static and dynamic obstacles.
+      Three main algorithms :
+        - A trajectory selection algorithm computing several candidate motions
+          to execute and selecting the best one
+        -  A trajectory tracking algorithm aimed at following a reference
+           trajectory and avoiding obstacles without going out of a reference
+           corridor
+        - A trajectory deformation process aimed at anticipating the motion of
+          dynamic obstacles while keeping the convergence to the goal 
