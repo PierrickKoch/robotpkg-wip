@@ -1,0 +1,5 @@
+The MPC dem treatment is aimed at preprocessing the data elevation map given by
+the DTM genom module to provide a representation of the environment
+understandable by the navigation algorithms. It can compute slope maps,
+classify the environment into free or obstacle, and compute distance to
+obstacles maps. 
