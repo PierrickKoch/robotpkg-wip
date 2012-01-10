@@ -1,0 +1,6 @@
+The MPC planner module provides several tools to plan, record and apply
+geometric transformations over a discrete trajectory. The current version to
+not include any global motion planning approach of the MPC library as the
+current experiments have been focused on exloring an unknown environment or
+repeating a learnt trajectory. However, it provides any I/O tools to load,
+save, and modify a recorded trajectory. 

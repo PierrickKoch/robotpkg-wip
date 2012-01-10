@@ -1,0 +1,37 @@
+@comment Thu Aug 6 14:11:46 CEST 2009
+${PLIST.noapi}bin/MPC_planner
+${PLIST.noapi}bin/MPC_plannerSendInitRqst
+${PLIST.noapi}bin/MPC_plannerTest
+include/MPC_planner/MPC_planner-Struct.h
+include/MPC_planner/server/MPC_plannerEndian.h
+include/MPC_planner/server/MPC_plannerError.h
+${PLIST.noapi}include/MPC_planner/server/MPC_plannerMsgLib.h
+include/MPC_planner/server/MPC_plannerPosterLib.h
+include/MPC_planner/server/MPC_plannerPosterLibStruct.h
+${PLIST.noapi}include/MPC_planner/server/MPC_plannerPosterReadLibProto.h
+${PLIST.noapi}include/MPC_planner/server/MPC_plannerPosterShowLib.h
+${PLIST.noapi}include/MPC_planner/server/MPC_plannerPosterWriteLibProto.h
+${PLIST.noapi}include/MPC_planner/server/MPC_plannerPosterXMLLib.h
+include/MPC_planner/server/MPC_plannerPrint.h
+include/MPC_planner/server/MPC_plannerPrintXML.h
+include/MPC_planner/server/MPC_plannerScan.h
+include/MPC_planner/server/MPC_plannerType.h
+${PLIST.openprs}include/MPC_planner/server/openprs/MPC_plannerDecodeOpenprs.h
+${PLIST.openprs}include/MPC_planner/server/openprs/MPC_plannerEncodeOpenprs.h
+${PLIST.openprs}include/MPC_planner/server/openprs/MPC_plannerRequestsOpenprsProto.h
+${PLIST.tclserv_client}include/MPC_planner/server/tclservClient/MPC_plannerTclservClientDecode.h
+${PLIST.tclserv_client}include/MPC_planner/server/tclservClient/MPC_plannerTclservClientEncode.h
+${PLIST.tclserv_client}include/MPC_planner/server/tclservClient/MPC_plannerTclservClientMsgLib.h
+lib/libMPC_plannerClient.la
+${PLIST.openprs}lib/openprs/libMPC_plannerOpenprs.la
+${PLIST.openprs}lib/pkgconfig/MPC_planner-oprs.pc
+lib/pkgconfig/MPC_planner.pc
+${PLIST.tclserv_client}lib/pkgconfig/MPC_planner-tclserv_client.pc
+${PLIST.tclserv_client}lib/tclservClient/libMPC_plannerTclservClient.la
+${PLIST.noapi}${PLIST.tcl}lib/tclserv/libMPC_plannerTclServ.la
+share/modules/gen/MPC_planner.gen
+${PLIST.openprs}share/modules/openprs/MPC_plannerOpenprs.inc
+${PLIST.openprs}share/modules/openprs/MPC_plannerOpenprs.opf
+${PLIST.openprs}share/modules/openprs/MPC_plannerOpenprs.sym
+${PLIST.tcl}share/modules/tcl/MPC_plannerClient.tcl
+${PLIST.openprs}@dirrm include/MPC_planner/server/openprs
