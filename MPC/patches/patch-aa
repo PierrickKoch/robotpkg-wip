@@ -1,0 +1,16 @@
+Add GLIB_LIBDIR to link_directories
+
+GLIB2_LIBRARIES does not contain the full path to the library, so we need to
+make sure that the linker will search in the right directories. It will fix the
+link phase in the case where glib2 is not in standard prefix (eg in NetBSD).
+
+--- MPC/core/CMakeLists.txt
++++ MPC/core/CMakeLists.txt
+@@ -159,6 +159,7 @@ project ( MPC-core )
+ 
+ 
+ # --- build the MPC core library
++  link_directories(${GLIB2_LIBDIR})
+ 
+   add_library ( MPC-core SHARED ${COMMON_SRC} ${SYSTEM_SRC} ${MATH_SRC} ${MOTION_SRC} ${ENVIRONMENT_SRC} ${COLLISION_CHECK_SRC} ${PLANNER_SRC} ${TRAJGEN_SRC} ${DEFORMATION_SRC} ${CONTROLLER_SRC} ${TRAJFOLLOW_SRC} ${SSLATTICE_SRC} ${TRAJSEL_SRC} ${AVOIDOBS_SRC} ${GRAPHICS_SRC} ${GNUPLOT_SRC} ${NETWORK_SRC} )
+ 
