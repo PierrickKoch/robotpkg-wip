@@ -1,0 +1,19 @@
+[CMakeLists.txt] Fix it for cmake < 2.8
+
+cmake 2.8 allows a length of -1 in substring, but not previous
+version.  So do manually the size computation before calling
+substring !
+
+--- MPC/CMakeLists.txt
++++ MPC/CMakeLists.txt
+@@ -5,7 +5,9 @@ set(PACKAGE_VERSION 1.0)
+ 
+ macro(GET_LIBRARY_NAME LIBRARY_FULL LIBRARY_NAME)
+ 	get_filename_component(LIBRARY_BASE ${LIBRARY_FULL} NAME_WE)
+-	string(SUBSTRING ${LIBRARY_BASE} 3 -1 PIPO)
++	string(LENGTH ${LIBRARY_BASE} LEN)
++	math(EXPR SUB_LEN "${LEN} - 3")
++	string(SUBSTRING ${LIBRARY_BASE} 3 ${SUB_LEN} PIPO)
+ 	set(${LIBRARY_NAME} ${PIPO})
+ endmacro()
+ 
