@@ -1,0 +1,15 @@
+Use Boost_SYSTEM_LIBRARY_RELEASE instead of Boost_SYSTEM_LIBRARY to compute the
+name of the library because Boost_SYSTEM_LIBRARY can contain a list of library
+path with the associated configuration (debug, release ...)
+
+--- MPC/CMakeLists.txt.orig	2012-01-16 11:02:23.674438395 +0100
++++ MPC/CMakeLists.txt	2012-01-16 11:02:48.022437629 +0100
+@@ -85,7 +85,7 @@
+ 
+   include_directories(${Boost_INCLUDE_DIRS})
+ 
+-  get_library_name(${Boost_SYSTEM_LIBRARY} Boost_SYSTEM_LIBRARY_NAME)
++  get_library_name(${Boost_SYSTEM_LIBRARY_RELEASE} Boost_SYSTEM_LIBRARY_NAME)
+ 
+ # --- search for optional libraries
+ 
