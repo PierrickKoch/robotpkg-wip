@@ -1,0 +1,13 @@
+Fix build on Fedora
+
+--- MPC/core/network/CMakeLists.txt.orig	2012-01-16 11:28:43.854388881 +0100
++++ MPC/core/network/CMakeLists.txt	2012-01-16 11:28:50.014388685 +0100
+@@ -12,7 +12,7 @@
+ 
+ # --- link all executables with needed libraries
+    target_link_libraries ( server_test MPC-core ${X11_LIBRARIES} ${OPENGL_LIBRARIES} ${GLUT_LIBRARIES} ${Boost_LIBRARIES} )
+-   target_link_libraries ( client_test  ${X11_LIBRARIES} ${OPENGL_LIBRARIES} ${GLUT_LIBRARIES} ${Boost_LIBRARIES} )
++   target_link_libraries ( client_test  ${X11_LIBRARIES} pthread ${OPENGL_LIBRARIES} ${GLUT_LIBRARIES} ${Boost_LIBRARIES} )
+ 
+ 
+ # --- install rules
