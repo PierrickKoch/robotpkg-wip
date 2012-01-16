@@ -88,6 +88,17 @@ define PKG_OPTION_SET.oro
   include ../../knowledge/liboro/depend.mk
 endef
 
+
+##
+## Attentional
+##
+PKG_SUPPORTED_OPTIONS+=	attentional
+PKG_OPTION_DESCR.attentional=	Compile SPARK with the attentional plugin
+define PKG_OPTION_SET.attentional
+  GENOM_ARGS+= -DATTENTIONAL
+  include ../../wip/attentional-genom/depend.mk
+endef
+
 #####################
 
 GENOM_MODULE=		spark
