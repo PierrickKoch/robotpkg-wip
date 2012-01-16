@@ -70,7 +70,17 @@ PKG_OPTION_DESCR.hri_costspace=  Compile MHP for costspaces
 define PKG_OPTION_SET.hri_costspace
   GENOM_ARGS+= -DHRI_COSTSPACE                                                                       
   include ../../wip/libmove3d-planners/depend.mk                                                     
-endef      
+endef    
+
+##
+## Attentional
+##
+PKG_SUPPORTED_OPTIONS+=	attentional
+PKG_OPTION_DESCR.attentional=	Compile MHP with the attentional plugin
+define PKG_OPTION_SET.attentional
+  GENOM_ARGS+= -DATTENTIONAL
+  include ../../wip/attentional-genom/depend.mk
+endef   
 
 ##
 ## Pr2
