@@ -27,4 +27,5 @@ include ../../mk/sysdep/freeglut.mk
 include ../../mk/sysdep/glib2.mk
 include ../../mk/sysdep/glu.mk
 include ../../mk/sysdep/libX11.mk
+include ../../mk/sysdep/mesa.mk
 include ../../mk/robotpkg.mk
