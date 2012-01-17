@@ -16,7 +16,6 @@ SUBDIR+=	jafar-qdisplay
 SUBDIR+=	jafar-gdhe
 SUBDIR+=	jafar-rtslam
 SUBDIR+=	joystick-genom
-SUBDIR+=	jsoncpp
 SUBDIR+=	kukaFri-libs
 SUBDIR+=	libANN
 SUBDIR+=	libfreenect

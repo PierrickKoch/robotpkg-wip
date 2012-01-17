@@ -16,7 +16,7 @@ GNU_CONFIGURE=	yes
 
 include ../../pkgtools/pkg-config/depend.mk
 include ../../knowledge/liboro/depend.mk
-include ../../wip/jsoncpp/depend.mk
+include ../../devel/jsoncpp/depend.mk
 include ../../mk/sysdep/ftgl.mk
 include ../../mk/sysdep/SDL.mk
 include ../../mk/sysdep/SDL_image.mk
