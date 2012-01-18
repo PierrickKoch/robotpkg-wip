@@ -17,6 +17,10 @@ LICENSE=			gnu-gpl-v2
 USE_LANGUAGES+=		c c++
 
 CMAKE_ARGS+= -DGENERATE_VIEWER_LIB=ON
+CMAKE_ARGS+=\
+  -DGLIBCONFIG_INCLUDE_DIR=$(dir $(filter %/glibconfig.h,${SYSTEM_FILES.glib2}))
+CMAKE_ARGS+=\
+  -DGLIB_INCLUDE_DIR=$(dir $(filter %/glib.h,${SYSTEM_FILES.glib2}))
 
 ## Dependencies 
 include ../../math/gbM/depend.mk
