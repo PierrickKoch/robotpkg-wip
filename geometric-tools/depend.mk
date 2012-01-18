@@ -19,7 +19,7 @@ DEPEND_ABI.geometric-tools?=geometric-tools>=5.7
 DEPEND_DIR.geometric-tools?=../../math/geometric-tools
 
 SYSTEM_SEARCH.geometric-tools=\
-	include/geometric-tools/Wm5Core.h
+	include/geometric-tools/Wm5Core.h \
 	include/geometric-tools/Wm5Mathematics.h
 
 endif # GEOMETRICTOOLS_DEPEND_MK ---------------------------------------
