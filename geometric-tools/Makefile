@@ -6,20 +6,19 @@ WM5_NAME=		WildMagic
 WM5_VERSION_MAJOR=	5
 WM5_VERSION_MINOR=	7
 
-DISTNAME=		${WM5_NAME}${WM5_VERSION_MAJOR}p${WM5_VERSION_MINOR}
-EXTRACT_SUFX=		.zip
-
-WRKSRC=			${WRKDIR}/GeometricTools/${WM5_NAME}${WM5_VERSION_MAJOR}
+PKGNAME=	geometric-tools-${WM5_VERSION_MAJOR}p${WM5_VERSION_MINOR}
+DISTNAME=	${WM5_NAME}${WM5_VERSION_MAJOR}p${WM5_VERSION_MINOR}
+MASTER_SITES=	${HOMEPAGE}/Downloads/
+EXTRACT_SUFX=	.zip
 
 CATEGORIES=		math
-MASTER_SITES=		${HOMEPAGE}/Downloads/
 
-PKGNAME=	geometric-tools
 MAINTAINER=	hpp@laas.fr
 HOMEPAGE=	http://www.geometrictools.com
 COMMENT=	Geometric tools for mathematics, physics, numerical methods, and image analysis.
 LICENSE=	bsl
 
+WRKSRC=			${WRKDIR}/GeometricTools/${WM5_NAME}${WM5_VERSION_MAJOR}
 USE_LANGUAGES+=		c c++
 NO_CONFIGURE=		yes
 CFG=			ReleaseDynamic
