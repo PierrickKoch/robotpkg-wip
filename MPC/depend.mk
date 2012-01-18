@@ -23,4 +23,7 @@ SYSTEM_SEARCH.MPC=\
 	lib/pkgconfig/mpc-core.pc
 endif
 
+include ../../mk/sysdep/mesa.mk
+include ../../mk/sysdep/glu.mk
+
 DEPEND_DEPTH:=		${DEPEND_DEPTH:+=}
