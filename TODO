@@ -11,35 +11,29 @@ mail of complaints to anthony.mallet@laas.fr
 Suggested package updates
 =========================
 
-        o middleware/openni-1.3.2.1
-        o knowledge/oro-server-1.0: cannot find the distfile
-        o knowledge/liboro-1.1: cannot find the distfile
+    o middleware/openni-1.3.2.1
 
 
 Suggested new packages
 ======================
 
-        o modeling/pcl-1.1
-        o knowledge/pyoro
-        o JsonCpp (http://jsoncpp.sourceforge.net/)
+    o modeling/pcl-1.1
 
 
 Suggested ready to import packages
 ==================================
 
-        o libmove3d
-        o libhri
-        o spark-genom
-
 
 Suggested package fixes
 =======================
 
-        o robots/mana-emergency (for robots/rmp400-genom)
-        o
+    o robots/mana-emergency (for robots/rmp400-genom)
+    o
 
 
 Suggested infrastructure improvements
 =====================================
 
-	o
+    o add support for 'test' targets for packages that support it and build 
+      testing reports.
+    o package robotpkg for Debian and Fedora
