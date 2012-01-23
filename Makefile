@@ -33,7 +33,6 @@ SUBDIR+=	poisson
 SUBDIR+=	rednav-genom
 SUBDIR+=	robotModelParser-libs
 SUBDIR+=	robot-viewer
-SUBDIR+=	sot-gui
 SUBDIR+=	spark-genom
 SUBDIR+=	visp
 
