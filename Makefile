@@ -35,7 +35,6 @@ SUBDIR+=	robotModelParser-libs
 SUBDIR+=	robot-viewer
 SUBDIR+=	sot-gui
 SUBDIR+=	spark-genom
-SUBDIR+=	stackoftasks
 SUBDIR+=	visp
 
 include ../mk/robotpkg.subdir.mk
