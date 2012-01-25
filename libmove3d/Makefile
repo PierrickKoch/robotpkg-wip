@@ -22,7 +22,9 @@ CMAKE_ARGS+=\
 CMAKE_ARGS+=\
   -DGLIB_INCLUDE_DIR=$(dir $(filter %/glib.h,${SYSTEM_FILES.glib2}))
 
-## Dependencies 
+# Dependencies
+include ../../devel/boost-headers/depend.mk
+include ../../devel/boost-libs/depend.mk
 include ../../math/gbM/depend.mk
 include ../../motion/softMotion-libs/depend.mk
 
