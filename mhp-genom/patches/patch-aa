@@ -1,0 +1,13 @@
+diff --git a/codels/mhpManipulationCodels.cc b/codels/mhpManipulationCodels.cc
+index d2def26..07fb13c 100644
+--- codels/mhpManipulationCodels.cc
++++ codels/mhpManipulationCodels.cc
+@@ -687,7 +687,7 @@ mhpArmPlanTaskMain(STRUCT_MHP_ARM_PLAN_PARAMS *armPlanTaskParams, int *report)
+   }
+   
+   if(smTrajs[0].convertToSM_TRAJ_STR(&(SDI_F->armTrajArray.traj[indexTraj])) != 0) {
+-    smTraj[0].clear();
++    smTrajs[0].clear();
+     smTrajs[0].convertToSM_TRAJ_STR(&(SDI_F->armTrajArray.traj[indexTraj]));
+     *report =  S_mhp_NO_TRAJ_FOUND;
+   }
