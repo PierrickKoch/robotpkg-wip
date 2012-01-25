@@ -16,13 +16,12 @@
 #                                          Severin Lemaignan on Tue, 04 Jan 2011
 
 
-PKGNAME= 			move3d-assets-${PKG_DATE}
-PKG_DATE=				20110105
+PKGNAME= 	move3d-assets-${PKG_DATE}
+PKG_DATE=	20120125
+DISTNAME=	${PKGNAME}
 
-DISTNAME=			${PKGNAME}
-
-MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=move3d-assets/}
-MASTER_REPOSITORY=	git http://trac.laas.fr/git/robots/move3d-assets.git
+MASTER_SITES=	${MASTER_SITE_OPENROBOTS:=move3d-assets/}
+MASTER_REPOSITORY=	git http://git.openrobots.org/git/robots/move3d-assets.git
 
 CATEGORIES=	wip
 LICENSE=	isc

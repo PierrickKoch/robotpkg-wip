@@ -26,7 +26,7 @@ ifeq (+,$(MOVE3DASSETS_DEPEND_MK)) # -------------------------------------------
 PREFER.move3d-assets?=		robotpkg
 
 DEPEND_USE+=		move3d-assets
-DEPEND_ABI.move3d-assets?=	move3d-assets>=20110104
+DEPEND_ABI.move3d-assets?=	move3d-assets>=20120125
 DEPEND_DIR.move3d-assets?=	../../wip/move3d-assets
 
 SYSTEM_SEARCH.move3d-assets=\
