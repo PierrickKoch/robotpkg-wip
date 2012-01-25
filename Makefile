@@ -29,6 +29,7 @@ SUBDIR+=	MPC_DEMTreatment-genom
 SUBDIR+=	mhp-genom
 SUBDIR+=	morse-pocolibs
 SUBDIR+=	move3d-studio
+SUBDIR+=	oro-view
 SUBDIR+=	poisson
 SUBDIR+=	py-poco
 SUBDIR+=	rednav-genom
