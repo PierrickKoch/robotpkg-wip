@@ -20,7 +20,7 @@ SYSTEM_SEARCH.sensFusion-libs=\
 
 DEPEND_USE+=		sensFusion-libs
 
-DEPEND_ABI.sensFusion-libs?=sensFusion-libs>=1.0
+DEPEND_ABI.sensFusion-libs?=sensFusion-libs>=1.2
 DEPEND_DIR.sensFusion-libs?=../../wip/sensFusion-libs
 
 endif # SENSFUSION-LIBS_DEPEND_MK ----------------------------------------
