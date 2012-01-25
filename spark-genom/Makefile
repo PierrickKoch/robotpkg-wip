@@ -1,19 +1,17 @@
 # Created:			Severin Lemaignan on Fri, 24 Sep 2010
 #
 
-DISTNAME=		spark-genom-3.4
-PKGREVISION=		1
+DISTNAME=		spark-genom-3.5
 CATEGORIES=		knowledge
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=spark-genom/}
-MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/spark-genom.git
+MASTER_REPOSITORY=	git ssh://git.openrobots.org/git/robots/spark-genom.git
 
-MAINTAINER=		easisbot@laas.fr
+MAINTAINER=		robotpkg@laas.fr
 COMMENT=		Spatial Reasoning and Knowledge module
 
 #spark-genom is currently GPL because it depends on BioMove3D that depends itself 
 # on GSL and GLPK that are 2 GLP librairies.
 LICENSE=		gnu-gpl-v2
-
 
 USE_LANGUAGES+=		c c++
 
@@ -73,6 +71,7 @@ endef
 ##
 ## Simulation
 ##
+PKG_SUPPORTED_OPTIONS+=	simulation
 PKG_OPTION_DESCR.simulation=	Compile SPARK for simulation only
 PKG_OPTION_SET.simulation:=	GENOM_ARGS+= -DSIMULATION
 
