@@ -233,7 +233,6 @@ include/libmove3d/lightPlanner/proto/Manipulation.h
 include/libmove3d/lightPlanner/proto/ManipulationConfigs.hpp
 include/libmove3d/lightPlanner/proto/ManipulationDynamic.hpp
 include/libmove3d/lightPlanner/proto/ManipulationPlanner.hpp
-include/libmove3d/lightPlanner/proto/ManipulationStruct.h
 include/libmove3d/lightPlanner/proto/ManipulationTestFunctions.hpp
 include/libmove3d/lightPlanner/proto/ManipulationUtils.hpp
 include/libmove3d/lightPlanner/proto/ManipulationViaConfPlanner.hpp
