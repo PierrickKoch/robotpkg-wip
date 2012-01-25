@@ -30,6 +30,7 @@ SUBDIR+=	mhp-genom
 SUBDIR+=	morse-pocolibs
 SUBDIR+=	move3d-studio
 SUBDIR+=	poisson
+SUBDIR+=	py-poco
 SUBDIR+=	rednav-genom
 SUBDIR+=	robotModelParser-libs
 SUBDIR+=	robot-viewer
