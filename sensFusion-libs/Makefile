@@ -10,7 +10,7 @@ MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=sensFusion-libs/}
 MASTER_REPOSITORY=      git ssh://git.openrobots.org/git/robots/sensFusion-libs
 
 MAINTAINER=		whe@laas.fr
-LICENSE=		isc
+LICENSE=		mit
 
 COMMENT=		Sensor Fusion Library
 
