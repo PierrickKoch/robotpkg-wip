@@ -1,3 +1,7 @@
+# robotpkg Makefile for:	wip/jafar-gdhe
+# Created:			Cyril Roussillon on Wed, 15 Jun 2011
+#
+
 PKGVERSION=		0.1
 PKGREVISION=	2
 DISTNAME=		jafar-gdhe-0.1
@@ -22,10 +26,6 @@ include ../../wip/jafar-kernel/depend.mk
 include ../../wip/jafar-jmath/depend.mk
 include ../../graphics/gdhe/depend.mk
 include ../../math/boost-numeric-bindings/depend.mk
-include ../../devel/boost-headers/depend.mk
-include ../../devel/boost-libs/depend.mk
-include ../../devel/boost-headers/depend.mk
-include ../../devel/boost-libs/depend.mk
 include ../../devel/boost-headers/depend.mk
 include ../../devel/boost-libs/depend.mk
 
