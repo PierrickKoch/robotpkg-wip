@@ -5,6 +5,7 @@
 PKGVERSION=		0.1
 DISTNAME=		jafar-qdisplay-0.1
 PKGNAME=		jafar-qdisplay-0.1
+PKGREVISION=	1
 CATEGORIES=		wip
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=jafar-qdisplay/}
 MAINTAINER=		jafar@laas.fr

@@ -1,0 +1,53 @@
+Generate correctly with the right MOC and UI the preprocessed files for Qt
+
+--- CMakeLists.txt.orig	2012-02-01 13:41:45.962204118 +0100
++++ CMakeLists.txt	2012-02-01 13:47:36.974193113 +0100
+@@ -102,6 +102,48 @@
+   set(Qt4_LIBS ${QT_LIBRARIES})
+ endif(QT4_FOUND)
+ 
++#------------------------------------------------------------------------------
++# Regenerate Qt MOC and UI files
++#------------------------------------------------------------------------------
++
++include(${QT_USE_FILE})
++
++string(TOUPPER "${JAFAR_MODULENAME}_WRAPPED_HEADERS" QTUI_H_SRC)
++string(TOUPPER "${JAFAR_MODULENAME}_WRAPPED_CPPS" QT_MOC_SRCS)
++
++#generate headers from ui files
++file(GLOB UI_FILES ${jafar-qdisplay_SOURCE_DIR}/src/*.ui)
++#  QT4_WRAP_UI(${QTUI_H_SRC} ${UI_FILES})
++foreach(ui_file ${UI_FILES})
++	get_filename_component(generated_header ${ui_file} NAME_WE)
++	set(generated_header ${jafar-qdisplay_SOURCE_DIR}/src/${generated_header}.h)
++execute_process(
++			COMMAND ${QT_UIC_EXECUTABLE} ${ui_file} -o ${generated_header} 
++			OUTPUT_FILE ${generated_header}
++			INPUT_FILE ${ui_file}
++			)
++	set(${QTUI_H_SRC} ${${QTUI_H_SRC}} ${generated_header})	
++endforeach(ui_file)
++
++# generate moc files from headers contining \"Q_OBJECT\"
++file(GLOB HEADERS "${jafar-qdisplay_SOURCE_DIR}/include/qdisplay/*.hpp" "${jafar-qdisplay_SOURCE_DIR}/src/*.hpp")
++foreach(header ${HEADERS})
++file(STRINGS ${header} Q_OBJECT_STRING REGEX "Q_OBJECT")
++if(NOT("${Q_OBJECT_STRING}" STREQUAL ""))
++  get_filename_component(generated_moc ${header} NAME_WE)
++		set(generated_moc ${jafar-qdisplay_SOURCE_DIR}/src/${generated_moc}.moc)
++
++  set(MYCPPFLAGS "${CPPFLAGS}")
++  string(STRIP "${MYCPPFLAGS}" MYCPPFLAGS)
++  string(REPLACE " " ";" MYCPPFLAGS "${MYCPPFLAGS}")
++  execute_process(
++			COMMAND ${QT_MOC_EXECUTABLE} ${MYCPPFLAGS} ${header} -o ${generated_moc}
++			)
++		set(${QT_MOC_SRCS} ${${QT_MOC_SRCS}} ${generated_moc})
++#      QT4_GENERATE_MOC(${header} ${jafar-qdisplay_SOURCE_DIR}/src/${HEADER_NAME}.moc)
++endif(NOT("${Q_OBJECT_STRING}" STREQUAL ""))
++endforeach(header)
++
+ #-----------------------------------------------------------------------------
+ # Check for Boost
+ #-----------------------------------------------------------------------------
