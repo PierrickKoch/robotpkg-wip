@@ -15,6 +15,7 @@ LICENSE=	gnu-lgpl-v2
 
 INSTALLATION_DIRS= include/ANN
 NO_CONFIGURE= yes
+MAKE_JOBS_SAFE=no
 
 BUILD_TARGET=unix-libtool
 
