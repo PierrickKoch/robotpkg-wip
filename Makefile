@@ -35,7 +35,6 @@ SUBDIR+=	py-poco
 SUBDIR+=	rednav-genom
 SUBDIR+=	robotModelParser-libs
 SUBDIR+=	robot-viewer
-SUBDIR+=	sensFusion-libs
 SUBDIR+=	spark-genom
 SUBDIR+=	visp
 
