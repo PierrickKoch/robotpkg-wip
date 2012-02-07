@@ -4,7 +4,6 @@
 COMMENT=	WIP packages
 
 SUBDIR+=	flann
-SUBDIR+=	geometric-tools
 SUBDIR+=	gest-genom
 SUBDIR+=	jafar-kernel
 SUBDIR+=	jafar-lgl
