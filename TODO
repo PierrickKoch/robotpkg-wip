@@ -21,6 +21,8 @@ Suggested new packages
     o modeling/pcl-1.1
 	o middleware/orocos-toolchain (will replace middleware/orocos-rtt and
 	middleware/orocos-ocl)
+	o http://gitorious.org/orocos-communication/yarp-transport to replace 
+	  middleware/robotis-oroyarp
 
 Suggested ready to import packages
 ==================================
