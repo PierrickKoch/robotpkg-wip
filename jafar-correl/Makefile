@@ -1,4 +1,4 @@
-PKGVERSION=		0.1
+VERSION=		0.1
 DISTNAME=		jafar-correl-0.1
 PKGNAME=		jafar-correl-0.1
 CATEGORIES=		wip

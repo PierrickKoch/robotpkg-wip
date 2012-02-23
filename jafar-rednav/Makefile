@@ -2,8 +2,8 @@
 # Created:			Redouane Boumghar on Thu, 17 Mar 2011
 #
 
-PKGVERSION=		0.9
-DISTNAME=		jafar-rednav-${PKGVERSION}
+VERSION=		0.9
+DISTNAME=		jafar-rednav-${VERSION}
 CATEGORIES=		wip
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=jafar-rednav/}
 MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/jafar/modules/rednav

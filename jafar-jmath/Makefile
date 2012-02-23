@@ -1,6 +1,6 @@
-PKGVERSION=		0.3
-DISTNAME=		jafar-jmath-${PKGVERSION}
-PKGNAME=		jafar-jmath-${PKGVERSION}
+VERSION=		0.3
+DISTNAME=		jafar-jmath-${VERSION}
+PKGNAME=		jafar-jmath-${VERSION}
 CATEGORIES=		wip
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=jafar-jmath/}
 MAINTAINER=		jafar@laas.fr

@@ -1,6 +1,6 @@
-PKGVERSION=		0.1
-DISTNAME=		jafar-rtslam-${PKGVERSION}
-PKGNAME=		jafar-rtslam-${PKGVERSION}
+VERSION=		0.1
+DISTNAME=		jafar-rtslam-${VERSION}
+PKGNAME=		jafar-rtslam-${VERSION}
 CATEGORIES=		wip
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=jafar-rtslam/}
 MAINTAINER=		jafar@laas.fr

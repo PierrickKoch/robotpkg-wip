@@ -2,7 +2,7 @@
 # Created:			Cyril Roussillon on Wed, 15 Jun 2011
 #
 
-PKGVERSION=		0.1
+VERSION=		0.1
 PKGREVISION=	2
 DISTNAME=		jafar-gdhe-0.1
 PKGNAME=		jafar-gdhe-0.1

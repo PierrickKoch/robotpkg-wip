@@ -2,8 +2,8 @@
 # Created:			Redouane Boumghar on Thu, 17 Mar 2011
 #
 
-PKGVERSION=		0.3
-DISTNAME=		jafar-kernel-${PKGVERSION}
+VERSION=		0.3
+DISTNAME=		jafar-kernel-${VERSION}
 CATEGORIES=		wip
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=jafar-kernel/}
 MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/jafar/jafar.git

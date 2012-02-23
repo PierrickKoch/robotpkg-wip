@@ -2,8 +2,8 @@
 # Created:			Redouane Boumghar on Thu, 17 Mar 2011
 #
 
-PKGVERSION=		1.6.1
-DISTNAME=		jafar-lgl-${PKGVERSION}
+VERSION=		1.6.1
+DISTNAME=		jafar-lgl-${VERSION}
 CATEGORIES=		wip
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=jafar-lgl/}
 MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/jafar/jafar/modules/lgl
