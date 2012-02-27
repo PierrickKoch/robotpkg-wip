@@ -5,6 +5,7 @@ COMMENT=	WIP packages
 
 SUBDIR+=	flann
 SUBDIR+=	gest-genom
+SUBDIR+=	hpp-geometry
 SUBDIR+=	jafar-kernel
 SUBDIR+=	jafar-lgl
 SUBDIR+=	jafar-rednav
