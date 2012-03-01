@@ -3,18 +3,20 @@
 #
 
 HPP_PACKAGE=	        hpp-geometry
-VERSION=		1.0
-CATEGORIES=		devel
+HPP_VERSION=		1.0
 MASTER_SITES=		https://github.com/downloads/laas/hpp-geometry/
 MASTER_REPOSITORY=	${MASTER_REPOSITORY_GITHUB_LAAS}${HPP_PACKAGE}
 
-COMMENT=		New Kineo geometry types
+CATEGORIES=		devel
+HPP_COMMENT=		New KineoWorks(tm) geometric types
 LICENSE=		gnu-lgpl-v3
 
-include ../../meta-pkgs/hpp/Makefile.cmake
+HPP_BUILD_SYSTEM=	cmake
+include ../../meta-pkgs/hpp/Makefile.common
 
 CMAKE_ARGS+=		-DGEOMETRIC_TOOLS_INSTALL_PREFIX:STRING=${PREFIX}
 
-include ../../path/kineo-pp/depend.mk
+include ../../devel/hpp-util/depend.mk
 include ../../math/geometric-tools/depend.mk
+include ../../path/kineo-pp/depend.mk
 include ../../mk/robotpkg.mk
