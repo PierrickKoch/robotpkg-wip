@@ -21,6 +21,7 @@ SUBDIR+=	libANN
 SUBDIR+=	libfreenect
 SUBDIR+=	libmove3d
 SUBDIR+=	lwr-genom
+SUBDIR+=	metapod
 SUBDIR+=	MPC
 SUBDIR+=	MPC_avoidObs-genom
 SUBDIR+=	MPC_controller-genom
