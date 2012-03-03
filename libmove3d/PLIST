@@ -1,4 +1,4 @@
-@comment Mon Nov 7 13:32:54 CET 2011
+@comment Sat Mar 3 11:37:55 CET 2012
 include/libmove3d/animation/proto/anim_charac_traj_interface_proto.h
 include/libmove3d/animation/proto/anim_charac_traj_proto.h
 include/libmove3d/animation/proto/anim_compute_path_interface_proto.h
@@ -230,9 +230,12 @@ include/libmove3d/lightPlanner/proto/DlrParser.h
 include/libmove3d/lightPlanner/proto/DlrPlan.h
 include/libmove3d/lightPlanner/proto/DlrPlanner.h
 include/libmove3d/lightPlanner/proto/Manipulation.h
+include/libmove3d/lightPlanner/proto/ManipulationArmData.hpp
 include/libmove3d/lightPlanner/proto/ManipulationConfigs.hpp
+include/libmove3d/lightPlanner/proto/ManipulationData.hpp
 include/libmove3d/lightPlanner/proto/ManipulationDynamic.hpp
 include/libmove3d/lightPlanner/proto/ManipulationPlanner.hpp
+include/libmove3d/lightPlanner/proto/ManipulationStruct.hpp
 include/libmove3d/lightPlanner/proto/ManipulationTestFunctions.hpp
 include/libmove3d/lightPlanner/proto/ManipulationUtils.hpp
 include/libmove3d/lightPlanner/proto/ManipulationViaConfPlanner.hpp
@@ -369,3 +372,8 @@ include/libmove3d/util/proto/util_proto.h
 include/libmove3d/util/vector3d.h
 lib/libmove3d.so
 lib/pkgconfig/libmove3d.pc
+@pkgdir include/libmove3d/localpath/flat/src
+@pkgdir include/libmove3d/groundHeight/doc/figures
+@pkgdir include/libmove3d/graphic/shaders
+@pkgdir include/libmove3d/collision/Vcollide/doc
+@pkgdir include/libmove3d/collision/Vcollide/RAPID

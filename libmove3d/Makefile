@@ -22,6 +22,9 @@ CMAKE_ARGS+=\
 CMAKE_ARGS+=\
   -DGLIB_INCLUDE_DIR=$(dir $(filter %/glib.h,${SYSTEM_FILES.glib2}))
 
+CMAKE_ARGS+=		-DBOOST_INCLUDEDIR=${PREFIX.boost-headers}/include
+CMAKE_ARGS+=		-DBOOST_LIBDIR=${PREFIX.boost-libs}/include
+
 # Dependencies
 include ../../devel/boost-headers/depend.mk
 include ../../devel/boost-libs/depend.mk
