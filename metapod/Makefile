@@ -24,6 +24,7 @@ CMAKE_ARGS+=            -DBOOST_INCLUDEDIR=${PREFIX.boost-headers}/include
 CMAKE_ARGS+=            -DBOOST_LIBRARYDIR=${PREFIX.boost-libs}/lib
 CMAKE_ARGS+=            -ggdb3 -O3 -funroll-loops -march=native -mfpmath=sse
 
+include ../../math/eigen3/depend.mk
 include ../../devel/boost-headers/depend.mk
 include ../../devel/boost-libs/depend.mk
 include ../../pkgtools/pkg-config/depend.mk
