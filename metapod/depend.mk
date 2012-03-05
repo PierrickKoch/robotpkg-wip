@@ -15,7 +15,7 @@ PREFER.metapod?=	robotpkg
 
 DEPEND_USE+=		metapod
 
-DEPEND_ABI.metapod?=	metapod>=1.0.0
+DEPEND_ABI.metapod?=	metapod>=1.0.1
 DEPEND_DIR.metapod?=	../../math/metapod
 
 SYSTEM_SEARCH.metapod=			\
