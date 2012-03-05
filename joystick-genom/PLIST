@@ -2,7 +2,6 @@
 ${PLIST.noapi}bin/joystick
 ${PLIST.noapi}bin/joystickSendInitRqst
 ${PLIST.noapi}bin/joystickTest
-include/joystick/demjoystickPosterTojoystickMap.h
 include/joystick/joystickStruct.h
 ${PLIST.openprs}include/joystick/server/openprs/joystickDecodeOpenprs.h
 ${PLIST.openprs}include/joystick/server/openprs/joystickEncodeOpenprs.h
@@ -24,9 +23,7 @@ ${PLIST.tclserv_client}include/joystick/server/tclservClient/joystickTclservClie
 ${PLIST.tclserv_client}include/joystick/server/tclservClient/joystickTclservClientEncode.h
 ${PLIST.tclserv_client}include/joystick/server/tclservClient/joystickTclservClientMsgLib.h
 lib/libjoystickClient.la
-lib/libjoystickLib.la
 ${PLIST.openprs}lib/openprs/libjoystickOpenprs.la
-lib/pkgconfig/joystick-lib.pc
 ${PLIST.openprs}lib/pkgconfig/joystick-oprs.pc
 lib/pkgconfig/joystick.pc
 ${PLIST.tclserv_client}lib/pkgconfig/joystick-tclserv_client.pc
