@@ -29,8 +29,8 @@ PKG_OPTION_DESCR.hrp2=	Compile SPARK with support for HRP2
 
 define PKG_OPTION_SET.hrp2
   GENOM_ARGS+= -DHRP2
-  include ../../localization/pom-genom/depend.mk
-  include ../../image/viman-genom/depend.mk
+  include ../../wip/gest-genom/depend.mk
+  include ../../robots/hrp2-genom/depend.mk
 endef
 
 ##
@@ -41,12 +41,6 @@ PKG_OPTION_DESCR.pr2=	Compile SPARK with support for PR2
 define PKG_OPTION_SET.pr2
   GENOM_ARGS+= -DPR2
   GENOM_ARGS+= -DUSE_GLUT
-  include ../../manipulation/genManip-genom/depend.mk
-  include ../../localization/pom-genom/depend.mk
-  include ../../math/gbM/depend.mk
-  include ../../image/viman-genom/depend.mk
-  include ../../image/niut-genom/depend.mk
-  include ../../localization/mocap-genom/depend.mk
   include ../../interfaces/openrobots-pose/depend.mk
   include ../../wip/jointStateMapper/depend.mk
 endef
@@ -56,16 +50,13 @@ endef
 ##
 PKG_OPTION_DESCR.jido=	Compile SPARK with support for Jido
 
+## XXX lwr does not seems to be a depends
 define PKG_OPTION_SET.jido
   GENOM_ARGS+= -DJIDO
   GENOM_ARGS+= -DUSE_GLUT
-  include ../../manipulation/genManip-genom/depend.mk
-  include ../../localization/pom-genom/depend.mk
+  include ../../robots/fingers-genom/depend.mk
   include ../../math/gbM/depend.mk
-  include ../../wip/lwr-genom/depend.mk
-  include ../../image/viman-genom/depend.mk
-  include ../../image/niut-genom/depend.mk
-  include ../../localization/mocap-genom/depend.mk
+  include ../../wip/lwr-genom/depend.mk 
 endef
 
 ##
@@ -109,9 +100,15 @@ REQD_BUILD_OPTIONS.BioMove3D:=	jido
 
 include ../../wip/libmove3d/depend.mk
 include ../../wip/libmove3d-hri/depend.mk
-include ../../wip/attentional-genom/depend.mk
-include ../../interfaces/genBasic-genom/depend.mk
-include ../../interfaces/genHum-genom/depend.mk
+
 include ../../architecture/genom/depend.mk
 include ../../devel/boost-headers/depend.mk
+include ../../image/viman-genom/depend.mk
+include ../../image/niut-genom/depend.mk
+include ../../interfaces/genBasic-genom/depend.mk
+include ../../interfaces/genHum-genom/depend.mk
+include ../../localization/mocap-genom/depend.mk
+include ../../localization/pom-genom/depend.mk
+include ../../manipulation/genManip-genom/depend.mk
+include ../../math/t3d/depend.mk
 include ../../mk/robotpkg.mk
