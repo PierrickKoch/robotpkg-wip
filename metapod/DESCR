@@ -5,3 +5,8 @@ optimized for a particular robot at compile-time.
 
 As of today, the following algorithms have been implemented:
 - RNEA (Recursive Newton Euler Algorithm) for inverse dynamics.
+
+This software is designed to be a low-level library, performance is
+thus a key issue. For increased performance, it is strongly
+recommended to add the "-march=native -mfpmath=sse" flags to the
+CMAKE_CXX_FLAGS variable before compiling it.
