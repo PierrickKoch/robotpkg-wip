@@ -18,7 +18,7 @@ LICENSE=		gnu-gpl-v3
 MAINTAINER=		gepetto@laas.fr
 
 USE_LANGUAGES+=		c c++
-DOXYGEN_PLIST_DIR+=	share/doc/${PACAKGE}
+DOXYGEN_PLIST_DIR+=	share/doc/${PACKAGE}
 
 CMAKE_ARGS+=            -DBOOST_INCLUDEDIR=${PREFIX.boost-headers}/include
 CMAKE_ARGS+=            -DBOOST_LIBRARYDIR=${PREFIX.boost-libs}/lib
