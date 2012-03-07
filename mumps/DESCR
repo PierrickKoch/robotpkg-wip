@@ -1,0 +1,4 @@
+MUMPS (“MUltifrontal Massively Parallel Solver”) is a package for
+solving systems of linear equations of the form Ax = b, where A is a
+square sparse matrix that can be either unsymmetric, symmetric
+positive deﬁnite, or general symmetric.
