@@ -2,41 +2,42 @@
 # Created:			Antonio El Khoury on Wed, 7 Mar 2012
 #
 
-DISTNAME=	  MUMPS_${VERSION} Mumps
-PKGNAME=	  mumps-${VERSION}
-VERSION=	  4.10.0
+VERSION=	4.10.0
+DISTNAME=	MUMPS_${VERSION}
+PKGNAME=	mumps-${VERSION}
+CATEGORIES=	optimization
+MASTER_SITES=	http://mumps.enseeiht.fr/
 
-CATEGORIES=	  optimization
-MASTER_SITES=			  \
-	http://mumps.enseeiht.fr/ \
-	${MASTER_SITE_OPENROBOTS:=mumps/}
+COMMENT=	Parallel sparse direct solver
+HOMEPAGE=	http://graal.ens-lyon.fr/MUMPS/
+LICENSE=	public-domain
+MAINTAINER=	openrobots@laas.fr
 
-MAINTAINER=	  
-HOMEPAGE=	  http://graal.ens-lyon.fr/MUMPS/
-COMMENT=	  MUMPS : a parallel sparse direct solver
-LICENSE=	  public-domain
+WRKSRC=		${WRKDIR}
+USE_LANGUAGES=	c c++ fortran
+GNU_CONFIGURE=	yes
 
-USE_LANGUAGES=	  c c++ fortran
-GNU_CONFIGURE=	  yes
-CONFIGURE_DIRS=   ../
+INCLUDE_DIRS.lapack=	include
+LIBRARY_DIRS.lapack=	lib
+RPATH_DIRS.lapack=	lib
+LDFLAGS.lapack=		-llapack
 
-CPPFLAGS+= 					\
-	-I${PREFIX.blas}/include/		\
-	-I${PREFIX.lapack}/include/
-LDFLAGS+= 					\
-	-L${PREFIX.blas}/lib/			\
-	-L${PREFIX.lapack}/lib/
-LIBS+= -lblas -llapack -lpthread
-
-# --------------------------------------------------------------------
+INCLUDE_DIRS.blas=	include
+LIBRARY_DIRS.blas=	lib
+RPATH_DIRS.blas=	lib
+LDFLAGS.blas=		-lblas
 
 include ../../math/lapack/depend.mk
 include ../../math/blas/depend.mk
-include ../../pkgtools/pkg-config/depend.mk
-include ../../mk/sysdep/doxygen.mk
-include ../../mk/sysdep/latex.mk
+include ../../mk/sysdep/autoconf.mk
+include ../../mk/sysdep/automake.mk
 include ../../mk/robotpkg.mk
 
 post-extract:
-	cd ${WRKDIR} && ${LN} -s MUMPS_${VERSION} MUMPS
+	${RUN} cd ${WRKDIR};						\
+	${LN} -s MUMPS_${VERSION} MUMPS;				\
+	${SED} -e 's/@VERSION@/${VERSION}/g'				\
+	  >configure.ac <${FILESDIR}/configure.ac;			\
+	${CP} ${FILESDIR}/Makefile.am Makefile.am
 
+pre-configure: autoreconf

@@ -1,0 +1,20 @@
+--- MUMPS/src/mumps_common.h~	2011-05-10 14:56:41.000000000 +0200
++++ MUMPS/src/mumps_common.h	2012-03-08 13:36:41.647255329 +0100
+@@ -62,6 +62,9 @@
+  *     knowledge, there is no way to perform the conversion with CPP
+  *     directives only.
+  */
++#define F_SYMBOL(lower_case,upper_case) \
++  FC_FUNC(mumps_ ## lower_case,MUMPS_ ## upper_case)
++#if 0
+ #if defined(UPPER) || defined(MUMPS_WIN32)
+ # define F_SYMBOL(lower_case,upper_case) MUMPS_##upper_case
+ #elif defined(Add_)
+@@ -71,6 +74,7 @@
+ #else
+ # define F_SYMBOL(lower_case,upper_case) mumps_##lower_case
+ #endif
++#endif
+ MUMPS_INT*
+ mumps_get_mapping();
+ #define MUMPS_AFFECT_MAPPING \

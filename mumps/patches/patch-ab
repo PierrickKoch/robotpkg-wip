@@ -1,0 +1,31 @@
+--- MUMPS/src/mumps_c.c~	2011-05-10 14:56:41.000000000 +0200
++++ MUMPS/src/mumps_c.c	2012-03-08 13:39:25.063255287 +0100
+@@ -80,6 +80,20 @@
+  *   CMUMPS_XXX in the code to get rid of any symbol convention annoyance.
+  */
+ #if MUMPS_ARITH == MUMPS_ARITH_s
++# define F_SYM_ARITH(lower_case,upper_case) \
++  F_SYMBOL(s ## lower_case, S ## upper_case)
++#elif MUMPS_ARITH == MUMPS_ARITH_d
++# define F_SYM_ARITH(lower_case,upper_case) \
++  F_SYMBOL(d ## lower_case, D ## upper_case)
++#elif MUMPS_ARITH == MUMPS_ARITH_c
++# define F_SYM_ARITH(lower_case,upper_case) \
++  F_SYMBOL(c ## lower_case, C ## upper_case)
++#elif MUMPS_ARITH == MUMPS_ARITH_z
++# define F_SYM_ARITH(lower_case,upper_case) \
++  F_SYMBOL(z ## lower_case, Z ## upper_case)
++#endif
++#if 0
++#if MUMPS_ARITH == MUMPS_ARITH_s
+ # if defined(UPPER) || defined(MUMPS_WIN32)
+ #  define F_SYM_ARITH(lower_case,upper_case) SMUMPS_##upper_case
+ # elif defined(Add_)
+@@ -120,6 +134,7 @@
+ #  define F_SYM_ARITH(lower_case,upper_case) zmumps_##lower_case
+ # endif
+ #endif
++#endif
+ #define MUMPS_F77       \
+     F_SYM_ARITH(f77,F77)
+ void MUMPS_CALL

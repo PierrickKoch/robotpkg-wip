@@ -1,1 +1,24 @@
-@comment Wed Mar 7 19:07:19 CET 2012
+@comment Thu Mar 8 17:56:36 CET 2012
+include/mumps/cmumps_c.h
+include/mumps/cmumps_root.h
+include/mumps/cmumps_struc.h
+include/mumps/dmumps_c.h
+include/mumps/dmumps_root.h
+include/mumps/dmumps_struc.h
+include/mumps/mumps_c_types.h
+include/mumps/mumps_compat.h
+include/mumps/smumps_c.h
+include/mumps/smumps_root.h
+include/mumps/smumps_struc.h
+include/mumps/zmumps_c.h
+include/mumps/zmumps_root.h
+include/mumps/zmumps_struc.h
+lib/libcmumps.la
+lib/libdmumps.la
+lib/libmumps_common.la
+lib/libsmumps.la
+lib/libzmumps.la
+share/mumps/ChangeLog
+share/mumps/LICENSE
+share/mumps/README
+share/mumps/VERSION
