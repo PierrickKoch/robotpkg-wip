@@ -2,15 +2,15 @@
 # Created:			Antonio El Khoury on Wed, 29 Feb 2012
 #
 
-PACKAGE=                metapod
+PKGBASE=                metapod
 VERSION=	        1.0.1
-DISTNAME=	        ${PACKAGE}-${VERSION}
-PKGNAME=	        ${PACKAGE}-${VERSION}
+DISTNAME=	        ${PKGBASE}-${VERSION}
+PKGNAME=	        ${PKGBASE}-${VERSION}
 PKGREVISION=
 
 CATEGORIES=		math
-MASTER_SITES=		${MASTER_SITE_GITHUB_GEPETTO:=${PACKAGE}/}
-MASTER_REPOSITORY=	${MASTER_REPOSITORY_GITHUB_LAAS}${PACKAGE}
+MASTER_SITES=		${MASTER_SITE_GITHUB_GEPETTO:=${PKGBASE}/}
+MASTER_REPOSITORY=	${MASTER_REPOSITORY_GITHUB_LAAS}${PKGBASE}
 
 COMMENT=		Template-based rigid body dynamics library.
 
@@ -18,7 +18,7 @@ LICENSE=		gnu-gpl-v3
 MAINTAINER=		gepetto@laas.fr
 
 USE_LANGUAGES+=		c c++
-DOXYGEN_PLIST_DIR+=	share/doc/${PACKAGE}
+DOXYGEN_PLIST_DIR+=	share/doc/${PKGBASE}
 
 CMAKE_ARGS+=            -DBOOST_INCLUDEDIR=${PREFIX.boost-headers}/include
 CMAKE_ARGS+=            -DBOOST_LIBRARYDIR=${PREFIX.boost-libs}/lib
