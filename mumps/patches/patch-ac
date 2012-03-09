@@ -1,0 +1,18 @@
+--- MUMPS/libseq/elapse.h~	2011-05-10 14:56:39.000000000 +0200
++++ MUMPS/libseq/elapse.h	2012-03-09 11:07:51.047255368 +0100
+@@ -59,6 +59,8 @@
+ #endif
+ #endif
+ 
++#define mumps_elapse FC_FUNC(mumps_elapse, MUMPS_ELAPSE)
++#if 0
+ #if (defined(_WIN32) && ! defined(__MINGW32__)) || defined(UPPER)
+ #define mumps_elapse MUMPS_ELAPSE
+ #elif defined(Add__)
+@@ -66,5 +68,6 @@
+ #elif defined(Add_)
+ #define mumps_elapse mumps_elapse_
+ #endif
++#endif
+ 
+ void MUMPS_CALL mumps_elapse(double *val);

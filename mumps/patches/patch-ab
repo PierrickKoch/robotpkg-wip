@@ -5,16 +5,16 @@
   */
  #if MUMPS_ARITH == MUMPS_ARITH_s
 +# define F_SYM_ARITH(lower_case,upper_case) \
-+  F_SYMBOL(s ## lower_case, S ## upper_case)
++  FC_FUNC(smumps_ ## lower_case, SMUMPS_ ## upper_case)
 +#elif MUMPS_ARITH == MUMPS_ARITH_d
 +# define F_SYM_ARITH(lower_case,upper_case) \
-+  F_SYMBOL(d ## lower_case, D ## upper_case)
++  FC_FUNC(dmumps_ ## lower_case, DMUMPS_ ## upper_case)
 +#elif MUMPS_ARITH == MUMPS_ARITH_c
 +# define F_SYM_ARITH(lower_case,upper_case) \
-+  F_SYMBOL(c ## lower_case, C ## upper_case)
++  FC_FUNC(cmumps_ ## lower_case, CMUMPS_ ## upper_case)
 +#elif MUMPS_ARITH == MUMPS_ARITH_z
 +# define F_SYM_ARITH(lower_case,upper_case) \
-+  F_SYMBOL(z ## lower_case, Z ## upper_case)
++  FC_FUNC(zmumps_ ## lower_case, ZMUMPS_ ## upper_case)
 +#endif
 +#if 0
 +#if MUMPS_ARITH == MUMPS_ARITH_s

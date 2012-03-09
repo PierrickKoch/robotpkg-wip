@@ -2,11 +2,11 @@
 
 AM_CPPFLAGS=	-IMUMPS/include -IMUMPS/libseq
 
-lib_LTLIBRARIES= libmumps_common.la
-lib_LTLIBRARIES+= libsmumps.la
-lib_LTLIBRARIES+= libdmumps.la
-lib_LTLIBRARIES+= libcmumps.la
-lib_LTLIBRARIES+= libzmumps.la
+lib_LTLIBRARIES= libmumps_common_seq.la
+lib_LTLIBRARIES+= libsmumps_seq.la
+lib_LTLIBRARIES+= libdmumps_seq.la
+lib_LTLIBRARIES+= libcmumps_seq.la
+lib_LTLIBRARIES+= libzmumps_seq.la
 
 docdir=		${datadir}/mumps
 doc_DATA=\
@@ -36,7 +36,7 @@ mumps_HEADERS=\
 	MUMPS/include/zmumps_root.h		\
 	MUMPS/include/zmumps_struc.h
 
-libmumps_common_la_SOURCES=\
+libmumps_common_seq_la_SOURCES=\
 	MUMPS/src/mumps_part9.F			\
 	MUMPS/src/mumps_common.c		\
 	MUMPS/src/mumps_ooc_common.F		\
@@ -53,9 +53,10 @@ libmumps_common_la_SOURCES=\
 	MUMPS/libseq/mpi.f 			\
 	MUMPS/libseq/mpic.c			\
 	MUMPS/libseq/elapse.c
-libmumps_common_la_LIBADD=${FCLIBS}
+libmumps_common_seq_la_LIBADD=${FCLIBS}
+libmumps_common_seq_la_LDFLAGS=-release ${PACKAGE_VERSION}
 
-libsmumps_la_SOURCES=\
+libsmumps_seq_la_SOURCES=\
 	MUMPS/src/smumps_part1.F		\
         MUMPS/src/smumps_part2.F		\
         MUMPS/src/smumps_part3.F		\
@@ -70,7 +71,8 @@ libsmumps_la_SOURCES=\
         MUMPS/src/smumps_ooc_buffer.F		\
         MUMPS/src/smumps_ooc.F			\
         MUMPS/src/smumps_struc_def.F
-libsmumps_la_LIBADD=libmumps_common.la
+libsmumps_seq_la_LIBADD=libmumps_common_seq.la
+libsmumps_seq_la_LDFLAGS=-release ${PACKAGE_VERSION}
 
 smumps_part1.lo smumps_part2.lo: smumps_load.lo smumps_ooc.lo
 smumps_part3.lo smumps_part4.lo: smumps_load.lo smumps_ooc.lo
@@ -81,7 +83,7 @@ smumps_ooc.lo smumps_load.lo: smumps_comm_buffer.lo
 smumps_ooc.lo smumps_load.lo: smumps_struc_def.lo
 smumps_ooc.lo smumps_load.lo: smumps_ooc_buffer.lo
 
-libdmumps_la_SOURCES=\
+libdmumps_seq_la_SOURCES=\
 	MUMPS/src/dmumps_part1.F		\
         MUMPS/src/dmumps_part2.F		\
         MUMPS/src/dmumps_part3.F		\
@@ -96,7 +98,8 @@ libdmumps_la_SOURCES=\
         MUMPS/src/dmumps_ooc_buffer.F		\
         MUMPS/src/dmumps_ooc.F			\
         MUMPS/src/dmumps_struc_def.F
-libdmumps_la_LIBADD=libmumps_common.la
+libdmumps_seq_la_LIBADD=libmumps_common_seq.la
+libdmumps_seq_la_LDFLAGS=-release ${PACKAGE_VERSION}
 
 dmumps_part1.lo dmumps_part2.lo: dmumps_load.lo dmumps_ooc.lo
 dmumps_part3.lo dmumps_part4.lo: dmumps_load.lo dmumps_ooc.lo
@@ -107,7 +110,7 @@ dmumps_ooc.lo dmumps_load.lo: dmumps_comm_buffer.lo
 dmumps_ooc.lo dmumps_load.lo: dmumps_struc_def.lo
 dmumps_ooc.lo dmumps_load.lo: dmumps_ooc_buffer.lo
 
-libcmumps_la_SOURCES=\
+libcmumps_seq_la_SOURCES=\
 	MUMPS/src/cmumps_part1.F		\
         MUMPS/src/cmumps_part2.F		\
         MUMPS/src/cmumps_part3.F		\
@@ -122,7 +125,8 @@ libcmumps_la_SOURCES=\
         MUMPS/src/cmumps_ooc_buffer.F		\
         MUMPS/src/cmumps_ooc.F			\
         MUMPS/src/cmumps_struc_def.F
-libcmumps_la_LIBADD=libmumps_common.la
+libcmumps_seq_la_LIBADD=libmumps_common_seq.la
+libcmumps_seq_la_LDFLAGS=-release ${PACKAGE_VERSION}
 
 cmumps_part1.lo cmumps_part2.lo: cmumps_load.lo cmumps_ooc.lo
 cmumps_part3.lo cmumps_part4.lo: cmumps_load.lo cmumps_ooc.lo
@@ -133,7 +137,7 @@ cmumps_ooc.lo cmumps_load.lo: cmumps_comm_buffer.lo
 cmumps_ooc.lo cmumps_load.lo: cmumps_struc_def.lo
 cmumps_ooc.lo cmumps_load.lo: cmumps_ooc_buffer.lo
 
-libzmumps_la_SOURCES=\
+libzmumps_seq_la_SOURCES=\
 	MUMPS/src/zmumps_part1.F		\
         MUMPS/src/zmumps_part2.F		\
         MUMPS/src/zmumps_part3.F		\
@@ -148,7 +152,8 @@ libzmumps_la_SOURCES=\
         MUMPS/src/zmumps_ooc_buffer.F		\
         MUMPS/src/zmumps_ooc.F			\
         MUMPS/src/zmumps_struc_def.F
-libzmumps_la_LIBADD=libmumps_common.la
+libzmumps_seq_la_LIBADD=libmumps_common_seq.la
+libzmumps_seq_la_LDFLAGS=-release ${PACKAGE_VERSION}
 
 zmumps_part1.lo zmumps_part2.lo: zmumps_load.lo zmumps_ooc.lo
 zmumps_part3.lo zmumps_part4.lo: zmumps_load.lo zmumps_ooc.lo
@@ -159,7 +164,8 @@ zmumps_ooc.lo zmumps_load.lo: zmumps_comm_buffer.lo
 zmumps_ooc.lo zmumps_load.lo: zmumps_struc_def.lo
 zmumps_ooc.lo zmumps_load.lo: zmumps_ooc_buffer.lo
 
-libsmumps.la libdmumps.la libcmumps.la libzmumps.la: libmumps_common.la
+libsmumps_seq.la libdmumps_seq.la libcmumps_seq.la libzmumps_seq.la: \
+	libmumps_common_seq.la
 MUMPS/src/%mumps_c.c: MUMPS/src/mumps_c.c
 	echo '#define MUMPS_ARITH MUMPS_ARITH_$*' >$@
 	${SED} -e '' $< >>$@

@@ -21,7 +21,7 @@ SYSTEM_SEARCH.mumps=\
   'include/mumps/dmumps_c.h:/MUMPS_VERSION.*"[0-9.]*"/s/[^0-9.]//gp'	\
   'lib/lib{s,d,c,z}mumps.{so,a}'
 
-SYSTEM_PKG.Ubuntu.mumps=libmumps-dev
+SYSTEM_PKG.Ubuntu.mumps=libmumps-seq-dev
 
 endif # MUMPS_DEPEND_MK ----------------------------------------------------
 

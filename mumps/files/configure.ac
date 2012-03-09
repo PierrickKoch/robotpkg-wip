@@ -1,7 +1,7 @@
 # autoconf script for MUMPS
 
 AC_PREREQ(2.62)
-AC_INIT([mumps],[@VERSION@],[openrobots@laas.fr])
+AC_INIT([mumps],[@VERSION@])
 
 AC_CONFIG_SRCDIR([MUMPS/src/dmumps_part1.F])
 AM_INIT_AUTOMAKE([foreign no-define])

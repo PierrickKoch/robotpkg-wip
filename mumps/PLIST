@@ -13,11 +13,11 @@ include/mumps/smumps_struc.h
 include/mumps/zmumps_c.h
 include/mumps/zmumps_root.h
 include/mumps/zmumps_struc.h
-lib/libcmumps.la
-lib/libdmumps.la
-lib/libmumps_common.la
-lib/libsmumps.la
-lib/libzmumps.la
+lib/libcmumps_seq.la
+lib/libdmumps_seq.la
+lib/libmumps_common_seq.la
+lib/libsmumps_seq.la
+lib/libzmumps_seq.la
 share/mumps/ChangeLog
 share/mumps/LICENSE
 share/mumps/README
