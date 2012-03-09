@@ -5,7 +5,7 @@
 VERSION=	4.10.0
 DISTNAME=	MUMPS_${VERSION}
 PKGNAME=	mumps-${VERSION}
-CATEGORIES=	optimization
+CATEGORIES=	math
 MASTER_SITES=	http://mumps.enseeiht.fr/
 
 COMMENT=	Parallel sparse direct solver
