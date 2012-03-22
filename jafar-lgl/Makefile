@@ -2,7 +2,7 @@
 # Created:			Redouane Boumghar on Thu, 17 Mar 2011
 #
 
-VERSION=		1.6.1
+VERSION=		1.7.1
 DISTNAME=		jafar-lgl-${VERSION}
 CATEGORIES=		wip
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=jafar-lgl/}

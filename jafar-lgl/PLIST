@@ -1,5 +1,6 @@
-@comment Mon Jun 13 18:48:27 CEST 2011
+@comment Thu Mar 22 09:25:00 CET 2012
 include/jafar/lgl/Attributes.hpp
+include/jafar/lgl/CellID.hpp
 include/jafar/lgl/CostManager.hpp
 include/jafar/lgl/Decomp.hpp
 include/jafar/lgl/Decomposer.hpp
@@ -9,6 +10,8 @@ include/jafar/lgl/GeoData.hpp
 include/jafar/lgl/GraphPath.hpp
 include/jafar/lgl/Graphs.hpp
 include/jafar/lgl/InfoBand.hpp
+include/jafar/lgl/LGLMultiPursuit_Viewer.hpp
+include/jafar/lgl/LGLPursuitViewer.hpp
 include/jafar/lgl/LGLViewer.hpp
 include/jafar/lgl/LandmarkBand.hpp
 include/jafar/lgl/Location.hpp
@@ -20,16 +23,23 @@ include/jafar/lgl/NavHeuDistances.hpp
 include/jafar/lgl/NavHeuristics.hpp
 include/jafar/lgl/PositionManager.hpp
 include/jafar/lgl/PositionMap.hpp
+include/jafar/lgl/PursuitGNode.hpp
+include/jafar/lgl/PursuitGraph.hpp
+include/jafar/lgl/PursuitNavigator.hpp
+include/jafar/lgl/PursuitStats.hpp
+include/jafar/lgl/PursuitTaskManager.hpp
 include/jafar/lgl/Quadtree.hpp
 include/jafar/lgl/QuadtreeMatrix.hpp
 include/jafar/lgl/Raster.hpp
 include/jafar/lgl/RasterBand.hpp
+include/jafar/lgl/RobotPursuer.hpp
+include/jafar/lgl/Stats.hpp
 include/jafar/lgl/VisibilityMap.hpp
 include/jafar/lgl/VisibleArea.hpp
 include/jafar/lgl/lglException.hpp
 lib/libjafar-lgl.so
 lib/libjafar-lgl.so.1
-lib/libjafar-lgl.so.1.6
+lib/libjafar-lgl.so.1.7
 lib/pkgconfig/jafar-lgl.pc
 share/cmake/jafar/lgl-headers.cmake
 share/cmake/jafar/lgl-release.cmake
