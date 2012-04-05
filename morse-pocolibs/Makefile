@@ -31,6 +31,7 @@ define PKG_OPTION_SET.outdoor
 
   include ../../interfaces/genPos-genom/depend.mk
   include ../../image/viam-genom/depend.mk
+  include ../../hardware/platine-genom/depend.mk
   include ../../localization/pom-genom/depend.mk
 endef
 
@@ -50,6 +51,7 @@ define PKG_OPTION_SET.hri
 
   include ../../image/viman-genom/depend.mk
   include ../../interfaces/genPos-genom/depend.mk
+  include ../../hardware/platine-genom/depend.mk
   include ../../localization/pom-genom/depend.mk
   include ../../wip/lwr-genom/depend.mk
   include ../../wip/spark-genom/depend.mk
