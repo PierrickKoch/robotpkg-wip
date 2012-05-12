@@ -1,0 +1,15 @@
+@comment Sat May 12 12:29:17 CEST 2012
+bin/oroview
+etc/oro-view.json
+share/oro-view/beam.png
+share/oro-view/bloom.tga
+share/oro-view/classes.png
+share/oro-view/comment.png
+share/oro-view/fonts/Aller_Bd.ttf
+share/oro-view/fonts/Aller_Lt.ttf
+share/oro-view/gource.style
+share/oro-view/instances.png
+share/oro-view/literals.png
+share/oro-view/no.png
+share/oro-view/no_photo.png
+share/oro-view/yes.png

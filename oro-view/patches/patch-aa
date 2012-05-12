@@ -1,0 +1,14 @@
+Fix a call to std::pow(int, int) that gcc-4.2.1 doesn't like
+Use std::pow(float, int) instead.
+
+--- src/node_renderer.cpp~	2011-10-13 15:29:31.000000000 +0200
++++ src/node_renderer.cpp	2012-05-11 11:24:03.000000000 +0200
+@@ -105,7 +105,7 @@
+ 
+     if (current_distance_to_selected <= 1) return 1.0f;
+ 
+-    int distance = std::max(1, current_distance_to_selected);
++    float distance = std::max(1, current_distance_to_selected);
+     //float level =  FADE_TIME - (idle_time * distance)/FADE_TIME;
+ 
+     // We use a function in (1-x^3) to smooth the fading of nodes
