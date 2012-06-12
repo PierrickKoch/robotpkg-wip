@@ -2,7 +2,7 @@
 # Created:			Redouane Boumghar on Thu, 17 Mar 2011
 #
 
-VERSION=		0.3
+VERSION=		0.4
 DISTNAME=		jafar-kernel-${VERSION}
 CATEGORIES=		wip
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=jafar-kernel/}
@@ -15,9 +15,6 @@ LICENSE=		isc
 
 USE_LANGUAGES+=		c c++ fortran
 USE_PKGLOCALEDIR=	yes
-
-CPPFLAGS += -DJFR_NDEBUG
-CXXFLAGS += -pthread
 
 CMAKE_ARGS+=		-DBOOST_INCLUDEDIR=${PREFIX.boost-headers}/include
 CMAKE_ARGS+=		-DBOOST_LIBDIR=${PREFIX.boost-libs}/include
