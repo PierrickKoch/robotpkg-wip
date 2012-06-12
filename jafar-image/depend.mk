@@ -1,3 +1,6 @@
+# robotpkg depend.mk for:	image/jafar-image
+# Created:			Cyril Roussillon on Wed, 15 Jun 2011
+#
 
 DEPEND_DEPTH:=		${DEPEND_DEPTH}+
 jafar-image_DEPEND_MK:=	${jafar-image_DEPEND_MK}+

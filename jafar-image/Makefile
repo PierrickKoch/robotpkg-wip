@@ -1,7 +1,9 @@
-VERSION=		2.1
-PKGREVISION=	2
-DISTNAME=		jafar-image-2.1
-PKGNAME=		jafar-image-2.1
+# robotpkg Makefile for:	image/jafar-image
+# Created:			Cyril Roussillon on Wed, 15 Jun 2011
+#
+
+VERSION=		2.2
+DISTNAME=		jafar-image-${VERSION}
 CATEGORIES=		image
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=jafar-image/}
 MAINTAINER=		jafar@laas.fr
@@ -11,9 +13,6 @@ LICENSE=		isc
 
 USE_LANGUAGES+=		c c++ fortran
 USE_PKGLOCALEDIR=	yes
-
-CPPFLAGS += -DJFR_NDEBUG
-CXXFLAGS += -pthread
 
 CMAKE_ARGS+=		-DBOOST_INCLUDEDIR=${PREFIX.boost-headers}/include
 CMAKE_ARGS+=		-DBOOST_LIBDIR=${PREFIX.boost-libs}/include
