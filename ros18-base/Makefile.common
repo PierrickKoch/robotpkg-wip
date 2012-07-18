@@ -1,0 +1,50 @@
+# robotpkg Makefile for:	meta-pkgs/ros-base
+# Created:			Anthony Mallet on Sun, 15 Jul 2012
+#
+ROS_VERSION?=	undefined
+ROS_COMMIT?=	undefined
+ROS_PKG?=	undefined
+ROS_COMMENT?=	undefined
+
+ROS_PKGURL?=	${ROS_PKG}-release
+PKGNAME?=	${ROS_PKG}-${ROS_VERSION}
+MASTER_SITE_ROS=https://github.com/wg-debs/
+
+# add a '?f=' to MASTER_SITES: it is ignored by github and let us name the
+# DISTFILE correctly (package name with .tar.gz suffix, instead of what the URL
+# without '?f=' would give.
+MASTER_SITES?=\
+	${MASTER_SITE_ROS:=${ROS_PKGURL}/tarball/upstream/${ROS_VERSION}?f=}
+DISTNAME?=	${ROS_PKG}-${ROS_VERSION}
+
+COMMENT?=	ROS ${ROS_COMMENT}
+
+PREFIX?=	${LOCALBASE}/opt/ros/fuerte
+WRKSRC?=	${WRKDIR}/wg-debs-${ROS_PKGURL}-${ROS_COMMIT}
+USE_LANGUAGES?=	c c++
+
+
+# --- replace interpreters -------------------------------------------------
+#
+# These targets can be enabled by defining SUBST_CLASSES and SUBST_FILES
+#
+
+# Replace bash interpreter
+SUBST_STAGE.bash-interp=pre-configure
+SUBST_MESSAGE.bash-interp=Replacing bash interpreter path
+SUBST_SED.bash-interp=	-e '1s|^\\\#!.*bash|\\\#!${BASH}|'
+
+# Replace python interpreter
+SUBST_STAGE.py-interp=	pre-configure
+SUBST_MESSAGE.py-interp=Replacing python interpreter path
+SUBST_SED.py-interp=	-e '1s|^\\\#!.*python[0-9.]*|\\\#!${PYTHON}|'
+SUBST_SED.py-interp+=	-e 's|@PYTHON@|${PYTHON}|'
+
+# Add PYTHON_SITELIB to sys.path
+SUBST_STAGE.py-syspath=	pre-configure
+SUBST_MESSAGE.py-syspath=Configuring sys.path in python scripts
+SUBST_DATA.py-syspath=\
+	print "import sys";						\
+	print "sys.path.insert(0, \"${PREFIX}/${PYTHON_SITELIB}\")"
+SUBST_FILTER_CMD.py-syspath=\
+	${AWK} 'NR==2 { ${SUBST_DATA.py-syspath} } {print}'

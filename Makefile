@@ -35,6 +35,7 @@ SUBDIR+=	mumps
 SUBDIR+=	oro-view
 SUBDIR+=	poisson
 SUBDIR+=	py-poco
+SUBDIR+=	py-rospkg
 SUBDIR+=	rednav-genom
 SUBDIR+=	robotModelParser-libs
 SUBDIR+=	robot-viewer
