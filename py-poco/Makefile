@@ -2,16 +2,16 @@
 # Created:			Séverin Lemaignan on Tue, 9 Aug 2011
 #
 
-VERSION=		1.4
+VERSION=		1.5
 PKGNAME=		${PKGTAG.python}-poco-${VERSION}
 DISTNAME=		pypoco-${VERSION}
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=pypoco/}
 MASTER_REPOSITORY=	git http://trac.laas.fr/git/robots/pypoco.git
 
-CATEGORIES=		net
+CATEGORIES=		middleware
 LICENSE=		isc
 MAINTAINER=		openrobots@laas.fr
-COMMENT=		Python bindings for the tclserv protocol
+COMMENT=		Python bindings for pocolibs, throught the tclserv protocol
 
 DEPEND_ABI.python+=	python<3
 PYDISTUTILSPKG=		yes

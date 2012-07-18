@@ -14,11 +14,11 @@ ifeq (+,$(PY_POCO_DEPEND_MK)) # --------------------------------------------
 PREFER.py-poco?=	robotpkg
 
 DEPEND_USE+=		py-poco
-DEPEND_ABI.py-poco?=	${PKGTAG.python}-poco>=1.2
+DEPEND_ABI.py-poco?=	${PKGTAG.python}-poco>=1.4
 DEPEND_DIR.py-poco?=	../../wip/py-poco
 
 SYSTEM_SEARCH.py-poco=\
-	'${PYTHON_SYSLIBSEARCH}/pypoco.py'
+	'${PYTHON_SYSLIBSEARCH}/pypoco.py:/__version__/s/[^0-9.]//gp'
 
 include ../../mk/sysdep/python.mk
 
