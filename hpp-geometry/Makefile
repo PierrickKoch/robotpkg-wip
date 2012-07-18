@@ -5,7 +5,7 @@
 HPP_PACKAGE=	        hpp-geometry
 HPP_VERSION=		1.0
 MASTER_SITES=		https://github.com/downloads/laas/hpp-geometry/
-MASTER_REPOSITORY=	${MASTER_REPOSITORY_GITHUB_LAAS}${HPP_PACKAGE}
+MASTER_REPOSITORY=	${MASTER_REPOSITORY_GITHUB}/laas/${HPP_PACKAGE}
 
 CATEGORIES=		devel
 HPP_COMMENT=		New KineoWorks(tm) geometric types
