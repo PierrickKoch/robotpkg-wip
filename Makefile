@@ -4,6 +4,7 @@
 COMMENT=	WIP packages
 
 SUBDIR+=	attentional-genom
+SUBDIR+=	catkin
 SUBDIR+=	flann
 SUBDIR+=	gest-genom
 SUBDIR+=	hpp-geometry
