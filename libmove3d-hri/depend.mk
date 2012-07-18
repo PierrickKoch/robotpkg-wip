@@ -20,7 +20,7 @@ SYSTEM_SEARCH.libmove3d-hri=\
 
 DEPEND_USE+=		libmove3d-hri
 
-DEPEND_ABI.libmove3d-hri?=libmove3d-hri>=2.1
+DEPEND_ABI.libmove3d-hri?=libmove3d-hri>=2.2
 DEPEND_DIR.libmove3d-hri?=../../wip/libmove3d-hri
 
 endif # LIBMOVE3D_HRI_DEPEND_MK ----------------------------------------

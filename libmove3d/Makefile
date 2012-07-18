@@ -2,7 +2,7 @@
 # Created:			Severin Lemaignan on Fri, 11 Feb 2011
 #
 
-DISTNAME=			libmove3d-3.16
+DISTNAME=			libmove3d-3.17
 CATEGORIES=			path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=libmove3d/}
 MASTER_REPOSITORY=	git ssh://git.openrobots.org/git/robots/libmove3d.git
