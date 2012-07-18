@@ -2,56 +2,34 @@
 # Created:			Nizar Sallem on Tue, 28 Dec 2010
 #
 
-PKGNAME= 			flann-${VERSION}
-DISTNAME=			flann-${VERSION}-src
-PKGREVISION=			1
-VERSION=			1.6.11
-EXTRACT_SUFX= .zip
-CATEGORIES=		math
+VERSION=	1.7.1
+DISTNAME=	flann-${VERSION}-src
+PKGNAME=	flann-${VERSION}
 MASTER_SITES=	http://www.cs.ubc.ca/~mariusm/uploads/FLANN/
+EXTRACT_SUFX=	.zip
 
+CATEGORIES=	math
+COMMENT=	Fast approximate nearest neighbor search for high dimension
 MAINTAINER=	openrobots@laas.fr
 HOMEPAGE=	http://www.cs.ubc.ca/~mariusm/index.php/FLANN/FLANN
-COMMENT=	Fast approximate nearest neighbor search library for high dimension
 LICENSE=	2-clause-bsd
 
 USE_LANGUAGES+=	c c++
-#you need it to disable cmake error since we do in-source build
-CMAKE_ARGS+= -DLATEX_OUTPUT_PATH=${WRKSRC}
-CMAKE_ARGS+= -DBUILD_PYTHON_BINDINGS=OFF
 
-#option for c bindings generation
-PKG_SUPPORTED_OPTIONS+=		c
-PKG_SUGGESTED_OPTIONS+=		c
-PKG_OPTION_DESCR.c=				Enable c bindings.
-define PKG_OPTION_SET.c
-  CMAKE_ARGS+=			-DBUILD_C_BINDINGS=ON
-endef
-define PKG_OPTION_UNSET.c
-  CMAKE_ARGS+=			-DBUILD_C_BINDINGS=OFF
-endef
+CMAKE_ARGS+=	-DBUILD_MATLAB_BINDINGS=OFF
+CMAKE_ARGS+=	-DBUILD_PYTHON_BINDINGS=OFF
+CMAKE_ARGS+=	-DUSE_MPI=OFF
+CMAKE_ARGS+=	-DBUILD_CUDA_LIB=OFF
+CMAKE_ARGS+=	-DBUILD_C_BINDINGS=ON
 
-#option for matlab bindings generation
-PKG_SUPPORTED_OPTIONS+=		matlab
-PKG_SUGGESTED_OPTIONS-=		matlab
-PKG_OPTION_DESCR.matlab=	Enable matlab bindings.
-define PKG_OPTION_SET.matlab
-  CMAKE_ARGS+=			-DBUILD_MATLAB_BINDINGS=ON
-endef
-define PKG_OPTION_UNSET.matlab
-  CMAKE_ARGS+=			-DBUILD_MATLAB_BINDINGS=OFF
-endef
+CMAKE_ARGS+=	-DLATEX_COMPILER=${PREFIX.latex}/bin/latex
 
-#option for using mpi 
-PKG_SUPPORTED_OPTIONS+=		mpi
-PKG_SUGGESTED_OPTIONS-=		mpi
-PKG_OPTION_DESCR.mpi=	Enable message parsing interface using.
-define PKG_OPTION_SET.mpi
-  CMAKE_ARGS+=			-DUSE_MPI=ON
-endef
-define PKG_OPTION_UNSET.mpi
-  CMAKE_ARGS+=			-DUSE_MPI=OFF
-endef
+# because of in-source build
+CMAKE_ARGS+=	-DLATEX_OUTPUT_PATH=${WRKSRC}
+
+# because -O triggers a g++-4.1.3 internal bug
+_CFLAGS_NDEBUG=$(if $(filter gcc-c++-4.1.%,${PKGVERSION.gcc-c++}),-O0,-O3)
+_CFLAGS_NDEBUG+= -DNDEBUG
 
 include ../../mk/sysdep/latex.mk
 include ../../mk/sysdep/cmake.mk

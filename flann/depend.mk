@@ -14,14 +14,15 @@ ifeq (+,$(FLANN_DEPEND_MK)) # -------------------------------------------
 PREFER.flann?=	robotpkg
 
 DEPEND_USE+=		flann
-DEPEND_ABI.flann?=	flann>=1.6.11
+DEPEND_ABI.flann?=	flann>=1.7
 DEPEND_DIR.flann?=	../../wip/flann
 
 SYSTEM_SEARCH.flann=\
-	include/flann/flann.h		\
-	include/flann/flann.hpp	\
-	lib/libflann.so					\
-	lib/libflann_cpp.so			\
+	'include/flann/config.h:/FLANN_VERSION/s/[^0-9.]//gp'	\
+	include/flann/flann.h					\
+	include/flann/flann.hpp					\
+	lib/libflann.so						\
+	lib/libflann_cpp.so					\
 	lib/libflann_cpp-gd.so
 
 endif # FLANN_DEPEND_MK -------------------------------------------------
