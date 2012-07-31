@@ -19,6 +19,7 @@ SUBDIR+=	jafar-gdhe
 SUBDIR+=	jafar-rtslam
 SUBDIR+=	joystick-genom
 SUBDIR+=	kukaFri-libs
+SUBDIR+=	lastwave
 SUBDIR+=	libANN
 SUBDIR+=	libfreenect
 SUBDIR+=	libmove3d
