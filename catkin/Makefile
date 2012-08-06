@@ -4,7 +4,7 @@
 
 ROS_PKG=		catkin
 ROS_VERSION=		0.4.5
-ROS_COMMIT=		6298c91
+ROS_COMMIT=		d4f1f24
 
 CATEGORIES=		devel
 ROS_COMMENT=		low-level build system macros and infrastructure
