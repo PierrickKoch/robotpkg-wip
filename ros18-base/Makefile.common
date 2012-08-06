@@ -6,21 +6,20 @@ ROS_COMMIT?=	undefined
 ROS_PKG?=	undefined
 ROS_COMMENT?=	undefined
 
-ROS_PKGURL?=	${ROS_PKG}-release
+ROS_PKGURL?=	${ROS_PKG}
 PKGNAME?=	${ROS_PKG}-${ROS_VERSION}
-MASTER_SITE_ROS=https://github.com/wg-debs/
+MASTER_SITE_ROS=https://github.com/ros/
 
 # add a '?f=' to MASTER_SITES: it is ignored by github and let us name the
 # DISTFILE correctly (package name with .tar.gz suffix, instead of what the URL
 # without '?f=' would give.
-MASTER_SITES?=\
-	${MASTER_SITE_ROS:=${ROS_PKGURL}/tarball/upstream/${ROS_VERSION}?f=}
+MASTER_SITES?=	${MASTER_SITE_ROS:=${ROS_PKGURL}/tarball/${ROS_VERSION}?f=}
 DISTNAME?=	${ROS_PKG}-${ROS_VERSION}
 
 COMMENT?=	ROS ${ROS_COMMENT}
 
 PREFIX?=	${LOCALBASE}/opt/ros/fuerte
-WRKSRC?=	${WRKDIR}/wg-debs-${ROS_PKGURL}-${ROS_COMMIT}
+WRKSRC?=	${WRKDIR}/ros-${ROS_PKGURL}-${ROS_COMMIT}
 USE_LANGUAGES?=	c c++
 
 
