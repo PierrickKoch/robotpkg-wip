@@ -1,0 +1,5 @@
+@comment Mon Sep 3 15:46:46 CEST 2012
+bin/gyroTest
+include/gyroLib/gyro.h
+lib/libgyro.la
+lib/pkgconfig/gyroLib.pc
