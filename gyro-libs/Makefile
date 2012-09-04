@@ -2,7 +2,7 @@
 # Created:			Arnaud Degroote on Mon, 14 Jul 2008
 #
 
-DISTNAME=		gyro-libs-1.99
+DISTNAME=		gyro-libs-1.99.2
 CATEGORIES=		hardware
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS}
 MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/gyro-libs
