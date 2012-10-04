@@ -42,6 +42,7 @@ SUBDIR+=	rednav-genom
 SUBDIR+=	robotModelParser-libs
 SUBDIR+=	robot-viewer
 SUBDIR+=	spark-genom
+SUBDIR+=	transgen3
 SUBDIR+=	visp
 
 include ../mk/robotpkg.subdir.mk
