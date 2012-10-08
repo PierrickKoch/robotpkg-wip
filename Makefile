@@ -9,6 +9,7 @@ SUBDIR+=	flann
 SUBDIR+=	gest-genom
 SUBDIR+=	hpp-geometry
 SUBDIR+=	hyper
+SUBDIR+=	hyper_genom
 SUBDIR+=	jafar-kernel
 SUBDIR+=	jafar-lgl
 SUBDIR+=	jafar-rednav

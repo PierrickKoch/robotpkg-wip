@@ -1,0 +1,2 @@
+This package makes the link between hyper, the supervision framework, and genom
+modules instance that it must control.
