@@ -46,6 +46,7 @@ SUBDIR+=	robot-viewer
 SUBDIR+=	ros-core
 SUBDIR+=	ros-gencpp
 SUBDIR+=	ros-genmsg
+SUBDIR+=	ros-genpy
 SUBDIR+=	roscpp-core
 SUBDIR+=	rospack
 SUBDIR+=	spark-genom
