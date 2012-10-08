@@ -16,7 +16,6 @@ include ../../wip/ros18-base/Makefile.common
 CMAKE_ARGS+=-DPYTHON_PACKAGES_DIR=site-packages
 
 CMAKE_ARGS+=-DGTEST_ROOT=${PREFIX.googletest}
-CMAKE_ARGS+=-DEMPY_EXECUTABLE=${EMPY}
 CMAKE_ARGS+=-Dnosetests_path=${NOSETESTS}
 
 SUBST_CLASSES+=			py-interp
