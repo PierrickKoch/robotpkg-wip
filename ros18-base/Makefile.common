@@ -1,25 +1,23 @@
 # robotpkg Makefile for:	meta-pkgs/ros-base
 # Created:			Anthony Mallet on Sun, 15 Jul 2012
 #
+ROS_DISTRIB=	fuerte
 ROS_VERSION?=	undefined
-ROS_COMMIT?=	undefined
 ROS_PKG?=	undefined
 ROS_COMMENT?=	undefined
 
-ROS_PKGURL?=	${ROS_PKG}
+ROS_PKGURL?=	ros-${ROS_DISTRIB}-${ROS_PKG}
 PKGNAME?=	${ROS_PKG}-${ROS_VERSION}
-MASTER_SITE_ROS=https://github.com/ros/
+MASTER_SITE_ROS=http://packages.ros.org/ros/ubuntu/pool/main/r/
 
-# add a '?f=' to MASTER_SITES: it is ignored by github and let us name the
-# DISTFILE correctly (package name with .tar.gz suffix, instead of what the URL
-# without '?f=' would give.
-MASTER_SITES?=	${MASTER_SITE_ROS:=${ROS_PKGURL}/tarball/${ROS_VERSION}?f=}
-DISTNAME?=	${ROS_PKG}-${ROS_VERSION}
+MASTER_SITES?=	${MASTER_SITE_ROS:=${ROS_PKGURL}/}
+DISTNAME?=	${ROS_PKGURL}_${ROS_VERSION}.orig
+EXTRACT_SUFX?=	.tar.gz
 
 COMMENT?=	ROS ${ROS_COMMENT}
 
-PREFIX?=	${LOCALBASE}/opt/ros/fuerte
-WRKSRC?=	${WRKDIR}/ros-${ROS_PKGURL}-${ROS_COMMIT}
+PREFIX?=	${LOCALBASE}/opt/ros/${ROS_DISTRIB}
+WRKSRC?=	${WRKDIR}/${ROS_PKGURL}-${ROS_VERSION}
 USE_LANGUAGES?=	c c++
 
 
