@@ -1,0 +1,4 @@
+Hyper is an implementation of the supervision framework ROAR. 
+
+It provides the compiler for the ROAR specification language, and the basic
+runtime libraries for the generated agent.
