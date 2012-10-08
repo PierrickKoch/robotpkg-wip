@@ -11,8 +11,6 @@ MASTER_SITES=		${MASTER_SITE_GITHUB:=ros/rospkg/tarball/${VERSION}?f=}
 CATEGORIES=		sysutils
 COMMENT=		ROS basic utilities for querying stacks information
 HOMEPAGE=		http://ros.org/wiki/rospkg
-MAINTAINER=		mallet@laas.fr
-LICENSE=		modified-bsd
 
 WRKSRC=			${WRKDIR}/ros-rospkg-${COMMIT}
 

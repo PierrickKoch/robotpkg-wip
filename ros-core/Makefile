@@ -9,8 +9,6 @@ PKGNAME=		ros-core-${ROS_VERSION}
 CATEGORIES=		devel
 ROS_COMMENT=		core
 HOMEPAGE=		http://www.ros.org/wiki/ROS
-MAINTAINER=		mallet@laas.fr
-LICENSE=		modified-bsd
 
 include ../../wip/ros18-base/Makefile.common
 

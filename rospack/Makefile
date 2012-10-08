@@ -4,12 +4,11 @@
 
 ROS_PKG=		rospack
 ROS_VERSION=		2.0.13
+PKGNAME=		${ROS_PKG}-${ROS_VERSION}
 
 CATEGORIES=		devel
 ROS_COMMENT=		command-line tool for retriving package information
 HOMEPAGE=		http://www.ros.org/wiki/rospack
-MAINTAINER=		mallet@laas.fr
-LICENSE=		modified-bsd
 
 include ../../wip/ros18-base/Makefile.common
 

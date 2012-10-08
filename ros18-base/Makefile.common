@@ -7,7 +7,7 @@ ROS_PKG?=	undefined
 ROS_COMMENT?=	undefined
 
 ROS_PKGURL?=	ros-${ROS_DISTRIB}-${ROS_PKG}
-PKGNAME?=	${ROS_PKG}-${ROS_VERSION}
+PKGNAME?=	ros-${ROS_PKG}-${ROS_VERSION}
 MASTER_SITE_ROS=http://packages.ros.org/ros/ubuntu/pool/main/r/
 
 MASTER_SITES?=	${MASTER_SITE_ROS:=${ROS_PKGURL}/}
@@ -15,6 +15,8 @@ DISTNAME?=	${ROS_PKGURL}_${ROS_VERSION}.orig
 EXTRACT_SUFX?=	.tar.gz
 
 COMMENT?=	ROS ${ROS_COMMENT}
+MAINTAINER?=	mallet@laas.fr
+LICENSE?=	modified-bsd
 
 PREFIX?=	${LOCALBASE}/opt/ros/${ROS_DISTRIB}
 WRKSRC?=	${WRKDIR}/${ROS_PKGURL}-${ROS_VERSION}

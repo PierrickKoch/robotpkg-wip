@@ -4,13 +4,10 @@
 
 ROS_PKG=		genpy
 ROS_VERSION=		0.3.7
-PKGNAME=		ros-genpy-${ROS_VERSION}
 
 CATEGORIES=		interface
 ROS_COMMENT=		python code generator for ROS .msg format
 HOMEPAGE=		http://www.ros.org/wiki/genpy
-MAINTAINER=		mallet@laas.fr
-LICENSE=		modified-bsd
 
 include ../../wip/ros18-base/Makefile.common
 

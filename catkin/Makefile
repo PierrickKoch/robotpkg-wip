@@ -4,12 +4,11 @@
 
 ROS_PKG=		catkin
 ROS_VERSION=		0.4.5
+PKGNAME=		${ROS_PKG}-${ROS_VERSION}
 
 CATEGORIES=		devel
 ROS_COMMENT=		low-level build system macros and infrastructure
 HOMEPAGE=		http://www.ros.org/wiki/catkin
-MAINTAINER=		mallet@laas.fr
-LICENSE=		modified-bsd
 
 include ../../wip/ros18-base/Makefile.common
 
