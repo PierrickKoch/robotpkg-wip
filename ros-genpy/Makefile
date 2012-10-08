@@ -11,6 +11,8 @@ HOMEPAGE=		http://www.ros.org/wiki/genpy
 
 include ../../wip/ros18-base/Makefile.common
 
+SUBST_CLASSES+=		py-distsetup
+
 include ../../wip/catkin/depend.mk
 include ../../wip/ros-genmsg/depend.mk
 include ../../mk/sysdep/python.mk
