@@ -45,6 +45,7 @@ SUBDIR+=	robotModelParser-libs
 SUBDIR+=	robot-viewer
 SUBDIR+=	ros-core
 SUBDIR+=	ros-gencpp
+SUBDIR+=	ros-genlisp
 SUBDIR+=	ros-genmsg
 SUBDIR+=	ros-genpy
 SUBDIR+=	roscpp-core
