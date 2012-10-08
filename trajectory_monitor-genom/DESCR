@@ -1,0 +1,2 @@
+The trajectory monitor is a simple genom module which allows to record a
+trajectory, and then to replay it.
