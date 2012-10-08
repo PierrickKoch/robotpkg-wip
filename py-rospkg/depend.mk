@@ -15,7 +15,7 @@ PREFER.py-rospkg?=	robotpkg
 
 DEPEND_USE+=		py-rospkg
 
-DEPEND_ABI.py-rospkg?=	${PKGTAG.python}-rospkg>=1
+DEPEND_ABI.py-rospkg?=	${PKGTAG.python}-rospkg>=0.10.12
 DEPEND_DIR.py-rospkg?=	../../wip/py-rospkg
 
 SYSTEM_SEARCH.py-rospkg=\

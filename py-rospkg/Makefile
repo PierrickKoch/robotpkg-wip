@@ -2,11 +2,11 @@
 # Created:			Anthony Mallet on Sun, 15 Jul 2012
 #
 
-ROS_VERSION=		1.0.6
-ROS_COMMIT=		88888b7
-ROS_PKG=		rospkg
-
-PKGNAME=		${PKGTAG.python}-${ROS_PKG}-${ROS_VERSION}
+COMMIT=			a01b6cb
+VERSION=		1.0.7
+PKGNAME=		${PKGTAG.python}-rospkg-${VERSION}
+DISTNAME=		rospkg-${VERSION}
+MASTER_SITES=		${MASTER_SITE_GITHUB:=ros/rospkg/tarball/${VERSION}?f=}
 
 CATEGORIES=		sysutils
 COMMENT=		ROS basic utilities for querying stacks information
@@ -14,10 +14,12 @@ HOMEPAGE=		http://ros.org/wiki/rospkg
 MAINTAINER=		mallet@laas.fr
 LICENSE=		modified-bsd
 
+WRKSRC=			${WRKDIR}/ros-rospkg-${COMMIT}
+
 include ../../wip/ros18-base/Makefile.common
 
 USE_LANGUAGES=
-CONFLICTS+=		py[0-9][0-9]-rospkg-[0-9]*
+CONFLICTS+=		py[0-9][0-9]-rospkg-${VERSION}
 
 SUBST_CLASSES+=		py-syspath py-interp
 SUBST_FILES.py-syspath+=scripts/rosversion
