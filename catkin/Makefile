@@ -4,7 +4,6 @@
 
 ROS_PKG=		catkin
 ROS_VERSION=		0.4.5
-ROS_COMMIT=		d4f1f24
 
 CATEGORIES=		devel
 ROS_COMMENT=		low-level build system macros and infrastructure
@@ -14,8 +13,6 @@ LICENSE=		modified-bsd
 
 include ../../wip/ros18-base/Makefile.common
 
-CMAKE_ARGS+=-DSETUPTOOLS_DEB_LAYOUT=OFF
-CMAKE_ARGS+=-DSETUPTOOLS_ARG_EXTRA=""
 CMAKE_ARGS+=-DPYTHON_PACKAGES_DIR=site-packages
 
 CMAKE_ARGS+=-DGTEST_ROOT=${PREFIX.googletest}
