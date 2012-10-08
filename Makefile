@@ -48,6 +48,7 @@ SUBDIR+=	ros-gencpp
 SUBDIR+=	ros-genlisp
 SUBDIR+=	ros-genmsg
 SUBDIR+=	ros-genpy
+SUBDIR+=	ros-langs-dev
 SUBDIR+=	roscpp-core
 SUBDIR+=	rospack
 SUBDIR+=	spark-genom
