@@ -43,6 +43,7 @@ SUBDIR+=	py-rospkg
 SUBDIR+=	rednav-genom
 SUBDIR+=	robotModelParser-libs
 SUBDIR+=	robot-viewer
+SUBDIR+=	ros-comm
 SUBDIR+=	ros-core
 SUBDIR+=	ros-gencpp
 SUBDIR+=	ros-genlisp

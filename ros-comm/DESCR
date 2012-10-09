@@ -1,0 +1,4 @@
+The ros_comm stack contains the ROS middleware/communications packages. This
+packages are collectively known as the ROS "Graph" layer. They provide
+implementations and tools for topics, nodes, services, and parameters. This
+includes the supported ROS client libraries: roscpp, rospy, and roslisp.
