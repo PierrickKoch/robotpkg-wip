@@ -20,7 +20,7 @@ DEPEND_DIR.ros-gencpp?=	../../wip/ros-gencpp
 
 SYSTEM_SEARCH.ros-gencpp=\
 	bin/gen_cpp.py						\
-	'share/gencpp/stack.xml:<version>/s/[^0-9.]//gp'	\
+	'share/gencpp/stack.xml:/<version>/s/[^0-9.]//gp'	\
 	'lib/pkgconfig/gencpp.pc:/Version/s/[^0-9.]//gp'
 
 endif # ROS_GENCPP_DEPEND_MK -----------------------------------------------

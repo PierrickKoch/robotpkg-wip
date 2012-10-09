@@ -19,7 +19,7 @@ DEPEND_ABI.ros-langs-dev?=ros-langs-dev>=0.1.3
 DEPEND_DIR.ros-langs-dev?=../../wip/ros-langs-dev
 
 SYSTEM_SEARCH.ros-langs-dev=\
-	'share/langs-dev/stack.xml:<version>/s/[^0-9.]//gp'	\
+	'share/langs-dev/stack.xml:/<version>/s/[^0-9.]//gp'	\
 	'lib/pkgconfig/langs-dev.pc:/Version/s/[^0-9.]//gp'
 
 endif # ROS_LANGS_DEV_DEPEND_MK --------------------------------------------
