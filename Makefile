@@ -44,6 +44,7 @@ SUBDIR+=	rednav-genom
 SUBDIR+=	robotModelParser-libs
 SUBDIR+=	robot-viewer
 SUBDIR+=	ros-comm
+SUBDIR+=	ros-common-msgs
 SUBDIR+=	ros-core
 SUBDIR+=	ros-gencpp
 SUBDIR+=	ros-genlisp
