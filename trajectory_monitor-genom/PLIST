@@ -2,7 +2,7 @@
 ${PLIST.noapi}bin/trajectory_monitor
 ${PLIST.noapi}bin/trajectory_monitorSendInitRqst
 ${PLIST.noapi}bin/trajectory_monitorTest
-include/trajectory_monitor/trajectory_monitor-Struct.h
+include/trajectory_monitor/trajectory_monitorStruct.h
 ${PLIST.openprs}include/trajectory_monitor/server/openprs/trajectory_monitorDecodeOpenprs.h
 ${PLIST.openprs}include/trajectory_monitor/server/openprs/trajectory_monitorEncodeOpenprs.h
 ${PLIST.openprs}include/trajectory_monitor/server/openprs/trajectory_monitorRequestsOpenprsProto.h
