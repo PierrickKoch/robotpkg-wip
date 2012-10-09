@@ -12,6 +12,8 @@ HOMEPAGE=		http://www.ros.org/wiki/ROS
 
 include ../../wip/ros18-base/Makefile.common
 
+SUBST_CLASSES+=		py-distsetup
+
 include ../../archivers/bzip2/depend.mk
 include ../../devel/boost-headers/depend.mk
 include ../../devel/boost-libs/depend.mk
