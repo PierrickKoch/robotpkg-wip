@@ -55,6 +55,7 @@ SUBDIR+=	ros-langs-dev
 SUBDIR+=	ros-langs
 SUBDIR+=	ros-rx
 SUBDIR+=	ros-std-msgs
+SUBDIR+=	ros18-base
 SUBDIR+=	roscpp-core
 SUBDIR+=	rospack
 SUBDIR+=	spark-genom
