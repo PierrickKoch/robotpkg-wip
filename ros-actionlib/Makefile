@@ -1,5 +1,5 @@
-# robotpkg Makefile for:	middleware/ros-comm
-# Created:			Anthony Mallet on Tue,  9 Oct 2012
+# robotpkg Makefile for:	middleware/ros-actionlib
+# Created:			Anthony Mallet on Tue, 9 Oct 2012
 #
 
 ROS_PKG=		actionlib
