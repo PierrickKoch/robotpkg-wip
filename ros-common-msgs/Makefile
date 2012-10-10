@@ -11,6 +11,10 @@ HOMEPAGE=		http://www.ros.org/wiki/common_msgs
 
 include ../../wip/ros18-base/Makefile.common
 
+SUBST_CLASSES+=		py-interp
+
+SUBST_FILES.py-interp+=	actionlib_msgs/scripts/genaction.py
+
 include ../../devel/boost-headers/depend.mk
 include ../../devel/boost-libs/depend.mk
 include ../../wip/catkin/depend.mk
