@@ -53,6 +53,7 @@ SUBDIR+=	ros-genmsg
 SUBDIR+=	ros-genpy
 SUBDIR+=	ros-langs-dev
 SUBDIR+=	ros-langs
+SUBDIR+=	ros-rx
 SUBDIR+=	ros-std-msgs
 SUBDIR+=	roscpp-core
 SUBDIR+=	rospack
