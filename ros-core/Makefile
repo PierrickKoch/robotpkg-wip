@@ -12,7 +12,9 @@ HOMEPAGE=		http://www.ros.org/wiki/ROS
 
 include ../../wip/ros18-base/Makefile.common
 
-SUBST_CLASSES+=		py-distsetup
+SUBST_CLASSES+=		py-interp py-distsetup
+
+SUBST_FILES.py-interp+=	core/roslib/scripts/gendeps
 
 include ../../archivers/bzip2/depend.mk
 include ../../devel/boost-headers/depend.mk
