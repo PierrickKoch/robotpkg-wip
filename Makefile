@@ -63,6 +63,7 @@ SUBDIR+=	ros18-base
 SUBDIR+=	roscpp-core
 SUBDIR+=	rospack
 SUBDIR+=	spark-genom
+SUBDIR+=	tcl-genomix
 SUBDIR+=	trajectory_monitor-genom
 SUBDIR+=	transgen3
 SUBDIR+=	visp
