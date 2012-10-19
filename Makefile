@@ -9,6 +9,7 @@ SUBDIR+=	flann
 SUBDIR+=	genom3
 SUBDIR+=	genom3-pocolibs
 SUBDIR+=	genom3-ros
+SUBDIR+=	genomix
 SUBDIR+=	gest-genom
 SUBDIR+=	hpp-geometry
 SUBDIR+=	hyper
