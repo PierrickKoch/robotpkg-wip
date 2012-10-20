@@ -11,18 +11,18 @@ endif
 
 ifeq (+,$(TRANSGEN3_DEPEND_MK)) # -------------------------------------------
 
-PREFER.transgen?=	robotpkg
+PREFER.transgen3?=	robotpkg
 
 DEPEND_USE+=		transgen3
 
-DEPEND_ABI.transgen?=	transgen3>=1.0b0
-DEPEND_DIR.transgen?=	../../wip/transgen3
+DEPEND_ABI.transgen3?=	transgen3>=1.0b0
+DEPEND_DIR.transgen3?=	../../wip/transgen3
 
-SYSTEM_SEARCH.transgen=\
+SYSTEM_SEARCH.transgen3=\
 	bin/transgen3			\
-	include/transgen/oprs-com.h	\
-	lib/pkgconfig/transgen.pc	\
-	lib/liboprs-com.a
+	include/transgen3/genom-oprs.h	\
+	lib/pkgconfig/transgen3.pc	\
+	lib/genom-oprs.la
 
 endif # TRANSGEN3_DEPEND_MK -------------------------------------------------
 
