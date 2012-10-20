@@ -7,6 +7,7 @@ SUBDIR+=	attentional-genom
 SUBDIR+=	catkin
 SUBDIR+=	flann
 SUBDIR+=	genom3
+SUBDIR+=	genom3-openprs
 SUBDIR+=	genom3-pocolibs
 SUBDIR+=	genom3-ros
 SUBDIR+=	genomix
