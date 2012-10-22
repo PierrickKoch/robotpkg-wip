@@ -12,5 +12,4 @@ HOMEPAGE=		http://www.ros.org/wiki/genmsg
 include ../../wip/ros18-base/Makefile.common
 
 include ../../wip/catkin/depend.mk
-include ../../mk/sysdep/python.mk
 include ../../mk/robotpkg.mk

@@ -20,6 +20,5 @@ include ../../wip/rospack/depend.mk
 include ../../mk/sysdep/graphviz.mk
 include ../../mk/sysdep/py-matplotlib.mk
 include ../../mk/sysdep/py-wxpython.mk
-include ../../mk/sysdep/python.mk
 include ../../mk/sysdep/wxwidgets.mk
 include ../../mk/robotpkg.mk

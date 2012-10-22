@@ -28,8 +28,6 @@ SUBST_CLASSES+=			bash-interp
 SUBST_FILES.bash-interp+=	bin/git-catkin
 SUBST_FILES.bash-interp+=	bin/git-catkin-track-all
 
-DEPEND_ABI.python=	python<3
-
 include ../../wip/py-rospkg/depend.mk
 include ../../mk/sysdep/bash.mk
 include ../../mk/sysdep/cmake.mk
@@ -39,5 +37,4 @@ include ../../mk/sysdep/py-argparse.mk
 include ../../mk/sysdep/py-empy.mk
 include ../../mk/sysdep/py-nose.mk
 include ../../mk/sysdep/py-yaml.mk
-include ../../mk/sysdep/python.mk
 include ../../mk/robotpkg.mk

@@ -14,17 +14,16 @@ HOMEPAGE=		http://ros.org/wiki/rospkg
 
 WRKSRC=			${WRKDIR}/ros-rospkg-${COMMIT}
 
-include ../../wip/ros18-base/Makefile.common
-
 USE_LANGUAGES=
 CONFLICTS+=		py[0-9][0-9]-rospkg-${VERSION}
+
+PYDISTUTILSPKG=		yes
+
+include ../../wip/ros18-base/Makefile.common
 
 SUBST_CLASSES+=		py-syspath py-interp
 SUBST_FILES.py-syspath+=scripts/rosversion
 SUBST_FILES.py-interp+=	scripts/rosversion
-
-PYDISTUTILSPKG=		yes
-DEPEND_ABI.python=	python<3
 
 include ../../mk/sysdep/python.mk
 include ../../mk/robotpkg.mk

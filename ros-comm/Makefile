@@ -28,5 +28,4 @@ include ../../wip/roscpp-core/depend.mk
 include ../../mk/sysdep/apr.mk
 include ../../mk/sysdep/py-paramiko.mk
 include ../../mk/sysdep/py-yaml.mk
-include ../../mk/sysdep/python.mk
 include ../../mk/robotpkg.mk

@@ -15,5 +15,4 @@ SUBST_CLASSES+=		py-distsetup
 
 include ../../wip/catkin/depend.mk
 include ../../wip/ros-genmsg/depend.mk
-include ../../mk/sysdep/python.mk
 include ../../mk/robotpkg.mk

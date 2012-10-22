@@ -23,6 +23,17 @@ WRKSRC?=	${WRKDIR}/${ROS_PKGURL}-${ROS_VERSION}
 USE_LANGUAGES?=	c c++
 
 
+# --- common dependencies --------------------------------------------------
+#
+CMAKE_ARGS+=	-DPYTHON_EXECUTABLE=${PYTHON}
+CMAKE_ARGS+=	-DPYTHON_INCLUDE_DIR=${PYTHON_INCLUDE}
+CMAKE_ARGS+=	-DPYTHON_LIBRARY=${PYTHON_LIB}
+
+DEPEND_ABI.python+=	python<3
+
+include ../../mk/sysdep/python.mk
+
+
 # --- replace interpreters -------------------------------------------------
 #
 # These targets can be enabled by defining SUBST_CLASSES and SUBST_FILES

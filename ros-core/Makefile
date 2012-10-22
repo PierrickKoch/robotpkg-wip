@@ -22,6 +22,5 @@ include ../../devel/boost-libs/depend.mk
 include ../../wip/catkin/depend.mk
 include ../../wip/rospack/depend.mk
 include ../../wip/py-rospkg/depend.mk
-include ../../mk/sysdep/python.mk
 include ../../mk/sysdep/py-nose.mk
 include ../../mk/robotpkg.mk

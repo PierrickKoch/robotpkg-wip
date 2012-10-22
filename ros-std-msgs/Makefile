@@ -15,5 +15,4 @@ include ../../pkgtools/pkg-config/depend.mk
 include ../../wip/catkin/depend.mk
 include ../../wip/ros-genmsg/depend.mk
 include ../../wip/ros-langs/depend.mk
-include ../../mk/sysdep/python.mk
 include ../../mk/robotpkg.mk

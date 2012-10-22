@@ -15,7 +15,6 @@ include ../../wip/ros18-base/Makefile.common
 include ../../devel/boost-headers/depend.mk
 include ../../devel/boost-libs/depend.mk
 include ../../wip/catkin/depend.mk
-include ../../mk/sysdep/python.mk
 include ../../mk/sysdep/py-nose.mk
 include ../../mk/sysdep/googletest.mk
 include ../../mk/robotpkg.mk

@@ -19,5 +19,4 @@ include ../../wip/ros-genmsg/depend.mk
 include ../../wip/ros-langs/depend.mk
 include ../../wip/ros-core/depend.mk
 include ../../wip/ros-comm/depend.mk
-include ../../mk/sysdep/python.mk
 include ../../mk/robotpkg.mk

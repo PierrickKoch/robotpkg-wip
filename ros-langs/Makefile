@@ -14,5 +14,4 @@ include ../../wip/ros18-base/Makefile.common
 include ../../wip/catkin/depend.mk
 include ../../wip/roscpp-core/depend.mk
 include ../../wip/ros-langs-dev/depend.mk
-include ../../mk/sysdep/python.mk
 include ../../mk/robotpkg.mk
