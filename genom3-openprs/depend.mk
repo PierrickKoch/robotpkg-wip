@@ -14,6 +14,12 @@ ifeq (+,$(GENOM3_OPENPRS_DEPEND_MK)) # ------------------------------------
 DEPEND_USE+=		genom3-openprs
 PREFER.genom3-openprs?=robotpkg
 
+
+SYSTEM_SEARCH.genom3-openprs=\
+	share/genom/site-templates/openprs/client/template.tcl		\
+	share/genom/site-templates/openprs/client/EncodeDecodeOpenprs.c	\
+	share/genom/site-templates/openprs/client/RequestOpenprs.c
+
 DEPEND_ABI.genom3-openprs?=	genom3-openprs>=1.0
 DEPEND_DIR.genom3-openprs?=	../../wip/genom3-openprs
 
