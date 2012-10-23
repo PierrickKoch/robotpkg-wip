@@ -1,36 +1,4 @@
-@comment Thu Aug 6 15:08:46 CEST 2009
-${PLIST.noapi}bin/rednav
-${PLIST.noapi}bin/rednavSendInitRqst
-${PLIST.noapi}bin/rednavTest
-include/rednav/rednavStruct.h
-${PLIST.openprs}include/rednav/server/openprs/rednavDecodeOpenprs.h
-${PLIST.openprs}include/rednav/server/openprs/rednavEncodeOpenprs.h
-${PLIST.openprs}include/rednav/server/openprs/rednavRequestsOpenprsProto.h
-include/rednav/server/rednavEndian.h
-include/rednav/server/rednavError.h
-${PLIST.noapi}include/rednav/server/rednavMsgLib.h
-include/rednav/server/rednavPosterLib.h
-include/rednav/server/rednavPosterLibStruct.h
-${PLIST.noapi}include/rednav/server/rednavPosterReadLibProto.h
-${PLIST.noapi}include/rednav/server/rednavPosterShowLib.h
-${PLIST.noapi}include/rednav/server/rednavPosterWriteLibProto.h
-${PLIST.noapi}include/rednav/server/rednavPosterXMLLib.h
-include/rednav/server/rednavPrint.h
-include/rednav/server/rednavPrintXML.h
-include/rednav/server/rednavScan.h
-include/rednav/server/rednavType.h
-${PLIST.tclserv_client}include/rednav/server/tclservClient/rednavTclservClientDecode.h
-${PLIST.tclserv_client}include/rednav/server/tclservClient/rednavTclservClientEncode.h
-${PLIST.tclserv_client}include/rednav/server/tclservClient/rednavTclservClientMsgLib.h
-lib/librednavClient.la
-${PLIST.openprs}lib/openprs/librednavOpenprs.la
-${PLIST.openprs}lib/pkgconfig/rednav-oprs.pc
-lib/pkgconfig/rednav.pc
-${PLIST.tclserv_client}lib/pkgconfig/rednav-tclserv_client.pc
-${PLIST.tclserv_client}lib/tclservClient/librednavTclservClient.la
-${PLIST.tcl}lib/tclserv/librednavTclServ.la
-share/modules/gen/rednav.gen
-${PLIST.openprs}share/modules/openprs/rednavOpenprs.inc
-${PLIST.openprs}share/modules/openprs/rednavOpenprs.opf
-${PLIST.openprs}share/modules/openprs/rednavOpenprs.sym
-${PLIST.noapi}${PLIST.tcl}share/modules/tcl/rednavClient.tcl
+@comment Tue Oct 23 09:32:53 CEST 2012
+@comment includes architecture/genom/PLIST.module
+include/${GENOM_MODULE}/${GENOM_MODULE}Struct.h
+share/modules/gen/${GENOM_MODULE}.gen

@@ -1,37 +1,4 @@
-@comment Thu Aug 6 15:08:46 CEST 2009
-${PLIST.noapi}bin/trajectory_monitor
-${PLIST.noapi}bin/trajectory_monitorSendInitRqst
-${PLIST.noapi}bin/trajectory_monitorTest
-include/trajectory_monitor/trajectory_monitorStruct.h
-${PLIST.openprs}include/trajectory_monitor/server/openprs/trajectory_monitorDecodeOpenprs.h
-${PLIST.openprs}include/trajectory_monitor/server/openprs/trajectory_monitorEncodeOpenprs.h
-${PLIST.openprs}include/trajectory_monitor/server/openprs/trajectory_monitorRequestsOpenprsProto.h
-include/trajectory_monitor/server/trajectory_monitorEndian.h
-include/trajectory_monitor/server/trajectory_monitorError.h
-${PLIST.noapi}include/trajectory_monitor/server/trajectory_monitorMsgLib.h
-include/trajectory_monitor/server/trajectory_monitorPosterLib.h
-include/trajectory_monitor/server/trajectory_monitorPosterLibStruct.h
-${PLIST.noapi}include/trajectory_monitor/server/trajectory_monitorPosterReadLibProto.h
-${PLIST.noapi}include/trajectory_monitor/server/trajectory_monitorPosterShowLib.h
-${PLIST.noapi}include/trajectory_monitor/server/trajectory_monitorPosterWriteLibProto.h
-${PLIST.noapi}include/trajectory_monitor/server/trajectory_monitorPosterXMLLib.h
-include/trajectory_monitor/server/trajectory_monitorPrint.h
-include/trajectory_monitor/server/trajectory_monitorPrintXML.h
-include/trajectory_monitor/server/trajectory_monitorScan.h
-include/trajectory_monitor/server/trajectory_monitorType.h
-${PLIST.tclserv_client}include/trajectory_monitor/server/tclservClient/trajectory_monitorTclservClientDecode.h
-${PLIST.tclserv_client}include/trajectory_monitor/server/tclservClient/trajectory_monitorTclservClientEncode.h
-${PLIST.tclserv_client}include/trajectory_monitor/server/tclservClient/trajectory_monitorTclservClientMsgLib.h
-lib/libtrajectory_monitorClient.la
-${PLIST.openprs}lib/openprs/libtrajectory_monitorOpenprs.la
-${PLIST.openprs}lib/pkgconfig/trajectory_monitor-oprs.pc
-lib/pkgconfig/trajectory_monitor.pc
-${PLIST.tclserv_client}lib/pkgconfig/trajectory_monitor-tclserv_client.pc
-${PLIST.tclserv_client}lib/tclservClient/libtrajectory_monitorTclservClient.la
-${PLIST.tcl}lib/tclserv/libtrajectory_monitorTclServ.la
-share/modules/gen/trajectory_monitor.gen
-${PLIST.openprs}share/modules/openprs/trajectory_monitorOpenprs.inc
-${PLIST.openprs}share/modules/openprs/trajectory_monitorOpenprs.opf
-${PLIST.openprs}share/modules/openprs/trajectory_monitorOpenprs.sym
-${PLIST.noapi}${PLIST.tcl}share/modules/tcl/trajectory_monitorClient.tcl
-${PLIST.openprs}@dirrm include/trajectory_monitor/server/openprs
+@comment Tue Oct 23 09:33:56 CEST 2012
+@comment includes architecture/genom/PLIST.module
+include/${GENOM_MODULE}/${GENOM_MODULE}Struct.h
+share/modules/gen/${GENOM_MODULE}.gen

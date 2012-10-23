@@ -1,37 +1,4 @@
-@comment Thu Aug 6 15:08:46 CEST 2009
-${PLIST.noapi}bin/MPC_controller
-${PLIST.noapi}bin/MPC_controllerSendInitRqst
-${PLIST.noapi}bin/MPC_controllerTest
-include/MPC_controller/MPC_controller-Struct.h
-${PLIST.openprs}include/MPC_controller/server/openprs/MPC_controllerDecodeOpenprs.h
-${PLIST.openprs}include/MPC_controller/server/openprs/MPC_controllerEncodeOpenprs.h
-${PLIST.openprs}include/MPC_controller/server/openprs/MPC_controllerRequestsOpenprsProto.h
-include/MPC_controller/server/MPC_controllerEndian.h
-include/MPC_controller/server/MPC_controllerError.h
-${PLIST.noapi}include/MPC_controller/server/MPC_controllerMsgLib.h
-include/MPC_controller/server/MPC_controllerPosterLib.h
-include/MPC_controller/server/MPC_controllerPosterLibStruct.h
-${PLIST.noapi}include/MPC_controller/server/MPC_controllerPosterReadLibProto.h
-${PLIST.noapi}include/MPC_controller/server/MPC_controllerPosterShowLib.h
-${PLIST.noapi}include/MPC_controller/server/MPC_controllerPosterWriteLibProto.h
-${PLIST.noapi}include/MPC_controller/server/MPC_controllerPosterXMLLib.h
-include/MPC_controller/server/MPC_controllerPrint.h
-include/MPC_controller/server/MPC_controllerPrintXML.h
-include/MPC_controller/server/MPC_controllerScan.h
-include/MPC_controller/server/MPC_controllerType.h
-${PLIST.tclserv_client}include/MPC_controller/server/tclservClient/MPC_controllerTclservClientDecode.h
-${PLIST.tclserv_client}include/MPC_controller/server/tclservClient/MPC_controllerTclservClientEncode.h
-${PLIST.tclserv_client}include/MPC_controller/server/tclservClient/MPC_controllerTclservClientMsgLib.h
-lib/libMPC_controllerClient.la
-${PLIST.openprs}lib/openprs/libMPC_controllerOpenprs.la
-${PLIST.openprs}lib/pkgconfig/MPC_controller-oprs.pc
-lib/pkgconfig/MPC_controller.pc
-${PLIST.tclserv_client}lib/pkgconfig/MPC_controller-tclserv_client.pc
-${PLIST.tclserv_client}lib/tclservClient/libMPC_controllerTclservClient.la
-${PLIST.tcl}lib/tclserv/libMPC_controllerTclServ.la
-share/modules/gen/MPC_controller.gen
-${PLIST.openprs}share/modules/openprs/MPC_controllerOpenprs.inc
-${PLIST.openprs}share/modules/openprs/MPC_controllerOpenprs.opf
-${PLIST.openprs}share/modules/openprs/MPC_controllerOpenprs.sym
-${PLIST.noapi}${PLIST.tcl}share/modules/tcl/MPC_controllerClient.tcl
-${PLIST.openprs}@dirrm include/MPC_controller/server/openprs
+@comment Tue Oct 23 09:39:30 CEST 2012
+@comment includes architecture/genom/PLIST.module
+include/${GENOM_MODULE}/${GENOM_MODULE}-Struct.h
+share/modules/gen/${GENOM_MODULE}.gen
