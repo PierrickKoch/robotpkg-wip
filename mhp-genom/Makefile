@@ -2,12 +2,12 @@
 # Created:			Severin Lemaignan on Tue, 31 Aug 2010
 #
 
-DISTNAME=		mhp-genom-3.11
+DISTNAME=		mhp-genom-3.11.1
 CATEGORIES=		path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=mhp-genom/}
 MASTER_REPOSITORY=	${MASTER_REPOSITORY_OPENROBOTS}mhp-genom
 
-MAINTAINER=		easisbot@laas.fr
+MAINTAINER=		robots@laas.fr
 COMMENT=		Motion in Human Presence module
 #mhp-genom is currently GPL because it depends on BioMove3D that depends itself 
 # on GSL and GLPK that are 2 GLP librairies.
