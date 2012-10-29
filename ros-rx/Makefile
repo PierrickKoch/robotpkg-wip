@@ -16,6 +16,7 @@ SUBST_CLASSES+=		py-distsetup
 include ../../wip/catkin/depend.mk
 include ../../wip/ros-comm/depend.mk
 include ../../wip/ros-core/depend.mk
+include ../../wip/ros-std-msgs/depend.mk
 include ../../wip/rospack/depend.mk
 include ../../mk/sysdep/graphviz.mk
 include ../../mk/sysdep/py-matplotlib.mk
