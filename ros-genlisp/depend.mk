@@ -20,8 +20,12 @@ DEPEND_DIR.ros-genlisp?=../../wip/ros-genlisp
 
 SYSTEM_SEARCH.ros-genlisp=\
 	bin/gen_lisp.py						\
+	share/genlisp/cmake/genlisp-config.cmake		\
 	'share/genlisp/stack.xml:/<version>/s/[^0-9.]//gp'	\
 	'lib/pkgconfig/genlisp.pc:/Version/s/[^0-9.]//gp'
+
+export GENLISP_BIN=	${PREFIX.ros-genlib}/bin/gen_lisp.py
+CMAKE_ARGS+=		-DGENLISP_BIN=${GENLISP_BIN}
 
 endif # ROS_GENLISP_DEPEND_MK ----------------------------------------------
 
