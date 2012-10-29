@@ -21,6 +21,7 @@ DEPEND_DIR.rospack?=	../../wip/rospack
 
 SYSTEM_SEARCH.rospack=\
 	bin/rospack						\
+	'share/rospack/cmake/rospack-config.cmake'		\
 	'lib/pkgconfig/rospack.pc:/Version/s/[^0-9.]//gp'
 
 include ../../mk/sysdep/python.mk
