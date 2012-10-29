@@ -21,8 +21,11 @@ DEPEND_DIR.catkin?=	../../wip/catkin
 
 SYSTEM_SEARCH.catkin=\
 	'lib/pkgconfig/catkin.pc:/Version/s/[^0-9.]//gp'	\
+	'share/catkin/cmake/catkin-config.cmake'		\
+	'share/ros/cmake/ros-config.cmake'			\
 	'${PYTHON_SYSLIBSEARCH}/catkin/__init__.py'
 
+include ../../wip/rospack/depend.mk
 include ../../mk/sysdep/python.mk
 include ../../mk/sysdep/cmake.mk
 
