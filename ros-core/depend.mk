@@ -21,6 +21,8 @@ DEPEND_DIR.ros-core?=	../../wip/ros-core
 SYSTEM_SEARCH.ros-core=\
 	bin/rosrun					\
 	lib/libroslib.so				\
+	share/roslib/cmake/roslib-config.cmake		\
+	share/rosunit/cmake/rosunit-config.cmake	\
 	'lib/pkgconfig/roslib.pc:/Version/s/[^0-9.]//gp'
 
 endif # ROS_CORE_DEPEND_MK -------------------------------------------------
