@@ -22,6 +22,10 @@ SYSTEM_SEARCH.ros-langs-dev=\
 	'share/langs-dev/stack.xml:/<version>/s/[^0-9.]//gp'	\
 	'lib/pkgconfig/langs-dev.pc:/Version/s/[^0-9.]//gp'
 
+include ../../wip/ros-gencpp/depend.mk
+include ../../wip/ros-genpy/depend.mk
+include ../../wip/ros-genlisp/depend.mk
+
 endif # ROS_LANGS_DEV_DEPEND_MK --------------------------------------------
 
 DEPEND_DEPTH:=		${DEPEND_DEPTH:+=}
