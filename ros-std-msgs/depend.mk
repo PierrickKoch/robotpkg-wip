@@ -22,6 +22,7 @@ SYSTEM_SEARCH.ros-std-msgs=\
 	include/std_msgs/Int32.h				\
 	'${PYTHON_SYSLIBSEARCH}/std_msgs/msg/_Int32.py'		\
 	share/common-lisp/ros/std_msgs/msg/Int32.lisp		\
+	share/std_msgs/cmake/std_msgs-config.cmake		\
 	'share/std_msgs/stack.xml:/<version>/s/[^0-9.]//gp'	\
 	'lib/pkgconfig/std_msgs.pc:/Version/s/[^0-9.]//gp'
 
