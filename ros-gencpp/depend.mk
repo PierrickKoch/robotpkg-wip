@@ -20,8 +20,12 @@ DEPEND_DIR.ros-gencpp?=	../../wip/ros-gencpp
 
 SYSTEM_SEARCH.ros-gencpp=\
 	bin/gen_cpp.py						\
+	share/gencpp/cmake/gencpp-config.cmake			\
 	'share/gencpp/stack.xml:/<version>/s/[^0-9.]//gp'	\
 	'lib/pkgconfig/gencpp.pc:/Version/s/[^0-9.]//gp'
+
+export GENCPP_BIN=	${PREFIX.ros-gencpp}/bin/gen_cpp.py
+CMAKE_ARGS+=		-DGENCPP_BIN=${GENCPP_BIN}
 
 endif # ROS_GENCPP_DEPEND_MK -----------------------------------------------
 
