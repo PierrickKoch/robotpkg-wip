@@ -25,7 +25,6 @@ SYSTEM_SEARCH.catkin=\
 	'share/ros/cmake/ros-config.cmake'			\
 	'${PYTHON_SYSLIBSEARCH}/catkin/__init__.py'
 
-include ../../wip/rospack/depend.mk
 include ../../mk/sysdep/python.mk
 include ../../mk/sysdep/cmake.mk
 
