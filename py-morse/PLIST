@@ -1,0 +1,7 @@
+@comment Wed Oct 31 16:40:58 CET 2012
+lib/python3/dist-packages/pymorse-testing.py
+lib/python3/dist-packages/${PYTHON_PYCACHE}/pymorse-testing${PYTHON_TAG}.pyc
+lib/python3/dist-packages/${PYTHON_PYCACHE}/pymorse-testing${PYTHON_TAG}.pyo
+lib/python3/dist-packages/pymorse.py
+lib/python3/dist-packages/${PYTHON_PYCACHE}/pymorse${PYTHON_TAG}.pyc
+lib/python3/dist-packages/${PYTHON_PYCACHE}/pymorse${PYTHON_TAG}.pyo
