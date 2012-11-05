@@ -15,6 +15,7 @@ COMMENT=		Multi-agent supervision framework for autonomous robots
 LICENSE=		2-clause-bsd
 
 USE_LANGUAGES=		c c++
+MAKE_JOBS_SAFE=		no # because gcc eats up to 1GB for some files...
 
 CMAKE_ARGS+=		-DBOOST_INCLUDEDIR=${PREFIX.boost-headers}/include
 CMAKE_ARGS+=		-DBOOST_LIBDIR=${PREFIX.boost-libs}/include
