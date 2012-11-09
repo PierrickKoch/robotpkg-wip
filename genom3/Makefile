@@ -16,9 +16,11 @@ COMMENT=	Software components generator for robotics architecture.
 LICENSE=	2-clause-bsd
 
 GNU_CONFIGURE=	yes
+INFO_FILES=	genom3.info
 NOT_FOR_PLATFORM=	# empty
 
 include ../../pkgtools/pkg-config/depend.mk
-include ../../mk/sysdep/flex.mk
 include ../../mk/sysdep/bison.mk
+include ../../mk/sysdep/flex.mk
+include ../../mk/sysdep/texinfo.mk
 include ../../mk/robotpkg.mk
