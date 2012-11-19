@@ -4,6 +4,7 @@
 
 VERSION=		1.7.1
 DISTNAME=		jafar-lgl-${VERSION}
+PKGREVISION=	1
 CATEGORIES=		wip
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=jafar-lgl/}
 MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/jafar/jafar/modules/lgl

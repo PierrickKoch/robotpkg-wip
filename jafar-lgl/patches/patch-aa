@@ -1,0 +1,13 @@
+diff --git a/include/lgl/FlexGrid.hpp b/include/lgl/FlexGrid.hpp
+index 8e1a9f6..5cdcaad 100644
+--- include/lgl/FlexGrid.hpp
++++ include/lgl/FlexGrid.hpp
+@@ -18,6 +18,8 @@
+ #include <stdexcept>
+ #include <iterator>
+ 
++#include <sys/types.h>
++
+ namespace jafar {
+ 	namespace lgl {
+ 
