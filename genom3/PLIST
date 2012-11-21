@@ -16,6 +16,7 @@ share/doc/genom/genom3.html/C-Array.html
 share/doc/genom/genom3.html/C-Basic-type.html
 share/doc/genom/genom3.html/C-Constant.html
 share/doc/genom/genom3.html/C-Enumerated-type.html
+share/doc/genom/genom3.html/C-Native.html
 share/doc/genom/genom3.html/C-Port.html
 share/doc/genom/genom3.html/C-Scoped-name.html
 share/doc/genom/genom3.html/C-Sequence.html
@@ -138,8 +139,8 @@ share/genom/${PKGVERSION}/templates/skeleton/ag_templates.m4
 share/genom/${PKGVERSION}/templates/skeleton/codels.Makefile.am
 share/genom/${PKGVERSION}/templates/skeleton/codels.codel.c
 share/genom/${PKGVERSION}/templates/skeleton/codels.codel.cc
-share/genom/${PKGVERSION}/templates/skeleton/libcodels-uninstalled.pc.in
-share/genom/${PKGVERSION}/templates/skeleton/libcodels.pc.in
+share/genom/${PKGVERSION}/templates/skeleton/component-uninstalled.pc.in
+share/genom/${PKGVERSION}/templates/skeleton/component.pc.in
 share/genom/${PKGVERSION}/templates/skeleton/template.tcl
 share/genom/${PKGVERSION}/templates/skeleton/top.Makefile.am
 share/genom/${PKGVERSION}/templates/skeleton/top.configure.ac
