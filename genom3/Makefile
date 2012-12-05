@@ -16,11 +16,17 @@ COMMENT=	Software components generator for robotics architecture.
 LICENSE=	2-clause-bsd
 
 GNU_CONFIGURE=	yes
+CONFIGURE_ARGS+=--with-tcl=$(dir ${TCL_CONFIG_SH})
+CONFIGURE_ARGS+=--with-eltclsh=${PREFIX.eltclsh}
 INFO_FILES=	genom3.info
 NOT_FOR_PLATFORM=	# empty
 
+DEPEND_ABI.tcl=	tcl>=8.5
+
 include ../../pkgtools/pkg-config/depend.mk
+include ../../shell/eltclsh/depend.mk
 include ../../mk/sysdep/bison.mk
 include ../../mk/sysdep/flex.mk
+include ../../mk/sysdep/tcl.mk
 include ../../mk/sysdep/texinfo.mk
 include ../../mk/robotpkg.mk
