@@ -1,0 +1,29 @@
+From 89af67c4587d408ae393d9a47e27714351d10183 Mon Sep 17 00:00:00 2001
+From: Matthieu Herrb <matthieu.herrb@laas.fr>
+Date: Thu, 6 Dec 2012 11:06:33 +0100
+Subject: [PATCH] Add -lglut to EXTRA_LIBS if USE_GLUT was specified.
+
+Required by newer bintutils.
+XXX this still won't find glut if installed in a non-standard location.
+---
+ codels/Makefile.in |    4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git codels/Makefile.in codels/Makefile.in
+index 6cf5c47..26970f4 100644
+--- codels/Makefile.in
++++ codels/Makefile.in
+@@ -35,6 +35,10 @@ EXTRA_INCLUDES += -I${HOME}/openrobots/include/ni
+ # Add extra link flags (external libraries, ...)
+ #EXTRA_LIBS += @GBM_LIBS@ -lgenom @POM_EULER_LIBS@ @BIOMOVE3D_LIBS@
+ 
++ifneq ($(findstring USE_GLUT,${GENOM_DEFINES}),)
++EXTRA_LIBS += -lglut
++endif
++
+ #
+ # Install files here (any header that is not included in the .gen for instance)
+ # Files that are included in the GenoM file are automatically installed
+-- 
+1.7.9.5
+

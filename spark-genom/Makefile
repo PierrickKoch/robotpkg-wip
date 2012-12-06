@@ -2,6 +2,7 @@
 #
 
 DISTNAME=		spark-genom-3.6
+PKGREVISION=		1
 CATEGORIES=		knowledge
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=spark-genom/}
 MASTER_REPOSITORY=	git ssh://git.openrobots.org/git/robots/spark-genom.git
