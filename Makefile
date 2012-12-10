@@ -15,7 +15,6 @@ SUBDIR+=	hyper
 SUBDIR+=	hyper_genom
 SUBDIR+=	jafar-lgl
 SUBDIR+=	jafar-rednav
-SUBDIR+=	jafar-jmath
 SUBDIR+=	jafar-image
 SUBDIR+=	jafar-correl
 SUBDIR+=	jafar-qdisplay
