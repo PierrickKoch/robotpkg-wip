@@ -30,7 +30,7 @@ define PKG_OPTION_UNSET.qdisplay
 endef
 
 
-include ../../wip/jafar-kernel/depend.mk
+include ../../devel/jafar-kernel/depend.mk
 
 include ../../devel/boost-headers/depend.mk
 include ../../pkgtools/pkg-config/depend.mk

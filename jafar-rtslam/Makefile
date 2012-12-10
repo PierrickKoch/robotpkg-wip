@@ -60,9 +60,9 @@ DEPEND_ABI.MTI=			MTI>=0.5
 
 include ../../wip/jafar-correl/depend.mk
 include ../../wip/jafar-gdhe/depend.mk
-include ../../wip/jafar-image/depend.mk
-include ../../wip/jafar-jmath/depend.mk
-include ../../wip/jafar-kernel/depend.mk
+include ../../image/jafar-image/depend.mk
+include ../../math/jafar-jmath/depend.mk
+include ../../devel/jafar-kernel/depend.mk
 include ../../wip/jafar-qdisplay/depend.mk
 
 include ../../devel/boost-headers/depend.mk

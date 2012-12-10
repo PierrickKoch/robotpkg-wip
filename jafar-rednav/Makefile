@@ -19,7 +19,7 @@ USE_PKGLOCALEDIR=	yes
 CMAKE_ARGS+=		-DBOOST_INCLUDEDIR=${PREFIX.boost-headers}/include
 
 
-include ../../wip/jafar-kernel/depend.mk
+include ../../devel/jafar-kernel/depend.mk
 include ../../wip/jafar-lgl/depend.mk
 
 include ../../devel/boost-headers/depend.mk

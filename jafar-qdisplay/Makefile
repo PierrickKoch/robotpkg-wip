@@ -26,9 +26,9 @@ CMAKE_ARGS+=		-DBOOST_INCLUDEDIR=${PREFIX.boost-headers}/include
 CMAKE_ARGS+=		-DBOOST_LIBDIR=${PREFIX.boost-libs}/include
 CMAKE_ARGS+=		-DQT_QMAKE_EXECUTABLE=${QMAKE}
 
-include ../../wip/jafar-kernel/depend.mk
-include ../../wip/jafar-image/depend.mk
-include ../../wip/jafar-jmath/depend.mk
+include ../../devel/jafar-kernel/depend.mk
+include ../../image/jafar-image/depend.mk
+include ../../math/jafar-jmath/depend.mk
 include ../../devel/boost-headers/depend.mk
 include ../../devel/boost-libs/depend.mk
 include ../../math/boost-numeric-bindings/depend.mk
