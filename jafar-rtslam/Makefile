@@ -58,7 +58,7 @@ CPPFLAGS+=				-DHAVE_MODULE_GDHE
 
 DEPEND_ABI.MTI=			MTI>=0.5
 
-include ../../wip/jafar-correl/depend.mk
+include ../../image/jafar-correl/depend.mk
 include ../../wip/jafar-gdhe/depend.mk
 include ../../image/jafar-image/depend.mk
 include ../../math/jafar-jmath/depend.mk
