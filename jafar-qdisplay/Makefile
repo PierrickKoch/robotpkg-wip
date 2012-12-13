@@ -2,40 +2,20 @@
 # Created:			Cyril Roussillon on Wed, 15 Jun 2011
 #
 
-VERSION=		0.1
-DISTNAME=		jafar-qdisplay-0.1
-PKGNAME=		jafar-qdisplay-0.1
-PKGREVISION=	1
+JAFAR_PKG=		qdisplay-0.2
 CATEGORIES=		wip
-MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=jafar-qdisplay/}
-MAINTAINER=		jafar@laas.fr
-HOMEPAGE=		https://intranet.laas.fr/intranet/robots/wiki/Jafar
-COMMENT=		Jafar module to display objects of type jafar::image::JfrImage.
-LICENSE=		isc
+JAFAR_COMMENT=		Jafar module to display objects of type jafar::image::JfrImage.
 
-USE_LANGUAGES+=		c c++ fortran
-USE_PKGLOCALEDIR=	yes
-
-CPPFLAGS += -DJFR_NDEBUG
-CXXFLAGS += -pthread
+include ../../meta-pkgs/jafar/Makefile.common
 
 DEPEND_ABI.qmake= qmake>=2
 USE_QMAKE=	no
 
-CMAKE_ARGS+=		-DBOOST_INCLUDEDIR=${PREFIX.boost-headers}/include
-CMAKE_ARGS+=		-DBOOST_LIBDIR=${PREFIX.boost-libs}/include
-CMAKE_ARGS+=		-DQT_QMAKE_EXECUTABLE=${QMAKE}
-
 include ../../devel/jafar-kernel/depend.mk
 include ../../image/jafar-image/depend.mk
 include ../../math/jafar-jmath/depend.mk
-include ../../devel/boost-headers/depend.mk
-include ../../devel/boost-libs/depend.mk
 include ../../math/boost-numeric-bindings/depend.mk
 
 include ../../pkgtools/libtool/depend.mk
-include ../../pkgtools/pkg-config/depend.mk
-include ../../mk/sysdep/cmake.mk
-include ../../mk/sysdep/qmake.mk
 include ../../mk/sysdep/qt4-libs.mk
 include ../../mk/robotpkg.mk
