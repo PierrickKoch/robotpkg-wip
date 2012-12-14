@@ -1,74 +1,81 @@
-VERSION=		0.1
-DISTNAME=		jafar-rtslam-${VERSION}
-PKGNAME=		jafar-rtslam-${VERSION}
+# robotpkg Makefile for:	wip/jafar-rtslam
+# Created:			Cyril Roussillon on Wed, 15 Jun 2011
+#
+
+JAFAR_PKG=		rtslam-0.2
 CATEGORIES=		wip
-MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=jafar-rtslam/}
-MAINTAINER=		jafar@laas.fr
-HOMEPAGE=		https://intranet.laas.fr/intranet/robots/wiki/Jafar
-COMMENT=		Jafar module to do fast and generic EKF Slam.
-LICENSE=		isc
+JAFAR_COMMENT=		Jafar module to do fast and generic EKF Slam.
 
-USE_LANGUAGES+=		c c++ fortran
-USE_PKGLOCALEDIR=	yes
+include ../../meta-pkgs/jafar/Makefile.common
 
-CMAKE_ARGS+=		-DBOOST_ROOT=${PREFIX.boost-headers}
-CMAKE_ARGS+=		-DCMAKE_MODULE_PATH=.
+PKG_SUPPORTED_OPTIONS+=		qdisplay
+PKG_OPTION_DESCR.qdisplay=	Enable jafar module qdisplay support.
+define PKG_OPTION_SET.qdisplay
+  CMAKE_ARGS+=			-DHAVE_MODULE_QDISPLAY=ON
+  CMAKE_ARGS+=          -DHAVE_QT4=ON
 
-# because the package generation is buggy, it declares JAFAR_NDEBUG instead
-CPPFLAGS += -DJFR_NDEBUG
-CXXFLAGS += -pthread
-
-PKG_SUPPORTED_OPTIONS+=		posterlib
-PKG_OPTION_DESCR.posterlib=	Enable posterLib support.
-define PKG_OPTION_SET.posterlib
-  CMAKE_ARGS+=			-DHAVE_POSTERLIB=ON
-  CPPFLAGS+=			-DHAVE_POSTERLIB
-  include ../../middleware/pocolibs/depend.mk
+  include ../../mk/sysdep/qt4-libs.mk
+  include ../../wip/jafar-qdisplay/depend.mk
 endef
-define PKG_OPTION_UNSET.posterlib
-  CMAKE_ARGS+=			-DHAVE_POSTERLIB=OFF
+define PKG_OPTION_UNSET.qdisplay
+  CMAKE_ARGS+=			-DHAVE_MODULE_QDISPLAY=OFF
+  CMAKE_ARGS+=          -DHAVE_QT4=OFF
 endef
+
+PKG_SUPPORTED_OPTIONS+=		gdhe
+PKG_OPTION_DESCR.gdhe=	Enable jafar module gdhe support.
+define PKG_OPTION_SET.gdhe
+  CMAKE_ARGS+=			-DHAVE_MODULE_GDHE=ON
+  include ../../wip/jafar-gdhe/depend.mk
+endef
+define PKG_OPTION_UNSET.gdhe
+  CMAKE_ARGS+=			-DHAVE_MODULE_GDHE=OFF
+endef
+
+PKG_SUPPORTED_OPTIONS+=		dseg
+PKG_OPTION_DESCR.dseg=	Enable jafar module dseg support.
+define PKG_OPTION_SET.dseg
+  CMAKE_ARGS+=			-DHAVE_MODULE_DSEG=ON
+  include ../../wip/jafar-dseg/depend.mk
+endef
+define PKG_OPTION_UNSET.dseg
+  CMAKE_ARGS+=			-DHAVE_MODULE_DSEG=OFF
+endef
+
 
 PKG_SUPPORTED_OPTIONS+=		viam
 PKG_OPTION_DESCR.viam=	Enable viam support.
 define PKG_OPTION_SET.viam
   CMAKE_ARGS+=			-DHAVE_VIAM=ON
-  CPPFLAGS+=			-DHAVE_VIAM
   include ../../image/viam-libs/depend.mk
-  REQD_BUILD_OPTIONS.viam-libs+=opencv
-  include ../../image/opencv/depend.mk
 endef
 define PKG_OPTION_UNSET.viam
   CMAKE_ARGS+=			-DHAVE_VIAM=OFF
 endef
 
-
-PKG_SUPPORTED_OPTIONS+=     dseg
-PKG_OPTION_DESCR.dseg=  Enable jafar module dseg support for segments
-define PKG_OPTION_SET.dseg
-  CPPFLAGS+=          -DHAVE_MODULE_DSEG
-  include ../../wip/jafar-dseg/depend.mk
+PKG_SUPPORTED_OPTIONS+=		MTI
+PKG_OPTION_DESCR.MTI=	Enable MTI support.
+define PKG_OPTION_SET.MTI
+  CMAKE_ARGS+=			-DHAVE_MTI=ON
+  include ../../hardware/MTI/depend.mk
+endef
+define PKG_OPTION_UNSET.MTI
+  CMAKE_ARGS+=			-DHAVE_MTI=OFF
 endef
 
-CMAKE_ARGS+=			-DHAVE_MTI=ON
+PKG_SUPPORTED_OPTIONS+=		posterLib
+PKG_OPTION_DESCR.posterLib=	Enable posterLib support.
+define PKG_OPTION_SET.posterLib
+  CMAKE_ARGS+=			-DHAVE_POSTERLIB=ON
+  include ../../middleware/pocolibs/depend.mk
+endef
+define PKG_OPTION_UNSET.posterLib
+  CMAKE_ARGS+=			-DHAVE_POSTERLIB=OFF
+endef
 
-CPPFLAGS+=				-DHAVE_MODULE_QDISPLAY
-CPPFLAGS+=				-DHAVE_MTI
-CPPFLAGS+=				-DHAVE_MODULE_GDHE
-
-DEPEND_ABI.MTI=			MTI>=0.5
-
-include ../../image/jafar-correl/depend.mk
-include ../../wip/jafar-gdhe/depend.mk
+include ../../devel/jafar-kernel/depend.mk
 include ../../image/jafar-image/depend.mk
 include ../../math/jafar-jmath/depend.mk
-include ../../devel/jafar-kernel/depend.mk
-include ../../wip/jafar-qdisplay/depend.mk
+include ../../image/jafar-correl/depend.mk
 
-include ../../devel/boost-headers/depend.mk
-include ../../devel/boost-libs/depend.mk
-include ../../hardware/MTI/depend.mk
-include ../../pkgtools/libtool/depend.mk
-include ../../pkgtools/pkg-config/depend.mk
-include ../../mk/sysdep/cmake.mk
 include ../../mk/robotpkg.mk

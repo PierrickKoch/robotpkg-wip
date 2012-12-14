@@ -1,3 +1,6 @@
+# robotpkg depend.mk for:	wip/jafar-rtslam
+# Created:			Cyril Roussillon on Wed, 15 Jun 2011
+#
 
 DEPEND_DEPTH:=		${DEPEND_DEPTH}+
 jafar-rtslam_DEPEND_MK:=	${jafar-rtslam_DEPEND_MK}+
