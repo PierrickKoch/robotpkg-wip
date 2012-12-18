@@ -37,6 +37,7 @@ SUBDIR+=	move3d-studio
 SUBDIR+=	mumps
 SUBDIR+=	oro-view
 SUBDIR+=	poisson
+SUBDIR+=	pr2-pick-object
 SUBDIR+=	rednav-genom
 SUBDIR+=	robotModelParser-libs
 SUBDIR+=	robot-viewer
