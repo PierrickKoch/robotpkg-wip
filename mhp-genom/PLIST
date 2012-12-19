@@ -1,1 +1,5 @@
-@comment Fri Apr 15 20:04:44 CEST 2011
+@comment Wed Dec 19 18:28:01 CET 2012
+@comment includes architecture/genom/PLIST.module
+include/${GENOM_MODULE}/${GENOM_MODULE}Const.h
+include/${GENOM_MODULE}/${GENOM_MODULE}Struct.h
+share/modules/gen/${GENOM_MODULE}.gen
