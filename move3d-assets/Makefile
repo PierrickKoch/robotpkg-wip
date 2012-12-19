@@ -28,7 +28,7 @@ LICENSE=	isc
 MAINTAINER=	biomove3dgitrepo@laas.fr
 COMMENT=	Public 3D assets for the Move3D geometric planner
 
-WRKSRC=${WRKDIR}/move3d-assets
+WRKSRC=${WRKDIR}/move3d-assets-${PKG_DATE}
 
 NO_CONFIGURE=	yes
 NO_BUILD=		yes
