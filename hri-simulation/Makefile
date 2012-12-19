@@ -39,7 +39,7 @@ include ../../wip/morse-pocolibs/depend.mk
 
 include ../../sysutils/alog/depend.mk
 
-include ../../wip/py-poco/depend.mk
+include ../../net/py-poco/depend.mk
 
 include ../../mk/sysdep/python.mk
 include ../../mk/robotpkg.mk
