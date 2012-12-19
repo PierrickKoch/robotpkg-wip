@@ -1,0 +1,10 @@
+--- util/UdpClient.cpp.orig	2012-12-19 17:27:11.905199182 +0100
++++ util/UdpClient.cpp	2012-12-19 17:27:22.073199570 +0100
+@@ -2,6 +2,7 @@
+ #include <fcntl.h>
+ #include <stdio.h>
+ #include <errno.h>
++#include <unistd.h>
+ 
+ UdpClient* globalUdpClient = NULL;
+ //public

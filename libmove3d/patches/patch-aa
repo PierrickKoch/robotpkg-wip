@@ -1,0 +1,9 @@
+--- lightPlanner/DlrParser.cpp.orig	2012-12-19 17:25:27.853195227 +0100
++++ lightPlanner/DlrParser.cpp	2012-12-19 17:25:51.197196114 +0100
+@@ -1,5 +1,6 @@
+ #include "../lightPlanner/proto/DlrParser.h"
+ #include <stdlib.h>
++#include <unistd.h>
+ 
+ DlrParser::DlrParser(char* fileName){
+ 	_fileName.assign(fileName);
