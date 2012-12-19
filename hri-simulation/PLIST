@@ -1,4 +1,5 @@
-@comment Mon Feb 21 18:27:00 CET 2011
-lib/python${PYTHON_VERSION}/site-packages/hri_${PKGVERSION}-1.0-py${PYTHON_VERSION}.egg-info
-share/hri-simulation/chris.blend
-share/hri-simulation/jido.geom
+@comment Wed Dec 19 18:21:24 CET 2012
+bin/${PKGNAME}
+${PYTHON_SITELIB}/hri_${PKGVERSION}-1.0-py${PYTHON_VERSION}.egg-info
+share/${PKGNAME}/chris.blend
+share/${PKGNAME}/jido.geom
