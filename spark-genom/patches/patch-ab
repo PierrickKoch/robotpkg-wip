@@ -1,0 +1,16 @@
+Fix declaration in jido case
+
+fingers is used in interface, so it is required, not only codel required
+
+--- spark.gen.orig	2012-12-19 17:42:16.473233581 +0100
++++ spark.gen	2012-12-19 17:43:14.697235797 +0100
+@@ -18,7 +18,8 @@
+     codels_requires:	attentional;
+ #endif
+ #if defined(JIDO)
+-    codels_requires:		pom-euler, gbM, fingers;
++    codels_requires:		pom-euler, gbM;
++	requires:				fingers;
+ #endif
+ #if defined(HRP2)
+     requires:			hrp2, gest, viman;
