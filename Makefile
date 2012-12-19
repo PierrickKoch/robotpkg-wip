@@ -33,6 +33,7 @@ SUBDIR+=	MPC_planner-genom
 SUBDIR+=	MPC_DEMTreatment-genom
 SUBDIR+=	mhp-genom
 SUBDIR+=	morse-pocolibs
+SUBDIR+=	move3d-assets
 SUBDIR+=	move3d-studio
 SUBDIR+=	mumps
 SUBDIR+=	oro-view
