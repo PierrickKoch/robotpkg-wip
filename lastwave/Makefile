@@ -14,6 +14,7 @@ HOMEPAGE=	http://www.cmap.polytechnique.fr/~bacry/LastWave/
 COMMENT=	LastWave is a signal processing oriented command language
 
 include ../../mk/sysdep/cmake.mk
+include ../../mk/language/c.mk
 include ../../mk/robotpkg.mk
 
 post-extract:

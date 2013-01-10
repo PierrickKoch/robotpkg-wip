@@ -15,4 +15,5 @@ GENOM_MODULE=		joystick
 
 
 include ../../architecture/genom/depend.mk
+include ../../mk/language/c.mk
 include ../../mk/robotpkg.mk

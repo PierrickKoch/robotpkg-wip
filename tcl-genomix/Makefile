@@ -19,4 +19,5 @@ NOT_FOR_PLATFORM=	# empty
 DEPEND_ABI.tcl=	tcl>=8.5
 
 include ../../mk/sysdep/tcl.mk
+include ../../mk/language/c.mk
 include ../../mk/robotpkg.mk

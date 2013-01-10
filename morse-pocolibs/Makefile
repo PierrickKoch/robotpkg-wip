@@ -60,6 +60,7 @@ endef
 include ../../devel/swig/depend.mk
 include ../../middleware/pocolibs/depend.mk
 include ../../simulation/morse/depend.mk
+include ../../mk/language/c.mk
 include ../../mk/robotpkg.mk
 
 _pycompile_dir=${PREFIX}/${PYTHON_SITELIB}/morse/middleware/pocolibs*

@@ -19,4 +19,5 @@ CMAKE_ARGS+=		-DGEOMETRIC_TOOLS_INSTALL_PREFIX:STRING=${PREFIX}
 include ../../devel/hpp-util/depend.mk
 include ../../math/geometric-tools/depend.mk
 include ../../path/kineo-pp/depend.mk
+include ../../mk/language/c.mk
 include ../../mk/robotpkg.mk

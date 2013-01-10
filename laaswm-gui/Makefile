@@ -21,4 +21,5 @@ include ../../wip/py-laaswm/depend.mk
 
 include ../../mk/sysdep/python.mk
 include ../../mk/sysdep/py-setuptools.mk
+include ../../mk/language/c.mk
 include ../../mk/robotpkg.mk

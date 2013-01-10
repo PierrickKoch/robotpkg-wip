@@ -27,4 +27,5 @@ include ../../image/viam-genom/depend.mk
 include ../../hardware/platine-genom/depend.mk
 include ../../audio/clone-genom/depend.mk
 
+include ../../mk/language/c.mk
 include ../../mk/robotpkg.mk

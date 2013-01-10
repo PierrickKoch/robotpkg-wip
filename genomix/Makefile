@@ -21,4 +21,5 @@ DEPEND_ABI.tcl=	tcl>=8.5
 include ../../pkgtools/pkg-config/depend.mk
 include ../../wip/genom3/depend.mk
 include ../../mk/sysdep/tcl.mk
+include ../../mk/language/c.mk
 include ../../mk/robotpkg.mk

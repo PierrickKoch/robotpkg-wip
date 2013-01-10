@@ -29,4 +29,5 @@ include ../../mk/sysdep/bison.mk
 include ../../mk/sysdep/flex.mk
 include ../../mk/sysdep/tcl.mk
 include ../../mk/sysdep/texinfo.mk
+include ../../mk/language/c.mk
 include ../../mk/robotpkg.mk

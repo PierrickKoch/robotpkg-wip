@@ -20,4 +20,5 @@ NOT_FOR_PLATFORM=	# empty
 include ../../wip/transgen3/depend.mk
 include ../../pkgtools/pkg-config/depend.mk
 include ../../wip/genom3/depend.mk
+include ../../mk/language/c.mk
 include ../../mk/robotpkg.mk

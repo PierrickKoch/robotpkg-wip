@@ -42,4 +42,5 @@ include ../../sysutils/alog/depend.mk
 include ../../net/py-poco/depend.mk
 
 include ../../mk/sysdep/python.mk
+include ../../mk/language/c.mk
 include ../../mk/robotpkg.mk
