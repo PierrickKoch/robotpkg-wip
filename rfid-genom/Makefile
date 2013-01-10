@@ -11,7 +11,6 @@ MAINTAINER=		openrobots@laas.fr
 COMMENT=		Genom module for the RFID system
 LICENSE=		gnu-lgpl-v3
 
-USE_LANGUAGES+=		c c++
 
 GENOM_MODULE=		rfid
 
@@ -19,4 +18,6 @@ include ../../architecture/genom/depend.mk
 include ../../localization/pom-genom/depend.mk
 include ../../interfaces/genBasic-genom/depend.mk
 include ../../hardware/platine-genom/depend.mk
+include ../../mk/language/c.mk
+include ../../mk/language/c++.mk
 include ../../mk/robotpkg.mk

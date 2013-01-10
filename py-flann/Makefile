@@ -14,7 +14,6 @@ HOMEPAGE=	http://www.cs.ubc.ca/~mariusm/index.php/FLANN/FLANN
 COMMENT=	Python bindings for flann
 LICENSE=	2-clause-bsd
 
-USE_LANGUAGES+=	c c++
 
 #option for c bindings generation
 CMAKE_ARGS+=			-DBUILD_C_BINDINGS=OFF
@@ -25,4 +24,6 @@ include ../../mk/sysdep/python.mk
 include ../../wip/flann/depend.mk
 include ../../mk/sysdep/latex.mk
 include ../../mk/sysdep/cmake.mk
+include ../../mk/language/c.mk
+include ../../mk/language/c++.mk
 include ../../mk/robotpkg.mk

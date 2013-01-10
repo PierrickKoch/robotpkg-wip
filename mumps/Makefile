@@ -14,7 +14,6 @@ LICENSE=	public-domain
 MAINTAINER=	openrobots@laas.fr
 
 WRKSRC=		${WRKDIR}
-USE_LANGUAGES=	c c++ fortran
 GNU_CONFIGURE=	yes
 
 INCLUDE_DIRS.lapack=	include
@@ -34,6 +33,9 @@ include ../../math/lapack/depend.mk
 include ../../math/blas/depend.mk
 include ../../mk/sysdep/autoconf.mk
 include ../../mk/sysdep/automake.mk
+include ../../mk/language/c.mk
+include ../../mk/language/c++.mk
+include ../../mk/language/fortran.mk
 include ../../mk/robotpkg.mk
 
 post-extract:

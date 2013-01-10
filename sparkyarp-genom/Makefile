@@ -12,7 +12,6 @@ COMMENT=		Yarp bridge to SPARK for Chris Project
 LICENSE=		gnu-gpl-v2
 
 
-USE_LANGUAGES+=		c c++
 
 #######################
 #### SPARKYARP OPTIONS ####
@@ -27,4 +26,6 @@ include ../../wip/spark-genom/depend.mk
 include ../../interfaces/genBasic-genom/depend.mk
 include ../../middleware/yarp/depend.mk
 include ../../architecture/genom/depend.mk
+include ../../mk/language/c.mk
+include ../../mk/language/c++.mk
 include ../../mk/robotpkg.mk

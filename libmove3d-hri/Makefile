@@ -14,7 +14,6 @@ COMMENT=			Human centered spatial reasonning & motion planning
 # on GSL that is a GPL librairies.
 LICENSE=			gnu-gpl-v2
 
-USE_LANGUAGES+=		c c++
 
 CMAKE_ARGS+=		-DBOOST_INCLUDEDIR=${PREFIX.boost-headers}/include
 
@@ -30,4 +29,6 @@ include ../../mk/sysdep/gsl.mk
 
 include ../../mk/sysdep/cmake.mk
 include ../../pkgtools/pkg-config/depend.mk
+include ../../mk/language/c.mk
+include ../../mk/language/c++.mk
 include ../../mk/robotpkg.mk

@@ -12,9 +12,9 @@ MAINTAINER=			mokhtar.gharbi@laas.fr
 COMMENT=			Library to translate the joint state order from a model to another one
 LICENSE=			2-clause-bsd
 
-USE_LANGUAGES+=		c++
 
 include ../../interfaces/openrobots-pose/depend.mk
 
 include ../../mk/sysdep/cmake.mk
+include ../../mk/language/c++.mk
 include ../../mk/robotpkg.mk

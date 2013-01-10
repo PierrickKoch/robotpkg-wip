@@ -11,7 +11,6 @@ MAINTAINER=		openrobots@laas.fr
 COMMENT=		Genom module for visual servoing & Multimodal person following
 LICENSE=		gnu-lgpl-v3
 
-USE_LANGUAGES+=		c c++
 
 GENOM_MODULE=		visuserv
 
@@ -22,4 +21,6 @@ include ../../hardware/platine-genom/depend.mk
 include ../../robots/rflex-genom/depend.mk
 include ../../wip/icu-genom/depend.mk
 include ../../math/meschach/depend.mk
+include ../../mk/language/c.mk
+include ../../mk/language/c++.mk
 include ../../mk/robotpkg.mk

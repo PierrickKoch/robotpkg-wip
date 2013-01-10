@@ -14,7 +14,6 @@ COMMENT=		Motion in Human Presence module
 LICENSE=		gnu-gpl-v2
 
 
-USE_LANGUAGES+=		c c++
 
 #####################
 #### MHP OPTIONS ####
@@ -118,4 +117,6 @@ include ../../wip/libmove3d-hri/depend.mk
 include ../../manipulation/genManip-genom/depend.mk
 include ../../architecture/genom/depend.mk
 
+include ../../mk/language/c.mk
+include ../../mk/language/c++.mk
 include ../../mk/robotpkg.mk

@@ -11,7 +11,6 @@ MAINTAINER=		xavier.broquere@laas.fr
 COMMENT=		Genom module for the KuKa arm
 LICENSE=		gnu-lgpl-v3
 
-USE_LANGUAGES+=		c c++
 
 GENOM_MODULE=		lwr
 
@@ -42,4 +41,6 @@ include ../../motion/softMotion-libs/depend.mk
 include ../../graphics/pqp/depend.mk
 include ../../graphics/coldman-libs/depend.mk
 include ../../math/gbM/depend.mk
+include ../../mk/language/c.mk
+include ../../mk/language/c++.mk
 include ../../mk/robotpkg.mk

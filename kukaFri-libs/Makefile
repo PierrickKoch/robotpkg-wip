@@ -11,7 +11,6 @@ MAINTAINER=		xavier.broquere@laas.fr
 
 LICENSE=		kuka-license
 
-USE_LANGUAGES+=		c c++
 
 INTERACTIVE_STAGE=	fetch
 FETCH_MESSAGE+= " The file ${DISTNAME}${EXTRACT_SUFX} containing the kukaFri-libs version ${VERSION}"
@@ -22,4 +21,6 @@ FETCH_MESSAGE+= "       ${DISTDIR}/${DISTNAME}${EXTRACT_SUFX}"
 
 
 include ../../mk/sysdep/cmake.mk
+include ../../mk/language/c.mk
+include ../../mk/language/c++.mk
 include ../../mk/robotpkg.mk

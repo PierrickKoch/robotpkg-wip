@@ -14,7 +14,6 @@ MAINTAINER=		openrobots@laas.fr
 COMMENT=		Libraries for outdoor robots navigation
 LICENSE=		isc
 
-USE_LANGUAGES=		c c++
 
 CMAKE_ARG_PATH=		MPC/
 CMAKE_ARGS+=		-DBOOST_INCLUDEDIR=${PREFIX.boost-headers}/include
@@ -29,4 +28,6 @@ include ../../mk/sysdep/glib2.mk
 include ../../mk/sysdep/glu.mk
 include ../../mk/sysdep/libX11.mk
 include ../../mk/sysdep/mesa.mk
+include ../../mk/language/c.mk
+include ../../mk/language/c++.mk
 include ../../mk/robotpkg.mk

@@ -17,7 +17,6 @@ COMMENT=		The BioMove3D development studio
 # on GSL and GLPK that are 2 GLP librairies.
 LICENSE=		gnu-gpl-v2
 
-USE_LANGUAGES+=		c c++
 
 CMAKE_ARGS+= -DGENERATE_STUDIO=ON
 
@@ -42,4 +41,6 @@ include ../../wip/libmove3d/depend.mk
 # include ../../wip/libhri/depend.mk
 
 include ../../mk/sysdep/cmake.mk
+include ../../mk/language/c.mk
+include ../../mk/language/c++.mk
 include ../../mk/robotpkg.mk

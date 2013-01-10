@@ -15,7 +15,6 @@ COMMENT=		GeNoM module for human posture recognition, based on skin patches dete
 LICENSE=		isc
 
 
-USE_LANGUAGES+=		c c++
 
 GENOM_MODULE=		gest
 
@@ -25,4 +24,6 @@ include ../../image/viam-genom/depend.mk
 include ../../image/opencv/depend.mk
 include ../../architecture/genom/depend.mk
 
+include ../../mk/language/c.mk
+include ../../mk/language/c++.mk
 include ../../mk/robotpkg.mk

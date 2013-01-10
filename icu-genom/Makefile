@@ -11,7 +11,6 @@ MAINTAINER=		openrobots@laas.fr
 COMMENT=		Genom module for the icu: user detection and tracking
 LICENSE=		gnu-lgpl-v3
 
-USE_LANGUAGES+=		c c++
 
 GENOM_MODULE=		icu
 
@@ -20,4 +19,6 @@ include ../../localization/pom-genom/depend.mk
 include ../../interfaces/genBasic-genom/depend.mk
 include ../../hardware/platine-genom/depend.mk
 include ../../wip/rfid-genom/depend.mk
+include ../../mk/language/c.mk
+include ../../mk/language/c++.mk
 include ../../mk/robotpkg.mk

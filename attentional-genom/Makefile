@@ -11,7 +11,6 @@ MAINTAINER=		xavier.broquere@laas.fr
 COMMENT=		Genom module to control the motion law of the robot
 LICENSE=		gnu-lgpl-v3
 
-USE_LANGUAGES+=		c c++
 
 GENOM_MODULE=		attentional
 
@@ -21,4 +20,6 @@ include ../../interfaces/genBasic-genom/depend.mk
 include ../../manipulation/genManip-genom/depend.mk
 include ../../interfaces/genHum-genom/depend.mk
 include ../../math/gbM/depend.mk
+include ../../mk/language/c.mk
+include ../../mk/language/c++.mk
 include ../../mk/robotpkg.mk

@@ -14,7 +14,6 @@ COMMENT=		Spatial Reasoning and Knowledge module
 # on GSL and GLPK that are 2 GLP librairies.
 LICENSE=		gnu-gpl-v2
 
-USE_LANGUAGES+=		c c++
 
 #######################
 #### SPARK OPTIONS ####
@@ -112,4 +111,6 @@ include ../../localization/mocap-genom/depend.mk
 include ../../localization/pom-genom/depend.mk
 include ../../manipulation/genManip-genom/depend.mk
 include ../../math/t3d/depend.mk
+include ../../mk/language/c.mk
+include ../../mk/language/c++.mk
 include ../../mk/robotpkg.mk

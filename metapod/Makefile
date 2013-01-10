@@ -17,7 +17,6 @@ COMMENT=		Template-based rigid body dynamics library.
 LICENSE=		gnu-gpl-v3
 MAINTAINER=		gepetto@laas.fr
 
-USE_LANGUAGES+=		c c++
 DOXYGEN_PLIST_DIR+=	share/doc/${PKGBASE}
 
 CMAKE_ARGS+=            -DBOOST_INCLUDEDIR=${PREFIX.boost-headers}/include
@@ -31,4 +30,6 @@ include ../../mk/sysdep/cmake.mk
 include ../../mk/sysdep/doxygen.mk
 include ../../mk/sysdep/graphviz.mk
 include ../../mk/sysdep/pdflatex.mk
+include ../../mk/language/c.mk
+include ../../mk/language/c++.mk
 include ../../mk/robotpkg.mk

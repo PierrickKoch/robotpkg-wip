@@ -31,11 +31,12 @@ LICENSE=			modified-bsd
 
 WRKSRC=			${WRKDIR}/PoissonRecon
 
-USE_LANGUAGES+=		c c++
 USE_PKGLOCALEDIR=	yes
 NO_CONFIGURE=			yes
 
 include ../../pkgtools/libtool/depend.mk
+include ../../mk/language/c.mk
+include ../../mk/language/c++.mk
 include ../../mk/robotpkg.mk
 
 post-extract:

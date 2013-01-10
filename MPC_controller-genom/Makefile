@@ -13,7 +13,6 @@ MAINTAINER=		openrobots@laas.fr
 COMMENT=		Compute command on the base of a trajectory   - GenoM component
 
 GNU_CONFIGURE=		yes
-USE_LANGUAGES+=		c c++ 
 
 define PKG_OPTION_UNSET.api
   include ../../wip/MPC/depend.mk
@@ -27,4 +26,6 @@ include ../../localization/pom-genom/depend.mk
 include ../../mapping/dtm-genom/depend.mk
 include ../../wip/MPC_avoidObs-genom/depend.mk
 include ../../wip/MPC_planner-genom/depend.mk
+include ../../mk/language/c.mk
+include ../../mk/language/c++.mk
 include ../../mk/robotpkg.mk

@@ -13,7 +13,6 @@ MAINTAINER=		arnaud.degroote@laas.fr
 COMMENT=		Link between Hyper and Genom
 LICENSE=		2-clause-bsd
 
-USE_LANGUAGES=		c c++
 
 CMAKE_ARGS+=		-DBOOST_INCLUDEDIR=${PREFIX.boost-headers}/include
 CMAKE_ARGS+=		-DBOOST_LIBDIR=${PREFIX.boost-libs}/include
@@ -25,4 +24,6 @@ include ../../devel/boost-headers/depend.mk
 include ../../devel/boost-libs/depend.mk
 include ../../wip/hyper/depend.mk
 include ../../mk/sysdep/cmake.mk
+include ../../mk/language/c.mk
+include ../../mk/language/c++.mk
 include ../../mk/robotpkg.mk

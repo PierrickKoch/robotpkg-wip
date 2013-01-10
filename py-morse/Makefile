@@ -15,7 +15,6 @@ HOMEPAGE=		http://morse.openrobots.org
 COMMENT=		Python bindings for the MORSE simulator for robotics
 LICENSE=		modified-bsd
 
-USE_LANGUAGES= c c++
 
 CMAKE_ARGS+=		-DBUILD_CORE_SUPPORT=OFF
 CMAKE_ARGS+=		-DBUILD_DOC_SUPPORT=OFF
@@ -32,5 +31,7 @@ DEPEND_ABI.python+=	python>=2.6<3.3
 include ../../mk/sysdep/python.mk
 include ../../mk/sysdep/cmake.mk
 
+include ../../mk/language/c.mk
+include ../../mk/language/c++.mk
 include ../../mk/robotpkg.mk
 

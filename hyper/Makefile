@@ -14,7 +14,6 @@ MAINTAINER=		arnaud.degroote@laas.fr
 COMMENT=		Multi-agent supervision framework for autonomous robots
 LICENSE=		2-clause-bsd
 
-USE_LANGUAGES=		c c++
 MAKE_JOBS_SAFE=		no # because gcc eats up to 1GB for some files...
 
 CMAKE_ARGS+=		-DBOOST_INCLUDEDIR=${PREFIX.boost-headers}/include
@@ -26,4 +25,6 @@ DEPEND_ABI.boost-headers=boost-headers>=1.46.1
 include ../../devel/boost-headers/depend.mk
 include ../../devel/boost-libs/depend.mk
 include ../../mk/sysdep/cmake.mk
+include ../../mk/language/c.mk
+include ../../mk/language/c++.mk
 include ../../mk/robotpkg.mk

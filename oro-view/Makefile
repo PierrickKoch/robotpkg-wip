@@ -11,7 +11,6 @@ COMMENT=	OpenGL-based viewer for ontologies exposed by oro-server
 MAINTAINER=	severin.lemaignan@laas.fr
 LICENSE=	gnu-gpl-v3
 
-USE_LANGUAGES+=	c c++
 GNU_CONFIGURE=	yes
 
 include ../../pkgtools/pkg-config/depend.mk
@@ -20,4 +19,6 @@ include ../../devel/jsoncpp/depend.mk
 include ../../mk/sysdep/ftgl.mk
 include ../../mk/sysdep/SDL.mk
 include ../../mk/sysdep/SDL_image.mk
+include ../../mk/language/c.mk
+include ../../mk/language/c++.mk
 include ../../mk/robotpkg.mk

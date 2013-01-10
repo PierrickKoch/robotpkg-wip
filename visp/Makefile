@@ -43,7 +43,6 @@ LICENSE=		qpl
 
 WRKSRC=			${WRKDIR}/ViSP
 
-USE_LANGUAGES+=		c c++
 EG_DIR=			share/examples/visp
 INSTALLATION_DIRS+=	${EG_DIR}
 
@@ -147,6 +146,8 @@ endef
 include ../../archivers/zlib/depend.mk
 include ../../pkgtools/pax/depend.mk
 include ../../mk/sysdep/cmake.mk
+include ../../mk/language/c.mk
+include ../../mk/language/c++.mk
 include ../../mk/robotpkg.mk
 
 # Install examples

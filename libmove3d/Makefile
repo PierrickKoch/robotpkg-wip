@@ -15,7 +15,6 @@ COMMENT=			Library for motion planning and geometric reasonning
 # on GSL and GLPK that are 2 GLP librairies.
 LICENSE=			gnu-gpl-v2
 
-USE_LANGUAGES+=		c c++
 
 CMAKE_ARGS+= -DGENERATE_VIEWER_LIB=ON
 CMAKE_ARGS+=\
@@ -44,4 +43,6 @@ include ../../wip/sysdep/qhull.mk
 include ../../wip/sysdep/libxpm.mk
 
 include ../../mk/sysdep/cmake.mk
+include ../../mk/language/c.mk
+include ../../mk/language/c++.mk
 include ../../mk/robotpkg.mk

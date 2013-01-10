@@ -14,7 +14,6 @@ HOMEPAGE=	http://openkinect.org/
 COMMENT=	Kinect(tm) Camera driver
 LICENSE=	apache-2.0
 
-USE_LANGUAGES= c c++ python
 
 #option for opencv wrapping and demo building
 PKG_SUPPORTED_OPTIONS+=		opencv
@@ -32,4 +31,6 @@ endef
 include ../../pkgtools/install-sh/depend.mk
 include ../../mk/sysdep/cmake.mk
 include ../../mk/sysdep/libXmu.mk
+include ../../mk/language/c.mk
+include ../../mk/language/c++.mk
 include ../../mk/robotpkg.mk

@@ -15,7 +15,6 @@ LICENSE=	2-clause-bsd
 
 GNU_CONFIGURE=	yes
 NOT_FOR_PLATFORM=	# empty
-USE_LANGUAGES+=	c c++
 
 include ../../wip/genom3/depend.mk
 include ../../devel/boost-headers/depend.mk
@@ -26,4 +25,6 @@ include ../../lang/ros-genpy/depend.mk
 include ../../middleware/ros-actionlib/depend.mk
 include ../../middleware/ros-comm/depend.mk
 include ../../pkgtools/pkg-config/depend.mk
+include ../../mk/language/c.mk
+include ../../mk/language/c++.mk
 include ../../mk/robotpkg.mk

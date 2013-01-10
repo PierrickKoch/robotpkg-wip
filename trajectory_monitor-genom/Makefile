@@ -8,7 +8,6 @@ MAINTAINER=		arnaud.degroote@laas.fr
 COMMENT=		Simple trajectory recorder + replayer
 
 GNU_CONFIGURE=		yes
-USE_LANGUAGES+=		c c++ 
 
 define PKG_OPTION_UNSET.api
   include ../../localization/pom-genom/depend.mk
@@ -19,4 +18,6 @@ include ../../architecture/genom/depend.mk
 
 include ../../interfaces/genPos-genom/depend.mk
 include ../../interfaces/genBasic-genom/depend.mk
+include ../../mk/language/c.mk
+include ../../mk/language/c++.mk
 include ../../mk/robotpkg.mk

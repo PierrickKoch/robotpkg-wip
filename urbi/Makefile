@@ -14,7 +14,6 @@ HOMEPAGE=	http://www.gostai.com/
 COMMENT=	Urbi middleware for robotics
 LICENSE=	gnu-agpl-v3
 
-USE_LANGUAGES+= c c++
 
 GNU_CONFIGURE=	yes
 
@@ -35,6 +34,8 @@ include ../../devel/boost-libs/depend.mk
 include ../../mk/sysdep/flex.mk
 include ../../mk/sysdep/libjpeg.mk
 include ../../mk/sysdep/perl.mk
+include ../../mk/language/c.mk
+include ../../mk/language/c++.mk
 include ../../mk/robotpkg.mk
 
 # Remove local libjpeg header.

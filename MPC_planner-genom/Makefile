@@ -13,7 +13,6 @@ MAINTAINER=		openrobots@laas.fr
 COMMENT=		Load, save and manipulate trajectories -- genom module	
 
 GNU_CONFIGURE=		yes
-USE_LANGUAGES=		c c++
 
 define PKG_OPTION_UNSET.api
   include ../../wip/MPC/depend.mk
@@ -25,4 +24,6 @@ include ../../architecture/genom/depend.mk
 
 include ../../interfaces/genPos-genom/depend.mk
 include ../../localization/pom-genom/depend.mk
+include ../../mk/language/c.mk
+include ../../mk/language/c++.mk
 include ../../mk/robotpkg.mk

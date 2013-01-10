@@ -27,7 +27,6 @@ MAINTAINER=		hpp@laas.fr
 COMMENT=		A simple robot viewer/motion player
 LICENSE=		gnu-lgpl-v3
 
-USE_LANGUAGES=		Python
 
 GNU_CONFIGURE=		no
 NO_CONFIGURE= 		yes

@@ -13,7 +13,6 @@ HOMEPAGE=		https://intranet.laas.fr/intranet/robots/wiki/Jafar
 COMMENT=		Cooperative navigation mission library
 LICENSE=		isc
 
-USE_LANGUAGES+=		c c++ fortran
 USE_PKGLOCALEDIR=	yes
 
 CMAKE_ARGS+=		-DBOOST_INCLUDEDIR=${PREFIX.boost-headers}/include
@@ -25,4 +24,7 @@ include ../../wip/jafar-lgl/depend.mk
 include ../../devel/boost-headers/depend.mk
 include ../../pkgtools/pkg-config/depend.mk
 include ../../mk/sysdep/cmake.mk
+include ../../mk/language/c.mk
+include ../../mk/language/c++.mk
+include ../../mk/language/fortran.mk
 include ../../mk/robotpkg.mk

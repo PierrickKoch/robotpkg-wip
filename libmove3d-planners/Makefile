@@ -13,7 +13,6 @@ COMMENT=		C++ (object oriented) Motion planning algorithms based on libmove3d
 # on GSL and GLPK that are 2 GLP librairies.
 LICENSE=		gnu-gpl-v2
 
-USE_LANGUAGES+=		c c++
 
 NOT_FOR_PLATFORM= #	%-x86_64
 
@@ -30,5 +29,7 @@ include ../../devel/boost-libs/depend.mk
 include ../../mk/sysdep/glu.mk
 include ../../math/eigen2/depend.mk
 include ../../wip/sysdep/libxpm.mk
+include ../../mk/language/c.mk
+include ../../mk/language/c++.mk
 include ../../mk/robotpkg.mk
 include ../../pkgtools/pkg-config/depend.mk

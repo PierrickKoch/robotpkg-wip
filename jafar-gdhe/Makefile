@@ -13,7 +13,6 @@ HOMEPAGE=		https://intranet.laas.fr/intranet/robots/wiki/Jafar
 COMMENT=		Jafar module to talk to a gdhe server in c++
 LICENSE=		isc
 
-USE_LANGUAGES+=		c c++ fortran
 USE_PKGLOCALEDIR=	yes
 
 CPPFLAGS += -DJFR_NDEBUG
@@ -32,4 +31,7 @@ include ../../devel/boost-libs/depend.mk
 include ../../pkgtools/libtool/depend.mk
 include ../../pkgtools/pkg-config/depend.mk
 include ../../mk/sysdep/cmake.mk
+include ../../mk/language/c.mk
+include ../../mk/language/c++.mk
+include ../../mk/language/fortran.mk
 include ../../mk/robotpkg.mk
