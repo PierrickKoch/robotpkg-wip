@@ -1,5 +1,3 @@
-SHA1 (libmove3d-3.18.1.tar.gz) = 16726cffea4b4677b8b0a0bea9edb6e4292221a5
-RMD160 (libmove3d-3.18.1.tar.gz) = 0522ac0eb66fa6b671eb3b21e1fac03724b0d7d3
-Size (libmove3d-3.18.1.tar.gz) = 5466336 bytes
-SHA1 (patch-aa) = 9bc6410b33d4bfd48a8109e51dda7e5952281d58
-SHA1 (patch-ab) = 253475fdfa808a7c1d4674b449bd3678794cb528
+SHA1 (libmove3d-3.19.0.tar.gz) = 3955bfff13ca0407ca41f3be1eb95d1bf89aea5d
+RMD160 (libmove3d-3.19.0.tar.gz) = 5c0f6ed00849ede8160e39394d652cf1a3128c79
+Size (libmove3d-3.19.0.tar.gz) = 5466598 bytes
