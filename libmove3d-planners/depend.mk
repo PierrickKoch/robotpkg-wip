@@ -33,7 +33,7 @@ SYSTEM_SEARCH.libmove3d-planners=\
 
 DEPEND_USE+=		libmove3d-planners
 
-DEPEND_ABI.libmove3d-planners?=libmove3d-planners>=1.2.0
+DEPEND_ABI.libmove3d-planners?=libmove3d-planners>=1.3.0
 DEPEND_DIR.libmove3d-planners?=../../wip/libmove3d-planners
 
 #include ../../wip/??
