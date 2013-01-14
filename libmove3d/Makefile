@@ -3,6 +3,7 @@
 #
 
 DISTNAME=			libmove3d-3.19.0
+PKGREVISION=			1
 CATEGORIES=			path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=libmove3d/}
 MASTER_REPOSITORY=	git ssh://git.openrobots.org/git/robots/libmove3d.git
