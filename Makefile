@@ -23,6 +23,7 @@ SUBDIR+=	kukaFri-libs
 SUBDIR+=	lastwave
 SUBDIR+=	libANN
 SUBDIR+=	libfreenect
+SUBDIR+=	libhatp
 SUBDIR+=	libmove3d
 SUBDIR+=	lwr-genom
 SUBDIR+=	metapod

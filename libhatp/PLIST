@@ -1,0 +1,11 @@
+@comment Sat Jan 19 01:02:50 CET 2013
+include/libhatp/hatpLexer.hh
+include/libhatp/hatpNode.hh
+include/libhatp/hatpPlan.hh
+include/libhatp/hatpStreams.hh
+include/libhatp/hatpTaskList.hh
+include/libhatp/hatpTools.hh
+include/libhatp/hatpTree.hh
+lib/liblibhatp.so
+lib/liblibhatp.so.${PKGVERSION}
+lib/pkgconfig/libhatp.pc
