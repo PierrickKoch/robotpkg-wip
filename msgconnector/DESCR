@@ -1,0 +1,9 @@
+msgconnector is the communication library for HATP
+
+This library includes a server and client definition. It should be used in
+any software that has to communicate with HATP.
+When a client starts, it registeres itself to the server. Then when another
+client wnats to communicate it needs to use the name of the first client, 
+the server will relay the message to the correct client. There must not
+be two clients with the same name because if one leaves then when the second
+will leave ther server will crash. 

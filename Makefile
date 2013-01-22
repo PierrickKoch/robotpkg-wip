@@ -36,6 +36,7 @@ SUBDIR+=	mhp-genom
 SUBDIR+=	morse-pocolibs
 SUBDIR+=	move3d-assets
 SUBDIR+=	move3d-studio
+SUBDIR+=	msgconnector
 SUBDIR+=	mumps
 SUBDIR+=	oro-view
 SUBDIR+=	poisson

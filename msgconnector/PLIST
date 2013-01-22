@@ -1,0 +1,25 @@
+@comment Mon Jan 21 17:38:48 CET 2013
+include/msgconnector/iclient.hh
+include/msgconnector/imsg.hh
+include/msgconnector/message.hh
+include/msgconnector/msgClient.hh
+include/msgconnector/msgConstants.hh
+lib/libmsgconnectorClient.so
+lib/libmsgconnectorClient.so.${PKGVERSION}
+lib/pkgconfig/msgconnector.pc
+bin/MsgServer
+bin/MsgServer-${PKGVERSION}
+lib/libmsgconnectorServer.so
+lib/libmsgconnectorServer.so.${PKGVERSION}
+@comment ${PLIST.server}bin/MsgServer
+@comment ${PLIST.server}bin/MsgServer-${PKGVERSION}
+@comment ${PLIST.server}lib/libmsgconnectorServer.so
+@comment ${PLIST.server}lib/libmsgconnectorServer.so.${PKGVERSION}
+${PLIST.yarp}bin/msgconnector-YARP-bridge
+${PLIST.yarp}bin/msgconnector-YARP-bridge-${PKGVERSION}
+${PLIST.liboro}bin/msgconnector-ORO-bridge
+${PLIST.liboro}bin/msgconnector-ORO-bridge-${PKGVERSION}
+${PLIST.bridge-print}bin/msgconnector-PRINT-bridge
+${PLIST.bridge-print}bin/msgconnector-PRINT-bridge-${PKGVERSION}
+${PLIST.openprs}bin/msgconnector-OPRS-bridge
+${PLIST.openprs}bin/msgconnector-OPRS-bridge-${PKGVERSION}
