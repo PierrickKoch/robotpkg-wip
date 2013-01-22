@@ -1,0 +1,4 @@
+hatpconsole is a GUI that displays plans found by HATP
+
+This GUI displays plans as tree and streams. It also stroe all the requests sent
+to HATP.

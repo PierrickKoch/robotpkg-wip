@@ -1,0 +1,5 @@
+@comment Tue Jan 22 17:34:45 CET 2013
+bin/hatpconsole
+bin/hatpconsole-${PKGVERSION}
+lib/libHATPC_Plan.so
+lib/libHATPC_Plan.so.${PKGVERSION}

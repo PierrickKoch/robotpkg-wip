@@ -10,6 +10,7 @@ SUBDIR+=	genom3-pocolibs
 SUBDIR+=	genom3-ros
 SUBDIR+=	genomix
 SUBDIR+=	gest-genom
+SUBDIR+=	hatpconsole
 SUBDIR+=	hpp-geometry
 SUBDIR+=	hyper
 SUBDIR+=	hyper_genom
