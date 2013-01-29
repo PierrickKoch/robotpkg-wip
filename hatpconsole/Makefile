@@ -4,7 +4,7 @@
 
 DISTNAME=		hatpconsole-${VERSION}
 VERSION=		1.0.0
-PKGREVISION=		
+PKGREVISION=		1
 CATEGORIES=		planning
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=hatpconsole/}
 MASTER_REPOSITORY=	${MASTER_REPOSITORY_OPENROBOTS}hatpconsole
@@ -24,6 +24,7 @@ DEPEND_ABI.boost-headers=boost-headers>=1.34
 
 include ../../wip/msgconnector/depend.mk
 include ../../wip/libhatp/depend.mk
+include ../../wip/mk/sysdep/libgraphviz.mk
 include ../../devel/boost-headers/depend.mk
 include ../../devel/boost-libs/depend.mk
 include ../../mk/sysdep/cmake.mk
