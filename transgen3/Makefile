@@ -1,7 +1,7 @@
 # robotpkg Makefile for:	supervision/transgen
 # Created:			Matthieu Herrb on Thu, 12 Mar 2009
 #
-DISTNAME=	transgen3-1.0b1
+DISTNAME=	transgen3-1.0b2
 CATEGORIES=	supervision
 MASTER_SITES=	${MASTER_SITE_OPENROBOTS:=transgen/}
 
@@ -12,7 +12,7 @@ COMMENT=		Glue between Genom modules and OpenPRS.
 
 GNU_CONFIGURE=	yes
 
-DEPEND_ABI.openprs=	openprs>=1.1b1
+DEPEND_ABI.openprs=	openprs>=1.1b5
 
 
 include ../../wip/genom3/depend.mk
