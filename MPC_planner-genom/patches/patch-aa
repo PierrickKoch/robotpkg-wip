@@ -1,0 +1,124 @@
+Don't use directly char[256] in interface to please oprs
+
+diff --git a/MPC_planner.gen b/MPC_planner.gen
+index 14f46c1..951723d 100644
+--- MPC_planner.gen
++++ MPC_planner.gen
+@@ -86,7 +86,6 @@ typedef struct MPC_PLANNER_STR {
+     TRAJRECORDING_I TrajRecording_I;
+ 
+     /* Path loading / saving requests I/O */
+-    char path_filename[256];
+     FILENAME_I Path_filename_I;
+     LOADPATH_I LoadPath_I;
+ 
+@@ -247,7 +246,7 @@ request LoadPathFromLoc {
+     doc:		    "Load a reference path from an input file and set its starting point as the current location";
+     type:		    exec;
+     exec_task:		    ExecTask; 
+-    input:		    path_filename::path_filename; 
++    input:		    Path_filename_I::Path_filename_I; 
+     input_info:		    ""::"Input path filename";
+     codel_start:	    LoadPathFromLocStart;
+     codel_main:		    LoadPathFromLocMain;
+@@ -260,7 +259,7 @@ request SavePath {
+     doc:		    "Save a reference path into an output file";
+     type:		    exec;
+     exec_task:		    ExecTask; 
+-    input:		    path_filename::path_filename; 
++    input:		    Path_filename_I::Path_filename_I; 
+     input_info:		    ""::"Output path filename";
+     codel_main:		    SavePathMain;
+     fail_reports:	    POSTER_NOT_FOUND, EMPTY_PATH, FILE_ERROR; 
+@@ -310,7 +309,7 @@ request LoadTraj {
+     doc:		    "Load a reference trajectory from an input file";
+     type:		    exec;
+     exec_task:		    ExecTask; 
+-    input:		    path_filename::path_filename; 
++    input:		    Path_filename_I::Path_filename_I; 
+     input_info:		    ""::"Input trajectory filename";
+     codel_main:		    LoadTrajMain;
+     fail_reports:	    FILE_NOT_FOUND; 
+@@ -322,7 +321,7 @@ request SaveTraj {
+     doc:		    "Save a reference trajectory into an output file";
+     type:		    exec;
+     exec_task:		    ExecTask; 
+-    input:		    path_filename::path_filename; 
++    input:		    Path_filename_I::Path_filename_I; 
+     input_info:		    ""::"Output trajectory filename";
+     codel_main:		    SaveTrajMain;
+     fail_reports:	    POSTER_NOT_FOUND, EMPTY_TRAJ, FILE_ERROR; 
+diff --git a/codels/MPC_plannerExecTaskCodels.cc b/codels/MPC_plannerExecTaskCodels.cc
+index 73f2c77..b0e81cd 100644
+--- codels/MPC_plannerExecTaskCodels.cc
++++ codels/MPC_plannerExecTaskCodels.cc
+@@ -1134,7 +1134,7 @@ LoadPathMain(LOADPATH_I *LoadPath_I, int *report)
+ /* LoadPathFromLocStart  -  codel START of LoadPathFromLoc
+    Returns:  START EXEC END ETHER FAIL ZOMBIE */
+ ACTIVITY_EVENT
+-LoadPathFromLocStart(char path_filename[256], int *report)
++LoadPathFromLocStart(FILENAME_I* Path_filename_I, int *report)
+ {
+   if(pomPosterId == NULL)
+     {
+@@ -1148,14 +1148,14 @@ LoadPathFromLocStart(char path_filename[256], int *report)
+ /* LoadPathFromLocMain  -  codel EXEC of LoadPathFromLoc
+    Returns:  EXEC END ETHER FAIL ZOMBIE */
+ ACTIVITY_EVENT
+-LoadPathFromLocMain(char path_filename[256], int *report)
++LoadPathFromLocMain(FILENAME_I* Path_filename_I, int *report)
+ {
+   // reset the current reference path
+   SDI_F->pathRef.nbPos = 0;
+ 
+   // load a mpc path from the input filename
+   DPMPath path_mpc;
+-  bool resLoad = path_mpc.load(path_filename);
++  bool resLoad = path_mpc.load(Path_filename_I->filename);
+ 
+   // read the current location (POM poster)
+   POM_POS pos;
+@@ -1206,7 +1206,7 @@ LoadPathFromLocMain(char path_filename[256], int *report)
+ /* SavePathMain  -  codel EXEC of SavePath
+    Returns:  EXEC END ETHER FAIL ZOMBIE */
+ ACTIVITY_EVENT
+-SavePathMain(char path_filename[256], int *report)
++SavePathMain(FILENAME_I* Path_filename_I, int *report)
+ {
+   // check if the current path is empty
+   if(SDI_F->pathRec.nbPos == 0)
+@@ -1226,7 +1226,7 @@ SavePathMain(char path_filename[256], int *report)
+     }
+ 
+   // save the path into the output file
+-  bool resSave = path_xy->save(path_filename);
++  bool resSave = path_xy->save(Path_filename_I->filename);
+   if(!resSave)
+     {
+       cerr << "MPC_planner::SavePathMain : Unable to save the current path (Wrong path filename?)" << endl;
+@@ -1301,14 +1301,14 @@ ConcatPathMain(LOADPATH_I *LoadPath_I, int *report)
+ /* LoadTrajMain  -  codel EXEC of LoadTraj
+    Returns:  EXEC END ETHER FAIL ZOMBIE */
+ ACTIVITY_EVENT
+-LoadTrajMain(char path_filename[256], int *report)
++LoadTrajMain(FILENAME_I* Path_filename_I, int *report)
+ {
+   // reset the current reference path
+   SDI_F->mana_strajRef.nbPos = 0;
+ 
+   // load a mpc path from the input filename
+   DD2STraj traj_mpc;
+-  bool resLoad = traj_mpc.load(path_filename);
++  bool resLoad = traj_mpc.load(Path_filename_I->filename);
+ 
+   // check if the loading process succeeded
+   if(!resLoad)
+@@ -1340,7 +1340,7 @@ LoadTrajMain(char path_filename[256], int *report)
+ /* SaveTrajMain  -  codel EXEC of SaveTraj
+    Returns:  EXEC END ETHER FAIL ZOMBIE */
+ ACTIVITY_EVENT
+-SaveTrajMain(char path_filename[256], int *report)
++SaveTrajMain(FILENAME_I* Path_filename_I, int *report)
+ {
+   /* ... add your code here ... */
+   return ETHER;
