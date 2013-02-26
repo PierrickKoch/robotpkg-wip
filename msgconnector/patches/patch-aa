@@ -1,0 +1,22 @@
+Add missing unistd.h include for close(2)
+
+--- isocket/iserver.hh.orig	2013-02-26 10:29:48.651007333 +0100
++++ isocket/iserver.hh	2013-02-26 10:30:12.031006747 +0100
+@@ -5,6 +5,7 @@
+ #include <netinet/in.h>
+ #include <netinet/tcp.h>
+ #include <iostream>
++#include <unistd.h>
+ #include <vector>
+ 
+ #include "imsg.hh"
+--- isocket/iclient.hh.orig	2013-01-21 17:29:15.000000000 +0100
++++ isocket/iclient.hh	2013-02-26 10:31:09.303005310 +0100
+@@ -4,6 +4,7 @@
+ #include <sys/epoll.h>
+ #include <netinet/tcp.h>
+ #include <netdb.h> 
++#include <unistd.h>
+ 
+ #include "imsg.hh"
+ #include "message.hh"
