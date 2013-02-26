@@ -1,0 +1,68 @@
+[PATCH] Don't use char[] in the interface, oprs does not like it
+
+diff --git a/MPC_avoidObs-Struct.h b/MPC_avoidObs-Struct.h
+index 36f8256..2854555 100644
+--- MPC_avoidObs-Struct.h
++++ MPC_avoidObs-Struct.h
+@@ -327,5 +327,11 @@ typedef struct DISTMAPOPTIONS_I
+   float SafeDist;
+ } DISTMAPOPTIONS_I;
+ 
++/***********************************************************************/
++/* SetVelFeedbackMode parameters */
++
++typedef struct VELFEEDBACKMODE_I {
++    char name[256]; 
++} VELFEEDBACKMODE_I;
+ 
+ #endif /* MPC_AVOIDOBS_STRUCT_H */
+diff --git a/MPC_avoidObs.gen b/MPC_avoidObs.gen
+index b86fa71..bb865bf 100644
+--- MPC_avoidObs.gen
++++ MPC_avoidObs.gen
+@@ -135,7 +135,7 @@ typedef struct MPC_AVOID_STR {
+ //    int Port_I;
+ 
+     /* SetVelFeedbackMode request I/O */
+-    char Vel_fb_mode_I[256]; 
++	VELFEEDBACKMODE_I  vel_feedback_I;
+ 
+     /* KeepLatShift request I/O */
+     KEEP_SHIFT_I Keep_shift_I;
+@@ -383,7 +383,7 @@ request SetVelFeedbackMode {
+     doc:		    "Set the velocity feedback mode (from sent control or GPS)";
+     type:		    control;
+     exec_task:		    ExecTask; 
+-    input:		    Vel_fb_mode_I::Vel_fb_mode_I; 
++    input:		        vel_feedback_I::vel_feedback_I;
+     input_info:		    "sent_control"::"Velocity feedback mode (sent_control or gps)";
+     codel_control:	    SetVelFeedbackMode_Ctrl;
+ };
+diff --git a/codels/MPC_avoidObsCntrlTaskCodels.cc b/codels/MPC_avoidObsCntrlTaskCodels.cc
+index ff5189d..dd4a020 100644
+--- codels/MPC_avoidObsCntrlTaskCodels.cc
++++ codels/MPC_avoidObsCntrlTaskCodels.cc
+@@ -151,11 +151,11 @@ SetRobufastComParams_Ctrl(ROBUFAST_COM_PARAMS_I *RobufastComParams_I, int *repor
+  */
+ 
+ STATUS
+-SetVelFeedbackMode_Ctrl(char Vel_fb_mode_I[256], int *report)
++SetVelFeedbackMode_Ctrl(VELFEEDBACKMODE_I* vel_feedback_I, int *report)
+ {
+   cout << "SetVelFeedbackMode_Ctrl 0" << endl;
+ 
+-  if(strcmp(Vel_fb_mode_I, "gps") == 0)
++  if(strcmp(vel_feedback_I->name, "gps") == 0)
+     {
+       cout << "SetVelFeedbackMode_Ctrl 1" << endl;
+ 
+@@ -170,7 +170,7 @@ SetVelFeedbackMode_Ctrl(char Vel_fb_mode_I[256], int *report)
+ 	  cout << "Velocity feedback mode : GPS poster has not been found. Default used : Sent control" << endl;
+ 	}
+     }
+-  else if(strcmp(Vel_fb_mode_I, "sent_control") == 0)
++  else if(strcmp(vel_feedback_I->name, "sent_control") == 0)
+     {
+       cout << "SetVelFeedbackMode_Ctrl 2" << endl;
+ 
+
