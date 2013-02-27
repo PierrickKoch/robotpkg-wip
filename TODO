@@ -12,16 +12,20 @@ Suggested package updates
 =========================
 
     o middleware/openni-1.3.2.1
-	o middleware/yarp-2.3.15
+	o middleware/yarp-2.3.20.1
+	o graphics/blender-2.66
 
 Suggested new packages
 ======================
 
-    o modeling/pcl-1.1
+    o modeling/pcl-1.6
 	o middleware/orocos-toolchain (will replace middleware/orocos-rtt and
 	middleware/orocos-ocl)
 	o http://gitorious.org/orocos-communication/yarp-transport to replace 
 	  middleware/robotis-oroyarp
+    o motion/ompl-0.12.2
+    o lang/python3-3 (or at least some sysdep entries)
+	
 
 Suggested ready to import packages
 ==================================
