@@ -1,0 +1,4 @@
+hatptester is a GUI to send plan requests to HATP
+
+This GUI automatically get all entities and tasks (actions and methods) form HATP.
+This allow to create requests with proper value for each parameter.
