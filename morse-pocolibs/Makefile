@@ -15,52 +15,28 @@ CMAKE_ARGS+=		-DBUILD_POCOLIBS_SUPPORT=ON
 CMAKE_ARGS+=		-DBUILD_ROS_SUPPORT=OFF
 CMAKE_ARGS+=		-DBUILD_YARP2_SUPPORT=OFF
 
-CMAKE_ARGS+=		-DSWIG_EXECUTABLE=${PREFIX.swig}/bin/swig
 
-# pocolibs support
-PKG_SUPPORTED_OPTIONS+=		outdoor
-PKG_OPTION_DESCR.outdoor=	Enable support for field robotics components
+PKG_SUPPORTED_OPTIONS+=		viam
+PKG_OPTION_DESCR.outdoor=	Enable support for image camera support
 
-define PKG_OPTION_SET.outdoor
-  CMAKE_ARGS+=		-DBUILD_POCOLIBS_POM_SUPPORT=ON
+define PKG_OPTION_SET.viam
   CMAKE_ARGS+=		-DBUILD_POCOLIBS_VIAM_SUPPORT=ON
-  CMAKE_ARGS+=		-DBUILD_POCOLIBS_PLATINE_SUPPORT=ON
-  CMAKE_ARGS+=		-DBUILD_POCOLIBS_GENPOS_SUPPORT=ON
 
-  PLIST_SRC= PLIST PLIST.common PLIST.outdoor
-
-  include ../../interfaces/genPos-genom/depend.mk
   include ../../image/viam-genom/depend.mk
-  include ../../hardware/platine-genom/depend.mk
-  include ../../localization/pom-genom/depend.mk
+  include ../../middleware/pocolibs/depend.mk
 endef
 
-PKG_SUPPORTED_OPTIONS+=		hri
-PKG_OPTION_DESCR.hri=\
-	Enable support for human-robot interaction components
+PKG_SUPPORTED_OPTIONS+=		stereopixel
+PKG_OPTION_DESCR.outdoor=	Enable support for depth camera support
 
-define PKG_OPTION_SET.hri
-  CMAKE_ARGS+=		-DBUILD_POCOLIBS_POM_SUPPORT=ON
-  CMAKE_ARGS+=		-DBUILD_POCOLIBS_LWR_SUPPORT=ON
-  CMAKE_ARGS+=		-DBUILD_POCOLIBS_VIMAN_SUPPORT=ON
-  CMAKE_ARGS+=		-DBUILD_POCOLIBS_HUMAN_POSTURE_SUPPORT=ON
-  CMAKE_ARGS+=		-DBUILD_POCOLIBS_GENPOS_SUPPORT=ON
-  CMAKE_ARGS+=		-DBUILD_POCOLIBS_PLATINE_SUPPORT=ON
+define PKG_OPTION_SET.stereopixel
+  CMAKE_ARGS+=		-DBUILD_POCOLIBS_STEREOPIXEL_SUPPORT=ON
 
-  PLIST_SRC= PLIST PLIST.common PLIST.hri
-
-  include ../../image/viman-genom/depend.mk
-  include ../../interfaces/genPos-genom/depend.mk
-  include ../../hardware/platine-genom/depend.mk
-  include ../../localization/pom-genom/depend.mk
-  include ../../wip/lwr-genom/depend.mk
-  include ../../wip/spark-genom/depend.mk
+  include ../../image/stereopixel-genom/depend.mk
+  include ../../middleware/pocolibs/depend.mk
 endef
 
-include ../../devel/swig/depend.mk
-include ../../middleware/pocolibs/depend.mk
 include ../../simulation/morse/depend.mk
-include ../../mk/language/c.mk
 include ../../mk/robotpkg.mk
 
 _pycompile_dir=${PREFIX}/${PYTHON_SITELIB}/morse/middleware/pocolibs*

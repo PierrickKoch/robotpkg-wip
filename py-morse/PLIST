@@ -1,7 +1,19 @@
-@comment Wed Oct 31 16:40:58 CET 2012
-lib/python3/dist-packages/pymorse-testing.py
-lib/python3/dist-packages/${PYTHON_PYCACHE}/pymorse-testing${PYTHON_TAG}.pyc
-lib/python3/dist-packages/${PYTHON_PYCACHE}/pymorse-testing${PYTHON_TAG}.pyo
-lib/python3/dist-packages/pymorse.py
-lib/python3/dist-packages/${PYTHON_PYCACHE}/pymorse${PYTHON_TAG}.pyc
-lib/python3/dist-packages/${PYTHON_PYCACHE}/pymorse${PYTHON_TAG}.pyo
+@comment Fri Mar 1 18:17:41 CET 2013
+lib/python3/dist-packages/pymorse/__init__.py
+lib/python3/dist-packages/pymorse/${PYTHON_PYCACHE}/__init__${PYTHON_TAG}.pyc
+lib/python3/dist-packages/pymorse/${PYTHON_PYCACHE}/__init__${PYTHON_TAG}.pyo
+lib/python3/dist-packages/pymorse/${PYTHON_PYCACHE}/future${PYTHON_TAG}.pyc
+lib/python3/dist-packages/pymorse/${PYTHON_PYCACHE}/future${PYTHON_TAG}.pyo
+lib/python3/dist-packages/pymorse/${PYTHON_PYCACHE}/pymorse-internals-testing${PYTHON_TAG}.pyc
+lib/python3/dist-packages/pymorse/${PYTHON_PYCACHE}/pymorse-internals-testing${PYTHON_TAG}.pyo
+lib/python3/dist-packages/pymorse/${PYTHON_PYCACHE}/pymorse-testing${PYTHON_TAG}.pyc
+lib/python3/dist-packages/pymorse/${PYTHON_PYCACHE}/pymorse-testing${PYTHON_TAG}.pyo
+lib/python3/dist-packages/pymorse/${PYTHON_PYCACHE}/pymorse${PYTHON_TAG}.pyc
+lib/python3/dist-packages/pymorse/${PYTHON_PYCACHE}/pymorse${PYTHON_TAG}.pyo
+lib/python3/dist-packages/pymorse/${PYTHON_PYCACHE}/stream${PYTHON_TAG}.pyc
+lib/python3/dist-packages/pymorse/${PYTHON_PYCACHE}/stream${PYTHON_TAG}.pyo
+lib/python3/dist-packages/pymorse/future.py
+lib/python3/dist-packages/pymorse/pymorse-internals-testing.py
+lib/python3/dist-packages/pymorse/pymorse-testing.py
+lib/python3/dist-packages/pymorse/pymorse.py
+lib/python3/dist-packages/pymorse/stream.py

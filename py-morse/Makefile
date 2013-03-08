@@ -2,7 +2,7 @@
 # Created:			Severin Lemaignan on Tue, 12 Apr 2011
 #
 
-VERSION=		0.6
+VERSION=		1.0
 PKGNAME=		${PKGTAG.python}-morse-${VERSION}
 DISTNAME=		morse-${VERSION}
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=morse/}
@@ -26,7 +26,7 @@ CMAKE_ARGS+=		-DBUILD_YARP2_SUPPORT=OFF
 
 CMAKE_ARGS+=		-DPYMORSE_SUPPORT=ON
 
-DEPEND_ABI.python+=	python>=2.6<3.3
+DEPEND_ABI.python+=	python>=3.2<3.3
 
 include ../../mk/sysdep/python.mk
 include ../../mk/sysdep/cmake.mk
