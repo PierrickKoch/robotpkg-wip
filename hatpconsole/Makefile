@@ -28,6 +28,7 @@ include ../../wip/mk/sysdep/libgraphviz.mk
 include ../../devel/boost-headers/depend.mk
 include ../../devel/boost-libs/depend.mk
 include ../../mk/sysdep/cmake.mk
+include ../../mk/sysdep/qt4-libs.mk
 include ../../mk/language/c.mk
 include ../../mk/language/c++.mk
 include ../../mk/robotpkg.mk
