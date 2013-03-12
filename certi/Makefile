@@ -3,7 +3,7 @@
 #
 
 COMMIT=		HEAD
-PKG_VERSION=	${COMMIT}
+PKG_VERSION=	20130312
 DISTNAME= 	certi-${PKG_VERSION}
 CATEGORIES=		architecture
 MASTER_SITES=	:pserver:anonymous@cvs.savannah.nongnu.org:/sources/certi@${COMMIT}+certi

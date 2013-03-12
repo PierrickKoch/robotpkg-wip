@@ -14,7 +14,7 @@ PREFER.certi?=	robotpkg
 
 DEPEND_USE+=		certi
 
-DEPEND_ABI.certi?=	certi>=20101119
+DEPEND_ABI.certi?=	certi>=20120101
 DEPEND_DIR.certi?=	../../wip/certi
 
 SYSTEM_SEARCH.certi=\
