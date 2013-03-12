@@ -37,6 +37,7 @@ SUBDIR+=	libmove3d-planners
 SUBDIR+=	lwr-genom
 SUBDIR+=	metapod
 SUBDIR+=	mhp-genom
+SUBDIR+=	morse-hla
 SUBDIR+=	morse-pocolibs
 SUBDIR+=	move3d-assets
 SUBDIR+=	move3d-studio
