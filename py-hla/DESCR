@@ -1,0 +1,7 @@
+CERTI is an Open Source HLA RTI. HLA (High-Level Architecture) is a general
+purpose architecture for distributed computer simulation systems. In HLA
+systems, the RTI (RunTime Infrastructure) manages data exchange between
+simulations. CERTI supports HLA 1.3 specifications (C++ and Java) and partial
+IEEE 1516-2000 (C++).  CERTI is open source software (GPL, libraries are LGPL).
+
+This package contains the Python API to communicate with CERTI.

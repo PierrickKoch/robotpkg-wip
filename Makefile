@@ -52,6 +52,7 @@ SUBDIR+=	poisson
 SUBDIR+=	pr2-pick-object
 SUBDIR+= 	py-flann
 SUBDIR+= 	py-laaswm
+SUBDIR+= 	py-hla
 SUBDIR+= 	py-morse
 SUBDIR+=	rednav-genom
 SUBDIR+=	rfid-genom
