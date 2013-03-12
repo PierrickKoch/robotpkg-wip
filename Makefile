@@ -56,7 +56,6 @@ SUBDIR+=	rednav-genom
 SUBDIR+=	rfid-genom
 SUBDIR+=	robotModelParser-libs
 SUBDIR+=	robot-viewer
-SUBDIR+=	ros-gencpp
 SUBDIR+=	spark-genom
 SUBDIR+=	sparkyarp-genom
 SUBDIR+=	tcl-genomix
