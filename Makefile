@@ -52,7 +52,6 @@ SUBDIR+=	pr2-pick-object
 SUBDIR+= 	py-flann
 SUBDIR+= 	py-laaswm
 SUBDIR+= 	py-morse
-SUBDIR+= 	py-rospkg
 SUBDIR+=	rednav-genom
 SUBDIR+=	rfid-genom
 SUBDIR+=	robotModelParser-libs
