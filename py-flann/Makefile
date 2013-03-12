@@ -2,27 +2,28 @@
 # Created:			Nizar Sallem on Tue, 28 Dec 2010
 #
 
-VERSION=			1.6.11
-PKGNAME= 			${PKGTAG.python-}-flann-${VERSION}
-DISTNAME=			flann-${VERSION}-src
-EXTRACT_SUFX= .zip
-CATEGORIES=		math
+VERSION=	1.7.1
+DISTNAME=	flann-${VERSION}-src
+PKGNAME= 		${PKGTAG.python}-flann-${VERSION}
 MASTER_SITES=	http://www.cs.ubc.ca/~mariusm/uploads/FLANN/
+EXTRACT_SUFX=	.zip
 
+CATEGORIES=	graphics
+COMMENT=	Fast approximate nearest neighbor search for high dimension
 MAINTAINER=	openrobots@laas.fr
 HOMEPAGE=	http://www.cs.ubc.ca/~mariusm/index.php/FLANN/FLANN
-COMMENT=	Python bindings for flann
 LICENSE=	2-clause-bsd
 
+CMAKE_ARGS+=	-DBUILD_MATLAB_BINDINGS=OFF
+CMAKE_ARGS+=	-DBUILD_PYTHON_BINDINGS=ON
+CMAKE_ARGS+=	-DUSE_MPI=OFF
+CMAKE_ARGS+=	-DBUILD_CUDA_LIB=OFF
+CMAKE_ARGS+=	-DBUILD_C_BINDINGS=OFF
+CMAKE_ARGS+= 	-DPYTHON_SITELIB=${PYTHON_SITELIB}
 
-#option for c bindings generation
-CMAKE_ARGS+=			-DBUILD_C_BINDINGS=OFF
-CMAKE_ARGS+=			-DBUILD_MATLAB_BINDINGS=OFF
-CMAKE_ARGS+= 			-DPYTHON_SITELIB=${PYTHON_SITELIB}
+include ../../graphics/flann/depend.mk
 
 include ../../mk/sysdep/python.mk
-include ../../wip/flann/depend.mk
-include ../../mk/sysdep/latex.mk
 include ../../mk/sysdep/cmake.mk
 include ../../mk/language/c.mk
 include ../../mk/language/c++.mk
