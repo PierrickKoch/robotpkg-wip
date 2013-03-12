@@ -4,6 +4,7 @@
 
 PKGNAME= 		hri-simulation
 VERSION=		1.1
+PKGREVISION= 	1
 
 DISTNAME=		${PKGNAME}-${VERSION}
 
@@ -21,20 +22,28 @@ DEPEND_ABI.python+=	python<3
 PYDISTUTILSPKG= 	ON
 
 
-# Required dependencies
+REQD_BUILD_OPTIONS.pom-genom+=python
 include ../../localization/pom-genom/depend.mk
 
+REQD_BUILD_OPTIONS.platine-genom+=python
 include ../../hardware/platine-genom/depend.mk
+
+REQD_BUILD_OPTIONS.viman-genom+=python
+include ../../image/viman-genom/depend.mk
+
+REQD_BUILD_OPTIONS.lwr-genom+=python
 include ../../wip/lwr-genom/depend.mk
 
-REQD_BUILD_OPTIONS.spark-genom+=jido
+REQD_BUILD_OPTIONS.genPos-genom+=python
+include ../../interfaces/genPos-genom/depend.mk
+
+REQD_BUILD_OPTIONS.spark-genom+=jido python
 include ../../wip/spark-genom/depend.mk
 
 REQD_BUILD_OPTIONS.pilo-genom+=fake
 include ../../wip/mhp-genom/depend.mk
 include ../../wip/move3d-assets/depend.mk
 
-REQD_BUILD_OPTIONS.morse-pocolibs+= hri
 include ../../wip/morse-pocolibs/depend.mk
 
 include ../../sysutils/alog/depend.mk
