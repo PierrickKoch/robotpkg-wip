@@ -1,22 +1,21 @@
-diff -ru CMakeLists.txt CMakeLists.txt
---- CMakeLists.txt	2011-07-20 13:32:34.259315161 +0100
-+++ CMakeLists.txt	2011-07-20 13:34:15.583817611 +0100
-@@ -43,10 +43,10 @@
- option(USE_MPI "Use MPI" OFF)
+--- CMakeLists.txt.orig	2011-12-23 12:16:09.000000000 +0100
++++ CMakeLists.txt	2013-03-12 14:16:34.920354953 +0100
+@@ -47,10 +47,10 @@
  
+ set(NVCC_COMPILER_BINDIR "" CACHE PATH  "Directory where nvcc should look for C++ compiler. This is passed to nvcc through the --compiler-bindir option.")
  
 -if (NOT BUILD_C_BINDINGS)
 -    set(BUILD_PYTHON_BINDINGS OFF)
 -    set(BUILD_MATLAB_BINDINGS OFF)
 -endif()
-+# if (NOT BUILD_C_BINDINGS)
-+#     set(BUILD_PYTHON_BINDINGS OFF)
-+#     set(BUILD_MATLAB_BINDINGS OFF)
-+# endif()
++#if (NOT BUILD_C_BINDINGS)
++#    set(BUILD_PYTHON_BINDINGS OFF)
++#    set(BUILD_MATLAB_BINDINGS OFF)
++#endif()
  
  
  # find python
-@@ -103,11 +103,11 @@
+@@ -141,11 +141,11 @@
      add_definitions( "-Wall" )
  endif(WIN32)
  
@@ -32,20 +31,3 @@ diff -ru CMakeLists.txt CMakeLists.txt
  
  
  # CPACK options
-diff -ru src/CMakeLists.txt src/CMakeLists.txt
---- src/CMakeLists.txt	2011-07-20 13:32:34.267315202 +0100
-+++ src/CMakeLists.txt	2011-07-20 13:34:13.811808817 +0100
-@@ -1,9 +1,9 @@
- 
--add_subdirectory( cpp )
-+#add_subdirectory( cpp )
- 
--if (BUILD_MATLAB_BINDINGS)
--    add_subdirectory( matlab )
--endif()
-+# if (BUILD_MATLAB_BINDINGS)
-+#     add_subdirectory( matlab )
-+# endif()
- 
- if (BUILD_PYTHON_BINDINGS)
-     add_subdirectory( python )
