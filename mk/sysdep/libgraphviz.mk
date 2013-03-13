@@ -36,8 +36,8 @@ SYSTEM_SEARCH.libgraphviz=	\
 	'lib/pkgconfig/libgvc.pc'\
 	'lib/libgvc.so:/Version/s/[^.0-9]//gp'
 
-SYSTEM_PKG.Fedora.libgraphviz=	libgraphviz-devel
-SYSTEM_PKG.Ubuntu.libgraphviz=	graphviz-dev
+SYSTEM_PKG.Fedora.libgraphviz=	graphviz-devel
+SYSTEM_PKG.Ubuntu.libgraphviz=	libgraphviz-dev
 SYSTEM_PKG.Debian.libgraphviz=	graphviz-dev
 SYSTEM_PKG.NetBSD.libgraphviz=	pkgsrc/graphics/graphviz
 
