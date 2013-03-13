@@ -16,6 +16,8 @@ LICENSE=		2-clause-bsd
 
 MAKE_JOBS_SAFE=		yes
 
+ONLY_FOR_PLATFORM = Linux-%
+
 #--- Options : msgconnector can be build with different bridges
 PKG_SUPPORTED_OPTIONS+= bridge-print
 PKG_SUPPORTED_OPTIONS+= openprs
