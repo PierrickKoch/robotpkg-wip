@@ -4,6 +4,7 @@
 
 COMMIT=		HEAD
 PKG_VERSION=	20130312
+PKGREVISION= 	1
 DISTNAME= 	certi-${PKG_VERSION}
 CATEGORIES=		architecture
 MASTER_SITES=	:pserver:anonymous@cvs.savannah.nongnu.org:/sources/certi@${COMMIT}+certi
@@ -13,6 +14,16 @@ MAINTAINER=	robotpkg@laas.fr
 HOMEPAGE=	https://savannah.nongnu.org/projects/certi
 COMMENT=	An Open Source HLA RTI (High Level Architecture)
 LICENSE=	gnu-gpl-v2
+
+PKG_SUPPORTED_OPTIONS+=		gui
+PKG_OPTION_DESCR.gui=		Enable GUI support
+define PKG_OPTION_SET.gui
+  CMAKE_ARGS+=			-DFORCE_NO_X11=OFF
+  include ../../mk/sysdep/libX11.mk
+endef
+define PKG_OPTION_UNSET.gui
+  CMAKE_ARGS+=			-DFORCE_NO_X11=ON
+endef
 
 include ../../mk/sysdep/cmake.mk
 include ../../mk/language/c.mk

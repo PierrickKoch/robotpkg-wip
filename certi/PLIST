@@ -4,7 +4,7 @@ bin/CertiProcessus_A
 bin/CertiProcessus_B
 bin/MessageBufferTests
 bin/MsgBufferTests
-bin/billard
+${PLIST.gui}bin/billard
 bin/billard-nogui
 bin/hlaomtdif2cpp.py
 bin/rtia
@@ -77,7 +77,7 @@ lib/libRTI1516.so
 lib/libRTI1516.so.1
 lib/libRTI1516.so.1.0.0
 lib/libgraph-nogui.a
-lib/libgraph.a
+${PLIST.gui}lib/libgraph.a
 share/doc/certi/favicon.ico
 share/doc/certi/index.html
 share/federations/Test.fed
