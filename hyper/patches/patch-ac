@@ -1,0 +1,14 @@
+Only install header files from include
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 8e16951..fac985d 100644
+--- CMakeLists.txt
++++ CMakeLists.txt
+@@ -85,6 +85,7 @@ endforeach(lib)
+ # install rules for include
+ install(DIRECTORY include/
+ 		DESTINATION ${CMAKE_INSTALL_PREFIX}/include/hyper
++		FILES_MATCHING PATTERN "*.hh"
+ 		)
+ 
+ configure_file(
