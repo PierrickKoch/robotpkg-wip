@@ -43,6 +43,7 @@ SYSTEM_SEARCH.xforms=	\
 SYSTEM_PKG.Fedora.xforms=xforms-devel
 SYSTEM_PKG.Ubuntu.xforms=libforms-dev libformsgl-dev
 SYSTEM_PKG.Debian.xforms=libforms-dev libformsgl-dev
+SYSTEM_PKG.NetBSD.xforms=x11/xforms
 
 
 endif # XFORMS_DEPEND_MK ---------------------------------------------------

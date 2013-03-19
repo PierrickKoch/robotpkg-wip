@@ -40,6 +40,7 @@ SYSTEM_SEARCH.qwt=	\
 SYSTEM_PKG.Fedora.qwt=qwt
 SYSTEM_PKG.Ubuntu.qwt=libqwt-dev
 SYSTEM_PKG.Debian.qwt=libqwt-dev
+SYSTEM_PKG.NetBSD.qwt=x11/qwt
 
 endif # QWT_DEPEND_MK ---------------------------------------------------
 

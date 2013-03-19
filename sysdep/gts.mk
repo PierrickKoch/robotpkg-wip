@@ -40,6 +40,7 @@ SYSTEM_SEARCH.gts=	\
 SYSTEM_PKG.Fedora.gts=gts-devel
 SYSTEM_PKG.Ubuntu.gts=libgts-dev
 SYSTEM_PKG.Debian.gts=libgts-dev
+SYSTEM_PKG.NetBSD.gts=wip/gts
 
 
 endif # GTS_DEPEND_MK ---------------------------------------------------

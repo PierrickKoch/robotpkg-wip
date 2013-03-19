@@ -41,6 +41,7 @@ SYSTEM_SEARCH.glpk=	\
 SYSTEM_PKG.Fedora.glpk=glpk-devel
 SYSTEM_PKG.Ubuntu.glpk=glpk
 SYSTEM_PKG.Debian.glpk=glpk
+SYSTEM_PKG.NetBSD.gplk=math/gplk
 
 endif # GLPK_DEPEND_MK ---------------------------------------------------
 

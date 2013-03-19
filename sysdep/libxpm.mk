@@ -35,6 +35,7 @@ SYSTEM_SEARCH.libXpm=	\
 SYSTEM_PKG.Fedora.libXpm=libXpm-devel
 SYSTEM_PKG.Ubuntu.libXpm=libxpm-dev
 SYSTEM_PKG.Debian.libXpm=libXpm-dev
+SYSTEM_PKG.NetBSD.libXpm=x11/libXpm
 
 endif # LIBXPM_DEPEND_MK ---------------------------------------------------
 
