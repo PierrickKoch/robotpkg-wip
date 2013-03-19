@@ -1,0 +1,32 @@
+Workaround against boost issue 7364
+
+https://svn.boost.org/trac/boost/ticket/7364
+
+--- include/rtslam/sensorAbstract.hpp.orig	2013-03-19 22:13:31.000000000 +0000
++++ include/rtslam/sensorAbstract.hpp	2013-03-19 22:31:29.000000000 +0000
+@@ -36,6 +36,7 @@
+ 		class ObservationAbstract;
+ 		class DataManagerAbstract;
+ 
++		static std::vector<RobotAbstract::Quantity> workaround_7364;
+ 		/** 
+ 			Base class for all types of sensors.
+ 			\ingroup rtslam
+@@ -70,7 +71,7 @@
+ 				 * \param poseInFilter flag indicating if the sensor pose is part of the filter (REMOTE).
+ 				 */
+ 				SensorAbstract(const robot_ptr_t & _robPtr, const filtered_obj_t poseInFilter = UNFILTERED, int extraStateFilterSize = 0,
+-					std::vector<RobotAbstract::Quantity> robQuant = boost::assign::list_of(RobotAbstract::qPos)(RobotAbstract::qOriQuat));
++					std::vector<RobotAbstract::Quantity> robQuant = boost::assign::list_of(RobotAbstract::qPos)(RobotAbstract::qOriQuat).to_container(workaround_7364));
+ 				
+ 				/**
+ 				 * Mandatory virtual destructor.
+@@ -170,7 +171,7 @@
+ 				hardware::hardware_sensorprop_ptr_t hardwareSensorPtr;
+ 			public:
+ 				SensorProprioAbstract(const robot_ptr_t & robPtr, const filtered_obj_t poseInFilter = UNFILTERED, int extraStateFilterSize = 0,
+-					std::vector<RobotAbstract::Quantity> robQuant = boost::assign::list_of(RobotAbstract::qPos)(RobotAbstract::qOriQuat)):
++					std::vector<RobotAbstract::Quantity> robQuant = boost::assign::list_of(RobotAbstract::qPos)(RobotAbstract::qOriQuat).to_container(workaround_7364)):
+ 				  SensorAbstract(robPtr, poseInFilter, extraStateFilterSize, robQuant) { kind = PROPRIOCEPTIVE; }
+ 
+ 				void setHardwareSensor(hardware::hardware_sensorprop_ptr_t hardwareSensorPtr_)
