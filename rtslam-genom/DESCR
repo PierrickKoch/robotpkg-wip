@@ -1,0 +1,22 @@
+RT-SLAM stands for Real Time SLAM (Simultaneous Localization And Mapping).
+
+RT-SLAM is a fast Slam library and test framework based on EKF. Its main
+qualities are:
+	- genericity: for sensor models, landmark types, landmark models, landmarks
+	reparametrization, biases estimation;
+	- speed: real time at 60 fps (VGA, gray level) on a decent machine (at
+	least one Core2 core at 2.2GHz)
+	- flexibility: different estimation/image processing sequencing strategies
+	(active search), independent base brick for a hierarchical multimap and
+	multirobots architecture;
+	- robustness: near-optimal repartition of landmarks, data association
+	errors detection (gating, ransac);
+	- developer-friendly: visualization tools (2D and 3D), offline replay step
+	by step, logs, simulation.
+
+For now it provides:
+	- Landmarks: Anchored Homogeneous Points (Inverse Depth) that can be
+	reparametrized into Euclidean Points;
+    - Sensors: Pinhole cameras;
+    - Prediction: Constant velocity model, inertial sensor;
+    - Data association: Active search, 1-point Ransac, and mixed strategies. 
