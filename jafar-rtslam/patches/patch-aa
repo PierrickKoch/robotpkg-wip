@@ -1,0 +1,13 @@
+Fix syntax + naming of requirements
+
+--- jafar-rtslam.pc.in.orig	2013-03-19 12:12:35.114904384 +0100
++++ jafar-rtslam.pc.in	2013-03-19 12:12:57.694903817 +0100
+@@ -6,6 +6,6 @@
+ Name: jafar-rtslam
+ Description: Jafar module to do fast and generic EKF Slam.
+ Version: 0.2
+-Requires: kernel;image;jmath;correl
++Requires: jafar-kernel,jafar-image,jafar-jmath,jafar-correl
+-Libs: -L${CMAKE_INSTALL_PREFIX} -ljafar-rtslam
++Libs: -L${CMAKE_INSTALL_PREFIX}/lib -ljafar-rtslam
+ Cflags: -I${CMAKE_INSTALL_PREFIX}/include/jafar ${IMPORTED_HEADERS} ${EXTRA_COMPILE_FLAGS}
