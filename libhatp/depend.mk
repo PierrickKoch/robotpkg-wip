@@ -14,7 +14,7 @@ PREFER.libhatp?=	robotpkg
 
 DEPEND_USE+=		libhatp
 
-DEPEND_ABI.libhatp?=	libhatp>=1.0.0
+DEPEND_ABI.libhatp?=	libhatp>=1.0.2
 DEPEND_DIR.libhatp?=	../../wip/libhatp
 
 SYSTEM_SEARCH.libhatp=\
