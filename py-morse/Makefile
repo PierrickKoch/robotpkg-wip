@@ -2,7 +2,7 @@
 # Created:			Severin Lemaignan on Tue, 12 Apr 2011
 #
 
-VERSION=		1.0
+VERSION=		1.0.1
 PKGNAME=		${PKGTAG.python}-morse-${VERSION}
 DISTNAME=		morse-${VERSION}
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=morse/}
