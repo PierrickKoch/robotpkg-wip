@@ -2,8 +2,8 @@
 # Created:			Matthieu Herrb on Thu, 4 Nov 2010
 #
 
-DISTNAME=	assimp--${PKGVERSION}-sdk
-PKGVERSION=	2.0.858
+DISTNAME=	assimp--${PKGVERSION}-source-only
+PKGVERSION=	3.0.1270
 PKGNAME=	assimp-${PKGVERSION}
 EXTRACT_SUFX=	.zip
 

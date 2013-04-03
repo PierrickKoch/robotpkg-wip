@@ -15,12 +15,13 @@ PREFER.assimp?=		robotpkg
 
 DEPEND_USE+=		assimp
 
-DEPEND_ABI.assimp?=	assimp>=1.1.700
-DEPEND_DIR.assimp?=	../../graphics/assimp
+DEPEND_ABI.assimp?=	assimp>=3.0
+DEPEND_DIR.assimp?=	../../wip/assimp
 
 SYSTEM_SEARCH.assimp= \
-	include/assimp/assimp.h	\
-	lib/libassimp.{so,dylib}
+	bin/assimp        \
+	include/assimp/version.h	\
+	lib/libassimp.so
 
 endif # ASSIMP_DEPEND_MK ---------------------------------------------------
 
