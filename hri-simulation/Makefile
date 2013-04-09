@@ -6,7 +6,7 @@ PKGNAME= 		hri-simulation
 VERSION=		1.1
 PKGREVISION= 	1
 
-DISTNAME=		${PKGNAME}-${VERSION}
+DISTNAME=		${PKGNAME_NOREV}-${VERSION}
 
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=hri-simulation/}
 MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/hri-simulation
