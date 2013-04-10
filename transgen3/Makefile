@@ -12,7 +12,7 @@ COMMENT=		Glue between Genom modules and OpenPRS.
 
 GNU_CONFIGURE=	yes
 
-DEPEND_ABI.openprs=	openprs>=1.1b5
+DEPEND_ABI.openprs=	openprs>=1.1b7
 
 
 include ../../wip/genom3/depend.mk
@@ -23,4 +23,5 @@ include ../../mk/sysdep/flex.mk
 include ../../mk/sysdep/perl.mk
 include ../../mk/language/java.mk
 include ../../mk/language/c.mk
+include ../../mk/sysdep/perl.mk
 include ../../mk/robotpkg.mk

@@ -15,7 +15,7 @@ PREFER.transgen3?=	robotpkg
 
 DEPEND_USE+=		transgen3
 
-DEPEND_ABI.transgen3?=	transgen3>=1.0b0
+DEPEND_ABI.transgen3?=	transgen3>=1.0b2
 DEPEND_DIR.transgen3?=	../../wip/transgen3
 
 SYSTEM_SEARCH.transgen3=\
