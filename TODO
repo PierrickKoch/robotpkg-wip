@@ -24,8 +24,7 @@ Suggested new packages
 	o http://gitorious.org/orocos-communication/yarp-transport to replace 
 	  middleware/robotis-oroyarp
     o motion/ompl-0.12.2
-    o lang/python3-3 (or at least some sysdep entries)
-	
+
 
 Suggested ready to import packages
 ==================================
