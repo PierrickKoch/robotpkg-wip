@@ -55,7 +55,6 @@ SUBDIR+= 	py-flann
 SUBDIR+= 	py-laaswm
 SUBDIR+= 	py-hla
 SUBDIR+= 	py-morse
-SUBDIR+= 	py-sot-tools
 SUBDIR+=	rednav-genom
 SUBDIR+=	rfid-genom
 SUBDIR+=	robotModelParser-libs
