@@ -1,0 +1,48 @@
+diff --git isocket/iclient.hh isocket/iclient.hh
+index f47421c..eefffe4 100644
+--- isocket/iclient.hh
++++ isocket/iclient.hh
+@@ -4,6 +4,8 @@
+ #include <sstream>
+ 
+ #include <errno.h>
++#include <sys/socket.h>
++#include <sys/types.h>
+ #include <netinet/tcp.h>
+ #include <netdb.h> 
+ #include <unistd.h>
+diff --git isocket/iserver.hh isocket/iserver.hh
+index 4b5d0a1..cca41f7 100644
+--- isocket/iserver.hh
++++ isocket/iserver.hh
+@@ -12,6 +12,14 @@
+ #include <netdb.h>
+ #include <fcntl.h>
+ 
++#ifndef SOL_TCP
++#  ifdef IPPROTO_TCP
++#    define SOL_TCP IPPROTO_TCP
++#  else
++#    define SOL_TCP 6
++#  endif /* IPPROTO_TCP */
++#endif /* SOL_TCP */
++
+ #include <imsg.hh>
+ #include <message.hh>
+ 
+diff --git server/CMakeLists.txt server/CMakeLists.txt
+index 36a1144..817cebd 100644
+--- server/CMakeLists.txt
++++ server/CMakeLists.txt
+@@ -4,6 +4,11 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../isocket)
+ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../client)
+ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../plugins)
+ 
++find_package(Boost 1.34 REQUIRED COMPONENTS)
++if(Boost_FOUND)
++	include_directories(${Boost_INCLUDE_DIRS})
++endif(Boost_FOUND)
++
+ set(MC_CONNECTOR_S_SRC msgServer.cc)
+ 
+ add_library(msgconnectorServer SHARED ${MC_CONNECTOR_S_SRC})
