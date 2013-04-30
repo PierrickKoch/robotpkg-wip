@@ -3,7 +3,7 @@
 #
 
 DISTNAME=		msgconnector-${VERSION}
-VERSION=		2.2.0
+VERSION=		2.3.0
 PKGREVISION=    
 CATEGORIES=		planning
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=msgconnector/}
@@ -15,8 +15,6 @@ COMMENT=		Library to handle HATP communications
 LICENSE=		2-clause-bsd
 
 MAKE_JOBS_SAFE=		yes
-
-ONLY_FOR_PLATFORM = Linux-%
 
 #--- Options : msgconnector can be build with different bridges
 PKG_SUPPORTED_OPTIONS+= bridge-print
