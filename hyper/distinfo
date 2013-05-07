@@ -1,6 +1,3 @@
-SHA1 (hyper-0.9.tar.gz) = adf3507649a3cd3afed44b300f99850243daab25
-RMD160 (hyper-0.9.tar.gz) = da79fc936a80720d489630163e403ce0439bd4fe
-Size (hyper-0.9.tar.gz) = 176663 bytes
-SHA1 (patch-aa) = 1d7f8ead0ab7811bfe394dfdd7db0d599cfdb239
-SHA1 (patch-ab) = abe3ae29c6cf00f941ae5c99cd5e43e5a97da409
-SHA1 (patch-ac) = 672c6025db0bf6124dcaecfb2cfa044e84a90129
+SHA1 (hyper-0.10.tar.gz) = 9a77e44f7c9dbc0df06d3def2fc574100b8de4aa
+RMD160 (hyper-0.10.tar.gz) = 0710815ca9605055035efbdf50f64a8c0867942e
+Size (hyper-0.10.tar.gz) = 190421 bytes
