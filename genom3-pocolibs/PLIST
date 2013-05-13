@@ -1,4 +1,4 @@
-@comment Fri Oct 19 16:32:59 CEST 2012
+@comment Mon May 13 15:27:39 CEST 2013
 lib/libpocolibs-client.la
 lib/pkgconfig/genom3-pocolibs.pc
 share/genom/site-templates/pocolibs/client/c/c-client-uninstalled.pc.in
@@ -16,10 +16,10 @@ share/genom/site-templates/pocolibs/client/c/portlib.c
 share/genom/site-templates/pocolibs/client/c/private.h
 share/genom/site-templates/pocolibs/client/c/template.tcl
 share/genom/site-templates/pocolibs/common/autoconf/ax_pthread.m4
+share/genom/site-templates/pocolibs/common/exception.c
 share/genom/site-templates/pocolibs/common/msglib.h
 share/genom/site-templates/pocolibs/common/serialize.h
 share/genom/site-templates/pocolibs/common/typecopy.h
-share/genom/site-templates/pocolibs/common/typeutil.tcl
 share/genom/site-templates/pocolibs/server/activity.c
 share/genom/site-templates/pocolibs/server/activity.h
 share/genom/site-templates/pocolibs/server/codels.mappings.h
@@ -29,7 +29,6 @@ share/genom/site-templates/pocolibs/server/control_task.h
 share/genom/site-templates/pocolibs/server/exec_codels.c
 share/genom/site-templates/pocolibs/server/exec_task.c
 share/genom/site-templates/pocolibs/server/main.c
-share/genom/site-templates/pocolibs/server/metadata.c
 share/genom/site-templates/pocolibs/server/metadata.gen
 share/genom/site-templates/pocolibs/server/msglib.c
 share/genom/site-templates/pocolibs/server/parameters.h
