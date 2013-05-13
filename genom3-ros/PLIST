@@ -1,4 +1,4 @@
-@comment Fri Oct 19 16:43:02 CEST 2012
+@comment Mon May 13 15:31:51 CEST 2013
 bin/rosaction
 lib/libros-client.la
 lib/pkgconfig/genom3-ros.pc
@@ -11,7 +11,7 @@ share/genom/site-templates/ros/client/c/client.h
 share/genom/site-templates/ros/client/c/docutil.tcl
 share/genom/site-templates/ros/client/c/info.c
 share/genom/site-templates/ros/client/c/init.cc
-share/genom/site-templates/ros/client/c/json.c
+share/genom/site-templates/ros/client/c/json.cc
 share/genom/site-templates/ros/client/c/msglib.cc
 share/genom/site-templates/ros/client/c/msglib.h
 share/genom/site-templates/ros/client/c/plugin.c
@@ -25,14 +25,16 @@ share/genom/site-templates/ros/common/action.h
 share/genom/site-templates/ros/common/autoconf/ax_boost_base.m4
 share/genom/site-templates/ros/common/autoconf/ax_boost_thread.m4
 share/genom/site-templates/ros/common/autoconf/ax_pthread.m4
+share/genom/site-templates/ros/common/exception.c
 share/genom/site-templates/ros/common/genom-serialize.h
 share/genom/site-templates/ros/common/genrosmsg.tcl
+share/genom/site-templates/ros/common/json-common.h
 share/genom/site-templates/ros/common/portlib.h
+share/genom/site-templates/ros/common/ros.gen
 share/genom/site-templates/ros/common/ros.manifest.xml
 share/genom/site-templates/ros/common/serialize.h
 share/genom/site-templates/ros/common/service.h
 share/genom/site-templates/ros/common/typecopy.h
-share/genom/site-templates/ros/common/typeutil.tcl
 share/genom/site-templates/ros/server/activities.cc
 share/genom/site-templates/ros/server/activities.h
 share/genom/site-templates/ros/server/codels.mappings.h
@@ -41,6 +43,8 @@ share/genom/site-templates/ros/server/control-task.cc
 share/genom/site-templates/ros/server/exec-task.cc
 share/genom/site-templates/ros/server/exec-task.h
 share/genom/site-templates/ros/server/internals.h
+share/genom/site-templates/ros/server/json.cc
+share/genom/site-templates/ros/server/locals.h
 share/genom/site-templates/ros/server/main.cc
 share/genom/site-templates/ros/server/port.cc
 share/genom/site-templates/ros/server/port.h
