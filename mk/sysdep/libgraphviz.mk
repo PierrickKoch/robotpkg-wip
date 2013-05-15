@@ -29,7 +29,7 @@ PREFER.libgraphviz?=		system
 
 DEPEND_USE+=		libgraphviz
 
-DEPEND_ABI.libgraphviz?=	libgraphviz>=2.26.3
+DEPEND_ABI.libgraphviz?=	libgraphviz>=2.20.2
 
 SYSTEM_SEARCH.libgraphviz=	\
 	'include/graphviz/gvc.h'\
