@@ -29,12 +29,12 @@ PREFER.libgraphviz?=		system
 
 DEPEND_USE+=		libgraphviz
 
-DEPEND_ABI.libgraphviz?=	libgraphviz>=5.0.0
+DEPEND_ABI.libgraphviz?=	libgraphviz>=2.26.3
 
 SYSTEM_SEARCH.libgraphviz=	\
 	'include/graphviz/gvc.h'\
-	'lib/pkgconfig/libgvc.pc'\
-	'lib/libgvc.so:/Version/s/[^.0-9]//gp'
+	'lib/pkgconfig/libgvc.pc:/Version/s/[^.0-9]//gp'\
+	'lib/libgvc.so'
 
 SYSTEM_PKG.Fedora.libgraphviz=	graphviz-devel
 SYSTEM_PKG.Ubuntu.libgraphviz=	libgraphviz-dev
