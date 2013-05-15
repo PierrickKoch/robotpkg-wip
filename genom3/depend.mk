@@ -22,6 +22,8 @@ SYSTEM_SEARCH.genom3=\
 DEPEND_ABI.genom3?=	genom3>=2.99.19
 DEPEND_DIR.genom3?=	../../wip/genom3
 
+export GENOM3=	${PREFIX.genom3}/bin/genom3
+
 endif # GENOM3_DEPEND_MK ----------------------------------------------
 
 DEPEND_DEPTH:=		${DEPEND_DEPTH:+=}
