@@ -17,6 +17,8 @@ LICENSE=		isc
 USE_PKGLOCALEDIR=	yes
 
 CMAKE_ARGS+=		-DBOOST_INCLUDEDIR=${PREFIX.boost-headers}/include
+CMAKE_ARGS+=		-DGDAL_ROOT=${PREFIX.gdal}
+CMAKE_ARGS+=		-DGDAL_INCLUDE_DIR=${PREFIX.gdal}/include
 
 PKG_SUPPORTED_OPTIONS+=		qdisplay
 PKG_OPTION_DESCR.qdisplay=	Enable jafar module qdisplay support.
