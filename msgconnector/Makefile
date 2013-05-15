@@ -23,7 +23,7 @@ PKG_SUPPORTED_OPTIONS+= yarp
 PKG_SUPPORTED_OPTIONS+= liboro
 #PKG_SUPPORTED_OPTIONS+= server
 
-PKG_OPTION_DESCR.bridge-print=	Enable the print bridge that simply display messages sent through msgconnector
+PKG_OPTION_DESCR.bridge-print=	Enable the bridge that displays all messages
 PKG_OPTION_DESCR.openprs=	Enable the bridge to openprs
 PKG_OPTION_DESCR.yarp=	Enable the bridge to yarp
 PKG_OPTION_DESCR.liboro=	Enable the bridge to the ORO ontology server
