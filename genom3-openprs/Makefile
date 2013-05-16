@@ -2,7 +2,7 @@
 # Created:			Anthony Mallet on Sun, 28 Jan 2007
 #
 
-DISTNAME=	genom3-openprs-1.0.2
+DISTNAME=	genom3-openprs-1.0.4
 CATEGORIES=	architecture
 MASTER_SITES=	${MASTER_SITE_OPENROBOTS:=genom3-openprs/}
 MASTER_REPOSITORY= git git://git.openrobots.org/git/robots/genom3-openprs
