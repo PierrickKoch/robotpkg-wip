@@ -1,0 +1,13 @@
+diff --git CMakeLists.txt CMakeLists.txt
+index 73d288f..94488d5 100644
+--- CMakeLists.txt
++++ CMakeLists.txt
+@@ -84,7 +84,7 @@ ENDIF(COMPILE_BRIDGE_PRINT)
+ 
+ IF(COMPILE_BRIDGE_ORO OR COMPILE_BRIDGE_OPRS)
+ 	message(STATUS "looking for boost[regex] libs")
+-	find_package(Boost 1.34 REQUIRED COMPONENTS regex)
++	find_package(Boost 1.34 REQUIRED COMPONENTS regex system thread)
+ 	IF(Boost_FOUND)
+ 		INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIRS})
+ 		LINK_DIRECTORIES(${Boost_LIBRARY_DIRS})
