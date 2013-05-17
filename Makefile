@@ -6,6 +6,7 @@ COMMENT=	WIP packages
 SUBDIR+= 	assimp
 SUBDIR+=	attentional-genom
 SUBDIR+= 	certi
+SUBDIR+= 	demo-genom3
 SUBDIR+=	genom3
 SUBDIR+=	genom3-openprs
 SUBDIR+=	genom3-pocolibs
