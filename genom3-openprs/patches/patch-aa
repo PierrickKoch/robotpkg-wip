@@ -1,0 +1,11 @@
+--- client/EncodeDecodeOpenprs.c~	2013-05-21 15:31:08.375194000 +0200
++++ client/EncodeDecodeOpenprs.c	2013-05-21 15:31:28.663245000 +0200
+@@ -32,8 +32,6 @@
+ #include <stdio.h>
+ #include <string.h>
+ 
+-#include "h2errorLib.h"
+-
+ #include <macro-pub.h>
+ #include <opaque-pub.h>
+ #include <constant-pub.h>

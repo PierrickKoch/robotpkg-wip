@@ -2,6 +2,7 @@
 # Created:			Anthony Mallet on Sun, 28 Jan 2007
 #
 
+PKGREVISION=	1
 DISTNAME=	genom3-openprs-1.0.4
 CATEGORIES=	architecture
 MASTER_SITES=	${MASTER_SITE_OPENROBOTS:=genom3-openprs/}
