@@ -91,6 +91,8 @@ define PKG_OPTION_SET.ros-server
   endif
 
   TMPL1_WRKSRC+=	${TEMPLATES_WRKDIR}/ros/server
+  CONFIGURE_ARGS.${TEMPLATES_WRKDIR}/ros/server+=\
+	--with-boost=${PREFIX.boost-headers}
 
   pre-configure: genom3-autoreconf(ros/server)
 
@@ -107,6 +109,8 @@ PKG_OPTIONS_GROUP.client-c+=		ros-client-c
 PKG_OPTION_DESCR.ros-client-c=		Build a ROS C client
 define PKG_OPTION_SET.ros-client-c
   TMPL1_WRKSRC+=	${TEMPLATES_WRKDIR}/ros/client/c
+  CONFIGURE_ARGS.${TEMPLATES_WRKDIR}/ros/client/c+=\
+	--with-boost=${PREFIX.boost-headers}
 
   pre-configure: genom3-autoreconf(ros/client/c)
 
