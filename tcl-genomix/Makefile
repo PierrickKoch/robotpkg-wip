@@ -14,6 +14,7 @@ COMMENT=	Interactive genomix TCL client for controlling GenoM3 components
 LICENSE=	2-clause-bsd
 
 GNU_CONFIGURE=	yes
+CONFIGURE_ARGS+=--with-tcl=$(dir ${TCL_CONFIG_SH})
 NOT_FOR_PLATFORM=	# empty
 
 DEPEND_ABI.tcl=	tcl>=8.5
