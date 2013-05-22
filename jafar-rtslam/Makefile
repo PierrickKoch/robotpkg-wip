@@ -27,7 +27,7 @@ PKG_SUPPORTED_OPTIONS+=		gdhe
 PKG_OPTION_DESCR.gdhe=	Enable jafar module gdhe support.
 define PKG_OPTION_SET.gdhe
   CMAKE_ARGS+=			-DHAVE_MODULE_GDHE=ON
-  include ../../wip/jafar-gdhe/depend.mk
+  include ../../graphics/jafar-gdhe/depend.mk
 endef
 define PKG_OPTION_UNSET.gdhe
   CMAKE_ARGS+=			-DHAVE_MODULE_GDHE=OFF
