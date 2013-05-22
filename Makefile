@@ -62,7 +62,6 @@ SUBDIR+=	rfid-genom
 SUBDIR+=	robotModelParser-libs
 SUBDIR+=	robot-viewer
 SUBDIR+= 	rtslam-genom
-SUBDIR+=	sot-pattern-generator
 SUBDIR+=	spark-genom
 SUBDIR+=	sparkyarp-genom
 SUBDIR+=	tcl-genomix
