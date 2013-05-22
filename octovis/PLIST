@@ -1,0 +1,14 @@
+@comment Wed May 22 14:20:49 CEST 2013
+bin/octovis
+include/octovis/ColorOcTreeDrawer.h
+include/octovis/OcTreeDrawer.h
+include/octovis/OcTreeRecord.h
+include/octovis/PointcloudDrawer.h
+include/octovis/SceneObject.h
+include/octovis/SelectionBox.h
+include/octovis/TrajectoryDrawer.h
+lib/liboctovis.a
+lib/liboctovis.so
+share/octovis/octovis-config-version.cmake
+share/octovis/octovis-config.cmake
+share/octovis/package.xml
