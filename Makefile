@@ -48,6 +48,7 @@ SUBDIR+=	MPC_planner-genom
 SUBDIR+=	MPC_DEMTreatment-genom
 SUBDIR+=	msgconnector
 SUBDIR+=	mumps
+SUBDIR+= 	octomap
 SUBDIR+= 	ompl
 SUBDIR+=	oro-view
 SUBDIR+=	poisson
