@@ -1,0 +1,8 @@
+hatponboard-lib is a set of libraries and the parser needed by HATP
+
+hatponboard-lib aims at splitting HATP into small parts. Thus reducing compilation time.
+It contains a library to represent the world and the plans while planning.
+It also contains a library to compute certain stages of planning process.
+Finally it include the parser that turns a domain file and the associated cost file
+into file the compile with HATPOnboard.
+This set of libraries is not meant to be recompiled often.
