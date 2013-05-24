@@ -14,14 +14,15 @@ PREFER.msgconnector?=	robotpkg
 
 DEPEND_USE+=		msgconnector
 
-DEPEND_ABI.msgconnector?=	msgconnector>=2.3.0
+DEPEND_ABI.msgconnector?=	msgconnector>=2.4.0
 DEPEND_DIR.msgconnector?=	../../wip/msgconnector
 
 SYSTEM_SEARCH.msgconnector=\
 	include/msgconnector/msgClient.hh\
 	lib/libmsgconnectorClient.so\
 	bin/MsgServer\
-	lib/pkgconfig/msgconnector.pc
+	lib/pkgconfig/msgconnector.pc\
+	share/cmake/Modules/Findmsgconnector.cmake
 endif
 
 

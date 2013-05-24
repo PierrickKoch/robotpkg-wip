@@ -11,6 +11,7 @@ bin/MsgServer
 bin/MsgServer-${PKGVERSION}
 lib/libmsgconnectorServer.so
 lib/libmsgconnectorServer.so.${PKGVERSION}
+share/cmake/Modules/Findmsgconnector.cmake
 @comment ${PLIST.server}bin/MsgServer
 @comment ${PLIST.server}bin/MsgServer-${PKGVERSION}
 @comment ${PLIST.server}lib/libmsgconnectorServer.so
