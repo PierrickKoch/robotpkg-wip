@@ -9,3 +9,4 @@ include/libhatp/hatpTree.hh
 lib/liblibhatp.so
 lib/liblibhatp.so.${PKGVERSION}
 lib/pkgconfig/libhatp.pc
+share/cmake/Modules/Findlibhatp.cmake
