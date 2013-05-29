@@ -3,7 +3,7 @@
 #
 
 DISTNAME=		hatponboard-lib-${VERSION}
-VERSION=		1.0.0
+VERSION=		1.1.0
 PKGREVISION=		
 CATEGORIES=		planning
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=hatponboard-lib/}
@@ -16,12 +16,9 @@ LICENSE=		2-clause-bsd
 
 MAKE_JOBS_SAFE=		yes
 
-CMAKE_ARGS+=		-DmsgconnectorROOT=${PREFIX.msgconnector}
-
 DEPEND_ABI.boost-libs=boost-libs>=1.34
 DEPEND_ABI.boost-headers=boost-headers>=1.34
 
-include ../../wip/msgconnector/depend.mk
 include ../../devel/boost-headers/depend.mk
 include ../../devel/boost-libs/depend.mk
 include ../../mk/sysdep/cmake.mk
