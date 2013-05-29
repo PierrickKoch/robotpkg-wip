@@ -58,7 +58,6 @@ include/hyper/model/compute_expression.hh
 include/hyper/model/compute_make_expression.hh
 include/hyper/model/compute_task_tree.hh
 include/hyper/model/compute_wait_expression.hh
-include/hyper/model/compute_while_expression.hh
 include/hyper/model/concurrent_queue.hh
 include/hyper/model/discover_root.hh
 include/hyper/model/eval_conditions_fwd.hh
@@ -97,12 +96,14 @@ include/hyper/network/nameserver.hh
 include/hyper/network/ping.hh
 include/hyper/network/proxy_container.hh
 include/hyper/network/proxy_visitor.hh
+include/hyper/network/runtime_error.hh
 include/hyper/network/select_serialization.hh
 include/hyper/network/server_tcp_impl.hh
 include/hyper/network/socket_tcp_serialized.hh
 include/hyper/network/types.hh
 include/hyper/network/utils.hh
 include/hyper/utils/algorithm.hh
+include/hyper/version.hh
 lib/libhyper_compiler.so
 lib/libhyper_logic.so
 lib/libhyper_model.so
