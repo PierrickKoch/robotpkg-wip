@@ -13,6 +13,7 @@ SUBDIR+=	genom3-ros
 SUBDIR+=	genomix
 SUBDIR+=	gest-genom
 SUBDIR+=	hatpconsole
+SUBDIR+=	hatponboard-lib
 SUBDIR+=	hatptester
 SUBDIR+=	hpp-geometry
 SUBDIR+=	hyper
