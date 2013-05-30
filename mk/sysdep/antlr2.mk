@@ -29,7 +29,7 @@ PREFER.antlr2?=		system
 
 DEPEND_USE+=		antlr2
 
-DEPEND_ABI.antlr2?=	antlr>=2 <3
+DEPEND_ABI.antlr2?=	antlr2>=2<3
 
 SYSTEM_SEARCH.antlr2= 'bin/runantlr'
 
