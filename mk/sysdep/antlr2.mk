@@ -31,7 +31,10 @@ DEPEND_USE+=		antlr2
 
 DEPEND_ABI.antlr2?=	antlr2>=2<3
 
-SYSTEM_SEARCH.antlr2= 'bin/runantlr'
+SYSTEM_SEARCH.antlr2= 'bin/{,run}antlr'\
+			'lib/libantlr.a'
+export ANTLR_BIN=$(word 1,${SYSTEM_FILES.antlr2})
+export ANTLR_LIB=$(word 2,${SYSTEM_FILES.antlr2})
 
 SYSTEM_PKG.Fedora.antlr2=	antlr-C++
 SYSTEM_PKG.Ubuntu.antlr2=	antlr libantlr-dev
