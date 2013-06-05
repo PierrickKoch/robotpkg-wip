@@ -1,0 +1,213 @@
+diff --git parser/CMakeLists.txt parser/CMakeLists.txt
+index bdffb99..0e2d125 100644
+--- parser/CMakeLists.txt
++++ parser/CMakeLists.txt
+@@ -5,8 +5,6 @@ include_directories(${PROJECT_SOURCE_DIR}/parsing)
+ include_directories(${PROJECT_SOURCE_DIR}/planning)
+ 
+ #Prepare the antlr parsing
+-find_program(Antlr_EXECUTABLE antlr)
+-
+ set(grammar ${PROJECT_SOURCE_DIR}/parsing/HATP.g)
+ 
+ set(antlr_command ${Antlr_EXECUTABLE} ARGS ${grammar})
+diff --git share/FindAntlr.cmake share/FindAntlr.cmake
+index 4dfddbf..44609fb 100644
+--- share/FindAntlr.cmake
++++ share/FindAntlr.cmake
+@@ -1,66 +1,99 @@
+ # Find the Antlr module
+ # Once found the following variables are set :
+-#	Antlr_FOUND	True to specify that the module has been found
++#	Antlr_FOUND		True to specify that the module has been found
+ #
+-#	Antlr_INCLUDE_DIRS	Path(s) to the headers
++#	Antlr_EXECUTABLE	Path(s) to the headers
+ #
+-#	Antlr_LIBRARIES	Link these to use Antlr
++#	Antlr_LIBRARIES		Link these to use Antlr
+ 
+ # To help CMake in finding the Antlr module
+ # one can set the following variables :
+-# Antlr_DIR	Those variables can be either set using 'set' command of
+-# or			CMake, or using '-D<var>=value' while calling CMake or 
+-# Antlr_ROOT	finally they can be set as environment variables.
+-# or			Those three variables are aliases, so just set one is enough.
+-# AntlrROOT
++# Antlr_LIB To give the path to the library file of Antlr
++# or
++# AntlrLIB
++#
++# Antlr_BIN To give the full path to the Antlr binary
++# or
++# AntlrBIN
+ #
+ # You can set any of them using one of the following methods :
+-#	1) Set it as environnement varialbe (e.g. export)
+-#	2) Give it as argument for cmake : cmake -DAntlr_DIR="...."
+-#	3) In a CMakeLists.txt, set a variable : set(Antlr_DIR ...)	
++#	1) Set it as environnement varialbe (e.g. export, setenv, ...)
++#	2) Give it as argument for cmake : cmake -D<var>="...."
++#	3) In a CMakeLists.txt, set a variable : set(<var> ...)	
+ 
+ #Varaibles to change if the module changes
+-set(HEADER_FILES ANTLRException.hpp CharStreamException.hpp MismatchedTokenException.hpp TokenStreamException.hpp ANTLRUtil.hpp CharStreamIOException.hpp NoViableAltException.hpp TokenStreamHiddenTokenFilter.hpp ASTArray.hpp CircularQueue.hpp NoViableAltForCharException.hpp TokenStream.hpp ASTFactory.hpp CommonAST.hpp Parser.hpp TokenStreamIOException.hpp AST.hpp CommonASTWithHiddenTokens.hpp ParserSharedInputState.hpp TokenStreamRecognitionException.hpp ASTNULLType.hpp CommonHiddenStreamToken.hpp RecognitionException.hpp TokenStreamRetryException.hpp ASTPair.hpp CommonToken.hpp RefCount.hpp TokenStreamRewriteEngine.hpp ASTRefCount.hpp config.hpp SemanticException.hpp TokenStreamSelector.hpp BaseAST.hpp InputBuffer.hpp String.hpp TokenWithIndex.hpp BitSet.hpp IOException.hpp TokenBuffer.hpp TreeParser.hpp CharBuffer.hpp LexerSharedInputState.hpp Token.hpp TreeParserSharedInputState.hpp CharInputBuffer.hpp LLkParser.hpp TokenRefCount.hpp CharScanner.hpp MismatchedCharException.hpp TokenStreamBasicFilter.hpp)
+-set(INCLUDE_PATH_SUFFIXES include)
+ set(LIBRARIES libantlr.a)
+ set(EXECUTABLE runantlr)
+ 
+-foreach(header ${HEADER_FILES})
+-	find_path(${header}_PATH antlr/${header} PATH_SUFFIXES ${INCLUDE_PATH_SUFFIXES}
+-	HINTS ${Antlr_DIR} ${Antlr_ROOT} ${AntlrROOT}
+-	$ENV{Antlr_DIR} $ENV{Antlr_ROOT} $ENV{AntlrROOT})
+-	if(${header}_PATH)
+-		list(APPEND Antlr_INCLUDE_DIRS ${${header}_PATH})
+-	else(${header}_PATH)
+-		list(APPEND MISSING_HEADERS ${header})
+-	endif(${header}_PATH)
+-endforeach()
++unset(Antlr_LIBRARIES)
++if(Antlr_LIB)
++	if(EXISTS ${Antlr_LIB})
++		set(Antlr_LIBRARIES ${Antlr_LIB})
++	else(EXISTS ${Antlr_LIB})
++		message(STATUS "The variable -DAntlr_LIB points to a none existing file, please corrects its value.")
++	endif(EXISTS ${Antlr_LIB})
++elseif(AntlrLIB)
++	if(EXISTS ${AntlrLIB})
++		set(Antlr_LIBRARIES ${AntlrLIB})
++	else(EXISTS ${AntlrLIB})
++		message(STATUS "The variable -DAntlrLIB points to a none existing file, please corrects its value.")
++	endif(EXISTS ${AntlrLIB})
++elseif(NOT $ENV{Antlr_LIB} STREQUAL "")
++	if(EXISTS $ENV{Antlr_LIB})
++		set(Antlr_LIBRARIES $ENV{Antlr_LIB})
++	else(EXISTS $ENV{Antlr_LIB})
++		message(STATUS "The environment variable Antlr_LIB points to a none existing file, please corrects its value.")
++	endif(EXISTS ${Antlr_LIB})
++elseif(NOT $ENV{AntlrLIB} STREQUAL "")
++	if(EXISTS $ENV{AntlrLIB})
++		set(Antlr_LIBRARIES $ENV{AntlrLIB})
++	else(EXISTS $ENV{AntlrLIB})
++		message(STATUS "The environment variable AntlrLIB points to a none existing file, please corrects its valu.")
++	endif(EXISTS ${Antlr_LIB})
++else(Antlr_LIB)
++	find_file(Antlr_LIBRARIES ${LIBRARIES} PATH_SUFFIXES lib
++		HINTS ${Antlr_LIB_DIR} ${Antlr_LIBDIR} ${AntlrLIBDIR}
++		$ENV{Antlr_LIB_DIR} $ENV{Antlr_LIBDIR} $ENV{AntlrLIBDIR})
++endif(Antlr_LIB)
+ 
+-if(Antlr_INCLUDE_DIRS)
+-	list(REMOVE_DUPLICATES Antlr_INCLUDE_DIRS)
+-endif(Antlr_INCLUDE_DIRS)
+ 
+-if(MISSING_HEADERS)
+-	unset(Antlr_INCLUDE_DIRS)
+-endif(MISSING_HEADERS)
+ 
+-find_file(Antlr_LIBRARIES ${LIBRARIES} PATH_SUFFIXES lib 
+-	HINTS ${Antlr_DIR} ${Antlr_ROOT} ${AntlrROOT}
+-	$ENV{Antlr_DIR} $ENV{Antlr_ROOT} $ENV{AntlrROOT})
+ 
+-find_file(Antlr_EXECUTABLE ${EXECUTABLE} PATH_SUFFIXES bin 
+-	HINTS ${Antlr_DIR} ${Antlr_ROOT} ${AntlrROOT}
+-	$ENV{Antlr_DIR} $ENV{Antlr_ROOT} $ENV{AntlrROOT})
++unset(Antlr_EXECUTABLE)
++if(Antlr_BIN)
++	if(EXISTS ${Antlr_BIN})
++		set(Antlr_EXECUTABLE ${Antlr_BIN})
++	else(EXISTS ${Antlr_BIN})
++		message(STATUS "The variable -DAntlr_BIN points to a none existing file, please corrects its value.")
++	endif(EXISTS ${Antlr_BIN})
++elseif(AntlrBIN)
++	if(EXISTS ${AntlrBIN})
++		set(Antlr_EXECUTABLE ${AntlrBIN})
++	else(EXISTS ${AntlrBIN})
++		message(STATUS "The variable -DAntlrBIN points to a none existing file, please corrects its value.")
++	endif(EXISTS ${AntlrBIN})
++elseif(NOT $ENV{Antlr_BIN} STREQUAL "")
++	if(EXISTS $ENV{Antlr_BIN})
++		set(Antlr_EXECUTABLE $ENV{Antlr_BIN})
++	else(EXISTS $ENV{Antlr_BIN})
++		message(STATUS "The environment variable Antlr_BIN points to a none existing file, please corrects its value.")
++	endif(EXISTS ${Antlr_BIN})
++elseif(NOT $ENV{AntlrBIN} STREQUAL "")
++	if(EXISTS $ENV{AntlrBIN})
++		set(Antlr_EXECUTABLE $ENV{AntlrBIN})
++	else(EXISTS $ENV{AntlrBIN})
++		message(STATUS "The environment variable AntlrBIN points to a none existing file, please corrects its valu.")
++	endif(EXISTS ${Antlr_BIN})
++else(Antlr_BIN)
++	find_program(Antlr_EXECUTABLE ${EXECUTABLE} PATH_SUFFIXES bin 
++		HINTS ${Antlr_DIR} ${Antlr_ROOT} ${AntlrROOT}
++		$ENV{Antlr_DIR} $ENV{Antlr_ROOT} $ENV{AntlrROOT})
++endif(Antlr_BIN)
+ 
+-if(Antlr_INCLUDE_DIRS AND Antlr_LIBRARIES AND Antlr_EXECUTABLE)
++if(Antlr_LIBRARIES AND Antlr_EXECUTABLE)
+ 	set(Antlr_FOUND TRUE)
+-else(Antlr_INCLUDE_DIRS AND Antlr_LIBRARIES AND Antlr_EXECUTABLE)
++else(Antlr_LIBRARIES AND Antlr_EXECUTABLE)
+ 	if(NOT Antlr_FIND_QUIETLY)
+-		if(NOT Antlr_INCLUDE_DIRS)
+-			message(STATUS "Unable to find Antlr, the following header files are missing : ${MISSING_HEADERS}")
+-		else(NOT Antlr_INCLUDE_DIRS)
+-			message(STATUS "Header files found.")
+-		endif(NOT Antlr_INCLUDE_DIRS)
+ 		if(NOT Antlr_LIBRARIES)
+ 			message(STATUS "Unable to find Antlr library files!")
+ 		else(NOT Antlr_LIBRARIES)
+@@ -72,31 +105,33 @@ else(Antlr_INCLUDE_DIRS AND Antlr_LIBRARIES AND Antlr_EXECUTABLE)
+ 			message(STATUS "Antlr executable found.")
+ 		endif(NOT Antlr_EXECUTABLE)
+ 	endif(NOT Antlr_FIND_QUIETLY)
+-endif(Antlr_INCLUDE_DIRS AND Antlr_LIBRARIES AND Antlr_EXECUTABLE)
++endif(Antlr_LIBRARIES AND Antlr_EXECUTABLE)
+ 
+ if(Antlr_FOUND)
+ 	if(NOT Antlr_FIND_QUIETLY)
+ 		message(STATUS "Found components for Antlr")
+-		message(STATUS "Antlr_INCLUDE_DIRS = ${Antlr_INCLUDE_DIRS}")
+ 		message(STATUS "Antlr_LIBRARIES = ${Antlr_LIBRARIES}")
+ 		message(STATUS "Antlr_EXECUTABLE = ${Antlr_EXECUTABLE}")
+ 	endif(NOT Antlr_FIND_QUIETLY)
+ else(Antlr_FOUND)
+ 	if(Antlr_FIND_REQUIRED)
+-		set(Antlr_DIR "" CACHE PATH "Paths where to additionally look for
+-		Antlr (alias of Antlr_ROOT and AntlrROOT)")
+-		set(Antlr_ROOT "" CACHE PATH "Paths where to additionally look for
+-		Antlr (alias of Antlr_DIR and AntlrROOT)")
+-		set(AntlrROOT "" CACHE PATH "Paths where to additionally look for
+-		Antlr (alias of Antlr_DIR and Antlr_ROOT)")
++		set(Antlr_LIB_DIR "" CACHE PATH "Paths where to additionally look for
++		Antlr library")
++		set(Antlr_LIBDIR "" CACHE PATH "Paths where to additionally look for
++		Antlr library")
++		set(AntlrLIBDIR "" CACHE PATH "Paths where to additionally look for
++		Antlr library")
++		set(Antlr_BIN "" CACHE PATH "Paths to Antlr binary")
++		set(AntlrBIN "" CACHE PATH "Paths to Antlr binary")
+ 		if(NOT Antlr_FIND_QUIETLY)
+ 			message("\nCould not find Antlr!\n")
+-			message("You can use any of the following variables to help CMake to find the header files and libraries :")
+-			message("	Antlr_DIR or Antlr_ROOT or AntlrROOT")
+-			message("You should use one and set it to the root path of your local Antlr install directory (if you installed it in a different folder than system root).")
++			message("You can use any of the following variables to help CMake to find the library :")
++			message("	Antlr_LIB_DIR or Antlr_LIBDIR or AntlrLIBDIR")
++			message("You can use any of the following varaible to give the Antlr binary file :")
++			message("	Antlr_BIN or AntlrBIN")
+ 			message("To set one you can either :")
+-			message("	- use 'set(Antlr ....)' command in the CMakeLists.txt (separator ' ')")
+-			message("	- use '-DAntlr_DIR=....' as an option to Cmake (separator ';')")
++			message("	- use 'set(<var> ....)' command in the CMakeLists.txt (separator ' ')")
++			message("	- use '-D<var>=....' as an option to Cmake (separator ';')")
+ 			message("	- set one as an environment variable (e.g. export in bash, with separator ';')\n")
+ 		endif(NOT Antlr_FIND_QUIETLY)
+ 		message(FATAL_ERROR "Could not find Antlr!")
+@@ -106,6 +141,5 @@ endif(Antlr_FOUND)
+ mark_as_advanced (
+ 	Antlr_FOUND
+ 	Antlr_LIBRARIES
+-	Antlr_INCLUDE_DIRS
+ 	Antlr_EXECUTABLE
+ )

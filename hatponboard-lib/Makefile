@@ -4,7 +4,7 @@
 
 DISTNAME=		hatponboard-lib-${VERSION}
 VERSION=		1.1.0
-PKGREVISION=		2
+PKGREVISION=		3
 CATEGORIES=		planning
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=hatponboard-lib/}
 MASTER_REPOSITORY=	${MASTER_REPOSITORY_OPENROBOTS}hatponboard-lib
@@ -18,6 +18,9 @@ MAKE_JOBS_SAFE=		yes
 
 DEPEND_ABI.boost-libs=boost-libs>=1.34
 DEPEND_ABI.boost-headers=boost-headers>=1.34
+
+# Find Antlr binary name and pass it to CMake 
+CMAKE_ARGS+= -DAntlr_BIN=${ANTLR_BIN} -DAntlr_LIB=${ANTLR_LIB}
 
 include ../../devel/boost-headers/depend.mk
 include ../../devel/boost-libs/depend.mk
