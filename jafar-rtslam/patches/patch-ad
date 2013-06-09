@@ -1,0 +1,11 @@
+--- CMakeLists.txt.orig	2013-06-09 22:11:15.882757720 +0200
++++ CMakeLists.txt	2013-06-09 22:11:00.742758100 +0200
+@@ -22,6 +22,8 @@
+   cmake_policy(SET CMP0003 NEW)
+ endif(COMMAND cmake_policy)
+ 
++list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR})
++
+ #-----------------------------------------------------------------------------
+ # Compilation flags for release and debug
+ #-----------------------------------------------------------------------------
