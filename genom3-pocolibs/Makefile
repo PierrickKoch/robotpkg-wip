@@ -2,8 +2,7 @@
 # Created:			Anthony Mallet on Sun, 28 Jan 2007
 #
 
-PKGREVISION=	1
-DISTNAME=	genom3-pocolibs-1.2
+DISTNAME=	genom3-pocolibs-1.3
 CATEGORIES=	architecture
 MASTER_SITES=	${MASTER_SITE_OPENROBOTS:=genom3-pocolibs/}
 MASTER_REPOSITORY= git git://git.openrobots.org/git/robots/genom3-pocolibs

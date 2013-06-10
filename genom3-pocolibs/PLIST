@@ -18,6 +18,7 @@ share/genom/site-templates/pocolibs/client/c/template.tcl
 share/genom/site-templates/pocolibs/common/autoconf/ax_pthread.m4
 share/genom/site-templates/pocolibs/common/exception.c
 share/genom/site-templates/pocolibs/common/msglib.h
+share/genom/site-templates/pocolibs/common/pocolibs.gen
 share/genom/site-templates/pocolibs/common/serialize.h
 share/genom/site-templates/pocolibs/common/typecopy.h
 share/genom/site-templates/pocolibs/server/activity.c
