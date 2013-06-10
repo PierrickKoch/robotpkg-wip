@@ -18,7 +18,7 @@ SYSTEM_SEARCH.tcl-genomix=\
 	share/tcl-genomix/pkgIndex.tcl				\
 	'/pkgconfig/tcl-genomix.pc:/Version/s/[^0-9.]//gp'
 
-DEPEND_ABI.tcl-genomix?=	tcl-genomix>=1.0
+DEPEND_ABI.tcl-genomix?=	tcl-genomix>=1.2
 DEPEND_DIR.tcl-genomix?=	../../wip/tcl-genomix
 
 endif # TCL_TCL-GENOMIX_DEPEND_MK ----------------------------------------------
