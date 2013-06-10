@@ -1,8 +1,7 @@
-@comment Mon May 13 15:20:24 CEST 2013
+@comment Mon Jun 10 17:15:16 CEST 2013
 bin/genom${PKGVERSION}
 bin/genom3
-include/genom3/c++/idlstring.h
-include/genom3/c++/idlvector.h
+include/genom3/c++/event.h
 include/genom3/c/client.h
 include/genom3/c/event.h
 include/genom3/c/idlsequence.h
@@ -22,6 +21,7 @@ share/doc/genom/genom3.html/C-Enumerated-type.html
 share/doc/genom/genom3.html/C-Exception.html
 share/doc/genom/genom3.html/C-Native.html
 share/doc/genom/genom3.html/C-Port.html
+share/doc/genom/genom3.html/C-Remote.html
 share/doc/genom/genom3.html/C-Scoped-name.html
 share/doc/genom/genom3.html/C-Sequence.html
 share/doc/genom/genom3.html/C-String.html
@@ -32,6 +32,10 @@ share/doc/genom/genom3.html/C_002b_002b-Array.html
 share/doc/genom/genom3.html/C_002b_002b-Basic-type.html
 share/doc/genom/genom3.html/C_002b_002b-Constant.html
 share/doc/genom/genom3.html/C_002b_002b-Enumerated-type.html
+share/doc/genom/genom3.html/C_002b_002b-Exception.html
+share/doc/genom/genom3.html/C_002b_002b-Native.html
+share/doc/genom/genom3.html/C_002b_002b-Port.html
+share/doc/genom/genom3.html/C_002b_002b-Remote.html
 share/doc/genom/genom3.html/C_002b_002b-Scoped-name.html
 share/doc/genom/genom3.html/C_002b_002b-Sequence.html
 share/doc/genom/genom3.html/C_002b_002b-String.html
@@ -78,12 +82,14 @@ share/doc/genom/genom3.html/Type-specification.html
 share/doc/genom/genom3.html/_0023pragma-masquerade.html
 share/doc/genom/genom3.html/_0023pragma-provides.html
 share/doc/genom/genom3.html/_0023pragma-requires.html
+share/doc/genom/genom3.html/_0024type-methods.html
 share/doc/genom/genom3.html/_002d_002d_002d.html
 share/doc/genom/genom3.html/cname.html
 share/doc/genom/genom3.html/comment.html
 share/doc/genom/genom3.html/dotgen-components.html
 share/doc/genom/genom3.html/dotgen-genom.html
 share/doc/genom/genom3.html/dotgen-input.html
+share/doc/genom/genom3.html/dotgen-interfaces.html
 share/doc/genom/genom3.html/dotgen-parse.html
 share/doc/genom/genom3.html/dotgen-template.html
 share/doc/genom/genom3.html/dotgen-types.html
