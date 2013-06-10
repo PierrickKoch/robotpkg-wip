@@ -3,7 +3,7 @@
 #
 
 JAFAR_PKG=		rtslam-0.2
-PKGREVISION= 	4
+PKGREVISION= 	5
 CATEGORIES=		wip
 JAFAR_COMMENT=		Jafar module to do fast and generic EKF Slam.
 
