@@ -28,15 +28,14 @@ PKG_CONFIG_DIRS+=	${CODELS_WRKSRC} ${TMPL1_WRKSRC} ${TMPL2_WRKSRC}
 # generate a template
 genom3-generate(%): .FORCE
 	@${STEP_MSG} "Generating $*"
-	${RUN}${CONFIGURE_LOGFILTER} ${GENOM3} ${GENOM_ARGS}	\
+	${RUN} ${GENOM3} ${GENOM_ARGS}					\
 	  $* -C ${TEMPLATES_WRKDIR}/$* ${WRKSRC}/${GENOM_MODULE}.gen
 
 # autoreconf a template
 genom3-autoreconf(%): genom3-generate(%)
 	@${STEP_MSG} "Running autoreconf for $*"
 	${RUN} cd ${TEMPLATES_WRKDIR}/$*;				\
-	${CONFIGURE_LOGFILTER} ${SETENV} ${CONFIGURE_ENV}		\
-	  ${AUTORECONF} -vif
+	${SETENV} ${CONFIGURE_ENV} ${AUTORECONF} -vif
 
 
 # --- options --------------------------------------------------------------
