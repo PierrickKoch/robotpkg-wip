@@ -1,0 +1,13 @@
+Fix requirement names
+
+--- jafar-qdisplay.pc.in.orig	2013-06-10 18:12:23.466736624 +0200
++++ jafar-qdisplay.pc.in	2013-06-10 18:12:48.702735991 +0200
+@@ -6,6 +6,6 @@
+ Name: jafar-qdisplay
+ Description: Jafar module to display objects of type jafar::image::JfrImage.
+ Version: 0.2
+-Requires: kernel;image;jmath
+-Libs: -L${CMAKE_INSTALL_PREFIX} -ljafar-qdisplay
++Requires: jafar-kernel,jafar-image,jafar-jmath
++Libs: -L${CMAKE_INSTALL_PREFIX}/lib -ljafar-qdisplay
+ Cflags: -I${CMAKE_INSTALL_PREFIX}/include/jafar ${IMPORTED_HEADERS} ${EXTRA_COMPILE_FLAGS}

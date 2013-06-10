@@ -3,6 +3,7 @@
 #
 
 JAFAR_PKG=		qdisplay-0.2
+PKGREVISION= 	1
 CATEGORIES=		wip
 JAFAR_COMMENT=		Jafar module to display objects of type jafar::image::JfrImage.
 
