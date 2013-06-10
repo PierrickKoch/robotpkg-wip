@@ -1,6 +1,8 @@
+# robotpkg Makefile for:	doc/demo-genom3
+# Created:			Anthony Mallet on Fri, 17 May 2013
 #
 
-DISTNAME=		demo-genom3-1.0
+DISTNAME=		demo-genom3-1.1
 CATEGORIES=		doc
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=demo/}
 MASTER_REPOSITORY=	git git://git.openrobots.org/robots/demo-genom
