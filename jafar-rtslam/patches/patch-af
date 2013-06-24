@@ -1,0 +1,49 @@
+Fix 5a8a7b7a backcompatibility with old config files
+
+diff --git a/include/rtslam/main.hpp b/include/rtslam/main.hpp
+index 44b28cb..a9a1de1 100644
+--- include/rtslam/main.hpp
++++ include/rtslam/main.hpp
+@@ -1972,10 +1972,10 @@ void ConfigSetup::processKeyValueFile(jafar::kernel::KeyValueFile& keyValueFile,
+ 		{
+ 			if (read && ncam == 1)
+ 			{
+-				keyValueFile.getItem("CAMERA_IMG_WIDTH_SIMU", CAMERA_IMG_WIDTH_SIMU[0]);
+-				keyValueFile.getItem("CAMERA_IMG_HEIGHT_SIMU", CAMERA_IMG_HEIGHT_SIMU[0]);
+-				keyValueFile.getItem("CAMERA_INTRINSIC_SIMU", CAMERA_INTRINSIC_SIMU[0]);
+-				keyValueFile.getItem("CAMERA_DISTORTION_SIMU", CAMERA_DISTORTION_SIMU[0]);
++				keyValueFile.getItem("IMG_WIDTH_SIMU", CAMERA_IMG_WIDTH_SIMU[0]);
++				keyValueFile.getItem("IMG_HEIGHT_SIMU", CAMERA_IMG_HEIGHT_SIMU[0]);
++				keyValueFile.getItem("INTRINSIC_SIMU", CAMERA_INTRINSIC_SIMU[0]);
++				keyValueFile.getItem("DISTORTION_SIMU", CAMERA_DISTORTION_SIMU[0]);
+ 			} else throw e;
+ 		}
+ 	} else
+@@ -1999,10 +1999,10 @@ void ConfigSetup::processKeyValueFile(jafar::kernel::KeyValueFile& keyValueFile,
+ 				keyValueFile.getItem("CAMERA_TYPE", CAMERA_TYPE[0]);
+ 				keyValueFile.getItem("CAMERA_FORMAT", CAMERA_FORMAT[0], "0");
+ 				keyValueFile.getItem("CAMERA_DEVICE", CAMERA_DEVICE[0]);
+-				keyValueFile.getItem("CAMERA_IMG_WIDTH", CAMERA_IMG_WIDTH[0]);
+-				keyValueFile.getItem("CAMERA_IMG_HEIGHT", CAMERA_IMG_HEIGHT[0]);
+-				keyValueFile.getItem("CAMERA_INTRINSIC", CAMERA_INTRINSIC[0]);
+-				keyValueFile.getItem("CAMERA_DISTORTION", CAMERA_DISTORTION[0]);
++				keyValueFile.getItem("IMG_WIDTH", CAMERA_IMG_WIDTH[0]);
++				keyValueFile.getItem("IMG_HEIGHT", CAMERA_IMG_HEIGHT[0]);
++				keyValueFile.getItem("INTRINSIC", CAMERA_INTRINSIC[0]);
++				keyValueFile.getItem("DISTORTION", CAMERA_DISTORTION[0]);
+ 			} else throw e;
+ 		}
+ 	}
+@@ -2121,8 +2121,10 @@ void ConfigEstimation::processKeyValueFile(jafar::kernel::KeyValueFile& keyValue
+ 	KeyValueFile_processItem(KILL_SEARCH_SIZE);
+ 	KeyValueFile_processItem(MATCH_TH);
+ 	KeyValueFile_processItem(MIN_SCORE);
+-	KeyValueFile_processItem(HI_MATCH_TH);
+-	KeyValueFile_processItem(HI_LIMIT);
++
++	try { KeyValueFile_processItem(HI_MATCH_TH) } catch (kernel::KernelException &e) { if (read) HI_MATCH_TH = MATCH_TH; }
++	try { KeyValueFile_processItem(HI_LIMIT) } catch (kernel::KernelException &e) { if (read) HI_LIMIT = 1000; }
++
+ 	KeyValueFile_processItem(PARTIAL_POSITION);
+ }
+
