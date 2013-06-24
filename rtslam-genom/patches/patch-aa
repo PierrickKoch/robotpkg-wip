@@ -1,0 +1,12 @@
+diff --git a/rtslam.gen b/rtslam.gen
+index c0daec8..4d6e026 100644
+--- rtslam.gen
++++ rtslam.gen
+@@ -100,6 +100,7 @@ request Init {
+ 		RTSLAM_TRIGGER_INTERNAL::"Camera trigger type",
+ 		RTSLAM_GPS_OFF::"Use GPS",
+ 		RTSLAM_ODO_OFF::"Use Odometry",
++		RTSLAM_EXTLOC_DISABLED::"Use external localization",
+ 		RTSLAM_OFF::"Dump data to disk",
+ 		RTSLAM_DISPLAY_OFF::"Display",
+ 		"."::"Path where to save logs and dumps",
