@@ -20,7 +20,7 @@ NOT_FOR_PLATFORM=	# empty
 
 include ../../wip/genom3/depend.mk
 include ../../devel/boost-headers/depend.mk
-include ../../devel/ros-core/depend.mk
+include ../../devel/ros-ros/depend.mk
 include ../../interfaces/ros-common-msgs/depend.mk
 include ../../lang/ros-gencpp/depend.mk
 include ../../lang/ros-genpy/depend.mk
