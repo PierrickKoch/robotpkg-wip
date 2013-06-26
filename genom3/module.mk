@@ -96,7 +96,7 @@ define PKG_OPTION_SET.ros-server
   pre-configure: genom3-autoreconf(ros/server)
 
   include ../../devel/boost-headers/depend.mk
-  include ../../devel/ros-core/depend.mk
+  include ../../devel/ros-ros/depend.mk
   include ../../interfaces/ros-common-msgs/depend.mk
   include ../../middleware/ros-actionlib/depend.mk
   include ../../middleware/ros-comm/depend.mk
