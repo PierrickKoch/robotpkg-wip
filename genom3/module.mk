@@ -114,7 +114,7 @@ define PKG_OPTION_SET.ros-client-c
   pre-configure: genom3-autoreconf(ros/client/c)
 
   include ../../devel/boost-headers/depend.mk
-  include ../../devel/ros-core/depend.mk
+  include ../../devel/ros-ros/depend.mk
   include ../../interfaces/ros-common-msgs/depend.mk
   include ../../middleware/ros-actionlib/depend.mk
   include ../../middleware/ros-comm/depend.mk
@@ -151,7 +151,7 @@ define PKG_OPTION_SET.ros-client-ros
   pre-configure: genom3-autoreconf(ros/client/ros)
 
   include ../../devel/boost-headers/depend.mk
-  include ../../devel/ros-core/depend.mk
+  include ../../devel/ros-ros/depend.mk
   include ../../interfaces/ros-common-msgs/depend.mk
   include ../../middleware/ros-actionlib/depend.mk
   include ../../middleware/ros-comm/depend.mk
