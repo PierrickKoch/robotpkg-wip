@@ -19,9 +19,8 @@ CONFIGURE_ENV+=\
 
 # TODO
 # missing dependencies: bullet
+# missing dependencies: ros-robot-model
 #
-# rosbuild is not supported in robotpkg, this must be converted to plain cmake
-# or catkin.
 
 include ../../devel/ros-ros/depend.mk
 include ../../interfaces/jrl-mal/depend.mk
