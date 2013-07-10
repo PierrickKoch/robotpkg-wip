@@ -1,0 +1,4 @@
+@comment Wed Jul 10 15:12:11 CEST 2013
+bin/display-robot
+include/jrl/dynamics/urdf/parser.hh
+lib/libjrl-dynamics-urdf.so

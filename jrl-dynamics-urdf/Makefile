@@ -11,23 +11,20 @@ LICENSE=		gnu-lgpl-v3
 MAINTAINER=		openrobots@laas.fr
 
 DYNAMIC_PLIST_DIRS+=	share/doc/jrl-dynamics-urdf
+USE_BOOST_LIBS+=	filesystem system
 
-CONFIGURE_ENV+=\
-  ROS_ROOT=${PREFIX.ros-ros}/share/ros			\
-  ROS_PACKAGE_PATH=${WRKSRC}:${PREFIX.ros-ros}/share	\
-  CMAKE_PREFIX_PATH=${PREFIX.ros-ros}
+CMAKE_ARGS+=		-DGTEST_ROOT=${PREFIX.googletest}
 
-# TODO
-# missing dependencies: bullet
-# missing dependencies: ros-robot-model
-#
-
-include ../../devel/ros-ros/depend.mk
+include ../../devel/boost-headers/depend.mk
+include ../../devel/boost-libs/depend.mk
+include ../../graphics/ros-robot-model/depend.mk
 include ../../interfaces/jrl-mal/depend.mk
 include ../../math/jrl-dynamics/depend.mk
 include ../../pkgtools/pkg-config/depend.mk
+include ../../simulation/bullet/depend.mk
 include ../../mk/sysdep/cmake.mk
 include ../../mk/sysdep/doxygen.mk
+include ../../mk/sysdep/googletest.mk
 include ../../mk/sysdep/graphviz.mk
 include ../../mk/sysdep/pdflatex.mk
 include ../../mk/language/c.mk
