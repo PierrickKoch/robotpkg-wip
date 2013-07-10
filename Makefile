@@ -25,6 +25,7 @@ SUBDIR+=	jafar-qdisplay
 SUBDIR+=	jafar-rtslam
 SUBDIR+=	jointStateMapper
 SUBDIR+=	joystick-genom
+SUBDIR+=	jrl-dynamics-urdf-1.0.0
 SUBDIR+=	kukaFri-libs
 SUBDIR+= 	laaswm-gui
 SUBDIR+=	lastwave
