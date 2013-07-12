@@ -2,7 +2,7 @@
 # Created:			Severin Lemaignan on Fri, 11 Feb 2011
 #
 
-DISTNAME=			libmove3d-3.19.0
+DISTNAME=			libmove3d-3.20.0
 PKGREVISION=			1
 CATEGORIES=			path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=libmove3d/}
@@ -24,6 +24,7 @@ CMAKE_ARGS+=\
 
 CMAKE_ARGS+=		-DBOOST_INCLUDEDIR=${PREFIX.boost-headers}/include
 CMAKE_ARGS+=		-DBOOST_LIBDIR=${PREFIX.boost-libs}/include
+
 
 # Dependencies
 include ../../devel/boost-headers/depend.mk
