@@ -1,0 +1,10 @@
++++ lib/cpp/antlr/CharScanner.hpp
+@@ -9,6 +9,8 @@
+  */
+ 
+ #include <antlr/config.hpp>
++#include <stdio.h>
++#include <strings.h>
+ 
+ #include <map>
+ 
