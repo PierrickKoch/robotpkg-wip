@@ -11,7 +11,7 @@ CATEGORIES=	devel
 HOMEPAGE=	http://www.antlr2.org
 MAINTAINER=	rlalleme@laas.fr
 COMMENT=	Antlr2 is a tool to generate parsers
-LICENSE=	antlr2
+LICENSE=	public-domain
 
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS+=--with-make=${MAKE}
