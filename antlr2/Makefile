@@ -5,7 +5,7 @@
 PKGNAME=	antlr-${VERSION}
 DISTNAME=	antlr-${VERSION}
 VERSION=	2.7.7
-MASTER_SITES=	http://www.antlr2.org/download.html/
+MASTER_SITES=	http://www.antlr2.org/download/
 
 CATEGORIES=	devel
 HOMEPAGE=	http://www.antlr2.org
