@@ -1,3 +1,4 @@
-@comment Fri Mar 8 18:58:30 CET 2013
+@comment Tue Jun 25 14:49:12 CEST 2013
 bin/hatptester
 bin/${PKGNAME}
+lib/liblogger.so

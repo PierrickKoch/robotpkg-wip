@@ -14,11 +14,12 @@ PREFER.hatpconsole?=	robotpkg
 
 DEPEND_USE+=		hatptester
 
-DEPEND_ABI.hatptester?=	hatptester>=0.8.0
+DEPEND_ABI.hatptester?=	hatptester>=1.0.0
 DEPEND_DIR.hatptester?=	../../wip/hatptester
 
 SYSTEM_SEARCH.hatptester=\
-	bin/hatptster
+	bin/hatptster\
+	lib/liblogger.so
 endif
 
 

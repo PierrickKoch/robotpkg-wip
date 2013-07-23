@@ -3,8 +3,8 @@
 #
 
 DISTNAME=		hatptester-${VERSION}
-VERSION=		0.8.0
-PKGREVISION=		1
+VERSION=		1.1.0
+PKGREVISION=		
 CATEGORIES=		planning
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=hatptester/}
 MASTER_REPOSITORY=	${MASTER_REPOSITORY_OPENROBOTS}hatptester
@@ -18,6 +18,7 @@ MAKE_JOBS_SAFE=		yes
 
 USE_QMAKE=		no
 CMAKE_ARGS+=		-DmsgconnectorROOT=${PREFIX.msgconnector}
+CMAKE_ARGS+=		-Dboost-logROOT=${PREFIX.boost-log}
 CMAKE_ARGS+=		-DQT_QMAKE_EXECUTABLE=${QMAKE}
 
 DEPEND_ABI.boost-libs=boost-libs>=1.34
