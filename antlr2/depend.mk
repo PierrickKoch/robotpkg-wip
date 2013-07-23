@@ -38,7 +38,7 @@ export ANTLR_INCLUDE=$(word 2,${SYSTEM_FILES.antlr2})
 export ANTLR_BIN=$(word 1,${SYSTEM_FILES.antlr2})
 export ANTLR_LIB=$(word 3,${SYSTEM_FILES.antlr2})
 
-SYSTEM_PKG.Fedora.antlr2=	antlr-C++
+SYSTEM_PKG.Fedora.antlr2=	antlr-C++ antlr-tool
 SYSTEM_PKG.Ubuntu.antlr2=	antlr libantlr-dev
 SYSTEM_PKG.Debian.antlr2=	antlr libantlr-dev
 
