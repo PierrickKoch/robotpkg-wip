@@ -25,6 +25,10 @@ endif
 
 ifeq (+,$(ANTLR_DEPEND_MK)) # ---------------------------------------------
 
+include ../../mk/robotpkg.prefs.mk # for OPSYS
+ifeq (NetBSD,${OPSYS})
+  PREFER.antlr2?=	robotpkg
+endif
 PREFER.antlr2?=		system
 
 DEPEND_USE+=		antlr2
