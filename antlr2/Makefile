@@ -2,7 +2,7 @@
 # Created:			Raphaël Lallement on Mon, 07 Jul 201
 #
 
-PKGNAME=	antlr-${VERSION}
+PKGNAME=	antlr2-${VERSION}
 DISTNAME=	antlr-${VERSION}
 VERSION=	2.7.7
 MASTER_SITES=	http://www.antlr2.org/download/

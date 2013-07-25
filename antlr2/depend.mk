@@ -34,6 +34,7 @@ PREFER.antlr2?=		system
 DEPEND_USE+=		antlr2
 
 DEPEND_ABI.antlr2?=	antlr2>=2<3
+DEPEND_DIR.antlr2?=	../../wip/antlr2
 
 SYSTEM_SEARCH.antlr2= 'bin/{,run}antlr'\
 			'include/antlr/ANTLRException.hpp'\
