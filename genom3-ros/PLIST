@@ -1,13 +1,10 @@
-@comment Mon May 13 15:31:51 CEST 2013
+@comment Fri Jul 26 18:45:38 CEST 2013
 bin/rosaction
 lib/libros-client.la
 lib/pkgconfig/genom3-ros.pc
-share/genom/site-templates/ros/client/c/c-client-uninstalled.pc.in
-share/genom/site-templates/ros/client/c/c-client.pc.in
 share/genom/site-templates/ros/client/c/client.Makefile.am
 share/genom/site-templates/ros/client/c/client.cc
 share/genom/site-templates/ros/client/c/client.configure.ac
-share/genom/site-templates/ros/client/c/client.h
 share/genom/site-templates/ros/client/c/docutil.tcl
 share/genom/site-templates/ros/client/c/info.c
 share/genom/site-templates/ros/client/c/init.cc
@@ -30,7 +27,6 @@ share/genom/site-templates/ros/common/genom-serialize.h
 share/genom/site-templates/ros/common/genrosmsg.tcl
 share/genom/site-templates/ros/common/json-common.h
 share/genom/site-templates/ros/common/portlib.h
-share/genom/site-templates/ros/common/ros.gen
 share/genom/site-templates/ros/common/ros.manifest.xml
 share/genom/site-templates/ros/common/serialize.h
 share/genom/site-templates/ros/common/service.h
