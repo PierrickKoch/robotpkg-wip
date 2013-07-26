@@ -100,6 +100,7 @@ define PKG_OPTION_SET.ros-server
   include ../../interfaces/ros-common-msgs/depend.mk
   include ../../middleware/ros-actionlib/depend.mk
   include ../../middleware/ros-comm/depend.mk
+  include ../../sysutils/ros-rospack/depend.mk
   include ../../wip/genom3-ros/depend.mk
   include ../../mk/language/c++.mk
 endef
@@ -118,6 +119,7 @@ define PKG_OPTION_SET.ros-client-c
   include ../../interfaces/ros-common-msgs/depend.mk
   include ../../middleware/ros-actionlib/depend.mk
   include ../../middleware/ros-comm/depend.mk
+  include ../../sysutils/ros-rospack/depend.mk
   include ../../wip/genom3-ros/depend.mk
   include ../../mk/language/c++.mk
 endef
@@ -155,6 +157,7 @@ define PKG_OPTION_SET.ros-client-ros
   include ../../interfaces/ros-common-msgs/depend.mk
   include ../../middleware/ros-actionlib/depend.mk
   include ../../middleware/ros-comm/depend.mk
+  include ../../sysutils/ros-rospack/depend.mk
   include ../../wip/genom3-ros/depend.mk
   include ../../mk/language/c++.mk
   include ../../mk/sysdep/python.mk
