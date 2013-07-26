@@ -2,7 +2,7 @@
 # Created:			Anthony Mallet on Fri, 19 Oct 2012
 #
 
-VERSION=	2.99.20
+VERSION=	2.99.21
 DISTNAME=	genom-${VERSION}
 PKGNAME=	genom3-${VERSION}
 CATEGORIES=	architecture
@@ -22,8 +22,6 @@ INFO_FILES=	genom3.info
 NOT_FOR_PLATFORM=	# empty
 
 DEPEND_ABI.tcl=	tcl>=8.5
-
-MAKE_JOBS_SAFE=	no # this is fixed upstream
 
 include ../../pkgtools/pkg-config/depend.mk
 include ../../shell/eltclsh/depend.mk
