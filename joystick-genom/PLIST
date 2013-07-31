@@ -1,39 +1,4 @@
 @comment Fri Jan 6 14:45:52 CET 2012
-${PLIST.noapi}bin/joystick
-${PLIST.noapi}bin/joystickSendInitRqst
-${PLIST.noapi}bin/joystickTest
-include/joystick/joystickStruct.h
-${PLIST.openprs}include/joystick/server/openprs/joystickDecodeOpenprs.h
-${PLIST.openprs}include/joystick/server/openprs/joystickEncodeOpenprs.h
-${PLIST.openprs}include/joystick/server/openprs/joystickRequestsOpenprsProto.h
-include/joystick/server/joystickEndian.h
-include/joystick/server/joystickError.h
-${PLIST.noapi}include/joystick/server/joystickMsgLib.h
-include/joystick/server/joystickPosterLib.h
-include/joystick/server/joystickPosterLibStruct.h
-${PLIST.noapi}include/joystick/server/joystickPosterReadLibProto.h
-${PLIST.noapi}include/joystick/server/joystickPosterShowLib.h
-${PLIST.noapi}include/joystick/server/joystickPosterWriteLibProto.h
-${PLIST.noapi}include/joystick/server/joystickPosterXMLLib.h
-include/joystick/server/joystickPrint.h
-include/joystick/server/joystickPrintXML.h
-include/joystick/server/joystickScan.h
-include/joystick/server/joystickType.h
-${PLIST.tclserv_client}include/joystick/server/tclservClient/joystickTclservClientDecode.h
-${PLIST.tclserv_client}include/joystick/server/tclservClient/joystickTclservClientEncode.h
-${PLIST.tclserv_client}include/joystick/server/tclservClient/joystickTclservClientMsgLib.h
-lib/libjoystickClient.la
-${PLIST.openprs}lib/openprs/libjoystickOpenprs.la
-${PLIST.openprs}lib/pkgconfig/joystick-oprs.pc
-lib/pkgconfig/joystick.pc
-${PLIST.tclserv_client}lib/pkgconfig/joystick-tclserv_client.pc
-${PLIST.tclserv_client}lib/tclservClient/libjoystickTclservClient.la
-${PLIST.tcl}lib/tclserv/libjoystickTclServ.la
-share/modules/gen/joystick.gen
-${PLIST.openprs}share/modules/openprs/joystickOpenprs.inc
-${PLIST.openprs}share/modules/openprs/joystickOpenprs.opf
-${PLIST.openprs}share/modules/openprs/joystickOpenprs.sym
-${PLIST.noapi}${PLIST.tcl}share/modules/tcl/joystickClient.tcl
-${PLIST.openprs}@dirrm include/joystick/server/openprs
-@dirrm include/joystick/server
-@dirrm include/joystick
+@comment includes architecture/genom/PLIST.module
+include/${GENOM_MODULE}/${GENOM_MODULE}Struct.h
+share/modules/gen/${GENOM_MODULE}.gen
