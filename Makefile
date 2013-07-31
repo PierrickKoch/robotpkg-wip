@@ -17,7 +17,6 @@ SUBDIR+=	gest-genom
 SUBDIR+=	hatpconsole
 SUBDIR+=	hatponboard-lib
 SUBDIR+=	hatptester
-SUBDIR+=	hpp-geometry
 SUBDIR+=	hyper
 SUBDIR+=	hyper_genom
 SUBDIR+=	icu-genom
