@@ -20,7 +20,7 @@ MAKE_JOBS_SAFE=no
 BUILD_TARGET=unix-libtool
 
 include ../../pkgtools/libtool/depend.mk
-include ../../pkgtools/pax/depend.mk
+include ../../archivers/pax/depend.mk
 include ../../mk/language/c.mk
 include ../../mk/robotpkg.mk
 

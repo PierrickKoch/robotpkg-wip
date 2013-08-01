@@ -33,7 +33,7 @@ WRKSRC=${WRKDIR}/move3d-assets-${PKG_DATE}
 NO_CONFIGURE=	yes
 NO_BUILD=		yes
 
-include ../../pkgtools/pax/depend.mk
+include ../../archivers/pax/depend.mk
 include ../../pkgtools/install-sh/depend.mk
 include ../../mk/language/c.mk
 include ../../mk/robotpkg.mk
