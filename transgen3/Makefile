@@ -23,5 +23,4 @@ include ../../mk/sysdep/flex.mk
 include ../../mk/sysdep/perl.mk
 include ../../mk/language/java.mk
 include ../../mk/language/c.mk
-include ../../mk/sysdep/perl.mk
 include ../../mk/robotpkg.mk
