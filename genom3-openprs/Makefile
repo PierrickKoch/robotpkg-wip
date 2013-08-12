@@ -3,7 +3,7 @@
 #
 
 PKGREVISION=	1
-DISTNAME=	genom3-openprs-1.0.5
+DISTNAME=	genom3-openprs-1.0.6
 CATEGORIES=	architecture
 MASTER_SITES=	${MASTER_SITE_OPENROBOTS:=genom3-openprs/}
 MASTER_REPOSITORY= git git://git.openrobots.org/git/robots/genom3-openprs
