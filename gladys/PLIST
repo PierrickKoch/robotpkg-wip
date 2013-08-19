@@ -1,0 +1,13 @@
+@comment Mon Aug 19 14:56:59 CEST 2013
+bin/gdal_float_rgb
+bin/region_graph
+bin/region_weight
+include/gladys/gdal.hpp
+include/gladys/gladys.hpp
+include/gladys/graph_astar.hpp
+include/gladys/nav_graph.hpp
+include/gladys/point.hpp
+include/gladys/robot_model.hpp
+include/gladys/weight_map.hpp
+lib/libgladys.so
+lib/pkgconfig/gladys.pc

@@ -14,6 +14,7 @@ SUBDIR+=	genom3-pocolibs
 SUBDIR+=	genom3-ros
 SUBDIR+=	genomix
 SUBDIR+=	gest-genom
+SUBDIR+=	gladys
 SUBDIR+=	hatpconsole
 SUBDIR+=	hatponboard-lib
 SUBDIR+=	hatptester
