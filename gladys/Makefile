@@ -15,6 +15,7 @@ LICENSE=		2-clause-bsd
 CMAKE_ARGS+=		-DBOOST_INCLUDEDIR=${PREFIX.boost-headers}/include
 CMAKE_ARGS+=		-DBOOST_LIBDIR=${PREFIX.boost-libs}/include
 CMAKE_ARGS+=		-DGDAL_CONFIG=${PREFIX.gdal}/bin/gdal-config
+CMAKE_ARGS+=		-DPYTHON_SITE_PACKAGES=${PREFIX}/${PYTHON_SITELIB}
 
 DEPEND_ABI.boost-libs=boost-libs>=1.46.1
 DEPEND_ABI.boost-headers=boost-headers>=1.46.1
@@ -23,6 +24,7 @@ include ../../devel/boost-headers/depend.mk
 include ../../devel/boost-libs/depend.mk
 include ../../mk/sysdep/cmake.mk
 include ../../mk/sysdep/gdal.mk
+include ../../mk/sysdep/python.mk
 include ../../mk/language/c.mk
 include ../../mk/language/c++.mk
 include ../../mk/robotpkg.mk
