@@ -3,7 +3,7 @@
 #
 NAME=			gladys
 DISTNAME=		${NAME}-${VERSION}
-VERSION=		0.1
+VERSION=		0.1.1
 CATEGORIES=		mapping
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=${NAME}/}
 MASTER_REPOSITORY=	${MASTER_REPOSITORY_OPENROBOTS}${NAME}
@@ -15,7 +15,6 @@ LICENSE=		2-clause-bsd
 CMAKE_ARGS+=		-DBOOST_INCLUDEDIR=${PREFIX.boost-headers}/include
 CMAKE_ARGS+=		-DBOOST_LIBDIR=${PREFIX.boost-libs}/include
 CMAKE_ARGS+=		-DGDAL_CONFIG=${PREFIX.gdal}/bin/gdal-config
-CMAKE_ARGS+=		-DGDAL_INCLUDE_DIR=${PREFIX.gdal}/include
 
 DEPEND_ABI.boost-libs=boost-libs>=1.46.1
 DEPEND_ABI.boost-headers=boost-headers>=1.46.1
