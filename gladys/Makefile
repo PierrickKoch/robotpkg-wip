@@ -20,6 +20,8 @@ CMAKE_ARGS+=		-DCMAKE_INSTALL_LIBDIR=lib
 
 DEPEND_ABI.boost-libs=boost-libs>=1.46.1
 DEPEND_ABI.boost-headers=boost-headers>=1.46.1
+DEPEND_ABI.g++ =	g++>=4.6
+DEPEND_ABI.clang =	clang>=3.0
 
 include ../../devel/boost-headers/depend.mk
 include ../../devel/boost-libs/depend.mk
