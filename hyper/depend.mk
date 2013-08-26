@@ -14,7 +14,7 @@ PREFER.hyper?=	robotpkg
 
 DEPEND_USE+=		hyper
 
-DEPEND_ABI.hyper?=	hyper>=0.9
+DEPEND_ABI.hyper?=	hyper>=0.12
 DEPEND_DIR.hyper?=	../../wip/hyper
 
 SYSTEM_SEARCH.hyper=\

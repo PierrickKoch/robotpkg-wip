@@ -3,8 +3,7 @@
 #
 
 DISTNAME=		hyper-${VERSION}
-VERSION=		0.11
-PKGREVISION= 	2
+VERSION=		0.12
 CATEGORIES=		supervision
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=hyper/}
 MASTER_REPOSITORY=	${MASTER_REPOSITORY_OPENROBOTS}hyper
@@ -19,6 +18,7 @@ MAKE_JOBS_SAFE=		no # because gcc eats up to 1GB for some files...
 CMAKE_ARGS+=		-DBOOST_INCLUDEDIR=${PREFIX.boost-headers}/include
 CMAKE_ARGS+=		-DBOOST_LIBDIR=${PREFIX.boost-libs}/include
 
+
 # doc option
 PKG_SUPPORTED_OPTIONS+=	doc
 PKG_OPTION_DESCR.doc?=	Install ${PKGBASE} documentation
@@ -26,6 +26,7 @@ PKG_OPTION_DESCR.doc?=	Install ${PKGBASE} documentation
 define PKG_OPTION_SET.doc
   CMAKE_ARGS+=		-DBUILD_DOC=ON
   CMAKE_ARGS+=		-DSPHINX_BUILD=${PREFIX.py-sphinx}/bin/sphinx-build
+  DYNAMIC_PLIST_DIRS+=	share/doc/hyper
   include ../../mk/sysdep/py-sphinx.mk
 endef
 define PKG_OPTION_UNSET.doc
