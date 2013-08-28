@@ -129,17 +129,10 @@ PKG_OPTION_DESCR.ros-client-ros=	Build a ROS client
 define PKG_OPTION_SET.ros-client-ros
   TMPL1_WRKSRC+=	${TEMPLATES_WRKDIR}/ros/client/ros
 
-  # the PLIST heavily depends on the actual list of services and .pyc/o files
-  # must be added.
+  # the PLIST heavily depends on the actual list of services
   GENERATE_PLIST+=\
     ${CAT} ${TEMPLATES_WRKDIR}/ros/client/ros/plist | ${AWK} '		\
       { sub("^${PREFIX}/?", ""); print }				\
-      /[.]py$$/ {							\
-        sub("[.]py$$", "");						\
-        n=match($$0, "/[^/]+$$"); p=substr($$0,1,n); s=substr($$0,n);	\
-        print p "${PYTHON_PYCACHE}" s "${PYTHON_TAG}.pyc";		\
-        print p "${PYTHON_PYCACHE}" s "${PYTHON_TAG}.pyo";		\
-      }									\
     ';
 
   # hackish ... but this is for a PLIST.guess anyway, so nothing critical
