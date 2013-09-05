@@ -1,5 +1,6 @@
-@comment Fri Aug 23 15:39:35 CEST 2013
+@comment Thu Sep 5 10:55:42 CEST 2013
 bin/gdal_float_rgb
+bin/gladysplay
 bin/region_graph
 bin/region_weight
 include/gladys/gdal.hpp
