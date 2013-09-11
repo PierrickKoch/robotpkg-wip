@@ -3,7 +3,7 @@
 #
 
 DISTNAME=		msgconnector-${VERSION}
-VERSION=		2.4.0
+VERSION=		2.5.0
 PKGREVISION=    	
 CATEGORIES=		planning
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=msgconnector/}
@@ -56,7 +56,15 @@ endef
 
 #PKG_SUGGESTED_OPTIONS= server
 
+DEPEND_ABI.boost-libs=boost-libs>=1.34
+DEPEND_ABI.boost-headers=boost-headers>=1.34
+
+CMAKE_ARGS+=	-DBOOST_LIBRARYDIR=${PREFIX.boost-libs}
+CMAKE_ARGS+=	-DBOOST_INCLUDEDIR=${PREFIX.boost-headers}
+
 include ../../pkgtools/pkg-config/depend.mk
+include ../../devel/boost-headers/depend.mk
+include ../../devel/boost-libs/depend.mk
 include ../../mk/sysdep/cmake.mk
 include ../../mk/language/c.mk
 include ../../mk/language/c++.mk

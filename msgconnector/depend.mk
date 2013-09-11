@@ -14,7 +14,7 @@ PREFER.msgconnector?=	robotpkg
 
 DEPEND_USE+=		msgconnector
 
-DEPEND_ABI.msgconnector?=	msgconnector>=2.4.0
+DEPEND_ABI.msgconnector?=	msgconnector>=2.5.0
 DEPEND_DIR.msgconnector?=	../../wip/msgconnector
 
 SYSTEM_SEARCH.msgconnector=\
