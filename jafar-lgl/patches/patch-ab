@@ -1,0 +1,81 @@
+--- FindGDAL.cmake.orig	2013-09-11 16:49:46.867640382 +0200
++++ FindGDAL.cmake	2013-09-11 16:50:01.879640006 +0200
+@@ -9,6 +9,20 @@
+ #    GDAL_FOUND - True if libgdal is found
+ #    GDAL_LIBRARY - A variable pointing to the GDAL library
+ #    GDAL_INCLUDE_DIR - Where to find the headers
++
++#=============================================================================
++# Copyright 2007-2009 Kitware, Inc.
++#
++# Distributed under the OSI-approved BSD License (the "License");
++# see accompanying file Copyright.txt for details.
++#
++# This software is distributed WITHOUT ANY WARRANTY; without even the
++# implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
++# See the License for more information.
++#=============================================================================
++# (To distribute this file outside of CMake, substitute the full
++#  License text for the above reference.)
++
+ #
+ # $GDALDIR is an environment variable that would
+ # correspond to the ./configure --prefix=$GDAL_DIR
+@@ -26,22 +40,8 @@
+ #
+ #include "gdal.h"
+ 
+-FIND_PATH(GDAL_INCLUDE_DIR gdal.h
+-  HINTS
+-    $ENV{GDAL_DIR}
+-    $ENV{GDAL_ROOT}
+-  PATH_SUFFIXES
+-     include/gdal
+-     include/GDAL
+-     include
+-  PATHS
+-      ~/Library/Frameworks/gdal.framework/Headers
+-      /Library/Frameworks/gdal.framework/Headers
+-      /sw # Fink
+-      /opt/local # DarwinPorts
+-      /opt/csw # Blastwave
+-      /opt
+-)
++# EDIT 2013-08-22 use `gdal-config --cflags` to get GDAL_INCLUDE_DIR
++message("Using custom FindGDAL CMakeModule")
+ 
+ IF(UNIX)
+     # Use gdal-config to obtain the library version (this should hopefully
+@@ -68,9 +68,32 @@
+             string(REGEX MATCHALL "-L[^ ]+" _gdal_dashL ${GDAL_CONFIG_LIBS})
+             string(REGEX REPLACE "-L" "" _gdal_libpath "${_gdal_dashL}")
+         endif()
++        exec_program(${GDAL_CONFIG} ARGS --cflags OUTPUT_VARIABLE GDAL_CONFIG_CFLAGS)
++        if(GDAL_CONFIG_CFLAGS)
++            string(REGEX MATCHALL "-I[^ ]+" _gdal_dashi ${GDAL_CONFIG_CFLAGS})
++            string(REGEX REPLACE "-I" "" _gdal_include "${_gdal_dashi}")
++        endif()
+     endif()
+ endif()
+ 
++FIND_PATH(GDAL_INCLUDE_DIR gdal.h
++  HINTS
++    ${_gdal_include}
++    $ENV{GDAL_DIR}
++    $ENV{GDAL_ROOT}
++  PATH_SUFFIXES
++     include/gdal
++     include/GDAL
++     include
++  PATHS
++      ~/Library/Frameworks/gdal.framework/Headers
++      /Library/Frameworks/gdal.framework/Headers
++      /sw # Fink
++      /opt/local # DarwinPorts
++      /opt/csw # Blastwave
++      /opt
++)
++
+ FIND_LIBRARY(GDAL_LIBRARY 
+   NAMES ${_gdal_lib} gdal gdal_i gdal1.5.0 gdal1.4.0 gdal1.3.2 GDAL
+   HINTS

@@ -4,7 +4,7 @@
 
 VERSION=		1.7.1
 DISTNAME=		jafar-lgl-${VERSION}
-PKGREVISION=	1
+PKGREVISION=	2
 CATEGORIES=		wip
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=jafar-lgl/}
 MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/jafar/jafar/modules/lgl
@@ -17,8 +17,7 @@ LICENSE=		isc
 USE_PKGLOCALEDIR=	yes
 
 CMAKE_ARGS+=		-DBOOST_INCLUDEDIR=${PREFIX.boost-headers}/include
-CMAKE_ARGS+=		-DGDAL_ROOT=${PREFIX.gdal}
-CMAKE_ARGS+=		-DGDAL_INCLUDE_DIR=${PREFIX.gdal}/include
+CMAKE_ARGS+=		-DGDAL_CONFIG=${PREFIX.gdal}/bin/gdal-config
 
 PKG_SUPPORTED_OPTIONS+=		qdisplay
 PKG_OPTION_DESCR.qdisplay=	Enable jafar module qdisplay support.
