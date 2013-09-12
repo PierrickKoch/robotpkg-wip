@@ -18,6 +18,7 @@ SUBDIR+=	gladys
 SUBDIR+=	hatpconsole
 SUBDIR+=	hatponboard-lib
 SUBDIR+=	hatptester
+SUBDIR+=	histodet
 SUBDIR+=	hyper
 SUBDIR+=	hyper_genom
 SUBDIR+=	icu-genom

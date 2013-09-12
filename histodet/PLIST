@@ -1,0 +1,21 @@
+@comment Wed Sep 11 14:23:34 CEST 2013
+${PLIST.demo}bin/histodet_demo
+${PLIST.demo}bin/histodet_demo_action
+include/histodet/bucketer.hpp
+include/histodet/detectorHistogram.hpp
+include/histodet/distance.hpp
+include/histodet/histodet.hpp
+include/histodet/histogramAbstract.hpp
+include/histodet/histogramBruteforce.hpp
+include/histodet/histogramDistributive.hpp
+include/histodet/hsv.hpp
+include/histodet/labelReader.hpp
+include/histodet/object.hpp
+include/histodet/objectExtractor.hpp
+include/histodet/predefinedDetectors.hpp
+include/histodet/refinerAbstract.hpp
+include/histodet/refinerCorrelation.hpp
+include/histodet/refinerHueBlobs.hpp
+include/histodet/stretcher.hpp
+lib/libhistodet.so
+lib/pkgconfig/histodet.pc

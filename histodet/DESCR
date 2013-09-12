@@ -1,0 +1,3 @@
+HistoDet (Histogram Detector) is a fast object detector based on histograms
+(luminance, hue, or composite).
+
