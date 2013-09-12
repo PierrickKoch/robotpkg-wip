@@ -2,7 +2,7 @@
 # Created:			Severin Lemaignan on Fri, 11 Feb 2011
 #
 
-DISTNAME=			libmove3d-3.20.0
+DISTNAME=			libmove3d-3.20.1
 PKGREVISION=			1
 CATEGORIES=			path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=libmove3d/}
