@@ -2,7 +2,7 @@
 # Created:			Jim Mainprice on Fri, 15 Apr 2011
 #
 
-DISTNAME=			libmove3d-hri-2.21
+DISTNAME=			libmove3d-hri-2.22
 CATEGORIES=			path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=libmove3d-hri/}
 MASTER_REPOSITORY=	git ssh://git.openrobots.org/git/robots/libmove3d-hri.git

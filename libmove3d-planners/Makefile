@@ -2,7 +2,7 @@
 # Created:			Jim Mainprice on Thu, 2 Feb 2011
 #
 
-DISTNAME=		libmove3d-planners-1.3.0
+DISTNAME=		libmove3d-planners-1.3.1
 CATEGORIES=		path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=libmove3d-planners/}
 MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/libmove3d-planners
