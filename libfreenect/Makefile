@@ -9,11 +9,14 @@ CATEGORIES=	hardware image
 MASTER_SITES=	https://github.com/OpenKinect/libfreenect.git@${COMMIT}
 FETCH_METHOD=	git
 
+PKGREVISION=    1
+
 MAINTAINER=	robotpkg@laas.fr
 HOMEPAGE=	http://openkinect.org/
 COMMENT=	Kinect(tm) Camera driver
 LICENSE=	apache-2.0
 
+CMAKE_ARGS+= 		-DLIB_SUFFIX=""
 
 #option for opencv wrapping and demo building
 PKG_SUPPORTED_OPTIONS+=		opencv
