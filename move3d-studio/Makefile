@@ -4,10 +4,10 @@
 
 PKGNAME=		move3d-studio-${VERSION}
 DISTNAME=		move3d-studio-${VERSION}
-VERSION=		3.9.1
+VERSION=		1.2
 
 CATEGORIES=		path
-MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=BioMove3D/}
+MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=move3d-studio/}
 MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/move3d-studio.git
 
 MAINTAINER=		biomove3dgitrepo@laas.fr
@@ -19,6 +19,7 @@ LICENSE=		gnu-gpl-v2
 
 
 CMAKE_ARGS+= -DGENERATE_STUDIO=ON
+CMAKE_ARGS+= -DMOVE3D_QT=ON
 
 ## Dependencies 
 include ../../math/gbM/depend.mk
@@ -34,13 +35,15 @@ include ../../wip/sysdep/gts.mk
 include ../../wip/sysdep/qhull.mk
 include ../../wip/sysdep/libxpm.mk
 include ../../wip/sysdep/xforms.mk
+include ../../wip/sysdep/qwt.mk
 
 include ../../wip/libmove3d/depend.mk
-
-# XXX: no such package
-# include ../../wip/libhri/depend.mk
+include ../../wip/libmove3d-hri/depend.mk
+include ../../wip/libmove3d-planners/depend.mk
 
 include ../../mk/sysdep/cmake.mk
 include ../../mk/language/c.mk
 include ../../mk/language/c++.mk
 include ../../mk/robotpkg.mk
+
+include ../../pkgtools/pkg-config/depend.mk

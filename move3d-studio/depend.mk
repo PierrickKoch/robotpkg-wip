@@ -19,7 +19,7 @@ SYSTEM_SEARCH.move3d-studio=\
 
 DEPEND_USE+=		move3d-studio
 
-DEPEND_ABI.move3d-studio?=move3d-studio>=3.9
+DEPEND_ABI.move3d-studio?=move3d-studio>=1.2
 DEPEND_DIR.move3d-studio?=../../wip/move3d-studio
 
 endif # MOVE3DSTUDIO_DEPEND_MK ----------------------------------------
