@@ -1,4 +1,4 @@
-@comment Sat Mar 3 11:37:55 CET 2012
+@comment Thu Sep 12 17:57:56 CEST 2013
 include/libmove3d/animation/proto/anim_charac_traj_interface_proto.h
 include/libmove3d/animation/proto/anim_charac_traj_proto.h
 include/libmove3d/animation/proto/anim_compute_path_interface_proto.h
@@ -249,11 +249,13 @@ include/libmove3d/localpath/flat/include/kinematic_flat_proto.h
 include/libmove3d/localpath/flat/include/struct_flat.h
 include/libmove3d/localpath/include/p3d_localPathGroup.h
 include/libmove3d/localpath/proto/localpath_proto.h
+include/libmove3d/localpath/proto/p3d_hermite_proto.h
 include/libmove3d/localpath/proto/p3d_hilare_flat_proto.h
 include/libmove3d/localpath/proto/p3d_linear_proto.h
 include/libmove3d/localpath/proto/p3d_local_proto.h
 include/libmove3d/localpath/proto/p3d_manhattan_proto.h
 include/libmove3d/localpath/proto/p3d_multiLocalPath_proto.h
+include/libmove3d/localpath/proto/p3d_quadspline_proto.h
 include/libmove3d/localpath/proto/p3d_reeds_shepp_proto.h
 include/libmove3d/localpath/proto/p3d_softMotion_proto.h
 include/libmove3d/localpath/proto/p3d_trailer_proto.h
@@ -284,6 +286,7 @@ include/libmove3d/p3d/proto/p3d_jnt_fixed_proto.h
 include/libmove3d/p3d/proto/p3d_jnt_freeflyer_proto.h
 include/libmove3d/p3d/proto/p3d_jnt_knee_proto.h
 include/libmove3d/p3d/proto/p3d_jnt_plan_proto.h
+include/libmove3d/p3d/proto/p3d_jnt_quadrotor_proto.h
 include/libmove3d/p3d/proto/p3d_jnt_rotate_proto.h
 include/libmove3d/p3d/proto/p3d_jnt_translate_proto.h
 include/libmove3d/p3d/proto/p3d_joints_proto.h
