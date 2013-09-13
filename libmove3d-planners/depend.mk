@@ -26,6 +26,8 @@ ifeq (+,$(LIBMOVE3D_PLANNERS_DEPEND_MK)) # ----------------------------------
 
 PREFER.libmove3d-planners?=	robotpkg
 
+DEPEND_USE+=		libmove3d-planners
+
 DEPEND_ABI.libmove3d-planners?=		libmove3d-planners>=1.3.1
 DEPEND_DIR.libmove3d-planners?=		../../wip/libmove3d-planners
 
