@@ -25,25 +25,21 @@ CMAKE_ARGS+=\
 CMAKE_ARGS+=		-DBOOST_INCLUDEDIR=${PREFIX.boost-headers}/include
 CMAKE_ARGS+=		-DBOOST_LIBDIR=${PREFIX.boost-libs}/include
 
+include ../../wip/sysdep/glpk.mk
+include ../../wip/sysdep/libxpm.mk
+include ../../wip/sysdep/qhull.mk
 
-# Dependencies
 include ../../devel/boost-headers/depend.mk
 include ../../devel/boost-libs/depend.mk
 include ../../math/gbM/depend.mk
 include ../../motion/softMotion-libs/depend.mk
-
-include ../../mk/sysdep/glu.mk
-include ../../mk/sysdep/freeglut.mk
-include ../../mk/sysdep/gsl.mk
-include ../../mk/sysdep/libxml2.mk
-include ../../mk/sysdep/glib2.mk
-
-include ../../wip/sysdep/glpk.mk
-include ../../wip/sysdep/gts.mk
-include ../../wip/sysdep/qhull.mk
-include ../../wip/sysdep/libxpm.mk
-
-include ../../mk/sysdep/cmake.mk
-include ../../mk/language/c.mk
 include ../../mk/language/c++.mk
+include ../../mk/language/c.mk
+include ../../mk/sysdep/cmake.mk
+include ../../mk/sysdep/freeglut.mk
+include ../../mk/sysdep/glib2.mk
+include ../../mk/sysdep/glu.mk
+include ../../mk/sysdep/gsl.mk
+include ../../mk/sysdep/gts.mk
+include ../../mk/sysdep/libxml2.mk
 include ../../mk/robotpkg.mk
