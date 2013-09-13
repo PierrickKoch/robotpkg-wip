@@ -19,30 +19,25 @@ LICENSE=		gnu-gpl-v2
 
 
 CMAKE_ARGS+= -DMOVE3D_QT=ON
-##CMAKE_ARGS+= -DMOVE3D_QT_REMOTE=ON
-## Dependencies 
-include ../../math/gbM/depend.mk
-include ../../motion/softMotion-libs/depend.mk
 
-include ../../mk/sysdep/glu.mk
-include ../../mk/sysdep/gsl.mk
-include ../../mk/sysdep/libxml2.mk
-include ../../mk/sysdep/glib2.mk
-
-include ../../wip/sysdep/glpk.mk
-include ../../wip/sysdep/gts.mk
-include ../../wip/sysdep/qhull.mk
-include ../../wip/sysdep/libxpm.mk
-include ../../wip/sysdep/xforms.mk
-include ../../mk/sysdep/qwt.mk
-
-include ../../wip/libmove3d/depend.mk
 include ../../wip/libmove3d-hri/depend.mk
 include ../../wip/libmove3d-planners/depend.mk
+include ../../wip/libmove3d/depend.mk
+include ../../wip/sysdep/glpk.mk
+include ../../wip/sysdep/libxpm.mk
+include ../../wip/sysdep/qhull.mk
 
+include ../../math/gbM/depend.mk
+include ../../motion/softMotion-libs/depend.mk
+include ../../pkgtools/pkg-config/depend.mk
 include ../../mk/sysdep/cmake.mk
+include ../../mk/sysdep/glib2.mk
+include ../../mk/sysdep/glu.mk
+include ../../mk/sysdep/gsl.mk
+include ../../mk/sysdep/gts.mk
+include ../../mk/sysdep/libxml2.mk
+include ../../mk/sysdep/qwt.mk
+include ../../mk/sysdep/xforms.mk
 include ../../mk/language/c.mk
 include ../../mk/language/c++.mk
 include ../../mk/robotpkg.mk
-
-include ../../pkgtools/pkg-config/depend.mk
