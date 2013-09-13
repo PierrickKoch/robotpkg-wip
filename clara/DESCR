@@ -1,0 +1,16 @@
+The Common LAAS RAster library
+
+Provide Geo data through GDAL, the standard library, from our existing libs.
+
+
+    +--------+
+    |        |
+    | libDTM |-----+
+    |        |     |    +-------+    +------+
+    +--------+     |    |       |    |      |
+                   +--->| clara |--->| GDAL |
+    +-----------+  |    |       |    |      |
+    |           |  |    +-------+    +------+
+    | regionMap |--+
+    |           |
+    +-----------+

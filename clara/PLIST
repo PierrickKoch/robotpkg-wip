@@ -1,0 +1,5 @@
+@comment Fri Sep 13 16:43:29 CEST 2013
+bin/clara_dtm
+bin/clara_dtm_to_region
+bin/clara_region
+bin/clara_tiff_to_region
