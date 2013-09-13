@@ -19,6 +19,8 @@ LICENSE=		gnu-gpl-v2
 
 
 CMAKE_ARGS+= -DMOVE3D_QT=ON
+##CMAKE_ARGS+= -DMOVE3D_QT_REMOTE=ON
+##CMAKE_ARGS+= -DMOVE3D_XFORMS=ON
 
 include ../../wip/libmove3d-hri/depend.mk
 include ../../wip/libmove3d-planners/depend.mk
