@@ -18,9 +18,8 @@ COMMENT=		The BioMove3D development studio
 LICENSE=		gnu-gpl-v2
 
 
-CMAKE_ARGS+= -DGENERATE_STUDIO=ON
 CMAKE_ARGS+= -DMOVE3D_QT=ON
-
+##CMAKE_ARGS+= -DMOVE3D_QT_REMOTE=ON
 ## Dependencies 
 include ../../math/gbM/depend.mk
 include ../../motion/softMotion-libs/depend.mk
@@ -35,7 +34,7 @@ include ../../wip/sysdep/gts.mk
 include ../../wip/sysdep/qhull.mk
 include ../../wip/sysdep/libxpm.mk
 include ../../wip/sysdep/xforms.mk
-include ../../wip/sysdep/qwt.mk
+include ../../mk/sysdep/qwt.mk
 
 include ../../wip/libmove3d/depend.mk
 include ../../wip/libmove3d-hri/depend.mk
