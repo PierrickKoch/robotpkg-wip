@@ -6,6 +6,7 @@ COMMENT=	WIP packages
 SUBDIR+=	antlr2
 SUBDIR+=	attentional-genom
 SUBDIR+= 	certi
+SUBDIR+= 	clara
 SUBDIR+=	daqflex-libs
 SUBDIR+= 	demo-genom3
 SUBDIR+=	genom3
