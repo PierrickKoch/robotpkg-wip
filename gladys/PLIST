@@ -1,8 +1,9 @@
-@comment Fri Sep 13 10:47:18 CEST 2013
-bin/gdal_float_rgb
+@comment Sun Sep 15 15:17:26 CEST 2013
+bin/gladysconv
 bin/gladysplay
 bin/region_graph
 bin/region_weight
+include/gladys/bresenham.hpp
 include/gladys/dstar.hpp
 include/gladys/gdal.hpp
 include/gladys/gladys.hpp
