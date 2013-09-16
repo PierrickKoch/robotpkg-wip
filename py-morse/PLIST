@@ -1,19 +1,5 @@
-@comment Tue Mar 12 17:48:16 CET 2013
+@comment Mon Sep 16 11:21:27 CEST 2013
 ${PYTHON_SITELIB}/pymorse/__init__.py
-${PYTHON_SITELIB}/pymorse/${PYTHON_PYCACHE}/__init__${PYTHON_TAG}.pyc
-${PYTHON_SITELIB}/pymorse/${PYTHON_PYCACHE}/__init__${PYTHON_TAG}.pyo
-${PYTHON_SITELIB}/pymorse/${PYTHON_PYCACHE}/future${PYTHON_TAG}.pyc
-${PYTHON_SITELIB}/pymorse/${PYTHON_PYCACHE}/future${PYTHON_TAG}.pyo
-${PYTHON_SITELIB}/pymorse/${PYTHON_PYCACHE}/pymorse-internals-testing${PYTHON_TAG}.pyc
-${PYTHON_SITELIB}/pymorse/${PYTHON_PYCACHE}/pymorse-internals-testing${PYTHON_TAG}.pyo
-${PYTHON_SITELIB}/pymorse/${PYTHON_PYCACHE}/pymorse-testing${PYTHON_TAG}.pyc
-${PYTHON_SITELIB}/pymorse/${PYTHON_PYCACHE}/pymorse-testing${PYTHON_TAG}.pyo
-${PYTHON_SITELIB}/pymorse/${PYTHON_PYCACHE}/pymorse${PYTHON_TAG}.pyc
-${PYTHON_SITELIB}/pymorse/${PYTHON_PYCACHE}/pymorse${PYTHON_TAG}.pyo
-${PYTHON_SITELIB}/pymorse/${PYTHON_PYCACHE}/stream${PYTHON_TAG}.pyc
-${PYTHON_SITELIB}/pymorse/${PYTHON_PYCACHE}/stream${PYTHON_TAG}.pyo
 ${PYTHON_SITELIB}/pymorse/future.py
-${PYTHON_SITELIB}/pymorse/pymorse-internals-testing.py
-${PYTHON_SITELIB}/pymorse/pymorse-testing.py
 ${PYTHON_SITELIB}/pymorse/pymorse.py
 ${PYTHON_SITELIB}/pymorse/stream.py

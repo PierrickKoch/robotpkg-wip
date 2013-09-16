@@ -11,7 +11,7 @@ ifeq (+,$(PYMORSE_DEPEND_MK)) # -----------------------------------------------
 PREFER.py-morse?=		robotpkg
 
 DEPEND_USE+=		py-morse
-DEPEND_ABI.py-morse?=	${PKGTAG.python-}morse>=0.6
+DEPEND_ABI.py-morse?=	${PKGTAG.python-}morse>=1.1
 DEPEND_DIR.py-morse?=	../../wip/py-morse
 
 SYSTEM_SEARCH.py-morse=\
