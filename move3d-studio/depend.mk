@@ -14,12 +14,10 @@ ifeq (+,$(MOVE3DSTUDIO_DEPEND_MK)) # ----------------------------------
 PREFER.move3d-studio?=	robotpkg
 
 SYSTEM_SEARCH.move3d-studio=\
-	bin/move3d-studio
-#TODO: check the version
-
+	bin/move3d-qt-studio
 DEPEND_USE+=		move3d-studio
 
-DEPEND_ABI.move3d-studio?=move3d-studio>=1.2
+DEPEND_ABI.move3d-studio?=move3d-studio>=1.2.1
 DEPEND_DIR.move3d-studio?=../../wip/move3d-studio
 
 endif # MOVE3DSTUDIO_DEPEND_MK ----------------------------------------

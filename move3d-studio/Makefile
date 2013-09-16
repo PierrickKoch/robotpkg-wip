@@ -4,7 +4,8 @@
 
 PKGNAME=		move3d-studio-${VERSION}
 DISTNAME=		move3d-studio-${VERSION}
-VERSION=		1.2
+VERSION=		1.2.1
+PKGREVISION=		2
 
 CATEGORIES=		path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=move3d-studio/}
@@ -17,10 +18,22 @@ COMMENT=		The BioMove3D development studio
 # on GSL and GLPK that are 2 GLP librairies.
 LICENSE=		gnu-gpl-v2
 
+PKG_SUPPORTED_OPTIONS= qtstudio
+PKG_SUPPORTED_OPTIONS+= qtremote 
+PKG_SUPPORTED_OPTIONS+= xforms
 
-CMAKE_ARGS+= -DMOVE3D_QT=ON
-##CMAKE_ARGS+= -DMOVE3D_QT_REMOTE=ON
-##CMAKE_ARGS+= -DMOVE3D_XFORMS=ON
+PKG_OPTION_DESCR.qtstudio= Install move3d-qt-studio
+PKG_OPTION_DESCR.qtremote= Install move3d-remote
+PKG_OPTION_DESCR.xforms= Install move3d-xforms
+
+PKG_OPTION_SET.qtstudio= CMAKE_ARGS+= -DMOVE3D_QT=ON
+PKG_OPTION_UNSET.qtstudio= CMAKE_ARGS+= -DMOVE3D_QT=OFF
+PKG_OPTION_SET.qtremote= CMAKE_ARGS+= -DMOVE3D_QT_REMOTE=ON
+PKG_OPTION_UNSET.qtremote= CMAKE_ARGS+= -DMOVE3D_QT_REMOTE=OFF
+PKG_OPTION_SET.xforms= CMAKE_ARGS+= -DMOVE3D_XFORMS=ON
+PKG_OPTION_UNSET.xforms= CMAKE_ARGS+= -DMOVE3D_XFORMS=OFF
+
+PKG_SUGGESTED_OPTIONS=	qtstudio
 
 include ../../wip/libmove3d-hri/depend.mk
 include ../../wip/libmove3d-planners/depend.mk

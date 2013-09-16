@@ -1,2 +1,4 @@
 @comment Fri Feb 11 18:42:18 CET 2011
-bin/move3d-studio
+${PLIST.qtstudio}bin/move3d-qt-studio
+${PLIST.qtremote}bin/move3d-remote
+${PLIST.xforms}bin/move3d-xforms

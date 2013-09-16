@@ -31,7 +31,7 @@ ifeq (+,$(QWT_DEPEND_MK)) # ---------------------------------------------
 
 PREFER.qwt?=		system
 DEPEND_USE+=		qwt
-DEPEND_ABI.qwt?=	qwt>=5.0
+DEPEND_ABI.qwt?=	qwt>=5.0<6
 
 SYSTEM_SEARCH.qwt=	\
 	include/qwt/qwt.h \
