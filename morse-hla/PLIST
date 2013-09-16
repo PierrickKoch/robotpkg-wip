@@ -1,5 +1,3 @@
-@comment Tue Mar 12 16:06:21 CET 2013
-${PYTHON_SITELIB}/morse/multinode/${PYTHON_PYCACHE}/hla${PYTHON_TAG}.pyc
-${PYTHON_SITELIB}/morse/multinode/${PYTHON_PYCACHE}/hla${PYTHON_TAG}.pyo
+@comment Mon Sep 16 11:19:38 CEST 2013
 ${PYTHON_SITELIB}/morse/multinode/hla.py
 share/federations/morse.fed
