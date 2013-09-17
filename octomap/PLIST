@@ -1,4 +1,4 @@
-@comment Wed May 22 14:01:44 CEST 2013
+@comment Tue Sep 17 07:49:37 CEST 2013
 bin/binvox2bt
 bin/bt2vrml
 bin/compare_octrees
@@ -11,6 +11,7 @@ include/octomap/AbstractOcTree.h
 include/octomap/AbstractOccupancyOcTree.h
 include/octomap/ColorOcTree.h
 include/octomap/CountingOcTree.h
+include/octomap/MCTables.h
 include/octomap/MapCollection.h
 include/octomap/MapCollection.hxx
 include/octomap/MapNode.h
