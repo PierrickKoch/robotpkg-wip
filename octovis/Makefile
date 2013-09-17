@@ -2,7 +2,7 @@
 # Created:			Arnaud Degroote on Wed, 22 May 2013
 #
 
-PKGVERSION=	1.6.0
+PKGVERSION=	1.6.1
 DISTNAME=	v${PKGVERSION_NOREV}
 PKGNAME=	octoviz-${PKGVERSION}
 
