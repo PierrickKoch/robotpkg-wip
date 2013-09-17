@@ -1,3 +1,6 @@
+# robotpkg depend.mk for:	graphics/py27-laaswm
+# Created:			Séverin Lemaignan on Wed, 19 Oct 2011
+#
 
 DEPEND_DEPTH:=		${DEPEND_DEPTH}+
 PYLAASWM_DEPEND_MK:=	${PYLAASWM_DEPEND_MK}+
