@@ -21,9 +21,6 @@ CMAKE_ARGS+= -DEigen_INCLUDE_DIR=${PREFIX.eigen2}/include/eigen2
 CMAKE_ARGS+= -DBOOST_INCLUDEDIR=${PREFIX.boost-headers}/include
 CMAKE_ARGS+= -DBOOST_LIBRARYDIR=${PREFIX.boost-libs}/lib
 
-PREFER.boost-headers = robotpkg
-PREFER.boost-libs = robotpkg
-
 ## Common includes
 include ../../wip/libmove3d/depend.mk
 include ../../wip/libmove3d-hri/depend.mk
