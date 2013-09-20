@@ -28,7 +28,7 @@ PREFER.libmove3d-planners?=	robotpkg
 
 DEPEND_USE+=		libmove3d-planners
 
-DEPEND_ABI.libmove3d-planners?=		libmove3d-planners>=1.3.2
+DEPEND_ABI.libmove3d-planners?=		libmove3d-planners>=1.3.3
 DEPEND_DIR.libmove3d-planners?=		../../wip/libmove3d-planners
 
 SYSTEM_SEARCH.libmove3d-planners=\

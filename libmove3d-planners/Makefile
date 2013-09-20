@@ -2,11 +2,11 @@
 # Created:			Jim Mainprice on Thu, 2 Feb 2011
 #
 
-DISTNAME=		libmove3d-planners-1.3.2
+DISTNAME=		libmove3d-planners-1.3.3
 CATEGORIES=		path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=libmove3d-planners/}
 MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/libmove3d-planners
-PKGREVISION= 	2
+PKGREVISION= 	3
 
 MAINTAINER=		biomove3dgitrepo@laas.fr
 COMMENT=		C++ (object oriented) Motion planning algorithms based on libmove3d
