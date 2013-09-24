@@ -1,0 +1,4 @@
+@comment Tue Sep 24 23:27:46 CEST 2013
+include/gdalwrap/gdal.hpp
+lib/libgdalwrap.so
+lib/pkgconfig/gdalwrap.pc
