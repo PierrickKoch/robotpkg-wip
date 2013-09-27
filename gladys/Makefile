@@ -3,7 +3,7 @@
 #
 NAME=			gladys
 DISTNAME=		${NAME}-${VERSION}
-VERSION=		0.1.7
+VERSION=		0.2
 CATEGORIES=		mapping
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=${NAME}/}
 MASTER_REPOSITORY=	${MASTER_REPOSITORY_OPENROBOTS}${NAME}
@@ -23,11 +23,17 @@ DEPEND_ABI.boost-headers=boost-headers>=1.46.1
 DEPEND_ABI.g++ =	g++>=4.6
 DEPEND_ABI.clang =	clang>=3.0
 
+# outside world libs/tools
 include ../../devel/boost-headers/depend.mk
 include ../../devel/boost-libs/depend.mk
 include ../../mk/sysdep/cmake.mk
-include ../../mk/sysdep/gdal.mk
+# standard
+include ../../pkgtools/pkg-config/depend.mk
+# gdalwrap (GDAL wrapper)
+include ../../wip/gdalwrap/depend.mk
+# language
 include ../../mk/sysdep/python.mk
 include ../../mk/language/c.mk
 include ../../mk/language/c++.mk
+# robotpkg
 include ../../mk/robotpkg.mk
