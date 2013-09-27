@@ -1,4 +1,4 @@
-@comment Fri Sep 20 11:03:23 CEST 2013
+@comment Fri Sep 27 12:02:11 CEST 2013
 bin/gladysconv
 bin/gladysplay
 bin/region_graph
@@ -7,7 +7,6 @@ include/gladys/bresenham.hpp
 include/gladys/cache.hpp
 include/gladys/dstar.hpp
 include/gladys/frontier_exploration.hpp
-include/gladys/gdal.hpp
 include/gladys/gladys.hpp
 include/gladys/graph_astar.hpp
 include/gladys/nav_graph.hpp
