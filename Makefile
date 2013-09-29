@@ -9,6 +9,7 @@ SUBDIR+= 	certi
 SUBDIR+= 	clara
 SUBDIR+=	daqflex-libs
 SUBDIR+= 	demo-genom3
+SUBDIR+=	gdalwrap
 SUBDIR+=	genom3
 SUBDIR+=	genom3-openprs
 SUBDIR+=	genom3-pocolibs
