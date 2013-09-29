@@ -1,4 +1,6 @@
-@comment Fri Sep 13 16:43:29 CEST 2013
+@comment Sun Sep 29 10:17:03 CEST 2013
+bin/clara_dsm_to_dtm
+bin/clara_dsm_to_region
 bin/clara_dtm
 bin/clara_dtm_to_region
 bin/clara_region

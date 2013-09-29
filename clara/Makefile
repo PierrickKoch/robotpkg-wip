@@ -3,7 +3,7 @@
 #
 NAME=			clara
 DISTNAME=		${NAME}-${VERSION}
-VERSION=		0.1
+VERSION=		0.2
 CATEGORIES=		mapping
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=${NAME}/}
 MASTER_REPOSITORY=	${MASTER_REPOSITORY_OPENROBOTS}${NAME}
@@ -27,8 +27,8 @@ include ../../image/libimages3d/depend.mk
 include ../../math/t3d/depend.mk
 include ../../mapping/libdtm/depend.mk
 include ../../mapping/regionMap-lib/depend.mk
-# gladys (just for gdal.hpp)
-include ../../wip/gladys/depend.mk
+# gdalwrap (GDAL wrapper)
+include ../../wip/gdalwrap/depend.mk
 # standard
 include ../../pkgtools/pkg-config/depend.mk
 # language
