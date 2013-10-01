@@ -15,6 +15,8 @@ Suggested package updates
 	o graphics/blender-2.69
 	o image/opencv-2.4.6
 	o image/visp-2.8.0
+	o math/eigen-3.2.0
+
 
 Suggested new packages
 ======================
