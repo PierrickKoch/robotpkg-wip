@@ -4,7 +4,7 @@
 DISTNAME=		spark-genom-3.7
 CATEGORIES=		knowledge
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=spark-genom/}
-MASTER_REPOSITORY=	git ssh://git.openrobots.org/git/robots/spark-genom.git
+MASTER_REPOSITORY=	${MASTER_REPOSITORY_OPENROBOTS}spark-genom
 
 MAINTAINER=		robotpkg@laas.fr
 COMMENT=		Spatial Reasoning and Knowledge module
