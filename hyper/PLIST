@@ -15,6 +15,7 @@ include/hyper/compiler/extract_symbols.hh
 include/hyper/compiler/extract_unused_result.hh
 include/hyper/compiler/functions_def.hh
 include/hyper/compiler/functions_def_parser.hh
+include/hyper/compiler/import_exception.hh
 include/hyper/compiler/import_parser.hh
 include/hyper/compiler/logic_expression_output.hh
 include/hyper/compiler/output.hh
@@ -70,6 +71,7 @@ include/hyper/model/logic_layer.hh
 include/hyper/model/logic_layer_fwd.hh
 include/hyper/model/logic_layer_impl.hh
 include/hyper/model/main.hh
+include/hyper/model/main_test.hh
 include/hyper/model/operator.hh
 include/hyper/model/proxy.hh
 include/hyper/model/recipe.hh
