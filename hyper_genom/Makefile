@@ -3,7 +3,7 @@
 #
 
 DISTNAME=		hyper_genom-${VERSION}
-VERSION=		0.11
+VERSION=		0.12
 CATEGORIES=		supervision
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=hyper_genom/}
 MASTER_REPOSITORY=	${MASTER_REPOSITORY_OPENROBOTS}hyper_genom
@@ -12,7 +12,6 @@ MASTER_REPOSITORY=	${MASTER_REPOSITORY_OPENROBOTS}hyper_genom
 MAINTAINER=		arnaud.degroote@laas.fr
 COMMENT=		Link between Hyper and Genom
 LICENSE=		2-clause-bsd
-
 
 CMAKE_ARGS+=		-DBOOST_INCLUDEDIR=${PREFIX.boost-headers}/include
 CMAKE_ARGS+=		-DBOOST_LIBDIR=${PREFIX.boost-libs}/include
