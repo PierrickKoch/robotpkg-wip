@@ -14,7 +14,7 @@ PREFER.hatpconsole?=	robotpkg
 
 DEPEND_USE+=		hatponboard-lib
 
-DEPEND_ABI.hatponboard-lib?=	hatponboard-lib>=1.2.0
+DEPEND_ABI.hatponboard-lib?=	hatponboard-lib>=1.2.1
 DEPEND_DIR.hatponboard-lib?=	../../wip/hatponboard-lib
 
 SYSTEM_SEARCH.hatponboard-lib=\
