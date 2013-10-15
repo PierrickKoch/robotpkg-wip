@@ -3,7 +3,7 @@
 #
 
 DISTNAME=		msgconnector-${VERSION}
-VERSION=		2.6.0
+VERSION=		2.7.0
 PKGREVISION=    	
 CATEGORIES=		planning
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=msgconnector/}
