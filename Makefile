@@ -78,5 +78,6 @@ SUBDIR+=	transgen3
 SUBDIR+=	urbi
 SUBDIR+=	visp
 SUBDIR+=	visuserv-genom
+SUBDIR+= 	vnet-yarp
 
 include ../mk/robotpkg.subdir.mk
