@@ -73,6 +73,7 @@ SUBDIR+= 	rtslam-genom
 SUBDIR+=	spark-genom
 SUBDIR+=	sparkyarp-genom
 SUBDIR+=	tcl-genomix
+SUBDIR+= 	track_target-genom
 SUBDIR+=	trajectory_monitor-genom
 SUBDIR+=	transgen3
 SUBDIR+=	urbi
