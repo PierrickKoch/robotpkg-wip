@@ -1,4 +1,4 @@
 @comment Tue Jun 25 14:49:12 CEST 2013
 bin/hatptester
 bin/${PKGNAME}
-lib/liblogger.so
+${PLIST.enable-logger}lib/liblogger.so
