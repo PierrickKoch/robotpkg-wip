@@ -1,0 +1,18 @@
+The code needs to explicitly include lock_guard.hpp since boost-1.53.
+See boost issue #7588 for details
+
+--- src/vnet_table.hh.orig	2013-05-27 17:54:43.000000000 +0200
++++ src/vnet_table.hh	2013-10-16 10:48:18.000000000 +0200
+@@ -5,8 +5,12 @@
+ #include <map>
+ #include <utility>
+ 
++#include <boost/version.hpp>
+ #include <boost/shared_ptr.hpp>
+ #include <boost/thread/mutex.hpp>
++#if BOOST_VERSION >= 105300
++#include <boost/thread/lock_guard.hpp>
++#endif
+ 
+ #include <vnet_filter.hh>
+ 
