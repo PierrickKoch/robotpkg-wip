@@ -33,7 +33,7 @@ SYSTEM_SEARCH.mhp-genom=\
 
 DEPEND_USE+=		mhp-genom
 
-DEPEND_ABI.mhp-genom?=mhp-genom>=3.13
+DEPEND_ABI.mhp-genom?=mhp-genom>=3.14
 DEPEND_DIR.mhp-genom?=../../wip/mhp-genom
 
 #include ../../wip/??
