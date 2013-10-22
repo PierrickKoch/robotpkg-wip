@@ -1,7 +1,8 @@
-# robotpkg Makefile for:	supervision/hyper_genom
+# robotpkg Makefile for:	supervision/hyper-genom-plugin
 # Created:			Arnaud Degroote on Mon,  8 Oct 2012
 #
 
+PKGNAME= 		hyper-genom-plugin-${VERSION}
 DISTNAME=		hyper_genom-${VERSION}
 VERSION=		0.12
 CATEGORIES=		supervision
