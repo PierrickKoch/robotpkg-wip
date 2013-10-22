@@ -1,7 +1,8 @@
-# robotpkg Makefile for:	path/trajectory_monitor-genom
+# robotpkg Makefile for:	path/trajectory-monitor-genom
 # Created:			Arnaud Degroote on Mon, 8 Oct 2012
 #
 
+PKGNAME= 		trajectory-monitor-genom-${VERSION}
 DISTNAME=		trajectory_monitor-genom-${VERSION}
 VERSION=		0.2
 CATEGORIES=		path
