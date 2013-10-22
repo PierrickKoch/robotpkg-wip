@@ -1,8 +1,10 @@
-# robotpkg Makefile for:	action/track_target-genom
+# robotpkg Makefile for:	action/track-target-genom
 # Created:			Arnaud Degroote on Wed, 16 Nov 2011
 #
 
-DISTNAME=		track_target-genom-0.2
+PKGNAME=		track-target-genom-${VERSION}
+DISTNAME=		track_target-genom-${VERSION}
+VERSION= 		0.2
 CATEGORIES=		action
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=action/}
 MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/action/track_target
