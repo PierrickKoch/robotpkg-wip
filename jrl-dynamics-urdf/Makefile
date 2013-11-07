@@ -1,7 +1,7 @@
 # robotpkg Makefile for:	math/jrl-dynamics-urdf
 # Created:			Olivier Stasse on Thu, 27 Jun 2013
 #
-DISTNAME=		jrl-dynamics-urdf-2.0.0
+DISTNAME=		jrl-dynamics-urdf-2.0.1
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=jrl-dynamics-urdf/}
 MASTER_REPOSITORY=	git git://github.com/laas/jrl_dynamics_urdf.git
 
@@ -17,7 +17,10 @@ CMAKE_ARGS+=		-DGTEST_ROOT=${PREFIX.googletest}
 
 include ../../devel/boost-headers/depend.mk
 include ../../devel/boost-libs/depend.mk
+include ../../sysutils/ros-rospack/depend.mk
 include ../../graphics/ros-robot-model/depend.mk
+include ../../graphics/urdfdom/depend.mk
+include ../../graphics/urdfdom-headers/depend.mk
 include ../../interfaces/jrl-mal/depend.mk
 include ../../math/jrl-dynamics/depend.mk
 include ../../pkgtools/pkg-config/depend.mk
