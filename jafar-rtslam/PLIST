@@ -1,4 +1,4 @@
-@comment Fri Dec 14 12:05:08 CET 2012
+@comment Wed Nov 13 16:12:39 CET 2013
 include/jafar/rtslam/activeSearch.hpp
 include/jafar/rtslam/activeSegmentSearch.hpp
 include/jafar/rtslam/ahpTools.hpp
@@ -39,6 +39,7 @@ include/jafar/rtslam/hardwareSensorInertialAdhocSimulator.hpp
 include/jafar/rtslam/hardwareSensorMocap.hpp
 include/jafar/rtslam/hardwareSensorMti.hpp
 include/jafar/rtslam/hardwareSensorOdomRmp400Genom.hpp
+include/jafar/rtslam/historyManager.hpp
 include/jafar/rtslam/imageTools.hpp
 include/jafar/rtslam/innovation.hpp
 include/jafar/rtslam/kalmanFilter.hpp
@@ -71,6 +72,7 @@ include/jafar/rtslam/rawProcessors.hpp
 include/jafar/rtslam/rawSegProcessors.hpp
 include/jafar/rtslam/robotAbstract.hpp
 include/jafar/rtslam/robotCenteredConstantVelocity.hpp
+include/jafar/rtslam/robotConstantMotionModel.hpp
 include/jafar/rtslam/robotConstantVelocity.hpp
 include/jafar/rtslam/robotInertial.hpp
 include/jafar/rtslam/robotOdometry.hpp
@@ -86,6 +88,7 @@ include/jafar/rtslam/simuRawProcessors.hpp
 include/jafar/rtslam/simulator.hpp
 include/jafar/rtslam/simulatorObjects.hpp
 include/jafar/rtslam/spaceGrid.hpp
+include/jafar/rtslam/timestampManager.hpp
 include/jafar/rtslam/visibilityMap.hpp
 include/jafar/rtslam/worldAbstract.hpp
 lib/libjafar-rtslam.so

@@ -1,0 +1,6 @@
+@comment Wed Nov 16 15:56:48 CET 2011
+bin/vnet
+include/vnet/vnet_yarp.hh
+include/vnet/yarp/vnet_yarp_details.hh
+include/vnet/yarp/vnet_yarp_only.hh
+lib/pkgconfig/vnet-yarp.pc

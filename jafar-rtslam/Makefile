@@ -2,8 +2,7 @@
 # Created:			Cyril Roussillon on Wed, 15 Jun 2011
 #
 
-JAFAR_PKG=		rtslam-0.2
-PKGREVISION= 	6
+JAFAR_PKG=		rtslam-0.3
 CATEGORIES=		wip
 JAFAR_COMMENT=		Jafar module to do fast and generic EKF Slam.
 
@@ -74,10 +73,14 @@ define PKG_OPTION_UNSET.posterLib
   CMAKE_ARGS+=			-DHAVE_POSTERLIB=OFF
 endef
 
+CMAKE_ARGS+= -DPATH_TO_BOOST_SANDBOX=${PREFIX.boost-numeric-bindings}/include
+
 include ../../devel/jafar-kernel/depend.mk
 include ../../image/jafar-image/depend.mk
 include ../../math/jafar-jmath/depend.mk
 include ../../image/jafar-correl/depend.mk
+include ../../math/boost-numeric-bindings/depend.mk
+include ../../math/lapack/depend.mk
 
 include ../../mk/language/c.mk
 include ../../mk/robotpkg.mk

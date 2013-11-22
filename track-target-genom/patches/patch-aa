@@ -1,0 +1,32 @@
+Do not panic if we don't find the target in TrackStart
+
+We have not_max_seen period before we decide it has been lost.
+
+It can basically happen when the angle of the robot changes between the
+last time where we 'see' the target and the time where we stop to move.
+In this case, the target is not yet visible, but we still have its last
+position.
+
+diff --git a/codels/track_targetExecTaskCodels.c b/codels/track_targetExecTaskCodels.c
+index 40e10fd..7e60a8e 100644
+--- codels/track_targetExecTaskCodels.c
++++ codels/track_targetExecTaskCodels.c
+@@ -100,19 +100,6 @@ track_target_TrackStart(TRACK_TARGET_TRACK *track_params, int *report)
+ 		return END;
+ 	}
+ 
+-	GENPOS_TRAJ_POINTS pts;
+-	if (posterRead(targetPos, 0, &pts, sizeof(pts)) < 0) {
+-		*report = S_track_target_TARGET_NOT_FOUD;
+-		return END;
+-	}
+-
+-	if (pts.nbPts == 0) {
+-		*report = S_track_target_TARGET_NOT_FOUD;
+-		return END;
+-	}
+-
+-	not_seen_since = 0;
+-
+ 	return EXEC;
+ }

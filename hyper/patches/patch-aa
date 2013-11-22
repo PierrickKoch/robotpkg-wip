@@ -1,0 +1,16 @@
+Fix a typo while checking argument of test programm
+
+
+diff --git a/src/model/ability_test.cc b/src/model/ability_test.cc
+index d42cd2d..08d8a8d 100644
+--- src/model/ability_test.cc
++++ src/model/ability_test.cc
+@@ -226,7 +226,7 @@ ability_test::correct_usage(int argc, char** argv)
+             arguments[0] == "make" or
+ 		    arguments[0] == "ensure" or
+ 		    (arguments[0] == "let" and argc == 7  and
+-                    (arguments[4] != "make" or arguments[4] == "ensure")));
++                    (arguments[4] == "make" or arguments[4] == "ensure")));
+ }
+ 
+ int 

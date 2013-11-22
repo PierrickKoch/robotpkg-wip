@@ -14,7 +14,7 @@ ifeq (+,$(jafar-rtslam_DEPEND_MK)) # -------------------------------------------
 PREFER.jafar-rtslam?=		robotpkg
 
 DEPEND_USE+=		jafar-rtslam
-DEPEND_ABI.jafar-rtslam?=	jafar-rtslam>=0.1
+DEPEND_ABI.jafar-rtslam?=	jafar-rtslam>=0.3
 DEPEND_DIR.jafar-rtslam?=	../../wip/jafar-rtslam
 
 SYSTEM_SEARCH.jafar-rtslam=\

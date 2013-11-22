@@ -1,0 +1,2 @@
+Vnet-yarp stands for Virtual Network for YARP. It is a component which let us
+simulate comminucation loss on top of yarp communication.

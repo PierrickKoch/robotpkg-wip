@@ -22,7 +22,7 @@ SUBDIR+=	hatponboard-lib
 SUBDIR+=	hatptester
 SUBDIR+=	histodet
 SUBDIR+=	hyper
-SUBDIR+=	hyper_genom
+SUBDIR+=	hyper-genom-plugin
 SUBDIR+=	icu-genom
 SUBDIR+=	jafar-lgl
 SUBDIR+=	jafar-rednav
@@ -73,10 +73,12 @@ SUBDIR+= 	rtslam-genom
 SUBDIR+=	spark-genom
 SUBDIR+=	sparkyarp-genom
 SUBDIR+=	tcl-genomix
-SUBDIR+=	trajectory_monitor-genom
+SUBDIR+= 	track-target-genom
+SUBDIR+=	trajectory-monitor-genom
 SUBDIR+=	transgen3
 SUBDIR+=	urbi
 SUBDIR+=	visp
 SUBDIR+=	visuserv-genom
+SUBDIR+= 	vnet-yarp
 
 include ../mk/robotpkg.subdir.mk
