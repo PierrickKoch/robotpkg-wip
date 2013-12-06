@@ -12,11 +12,13 @@ endif
 ifeq (+,$(ROS_REALTIMETOOLS_DEPEND_MK)) # ----------------------------------
 
 include ../../meta-pkgs/ros-base/depend.common
-PREFER.ros-reatime-tools?=		${PREFER.ros-base}
+PREFER.ros-realtime-tools?=		${PREFER.ros-base}
 SYSTEM_PREFIX.ros-realtime-tools?=	${SYSTEM_PREFIX.ros-base}
 
 DEPEND_USE+=			ros-realtime-tools
 ROS_DEPEND_USE+=		ros-realtime-tools
+
+DEPEND_ABI.ros+=ros>=groovy
 
 DEPEND_ABI.ros-realtime-tools?=	ros-realtime-tools>=1.8.2
 DEPEND_DIR.ros-realtime-tools?=	../../wip/ros-realtime-tools
