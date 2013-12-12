@@ -45,6 +45,7 @@ SUBDIR+=	libhatp
 SUBDIR+=	libmove3d
 SUBDIR+=	libmove3d-hri
 SUBDIR+=	libmove3d-planners
+SUBDIR+=	lua-rfsm
 SUBDIR+=	lwr-genom
 SUBDIR+=	metapod
 SUBDIR+=	mhp-genom
