@@ -11,7 +11,7 @@ MASTER_REPOSITORY=	https://github.com/jlblancoc/mrpt
 MAINTAINER=		arnaud.degroote@isae.fr
 COMMENT=		Mobile Robot Programming Toolkit
 HOMEPAGE= 		http://www.mrpt.org
-LICENSE=		3-clause-bsd
+LICENSE=		modified-bsd
 
 
 DYNAMIC_PLIST_DIRS+=	share/doc/mrpt-doc
