@@ -1,4 +1,8 @@
-@comment Thu Dec 12 14:14:41 CET 2013
+@comment Thu Dec 12 15:16:05 CET 2013
+bin/rfsm-sim
+bin/rfsm-sim.lua
+bin/rfsm-viz
+bin/rfsm2json
 lib/lua/rfsm/ansicolors.lua
 lib/lua/rfsm/rfsm.lua
 lib/lua/rfsm/rfsm2json.lua
@@ -54,6 +58,3 @@ share/rfsm/examples/simple_doo_idle.lua
 share/rfsm/examples/simple_idle_doo.lua
 share/rfsm/examples/timeevent.lua
 share/rfsm/examples/total_failure.lua
-@pkgdir share/doc/liborocos-rtt/xml/images/icons/hires
-@pkgdir share/doc/liborocos-rtt/xml/images/hires
-@pkgdir share/doc/liborocos-rtt/api/html
