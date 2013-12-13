@@ -8,6 +8,7 @@ SUBDIR+= 	atlaas
 SUBDIR+= 	atlaas-genom
 SUBDIR+=	attentional-genom
 SUBDIR+= 	certi
+SUBDIR+=	chilitags
 SUBDIR+= 	clara
 SUBDIR+=	daqflex-libs
 SUBDIR+= 	demo-genom3
