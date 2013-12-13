@@ -2,14 +2,13 @@
 # Created:			Anthony Mallet on Fri, 19 Oct 2012
 #
 
-PKGREVISION=	1
-DISTNAME=	genom3-ros-1.6
+DISTNAME=	genom3-ros-1.7
 CATEGORIES=	architecture
 MASTER_SITES=	${MASTER_SITE_OPENROBOTS:=genom3-ros/}
 MASTER_REPOSITORY= git git://git.openrobots.org/git/robots/genom3-ros
 
 MAINTAINER=	mallet@laas.fr
-HOMEPAGE=	https://homepages.laas.fr/mallet/soft/architecture/genom3
+HOMEPAGE=	http://www.openrobots.org/wiki/genom3
 COMMENT=	GenoM3 template for ros-based components
 
 LICENSE=	2-clause-bsd
