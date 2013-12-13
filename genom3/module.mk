@@ -40,8 +40,6 @@ genom3-autoreconf(%): genom3-generate(%)
 
 # --- options --------------------------------------------------------------
 
-PKG_OPTIONS_OPTIONAL_GROUPS+=	client-c
-
 # codels
 PKG_SUPPORTED_OPTIONS+=		codels
 PKG_SUGGESTED_OPTIONS+=		codels
@@ -65,13 +63,10 @@ define PKG_OPTION_SET.pocolibs-server
   include ../../wip/genom3-pocolibs/depend.mk
 endef
 
-PKG_OPTIONS_GROUP.client-c+=		pocolibs-client-c
+PKG_SUPPORTED_OPTIONS+=			pocolibs-client-c
 PKG_OPTION_DESCR.pocolibs-client-c=	Build a pocolibs C client
 define PKG_OPTION_SET.pocolibs-client-c
   TMPL1_WRKSRC+=	${TEMPLATES_WRKDIR}/pocolibs/client/c
-
-  # XXX temporary
-  MAKE_JOBS_SAFE=no
 
   pre-configure: genom3-autoreconf(pocolibs/client/c)
 
@@ -105,7 +100,7 @@ define PKG_OPTION_SET.ros-server
   include ../../mk/language/c++.mk
 endef
 
-PKG_OPTIONS_GROUP.client-c+=		ros-client-c
+PKG_SUPPORTED_OPTIONS+=			ros-client-c
 PKG_OPTION_DESCR.ros-client-c=		Build a ROS C client
 define PKG_OPTION_SET.ros-client-c
   TMPL1_WRKSRC+=	${TEMPLATES_WRKDIR}/ros/client/c
@@ -137,11 +132,11 @@ define PKG_OPTION_SET.ros-client-ros
 
   # hackish ... but this is for a PLIST.guess anyway, so nothing critical
   PRINT_PLIST_AWK_FILTERS+=\
-	/include\/[$$]{GENOM_MODULE}\// {next}			\
-	/[$$]{PYTHON_SITELIB}\/[$$]{GENOM_MODULE}\// {next}	\
-	/share\/[$$]{GENOM_MODULE}\/manifest.xml$$/ {next}	\
-	/share\/[$$]{GENOM_MODULE}\/msg/ {next}			\
-	/share\/[$$]{GENOM_MODULE}\/srv/ {next}
+	/include\/${GENOM_MODULE}\// {next}				\
+	/$(subst /,\/,${PYTHON_SITELIB})\/${GENOM_MODULE}\// {next}	\
+	/share\/${GENOM_MODULE}\/manifest.xml$$/ {next}			\
+	/share\/${GENOM_MODULE}\/msg/ {next}				\
+	/share\/${GENOM_MODULE}\/srv/ {next}
 
   pre-configure: genom3-autoreconf(ros/client/ros)
 
@@ -188,14 +183,16 @@ GENERATE_PLIST+=	${CAT} ${ROBOTPKG_DIR}/${PLIST_TEMPLATES};
 PRINT_PLIST_AWK_SUBST+=	gsub("${GENOM_MODULE}", "$${GENOM_MODULE}");
 PRINT_PLIST_AWK_FILTERS=
 PRINT_PLIST_FILTER+=\
-	${AWK} '							\
+	| ${AWK} '							\
 	  BEGIN { print "@comment includes ${PLIST_TEMPLATES}" }	\
 	  ${PRINT_PLIST_AWK_FILTERS}					\
 	  NR > FNR {							\
 	     if (!($$0 in filter)) print "$${PLIST.codels}" $$0; next;	\
 	  }								\
-	  { gsub("[$$]{PLIST[^}]*}", ""); filter[$$0] }			\
-	  ' ${ROBOTPKG_DIR}/${PLIST_TEMPLATES} -;
+	  { gsub("[$$]{GENOM_MODULE}", "${GENOM_MODULE}") }		\
+	  { gsub("[$$]{PLIST[^}]*}", "") }				\
+	  { filter[$$0] }						\
+	  ' ${ROBOTPKG_DIR}/${PLIST_TEMPLATES} -
 
 
 # --- common dependencies --------------------------------------------------
