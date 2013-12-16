@@ -77,6 +77,17 @@ define PKG_OPTION_SET.oro
   include ../../knowledge/liboro/depend.mk
 endef
 
+##
+## USE_MIGHTABILITY_MAPS option
+##
+PKG_SUPPORTED_OPTIONS+=	mightability
+PKG_OPTION_DESCR.mightability=	Enable  mightabilities functions
+
+define PKG_OPTION_SET.oro
+   GENOM_ARGS+= -DUSE_MIGHTABILITY_MAPS
+endef
+
+PKG_SUGGESTED_OPTIONS+= mightability
 
 ##
 ## Attentional

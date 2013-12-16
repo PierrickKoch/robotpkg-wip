@@ -109,6 +109,20 @@ endef
 
 PKG_SUGGESTED_OPTIONS+=	spark
 
+##
+## USE_MIGHTABILITY_MAPS synchonization
+##
+PKG_SUPPORTED_OPTIONS+=	mightability
+PKG_OPTION_DESCR.mightability=	Enable mightabilities functions
+
+define PKG_OPTION_SET.mightability
+  GENOM_ARGS+= -DUSE_MIGHTABILITY_MAPS
+endef
+
+PKG_SUGGESTED_OPTIONS+=	mightability
+
+
+
 #####################
 
 GENOM_MODULE=		mhp
