@@ -2,13 +2,13 @@
 # Created:			Anthony Mallet on Sun, 28 Jan 2007
 #
 
-DISTNAME=	genom3-pocolibs-1.4
+DISTNAME=	genom3-pocolibs-1.5
 CATEGORIES=	architecture
 MASTER_SITES=	${MASTER_SITE_OPENROBOTS:=genom3-pocolibs/}
 MASTER_REPOSITORY= git git://git.openrobots.org/git/robots/genom3-pocolibs
 
 MAINTAINER=	mallet@laas.fr
-HOMEPAGE=	https://homepages.laas.fr/mallet/soft/architecture/genom3
+HOMEPAGE=	http://www.openrobots.org/wiki/genom3
 COMMENT=	GenoM3 template for pocolibs-based components
 
 LICENSE=	2-clause-bsd

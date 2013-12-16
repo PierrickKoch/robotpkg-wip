@@ -1,0 +1,4 @@
+@comment Tue Nov 26 12:36:35 CET 2013
+include/atlaas/atlaas.hpp
+lib/libatlaas.so
+lib/pkgconfig/atlaas.pc
