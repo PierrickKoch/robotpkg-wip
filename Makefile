@@ -47,6 +47,7 @@ SUBDIR+=	libmove3d-hri
 SUBDIR+=	libmove3d-planners
 SUBDIR+=	lua-rfsm
 SUBDIR+=	lwr-genom
+SUBDIR+= 	mavlink
 SUBDIR+=	metapod
 SUBDIR+=	mhp-genom
 SUBDIR+=	morse-hla
