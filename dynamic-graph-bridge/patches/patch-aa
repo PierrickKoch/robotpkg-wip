@@ -1,0 +1,15 @@
+in robotpkg, realtime_tools is not installed as a catkin package  
+
+
+--- CMakeLists.txt~	2013-12-02 15:54:49.000000000 +0100
++++ CMakeLists.txt	2013-12-15 07:48:25.678062000 +0100
+@@ -21,7 +21,8 @@
+ 
+ project(dynamic_graph_bridge)
+ 
+-find_package(catkin REQUIRED COMPONENTS roscpp rospy std_msgs message_generation std_srvs geometry_msgs sensor_msgs tf realtime_tools)
++find_package(catkin REQUIRED COMPONENTS roscpp rospy std_msgs message_generation std_srvs geometry_msgs sensor_msgs tf)
++find_package(realtime_tools)
+ find_package(Boost REQUIRED COMPONENTS program_options)
+ 
+ add_message_files(FILES Matrix.msg Vector.msg)

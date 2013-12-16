@@ -12,6 +12,7 @@ SUBDIR+=	chilitags
 SUBDIR+= 	clara
 SUBDIR+=	daqflex-libs
 SUBDIR+= 	demo-genom3
+SUBDIR+=	dynamic-graph-bridge
 SUBDIR+=	gdalwrap
 SUBDIR+=	genom3
 SUBDIR+=	genom3-openprs
