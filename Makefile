@@ -85,6 +85,7 @@ SUBDIR+= 	track-target-genom
 SUBDIR+=	trajectory-monitor-genom
 SUBDIR+=	transgen3
 SUBDIR+=	urbi
+SUBDIR+= 	urg
 SUBDIR+=	visp
 SUBDIR+=	visuserv-genom
 SUBDIR+= 	vnet-yarp
