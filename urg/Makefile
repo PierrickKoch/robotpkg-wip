@@ -10,7 +10,7 @@ EXTRACT_SUFX= 	.zip
 
 GNU_CONFIGURE=	yes
 
-MAINTAINER=		arnaud.degroote@sae.fr
+MAINTAINER=		arnaud.degroote@isae.fr
 COMMENT=		Drivers for URG laser scanner
 LICENSE=		gnu-lgpl-v3
 
