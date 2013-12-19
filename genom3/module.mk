@@ -86,11 +86,16 @@ define PKG_OPTION_SET.ros-server
 
   TMPL1_WRKSRC+=	${TEMPLATES_WRKDIR}/ros/server
   CONFIGURE_ARGS.${TEMPLATES_WRKDIR}/ros/server+=\
-	--with-boost=${PREFIX.boost-headers}
+	--with-boost=${PREFIX.boost-headers}				\
+	--with-boost-libdir=$(dir ${SYSTEM_FILES.boost-lib-thread})	\
+	--with-boost-thread=boost_thread${BOOST_LIB_SUFFIX}
+
+  USE_BOOST_LIBS+=	thread
 
   pre-configure: genom3-autoreconf(ros/server)
 
   include ../../devel/boost-headers/depend.mk
+  include ../../devel/boost-libs/depend.mk
   include ../../devel/ros-ros/depend.mk
   include ../../interfaces/ros-common-msgs/depend.mk
   include ../../middleware/ros-actionlib/depend.mk
