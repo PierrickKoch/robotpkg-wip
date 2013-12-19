@@ -9,7 +9,7 @@ ifeq (+,$(DEPEND_DEPTH))
 DEPEND_PKG+=			jrl-dynamics-urdf
 endif
 
-ifeq (+,$(JRL_DYNAMICS_DEPEND_MK)) # ---------------------------------
+ifeq (+,$(JRL_DYNAMICS_URDF_DEPEND_MK)) # ---------------------------------
 
 PREFER.jrl-dynamics-urdf?=	robotpkg
 
