@@ -1,0 +1,24 @@
+install ros executables also in share since
+ros facitilies are not able to find it in bin
+for now
+this issue has already been raised by ros community
+(e.g.  https://github.com/ros/xacro/issues/2)
+should be possible to remove the patch with Hydro version (need to be tested)
+
+--- CMakeLists.txt-old	2013-12-20 13:22:01.741374000 +0100
++++ CMakeLists.txt	2013-12-20 13:23:06.659322000 +0100
+@@ -161,5 +161,14 @@
+   ${CMAKE_SOURCE_DIR}/scripts/tf_publisher
+   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+   )
++#install ros executables also in share since
++# ros facitilies are not able to find it in bin
++# for now
++install(PROGRAMS
++  ${CMAKE_SOURCE_DIR}/scripts/robot_pose_publisher
++  ${CMAKE_SOURCE_DIR}/scripts/run_command
++  ${CMAKE_SOURCE_DIR}/scripts/tf_publisher
++  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
++  )
+ SETUP_PROJECT_FINALIZE()
+ 

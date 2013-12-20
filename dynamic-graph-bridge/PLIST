@@ -13,6 +13,9 @@ include/dynamic_graph_bridge/warning.hh
 lib/dynamic_graph_bridge/robot_pose_publisher
 lib/dynamic_graph_bridge/run_command
 lib/dynamic_graph_bridge/tf_publisher
+share/dynamic_graph_bridge/robot_pose_publisher
+share/dynamic_graph_bridge/run_command
+share/dynamic_graph_bridge/tf_publisher
 lib/librobot_model.so
 lib/libros_bridge.so
 lib/libros_interpreter.so
