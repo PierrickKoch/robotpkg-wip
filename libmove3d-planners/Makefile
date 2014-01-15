@@ -5,7 +5,7 @@
 DISTNAME=		libmove3d-planners-1.3.3
 CATEGORIES=		path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=libmove3d-planners/}
-MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/libmove3d-planners
+MASTER_REPOSITORY=	git git://trac.laas.fr/robots/libmove3d-planners
 PKGREVISION= 	3
 
 MAINTAINER=		biomove3dgitrepo@laas.fr
