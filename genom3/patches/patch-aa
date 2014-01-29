@@ -1,0 +1,100 @@
+upstream commit 297ddbc6d61d9b7a98bb704cc0564176523a183a
+
+Fix some objects iterators in the generator so that they stop randomizing lists
+
+Fix the 'throws' method of components/remotes/services/tasks so that the
+returned list is kept in a deterministic order. This is important for several
+reasons, the most important one being that the client and server md5 digests
+rely on it.
+
+The problem was that in order to remove duplicates in the list, the tcl "lsort
+-unique" procedure was used. While this actually removes duplicates, this
+paradoxically introduces a randomization of the list, because the string
+representation of genom objects in Tcl is based on their address in memory.
+So just use a trivial duplicates removal that preserves order instead.
+
+diff --git engine/tcl/component.c engine/tcl/component.c
+index d62a063..20e0976 100644
+--- engine/tcl/component.c
++++ engine/tcl/component.c
+@@ -130,8 +130,8 @@ comp_cmd(ClientData v, Tcl_Interp *interp, int objc, Tcl_Obj *const objv[])
+
+     case compidx_throws: {
+       Tcl_Obj *argv[] = {
+-        Tcl_NewStringObj("lsort", -1),
+-        Tcl_NewStringObj("-unique", -1),
++        Tcl_NewStringObj("object", -1),
++        Tcl_NewStringObj("unique", -1),
+         NULL,
+       };
+       prop_s p;
+diff --git engine/tcl/object.tcl engine/tcl/object.tcl
+index 8b76321..425c48a 100644
+--- engine/tcl/object.tcl
++++ engine/tcl/object.tcl
+@@ -271,5 +271,20 @@ namespace eval object {
+   }
+
+
++  # --- unique -------------------------------------------------------------
++
++  # Remove duplicates in a list while preserving order: only the first item is
++  # kept.
++  #
++  proc unique { list } {
++    set r [list]
++    foreach e $list {
++      if {[lsearch -exact $r $e] < 0} { lappend r $e }
++    }
++    return $r
++  }
++  namespace export unique
++
++
+   namespace ensemble create
+ }
+diff --git engine/tcl/remote.c engine/tcl/remote.c
+index 3c6486f..4397c79 100644
+--- engine/tcl/remote.c
++++ engine/tcl/remote.c
+@@ -132,8 +132,8 @@ remote_cmd(ClientData v, Tcl_Interp *interp, int objc, Tcl_Obj *const objv[])
+
+     case remoteidx_throws: {
+       Tcl_Obj *argv[] = {
+-        Tcl_NewStringObj("lsort", -1),
+-        Tcl_NewStringObj("-unique", -1),
++        Tcl_NewStringObj("object", -1),
++        Tcl_NewStringObj("unique", -1),
+         NULL,
+       };
+       hiter i;
+diff --git engine/tcl/service.c engine/tcl/service.c
+index 0757463..ceb3f93 100644
+--- engine/tcl/service.c
++++ engine/tcl/service.c
+@@ -140,8 +140,8 @@ service_cmd(ClientData v, Tcl_Interp *interp, int objc, Tcl_Obj *const objv[])
+
+     case serviceidx_throws: {
+       Tcl_Obj *argv[] = {
+-        Tcl_NewStringObj("lsort", -1),
+-        Tcl_NewStringObj("-unique", -1),
++        Tcl_NewStringObj("object", -1),
++        Tcl_NewStringObj("unique", -1),
+         NULL,
+       };
+       hiter i;
+diff --git engine/tcl/task.c engine/tcl/task.c
+index 82ab066..a044e2c 100644
+--- engine/tcl/task.c
++++ engine/tcl/task.c
+@@ -101,8 +101,8 @@ task_cmd(ClientData v, Tcl_Interp *interp, int objc, Tcl_Obj *const objv[])
+
+     case taskidx_throws: {
+       Tcl_Obj *argv[] = {
+-        Tcl_NewStringObj("lsort", -1),
+-        Tcl_NewStringObj("-unique", -1),
++        Tcl_NewStringObj("object", -1),
++        Tcl_NewStringObj("unique", -1),
+         NULL,
+       };
+       prop_s p;
