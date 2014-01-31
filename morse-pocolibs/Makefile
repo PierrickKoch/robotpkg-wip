@@ -17,7 +17,7 @@ CMAKE_ARGS+=		-DBUILD_YARP2_SUPPORT=OFF
 
 
 PKG_SUPPORTED_OPTIONS+=		viam
-PKG_OPTION_DESCR.outdoor=	Enable support for image camera support
+PKG_OPTION_DESCR.viam =	Enable support for image camera support
 
 define PKG_OPTION_SET.viam
   CMAKE_ARGS+=		-DBUILD_POCOLIBS_VIAM_SUPPORT=ON
@@ -27,12 +27,22 @@ define PKG_OPTION_SET.viam
 endef
 
 PKG_SUPPORTED_OPTIONS+=		stereopixel
-PKG_OPTION_DESCR.outdoor=	Enable support for depth camera support
+PKG_OPTION_DESCR.stereopixel =	Enable support for depth camera (stereopixel) support
 
 define PKG_OPTION_SET.stereopixel
   CMAKE_ARGS+=		-DBUILD_POCOLIBS_STEREOPIXEL_SUPPORT=ON
 
   include ../../image/stereopixel-genom/depend.mk
+  include ../../middleware/pocolibs/depend.mk
+endef
+
+PKG_SUPPORTED_OPTIONS+=		velodyne
+PKG_OPTION_DESCR.velodyne =	Enable support for velodyne support
+
+define PKG_OPTION_SET.velodyne
+  CMAKE_ARGS+=		-DBUILD_POCOLIBS_VELODYNE_SUPPORT=ON
+
+  include ../../hardware/velodyne-genom/depend.mk
   include ../../middleware/pocolibs/depend.mk
 endef
 
