@@ -2,6 +2,7 @@
 # Created:			Anthony Mallet on Fri, 19 Oct 2012
 #
 
+PKGREVISION=	1
 DISTNAME=	tcl-genomix-1.2
 CATEGORIES=	supervision
 MASTER_SITES=	${MASTER_SITE_OPENROBOTS:=tcl-genomix/}
