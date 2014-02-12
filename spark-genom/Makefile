@@ -4,7 +4,7 @@
 DISTNAME=		spark-genom-3.8
 CATEGORIES=		knowledge
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=spark-genom/}
-MASTER_REPOSITORY=	${MASTER_REPOSITORY_OPENROBOTS}spark-genom
+MASTER_REPOSITORY=	${MASTER_REPOSITORY_OPENROBOTS_TRAC}spark-genom
 
 MAINTAINER=		robotpkg@laas.fr
 COMMENT=		Spatial Reasoning and Knowledge module

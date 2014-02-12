@@ -6,7 +6,7 @@ VERSION=		1.2
 PKGNAME=		${PKGTAG.python}-morse-${VERSION}
 DISTNAME=		morse-${VERSION}
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=morse/}
-MASTER_REPOSITORY=	git git://git.openrobots.org/robots/morse
+MASTER_REPOSITORY=	${MASTER_REPOSITORY_OPENROBOTS_TRAC}morse
 EXTRACT_SUFX=		.tar.bz2
 
 CATEGORIES=		simulation

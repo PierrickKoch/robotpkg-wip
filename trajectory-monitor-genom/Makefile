@@ -7,7 +7,7 @@ DISTNAME=		trajectory_monitor-genom-${VERSION}
 VERSION=		0.2
 CATEGORIES=		path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=trajectory_monitor-genom/}
-MASTER_REPOSITORY=	${MASTER_REPOSITORY_OPENROBOTS}trajectory_monitor-genom
+MASTER_REPOSITORY=	${MASTER_REPOSITORY_OPENROBOTS_TRAC}trajectory_monitor-genom
 
 MAINTAINER=		arnaud.degroote@laas.fr
 COMMENT=		Simple trajectory recorder + replayer
