@@ -19,7 +19,7 @@ DEPEND_DIR.urg?=	../../wip/urg
 
 SYSTEM_SEARCH.urg=\
 	bin/urg-config \
-	include/urg/UrgCtrl.h
+	include/urg/UrgCtrl.h \
 	lib/liburg.so 
 endif
 
