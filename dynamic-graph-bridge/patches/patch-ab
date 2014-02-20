@@ -1,0 +1,15 @@
+add libros_bridge installation to allow standalone use
+
+--- CMakeLists.txt2	2013-12-19 08:36:09.598413000 +0100
++++ CMakeLists.txt	2013-12-19 08:36:33.642277000 +0100
+@@ -79,9 +79,9 @@
+   include/dynamic_graph_bridge/ros_init.hh src/ros_init.cpp
+   src/sot_to_ros.hh src/sot_to_ros.cpp
+   )
+-
+ pkg_config_use_dependency(ros_bridge jrl-mal)
+ pkg_config_use_dependency(ros_bridge bullet)
++install(TARGETS ros_bridge DESTINATION lib)
+ 
+ # Make sure rpath are preserved during the install as ROS dependencies
+ # are not installed.

@@ -1,0 +1,23 @@
+From 038ff1e69b8a9d947b4f9fce2aa2485b6f742700
+
+When dealing with nested http requests, the innermost request (the latest one)
+gets its result from the last element in the results stack. Definitely not from
+the first one.
+
+This fixes random failures under a high throughput requests flow, where http
+results where sometimes mixed.
+
+diff --git src/http.tcl src/http.tcl
+index a21d250..114b7ee 100644
+--- src/http.tcl
++++ src/http.tcl
+@@ -55,7 +55,8 @@ namespace eval genomix::http {
+
+     # pop results
+     fileevent $sock readable $e
+-    set pending($sock) [lassign $pending($sock) r]
++    set r [lindex $pending($sock) end]
++    set pending($sock) [lrange $pending($sock) 0 end-1]
+     incr pindex($sock) -1
+     switch -- [dict get $r state] {
+       ok	{ return $r }

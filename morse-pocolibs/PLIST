@@ -1,4 +1,4 @@
-@comment Fri Mar 1 18:22:15 CET 2013
+@comment Fri Jan 31 12:13:09 CET 2014
 ${PYTHON_SITELIB}/morse/middleware/pocolibs/__init__.py
 ${PYTHON_SITELIB}/morse/middleware/pocolibs/actuators/__init__.py
 ${PYTHON_SITELIB}/morse/middleware/pocolibs/actuators/genpos.py
@@ -10,6 +10,7 @@ ${PYTHON_SITELIB}/morse/middleware/pocolibs/overlays/fingers.py
 ${PYTHON_SITELIB}/morse/middleware/pocolibs/overlays/platine_overlay.py
 ${PYTHON_SITELIB}/morse/middleware/pocolibs/overlays/rflex_overlay.py
 ${PYTHON_SITELIB}/morse/middleware/pocolibs/overlays/stereopixel_overlay.py
+${PYTHON_SITELIB}/morse/middleware/pocolibs/overlays/velodyne_overlay.py
 ${PYTHON_SITELIB}/morse/middleware/pocolibs/overlays/viam_overlay.py
 ${PYTHON_SITELIB}/morse/middleware/pocolibs/sensors/__init__.py
 ${PYTHON_SITELIB}/morse/middleware/pocolibs/sensors/human_posture.py
@@ -17,9 +18,11 @@ ${PYTHON_SITELIB}/morse/middleware/pocolibs/sensors/platine_posture.py
 ${PYTHON_SITELIB}/morse/middleware/pocolibs/sensors/pom.py
 ${PYTHON_SITELIB}/morse/middleware/pocolibs/sensors/stereopixel.py
 ${PYTHON_SITELIB}/morse/middleware/pocolibs/sensors/target.py
+${PYTHON_SITELIB}/morse/middleware/pocolibs/sensors/velodyne.py
 ${PYTHON_SITELIB}/morse/middleware/pocolibs/sensors/viam.py
 ${PYTHON_SITELIB}/morse/middleware/pocolibs/sensors/viman.py
 ${PLIST.stereopixel}${PYTHON_SITELIB}/morse/middleware/pocolibs/stereopixel.so
+${PLIST.velodyne}${PYTHON_SITELIB}/morse/middleware/pocolibs/velodyne.so
 ${PLIST.viam}${PYTHON_SITELIB}/morse/middleware/pocolibs/viam.so
 ${PYTHON_SITELIB}/morse/middleware/pocolibs_datastream.py
 ${PYTHON_SITELIB}/morse/middleware/pocolibs_request_manager.py

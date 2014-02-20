@@ -5,7 +5,7 @@
 DISTNAME=		joystick-genom-1.0
 CATEGORIES=		hardware
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=joystick-genom/}
-MASTER_REPOSITORY=	${MASTER_REPOSITORY_OPENROBOTS}joystick-genom
+MASTER_REPOSITORY=	${MASTER_REPOSITORY_OPENROBOTS_TRAC}joystick-genom
 
 MAINTAINER=		xavier.broquere@laas.fr
 COMMENT=		Genom module for the Logitech Cordless RumblePad 2 joystick.

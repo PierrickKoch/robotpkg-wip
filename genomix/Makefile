@@ -5,7 +5,7 @@
 DISTNAME=	genomix-1.4
 CATEGORIES=	net
 MASTER_SITES=	${MASTER_SITE_OPENROBOTS:=genomix/}
-MASTER_REPOSITORY= git git://git.openrobots.org/git/robots/genomix
+MASTER_REPOSITORY= ${MASTER_REPOSITORY_OPENROBOTS_TRAC}genomix
 
 MAINTAINER=	mallet@laas.fr
 HOMEPAGE=	http://www.openrobots.org/wiki/genom3

@@ -4,7 +4,7 @@
 DISTNAME=		spark-genom-3.8
 CATEGORIES=		knowledge
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=spark-genom/}
-MASTER_REPOSITORY=	${MASTER_REPOSITORY_OPENROBOTS}spark-genom
+MASTER_REPOSITORY=	${MASTER_REPOSITORY_OPENROBOTS_TRAC}spark-genom
 
 MAINTAINER=		robotpkg@laas.fr
 COMMENT=		Spatial Reasoning and Knowledge module
@@ -77,6 +77,17 @@ define PKG_OPTION_SET.oro
   include ../../knowledge/liboro/depend.mk
 endef
 
+##
+## USE_MIGHTABILITY_MAPS option
+##
+PKG_SUPPORTED_OPTIONS+=	mightability
+PKG_OPTION_DESCR.mightability=	Enable  mightabilities functions
+
+define PKG_OPTION_SET.oro
+   GENOM_ARGS+= -DUSE_MIGHTABILITY_MAPS
+endef
+
+PKG_SUGGESTED_OPTIONS+= mightability
 
 ##
 ## Attentional

@@ -2,11 +2,11 @@
 # Created:			Severin Lemaignan on Fri, 11 Feb 2011
 #
 
-DISTNAME=			libmove3d-3.20.1
-PKGREVISION=		2
+DISTNAME=			libmove3d-3.20.2
+PKGREVISION=			1
 CATEGORIES=			path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=libmove3d/}
-MASTER_REPOSITORY=	git ssh://git.openrobots.org/git/robots/libmove3d.git
+MASTER_REPOSITORY=	${MASTER_REPOSITORY_OPENROBOTS_TRAC}libmove3d.git
 
 MAINTAINER=			biomove3dgitrepo@laas.fr
 COMMENT=			Library for motion planning and geometric reasonning

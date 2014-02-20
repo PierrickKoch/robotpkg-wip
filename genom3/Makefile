@@ -2,12 +2,13 @@
 # Created:			Anthony Mallet on Fri, 19 Oct 2012
 #
 
+PKGREVISION=	1
 VERSION=	2.99.22
 DISTNAME=	genom-${VERSION}
 PKGNAME=	genom3-${VERSION}
 CATEGORIES=	architecture
 MASTER_SITES=	${MASTER_SITE_OPENROBOTS:=genom/}
-MASTER_REPOSITORY= git ssh://trac.laas.fr/git/robots/genom3
+MASTER_REPOSITORY= ${MASTER_REPOSITORY_OPENROBOTS_TRAC}genom3
 
 MAINTAINER=	mallet@laas.fr
 HOMEPAGE=	http://www.openrobots.org/wiki/genom3

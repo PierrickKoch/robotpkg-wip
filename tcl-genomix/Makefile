@@ -2,10 +2,11 @@
 # Created:			Anthony Mallet on Fri, 19 Oct 2012
 #
 
+PKGREVISION=	1
 DISTNAME=	tcl-genomix-1.2
 CATEGORIES=	supervision
 MASTER_SITES=	${MASTER_SITE_OPENROBOTS:=tcl-genomix/}
-MASTER_REPOSITORY= git git://git.openrobots.org/git/robots/tcl-genomix
+MASTER_REPOSITORY= ${MASTER_REPOSITORY_OPENROBOTS_TRAC}tcl-genomix
 
 MAINTAINER=	mallet@laas.fr
 HOMEPAGE=	https://homepages.laas.fr/mallet/soft/architecture/genom3

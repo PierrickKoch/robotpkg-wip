@@ -5,7 +5,7 @@
 DISTNAME=			libmove3d-hri-2.22
 CATEGORIES=			path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=libmove3d-hri/}
-MASTER_REPOSITORY=	git ssh://git.openrobots.org/git/robots/libmove3d-hri.git
+MASTER_REPOSITORY=	${MASTER_REPOSITORY_OPENROBOTS_TRAC}libmove3d-hri.git
 
 MAINTAINER=			robots-source@laas.fr
 COMMENT=			Human centered spatial reasonning & motion planning 

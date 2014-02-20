@@ -5,7 +5,7 @@
 DISTNAME=	genom3-pocolibs-1.5
 CATEGORIES=	architecture
 MASTER_SITES=	${MASTER_SITE_OPENROBOTS:=genom3-pocolibs/}
-MASTER_REPOSITORY= git git://git.openrobots.org/git/robots/genom3-pocolibs
+MASTER_REPOSITORY= ${MASTER_REPOSITORY_OPENROBOTS_TRAC}genom3-pocolibs
 
 MAINTAINER=	mallet@laas.fr
 HOMEPAGE=	http://www.openrobots.org/wiki/genom3
