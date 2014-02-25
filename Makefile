@@ -7,6 +7,7 @@ SUBDIR+=	antlr2
 SUBDIR+= 	atlaas
 SUBDIR+= 	atlaas-genom
 SUBDIR+=	attentional-genom
+SUBDIR+=	can-utils
 SUBDIR+= 	certi
 SUBDIR+=	chilitags
 SUBDIR+= 	clara
