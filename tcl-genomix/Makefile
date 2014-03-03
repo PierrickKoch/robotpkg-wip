@@ -6,7 +6,7 @@ PKGREVISION=	1
 DISTNAME=	tcl-genomix-1.2
 CATEGORIES=	supervision
 MASTER_SITES=	${MASTER_SITE_OPENROBOTS:=tcl-genomix/}
-MASTER_REPOSITORY= ${MASTER_REPOSITORY_OPENROBOTS_TRAC}tcl-genomix
+MASTER_REPOSITORY= ${MASTER_REPOSITORY_OPENROBOTS}genomix/tcl-genomix
 
 MAINTAINER=	mallet@laas.fr
 HOMEPAGE=	https://homepages.laas.fr/mallet/soft/architecture/genom3
