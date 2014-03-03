@@ -5,7 +5,7 @@
 DISTNAME=	genom3-pocolibs-1.5
 CATEGORIES=	architecture
 MASTER_SITES=	${MASTER_SITE_OPENROBOTS:=genom3-pocolibs/}
-MASTER_REPOSITORY= ${MASTER_REPOSITORY_OPENROBOTS_TRAC}genom3-pocolibs
+MASTER_REPOSITORY= ${MASTER_REPOSITORY_OPENROBOTS}genom3/genom3-pocolibs
 
 MAINTAINER=	mallet@laas.fr
 HOMEPAGE=	http://www.openrobots.org/wiki/genom3
@@ -16,7 +16,7 @@ LICENSE=	2-clause-bsd
 GNU_CONFIGURE=	yes
 NOT_FOR_PLATFORM=	# empty
 
-DEPEND_ABI.pocolibs=	pocolibs>=2.11.99
+DEPEND_ABI.pocolibs=	pocolibs>=2.13r2
 
 include ../../middleware/pocolibs/depend.mk
 include ../../pkgtools/pkg-config/depend.mk
