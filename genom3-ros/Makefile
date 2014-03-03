@@ -5,7 +5,7 @@
 DISTNAME=	genom3-ros-1.7
 CATEGORIES=	architecture
 MASTER_SITES=	${MASTER_SITE_OPENROBOTS:=genom3-ros/}
-MASTER_REPOSITORY= ${MASTER_REPOSITORY_OPENROBOTS_TRAC}genom3-ros
+MASTER_REPOSITORY= ${MASTER_REPOSITORY_OPENROBOTS}genom3/genom3-ros
 
 MAINTAINER=	mallet@laas.fr
 HOMEPAGE=	http://www.openrobots.org/wiki/genom3
