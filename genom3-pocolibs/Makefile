@@ -2,7 +2,7 @@
 # Created:			Anthony Mallet on Sun, 28 Jan 2007
 #
 
-DISTNAME=	genom3-pocolibs-1.5
+DISTNAME=	genom3-pocolibs-1.6
 CATEGORIES=	architecture
 MASTER_SITES=	${MASTER_SITE_OPENROBOTS:=genom3-pocolibs/}
 MASTER_REPOSITORY= ${MASTER_REPOSITORY_OPENROBOTS}genom3/genom3-pocolibs
