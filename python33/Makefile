@@ -1,6 +1,6 @@
 # $NetBSD: Makefile,v 1.6 2013/02/06 23:22:38 jperkin Exp $
 
-VERSION=	3.3.2
+VERSION=	3.3.5
 DISTNAME=	Python-${VERSION}
 PKGNAME=	python33-${VERSION}
 MASTER_SITES=	http://www.python.org/ftp/python/${VERSION}/
