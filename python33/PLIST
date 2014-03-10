@@ -1828,6 +1828,10 @@ lib/python3.3/lib-dynload/termios.cpython-33m.so
 lib/python3.3/lib-dynload/time.cpython-33m.so
 lib/python3.3/lib-dynload/unicodedata.cpython-33m.so
 lib/python3.3/lib-dynload/zlib.cpython-33m.so
+lib/python3.3/plat-${PY_PLATNAME}/IN.py
+lib/python3.3/plat-${PY_PLATNAME}/__pycache__/IN.cpython-33.pyc
+lib/python3.3/plat-${PY_PLATNAME}/__pycache__/IN.cpython-33.pyo
+lib/python3.3/plat-${PY_PLATNAME}/regen
 lib/python3.3/lib2to3/Grammar.txt
 lib/python3.3/lib2to3/Grammar${PKGVERSION}.final.0.pickle
 lib/python3.3/lib2to3/PatternGrammar.txt

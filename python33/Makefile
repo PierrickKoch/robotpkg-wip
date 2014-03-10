@@ -3,7 +3,7 @@
 VERSION=	3.3.5
 DISTNAME=	Python-${VERSION}
 PKGNAME=	python33-${VERSION}
-PKGREVISION= 	2
+PKGREVISION= 	3
 MASTER_SITES=	http://www.python.org/ftp/python/${VERSION}/
 EXTRACT_SUFX=   .tgz
 
