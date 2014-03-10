@@ -3,6 +3,7 @@
 VERSION=	3.3.5
 DISTNAME=	Python-${VERSION}
 PKGNAME=	python33-${VERSION}
+PKGREVISION= 	1
 MASTER_SITES=	http://www.python.org/ftp/python/${VERSION}/
 EXTRACT_SUFX=   .tgz
 
@@ -55,6 +56,7 @@ post-install:
 include ../../mk/sysdep/gdbm.mk
 include ../../mk/sysdep/libffi.mk
 include ../../mk/sysdep/openssl.mk
+include ../../wip/mk/sysdep/liblzma.mk
 include ../../mk/language/c.mk
 include ../../mk/language/c++.mk
 include ../../mk/robotpkg.mk
