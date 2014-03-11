@@ -16,7 +16,7 @@ LICENSE=	2-clause-bsd
 GNU_CONFIGURE=	yes
 NOT_FOR_PLATFORM=	# empty
 
-DEPEND_ABI.pocolibs=	pocolibs>=2.13r2
+DEPEND_ABI.pocolibs=	pocolibs>=2.11.99
 
 include ../../middleware/pocolibs/depend.mk
 include ../../pkgtools/pkg-config/depend.mk
