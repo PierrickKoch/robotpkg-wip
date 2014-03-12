@@ -7,7 +7,7 @@ VERSION=		1.0
 CATEGORIES=		image
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=histodet/}
 MASTER_REPOSITORY=	${MASTER_REPOSITORY_OPENROBOTS_TRAC}histodet
-PKGREVISION= 	1
+PKGREVISION= 	2
 
 MAINTAINER=		robotpkg@laas.fr
 COMMENT=		Fast object detector based on histogram
@@ -17,7 +17,7 @@ PKG_SUPPORTED_OPTIONS+=	demo
 PKG_OPTION_DESCR.demo?=	Install demo histodet tool, including the learning tool
 define PKG_OPTION_SET.demo
 	CMAKE_ARGS+=		-DBUILD_DEMO=ON
-	// requiere opencv_highgui
+#	requiere opencv_highgui
 endef
 define PKG_OPTION_UNSET.demo
   	CMAKE_ARGS+=		-DBUILD_DEMO=OFF

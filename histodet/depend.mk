@@ -18,7 +18,6 @@ DEPEND_ABI.histodet?=	histodet>=1.0
 DEPEND_DIR.histodet?=	../../wip/histodet
 
 SYSTEM_SEARCH.histodet=\
-	bin/histodet_demo \
 	include/histodet/hsv.hpp \
 	lib/libhistodet.so \
 	'lib/pkgconfig/histodet.pc:/Version/s/[^0-9.]//gp'
