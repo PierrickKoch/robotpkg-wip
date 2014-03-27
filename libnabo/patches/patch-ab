@@ -1,13 +1,17 @@
 diff --git tests/helpers.h tests/helpers.h
-index 9f0a2f6..1f65fa2 100644
+index 9f0a2f6..edb25d4 100644
 --- tests/helpers.h
 +++ tests/helpers.h
-@@ -125,6 +125,8 @@ typename NearestNeighbourSearch<T>::Matrix createQuery(const typename NearestNei
- #ifdef __MACH__
- #include <mach/clock.h>
- #include <mach/mach.h>
-+#else
-+#include <time.h>
- #endif
- 
- #ifdef _POSIX_TIMERS 
+@@ -155,8 +155,12 @@ namespace boost
+ 			mach_port_deallocate(mach_task_self(), cclock);
+ 			#else
+ 			struct timespec ts;
++			#ifdef __NetBSD__
++			clock_gettime(CLOCK_PROF, &ts);
++			#else
+ 			clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &ts);
+ 			#endif
++			#endif
+ 			return Time(ts.tv_sec) * Time(1000000000) + Time(ts.tv_nsec);
+ 		}
+ 		Time _start_time;
