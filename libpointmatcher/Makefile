@@ -16,9 +16,16 @@ COMMENT=		An "Iterative Closest Point" library for 2-D/3-D mapping in robotic
 LICENSE=		2-clause-bsd
 
 CMAKE_ARGS+=		-DSHARED_LIBS=ON
+CMAKE_ARGS+=		-DBOOST_INCLUDEDIR=${PREFIX.boost-headers}/include
+CMAKE_ARGS+=		-DBOOST_LIBDIR=${PREFIX.boost-libs}/include
+CMAKE_ARGS+=		-DEIGEN_INCLUDE_DIR=${PREFIX.eigen3}/include/eigen3
+
+DYNAMIC_PLIST_DIRS+=	share/doc/${PKGBASE}
 
 include ../../wip/libnabo/depend.mk
 include ../../math/eigen3/depend.mk
+include ../../devel/boost-headers/depend.mk
+include ../../devel/boost-libs/depend.mk
 include ../../devel/yaml-cpp/depend.mk
 include ../../pkgtools/pkg-config/depend.mk
 include ../../mk/sysdep/cmake.mk
