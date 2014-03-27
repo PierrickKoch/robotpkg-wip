@@ -33,4 +33,6 @@ include ../../mk/language/c.mk
 include ../../mk/language/c++.mk
 include ../../mk/sysdep/doxygen.mk
 include ../../mk/sysdep/googletest.mk
+include ../../mk/sysdep/ncurses.mk
+include ../../mk/sysdep/latex.mk
 include ../../mk/robotpkg.mk
