@@ -31,5 +31,5 @@ include ../../mk/sysdep/cmake.mk
 include ../../mk/language/c.mk
 include ../../mk/language/c++.mk
 include ../../mk/sysdep/python.mk
-include ../../mk/robotpkg.mk
 include ../../mk/sysdep/doxygen.mk
+include ../../mk/robotpkg.mk
