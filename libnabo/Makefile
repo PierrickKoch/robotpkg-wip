@@ -18,7 +18,11 @@ LICENSE=		2-clause-bsd
 CMAKE_ARGS+=		-DSHARED_LIBS=ON
 CMAKE_ARGS+=		-DBOOST_INCLUDEDIR=${PREFIX.boost-headers}/include
 CMAKE_ARGS+=		-DBOOST_LIBDIR=${PREFIX.boost-libs}/include
+CMAKE_ARGS+=		-DEIGEN_INCLUDE_DIR=${PREFIX.eigen3}/include/eigen3
 
+DYNAMIC_PLIST_DIRS+=	share/doc/${PKGBASE}
+
+include ../../math/eigen3/depend.mk
 include ../../graphics/flann/depend.mk
 include ../../devel/boost-headers/depend.mk
 include ../../devel/boost-libs/depend.mk
