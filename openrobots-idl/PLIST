@@ -1,0 +1,5 @@
+@comment Fri Mar 28 11:02:42 CET 2014
+lib/pkgconfig/openrobots-idl.pc
+share/idl/or/pose/pose_estimator.gen
+share/idl/or/pose/t3d.idl
+share/idl/or/time/time.idl

@@ -70,6 +70,7 @@ SUBDIR+=	mumps
 SUBDIR+= 	octomap
 SUBDIR+= 	octovis
 SUBDIR+= 	ompl
+SUBDIR+=	openrobots-idl
 SUBDIR+=	oro-view
 SUBDIR+=	poisson
 SUBDIR+=	pr2-pick-object
