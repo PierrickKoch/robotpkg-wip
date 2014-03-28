@@ -71,6 +71,7 @@ SUBDIR+= 	octomap
 SUBDIR+= 	octovis
 SUBDIR+= 	ompl
 SUBDIR+=	openrobots-idl
+SUBDIR+=	optitrack-genom3
 SUBDIR+=	oro-view
 SUBDIR+=	poisson
 SUBDIR+=	pr2-pick-object
