@@ -8,6 +8,8 @@ CATEGORIES=		mapping
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=${NAME}/}
 MASTER_REPOSITORY=	${MASTER_REPOSITORY_OPENROBOTS_TRAC}${NAME}
 
+PKGREVISION=           1
+
 MAINTAINER=		pierrick.koch@laas.fr
 COMMENT=		The Graph Library for Autonomous and DYnamic Systems
 LICENSE=		2-clause-bsd
