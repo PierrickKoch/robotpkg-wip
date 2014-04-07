@@ -14,8 +14,8 @@ PREFER.orocos-dot_service?=	robotpkg
 
 DEPEND_USE+=		orocos-dot_service
 
-DEPEND_ABI.orocos-dot_service?=	orocos-dot_service>=1.0
-DEPEND_DIR.orocos-dot_service?=	../../onera/orocos-dot_service
+DEPEND_ABI.orocos-dot_service?=	orocos-dot_service>=20120300
+DEPEND_DIR.orocos-dot_service?=	../../wip/orocos-dot_service
 
 SYSTEM_SEARCH.orocos-dot_service= \
 	lib/orocos/gnulinux/rtt_dot_service/plugins/librtt_dot_service-gnulinux.so \
