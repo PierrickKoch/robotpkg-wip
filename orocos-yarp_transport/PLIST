@@ -1,0 +1,9 @@
+@comment Tue Sep 10 19:22:57 CEST 2013
+include/orocos/yarp/YarpChannelElement.hpp
+include/orocos/yarp/YarpTemplateProtocol.hpp
+include/orocos/yarp/YarpTransport.hpp
+include/orocos/yarp/yarp_bottle_archive.hpp
+lib/orocos/gnulinux/yarp/plugins/libyarp-service-gnulinux.so
+lib/orocos/gnulinux/yarp/plugins/libyarp-transport-gnulinux.so
+lib/pkgconfig/yarp-gnulinux.pc
+${PLIST.doc}share/doc/yarp-transport/yarp-transport-doc.pdf
