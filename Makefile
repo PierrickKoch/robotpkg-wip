@@ -74,6 +74,7 @@ SUBDIR+=	openrobots-idl
 SUBDIR+=	optitrack-genom3
 SUBDIR+=	oro-view
 SUBDIR+=	orocos-bfl
+SUBDIR+=	orocos-dot_service
 SUBDIR+=	poisson
 SUBDIR+=	pr2-pick-object
 SUBDIR+= 	py-flann
