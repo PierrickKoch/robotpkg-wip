@@ -1,0 +1,4 @@
+The rtt_dot_service is an RTT service which generates a file in the DOT language containing an overview of your current deployment configuration. It can be visualised with any DOT visualizer to give you an overview of:
+– all components currently deployed, together with their status information
+– all component ports (connected and unconnected), and how they are connected
+The service takes into account all peer components of the component in which you load the service. To get an overview of your complete deployment configuration, load this service in the Deployer component. You can trigger execution manually using the generate() function, but it will execute automatically with every component update as well (don’t forget to attach an activity to your Deployer component!)

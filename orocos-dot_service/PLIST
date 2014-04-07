@@ -1,0 +1,4 @@
+@comment Mon Sep 9 15:29:07 CEST 2013
+lib/orocos/gnulinux/rtt_dot_service/plugins/librtt_dot_service-gnulinux.so
+lib/pkgconfig/rtt_dot_service-gnulinux.pc
+
