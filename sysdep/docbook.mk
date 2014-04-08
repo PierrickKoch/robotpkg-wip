@@ -17,6 +17,7 @@ SYSTEM_SEARCH.docbook=	\
 
 SYSTEM_PKG.Ubuntu.docbook=docbook-utils
 SYSTEM_PKG.Debian.docbook=docbook-utils
+SYSTEM_PKG.Fedora.docbook=docbook-utils
 
 endif # DOCBOOK_DEPEND_MK ---------------------------------------------------
 
