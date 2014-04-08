@@ -1,0 +1,8 @@
+@comment Tue Apr 8 21:42:14 CEST 2014
+include/laser_geometry/laser_geometry.h
+lib/liblaser_geometry.so
+lib/pkgconfig/laser_geometry.pc
+share/laser_geometry/cmake/laser_geometryConfig-version.cmake
+share/laser_geometry/cmake/laser_geometryConfig.cmake
+share/laser_geometry/package.xml
+
