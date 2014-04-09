@@ -20,7 +20,7 @@ ROS_DEPEND_USE+=		ros-laser-geometry
 
 DEPEND_ABI.ros+=		ros>=groovy
 DEPEND_ABI.ros-laser-geometry?=	ros-laser-geometry>=1.5
-DEPEND_DIR.ros-laser-geometry?=	../../graphics/ros-laser-geometry
+DEPEND_DIR.ros-laser-geometry?=	../../wip/ros-laser-geometry
 
 DEPEND_ABI.ros-laser-geometry.groovy?=	ros-laser-geometry>=1.5<1.6
 DEPEND_ABI.ros-laser-geometry.hydro?=	ros-laser-geometry>=1.6<1.7

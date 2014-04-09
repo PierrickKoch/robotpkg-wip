@@ -20,7 +20,7 @@ ROS_DEPEND_USE+=		ros-interactive-markers
 
 DEPEND_ABI.ros+=		ros>=groovy
 DEPEND_ABI.ros-interactive-markers?=	ros-interactive-markers>=1.9
-DEPEND_DIR.ros-interactive-markers?=	../../graphics/ros-interactive-markers
+DEPEND_DIR.ros-interactive-markers?=	../../wip/ros-interactive-markers
 
 DEPEND_ABI.ros-interactive-markers.groovy?=	ros-interactive-markers>=1.9<1.10
 DEPEND_ABI.ros-interactive-markers.hydro?=	ros-interactive-markers>=1.10<1.11

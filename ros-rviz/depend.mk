@@ -19,7 +19,7 @@ DEPEND_USE+=			ros-robot-state-publisher
 ROS_DEPEND_USE+=		ros-robot-state-publisher
 
 DEPEND_ABI.ros-robot-state-publisher?=	ros-robot-state-publisher>=1.9
-DEPEND_DIR.ros-robot-state-publisher=	../../localization/ros-robot-state-publisher
+DEPEND_DIR.ros-robot-state-publisher=	../../wip/ros-robot-state-publisher
 
 DEPEND_ABI.ros += ros>=groovy
 

@@ -14,8 +14,11 @@ include ../../meta-pkgs/ros-base/Makefile.common
 include ../../devel/ros-catkin/depend.mk
 include ../../wip/ros-laser-geometry/depend.mk
 include ../../graphics/ros-python-qt-binding/depend.mk
-include ../../graphics/urdfdom/depend.mk
 include ../../wip/ros-interactive-markers/depend.mk
+include ../../image/ros-vision-opencv/depend.mk
+include ../../image/ros-image-common/depend.mk
+include ../../devel/ros-pluginlib/depend.mk
+include ../../graphics/ros-robot-model/depend.mk
 #  <build_depend>libqt4-dev</build_depend>
 #  <build_depend>libqt4-opengl-dev</build_depend>
 #  <build_depend>libogre-dev</build_depend>
