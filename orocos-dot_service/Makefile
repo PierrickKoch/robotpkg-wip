@@ -17,11 +17,17 @@ LICENSE=		gnu-lgpl-v2.1
 HOMEPAGE=		http://gitorious.org/rtt_dot_service
 
 DEPEND_ABI.orocos-rtt =	orocos-rtt>=2
+DEPEND_ABI.boost-libs=	boost-libs>=1.46.1
+DEPEND_ABI.boost-headers=boost-headers>=1.46.1
 
 CMAKE_ARGS+=		-DGRAPHVIZ_INCLUDE_DIR=${PREFIX.graphviz}/include
 CMAKE_ARGS+=		-DOROCOS-RTT_DIR=${PREFIX.orocos-rtt}/lib/cmake/orocos-rtt
+CMAKE_ARGS+=		-DBOOST_INCLUDEDIR=${PREFIX.boost-headers}/include
+CMAKE_ARGS+=		-DBOOST_LIBDIR=${PREFIX.boost-libs}/include
 
 include ../../middleware/orocos-rtt/depend.mk
+include ../../devel/boost-headers/depend.mk
+include ../../devel/boost-libs/depend.mk
 include ../../mk/sysdep/graphviz.mk
 include ../../mk/sysdep/cmake.mk
 include ../../mk/language/c++.mk
