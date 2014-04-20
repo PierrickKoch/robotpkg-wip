@@ -29,6 +29,7 @@ SUBDIR+=	histodet
 SUBDIR+= 	hri-simulation
 SUBDIR+=	hyper
 SUBDIR+=	hyper-genom-plugin
+SUBDIR+=	hyper-viewer
 SUBDIR+=	icu-genom
 SUBDIR+=	jafar-lgl
 SUBDIR+=	jafar-qdisplay
