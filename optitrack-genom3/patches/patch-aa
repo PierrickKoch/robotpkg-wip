@@ -1,0 +1,13 @@
+NULLify log parameter after unset_logfile
+
+diff --git codels/optitrack_codels.c codels/optitrack_codels.c
+index b3d5876..f08bff4 100644
+--- codels/optitrack_codels.c
++++ codels/optitrack_codels.c
+@@ -102,5 +102,6 @@ unset_logfile(optitrack_log_s **log)
+   if (!log || !*log) return genom_ok;
+   if ((*log)->f) fclose((*log)->f);
+   free(*log);
++  *log = NULL;
+   return genom_ok;
+ }
