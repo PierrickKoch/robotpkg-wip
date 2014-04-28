@@ -3,17 +3,15 @@
 #
 
 DISTNAME=		mrpt-${VERSION}
-VERSION=		1.0.2
+VERSION=		1.1.0
 CATEGORIES=		wip
-PKGREVISION=	2
-MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=mrpt/}
+MASTER_SITES= 	${MASTER_SITE_SOURCEFORGE:=mrpt/}
 MASTER_REPOSITORY=	https://github.com/jlblancoc/mrpt
 
 MAINTAINER=		arnaud.degroote@isae.fr
 COMMENT=		Mobile Robot Programming Toolkit
 HOMEPAGE= 		http://www.mrpt.org
 LICENSE=		modified-bsd
-
 
 DYNAMIC_PLIST_DIRS+=	share/doc/mrpt-doc
 
