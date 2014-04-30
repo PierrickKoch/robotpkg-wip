@@ -21,7 +21,7 @@ include ../../devel/ros-pluginlib/depend.mk
 include ../../graphics/ros-robot-model/depend.mk
 #  <build_depend>libqt4-dev</build_depend>
 #  <build_depend>libqt4-opengl-dev</build_depend>
-#  <build_depend>libogre-dev</build_depend>
+include ../sysdep/libogre.mk
 include ../../devel/yaml-cpp/depend.mk
 include ../../graphics/assimp/depend.mk
 include ../../math/eigen3/depend.mk
