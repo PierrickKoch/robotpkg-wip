@@ -1,0 +1,6 @@
+@comment Thu Mar 27 14:37:17 CET 2014
+include/nabo/nabo.h
+lib/libnabo.so
+lib/libnabo.so.1
+lib/libnabo.so.${PKGVERSION}
+${PYTHON_SITELIB}/pynabo.so

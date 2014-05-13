@@ -1,0 +1,46 @@
+diff --git CMakeLists.txt CMakeLists.txt
+index b37b3ed..3ea0739 100644
+--- CMakeLists.txt
++++ CMakeLists.txt
+@@ -101,10 +101,12 @@ set(DOC_INSTALL_TARGET "share/doc/${PROJECT_NAME}/api" CACHE STRING "Target wher
+ add_dependencies(${LIB_NAME} doc)
+ install(FILES nabo/nabo.h DESTINATION include/nabo)
+ install(FILES README.md DESTINATION share/doc/${PROJECT_NAME})
+-install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/doc/html DESTINATION ${DOC_INSTALL_TARGET})
++if (DOXYGEN_FOUND)
++	install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/doc/html DESTINATION ${DOC_INSTALL_TARGET})
++endif(DOXYGEN_FOUND)
+ 
+ enable_testing()
+ 
+ add_subdirectory(examples)
+ add_subdirectory(tests)
+-add_subdirectory(python)
+\ No newline at end of file
++add_subdirectory(python)
+diff --git nabo/kdtree_opencl.cpp nabo/kdtree_opencl.cpp
+index 1912bbe..7fcd8ea 100644
+--- nabo/kdtree_opencl.cpp
++++ nabo/kdtree_opencl.cpp
+@@ -145,7 +145,7 @@ namespace Nabo
+ 			try {
+ 				context = cl::Context(deviceType, properties);
+ 				deviceFound = true;
+-			} catch (cl::Error e) {
++			} catch (const cl::Error& e) {
+ 				cerr << "Cannot find device type " << deviceType << " for OpenCL, falling back to any device" << endl;
+ 			}
+ 			if (!deviceFound)
+diff --git python/CMakeLists.txt python/CMakeLists.txt
+index 3eb3ae2..a69a315 100644
+--- python/CMakeLists.txt
++++ python/CMakeLists.txt
+@@ -53,7 +53,7 @@ if (PYTHONLIBS_FOUND AND PYTHONINTERP_FOUND)
+ 			if (PYTHON_DEB_INSTALL_TARGET)
+ 				set(PYTHON_COMMAND "import sys; print '/usr/lib/python'+str(sys.version_info[0])+'.'+str(sys.version_info[1])+'/dist-packages'")
+ 			else (PYTHON_DEB_INSTALL_TARGET)
+-				set(PYTHON_COMMAND "from distutils.sysconfig import get_python_lib; print get_python_lib()")
++				set(PYTHON_COMMAND "from distutils.sysconfig import get_python_lib; print get_python_lib(prefix='${CMAKE_INSTALL_PREFIX}')")
+ 			endif (PYTHON_DEB_INSTALL_TARGET)
+ 			execute_process(COMMAND "${PYTHON_EXECUTABLE}" "-c" "${PYTHON_COMMAND}" OUTPUT_VARIABLE PYTHON_SITE_MODULES OUTPUT_STRIP_TRAILING_WHITESPACE)
+ 			install(TARGETS pynabo LIBRARY DESTINATION ${PYTHON_SITE_MODULES})

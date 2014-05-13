@@ -3,11 +3,11 @@
 #
 
 DISTNAME=		hatponboard-lib-${VERSION}
-VERSION=		1.2.1
+VERSION=		2.0.0
 PKGREVISION=		
 CATEGORIES=		planning
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=hatponboard-lib/}
-MASTER_REPOSITORY=	${MASTER_REPOSITORY_OPENROBOTS_TRAC}hatponboard-lib
+MASTER_REPOSITORY=	${MASTER_REPOSITORY_OPENROBOTS}hatp/hatponboard-lib
 
 
 MAINTAINER=		raphael.lallement@laas.fr

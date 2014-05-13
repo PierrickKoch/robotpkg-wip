@@ -1,0 +1,11 @@
+@comment Thu Mar 27 14:41:15 CET 2014
+bin/pmicp
+include/pointmatcher/IO.h
+include/pointmatcher/Parametrizable.h
+include/pointmatcher/PointMatcher.h
+include/pointmatcher/PointMatcherPrivate.h
+include/pointmatcher/Registrar.h
+include/pointmatcher/Timer.h
+lib/libpointmatcher.so
+lib/libpointmatcher.so.1
+lib/libpointmatcher.so.${PKGVERSION}

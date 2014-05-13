@@ -1,0 +1,3 @@
+The YARP transport for Orocos provides a Communication framework to connect ports of components
+using the YARP middleware.
+

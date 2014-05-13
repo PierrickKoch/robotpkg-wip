@@ -1,7 +1,8 @@
-@comment Fri Jul 26 18:31:07 CEST 2013
+@comment Fri Mar 28 11:52:33 CET 2014
 bin/genom${PKGVERSION}
 bin/genom3
 include/genom3/c++/event.h
+include/genom3/c++/idloptional.h
 include/genom3/c++/idlsequence.h
 include/genom3/c/client.h
 include/genom3/c/event.h
@@ -21,6 +22,7 @@ share/doc/genom/genom3.html/C-Constant.html
 share/doc/genom/genom3.html/C-Enumerated-type.html
 share/doc/genom/genom3.html/C-Exception.html
 share/doc/genom/genom3.html/C-Native.html
+share/doc/genom/genom3.html/C-Optional.html
 share/doc/genom/genom3.html/C-Port.html
 share/doc/genom/genom3.html/C-Remote.html
 share/doc/genom/genom3.html/C-Scoped-name.html
@@ -35,6 +37,7 @@ share/doc/genom/genom3.html/C_002b_002b-Constant.html
 share/doc/genom/genom3.html/C_002b_002b-Enumerated-type.html
 share/doc/genom/genom3.html/C_002b_002b-Exception.html
 share/doc/genom/genom3.html/C_002b_002b-Native.html
+share/doc/genom/genom3.html/C_002b_002b-Optional.html
 share/doc/genom/genom3.html/C_002b_002b-Port.html
 share/doc/genom/genom3.html/C_002b_002b-Remote.html
 share/doc/genom/genom3.html/C_002b_002b-Scoped-name.html

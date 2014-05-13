@@ -3,7 +3,7 @@
 #
 
 DISTNAME=	ompl-${PKGVERSION_NOREV}-Source
-PKGVERSION=	0.12.2
+PKGVERSION=	0.14.1
 PKGNAME=	ompl-${PKGVERSION}
 
 CATEGORIES=		motion
@@ -27,11 +27,21 @@ define PKG_OPTION_SET.python
 
   include ../../mk/sysdep/python.mk
 endef
-define PKG_OPTION_UNSET.qdisplay
+define PKG_OPTION_UNSET.python
   CMAKE_ARGS+=			-DOMPL_BUILD_PYBINDINGS=OFF
   CMAKE_ARGS+=          -DOMPL_BUILD_PYTESTS=OFF
 endef
 
+PKG_SUPPORTED_OPTIONS+=		morse
+PKG_OPTION_DESCR.morse=	Enable Morse add-on
+define PKG_OPTION_SET.morse
+  CMAKE_ARGS+=			-DOMPL_EXTENSION_MORSE=ON
+
+  include ../../simulation/morse/depend.mk
+endef
+define PKG_OPTION_UNSET.morse
+  CMAKE_ARGS+=			-DOMPL_EXTENSION_MORSE=OFF
+endef
 
 include ../../devel/boost-headers/depend.mk
 include ../../devel/boost-libs/depend.mk
