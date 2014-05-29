@@ -1,0 +1,11 @@
+--- include/rtslam/display_qt.hpp	2014-05-29 02:22:39.677960843 +0200
++++ include/rtslam/display_qt.hpp	2014-05-29 02:23:33.309959257 +0200
+@@ -153,7 +153,7 @@
+ 		void bufferize();
+ 		void render();
+ 		void dump(std::string filename);
+-	public slots:
++	public Q_SLOTS:
+ 		void onKeyPress(QKeyEvent *event);
+ 		void onMouseClick(QGraphicsSceneMouseEvent *mouseEvent, bool isClick);
+ };
