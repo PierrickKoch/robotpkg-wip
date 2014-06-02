@@ -17,6 +17,9 @@ LICENSE=	2-clause-bsd
 GNU_CONFIGURE=	yes
 NOT_FOR_PLATFORM=	# empty
 
+# for checkout target
+AUTORECONF_SCRIPT=	${SH}
+AUTORECONF_ARGS=	${WRKSRC}/bootstrap.sh
 
 include ../../wip/transgen3/depend.mk
 include ../../pkgtools/pkg-config/depend.mk
