@@ -1,0 +1,19 @@
+Private exceptions will not be defined for a client (since they cannot be
+thrown).
+
+This fixes the build of component defining exceptions thrown only by tasks.
+
+diff --git a/client/EncodeDecodeOpenprs.c b/client/EncodeDecodeOpenprs.c
+index a776c90..d99b98b 100644
+--- client/EncodeDecodeOpenprs.c
++++ client/EncodeDecodeOpenprs.c
+@@ -485,7 +485,8 @@ Term *genom_oprs_<"$comp">_exception(genom_event e, const void *detail)
+ 	  free(s);
+ 	  return res;
+      }
+-<'foreach e [$component throws] {'>
++<'foreach e [$component types public] {'>
++<'  if {[$e kind] != "exception"} continue'>
+      else if (e == <"[$e cname]">_id) {
+ <'  if {[llength [$e members]]} {'>
+        return build_<"$comp">_exception_term("<"[$e cname]">", decode_g3_<"[$e mangle]">(detail));
