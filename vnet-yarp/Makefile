@@ -17,7 +17,7 @@ DEPEND_ABI.boost-header = 	boost-headers>=1.43
 DEPEND_ABI.boost-libs= 		boost-libs>=1.43
 
 CMAKE_ARGS+=        -DBoost_INCLUDE_DIR=${PREFIX.boost-headers}/include
-CMAKE_ARGS+=        -DBoost_LIBRARY_DIR=${PREFIX.boost-libs}/lib
+CMAKE_ARGS+=        -DBoost_LIBDIR=${PREFIX.boost-libs}/lib
 
 include ../../devel/boost-headers/depend.mk
 include ../../devel/boost-libs/depend.mk

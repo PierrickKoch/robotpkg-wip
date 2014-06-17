@@ -15,7 +15,7 @@ PREFER.vnet-yarp?=	robotpkg
 
 SYSTEM_SEARCH.vnet-yarp=\
 	'bin/vnet' 			\
-	'include/vnet/vnet-yarp.hh' \
+	'include/vnet/vnet_yarp.hh' \
 	'lib/pkgconfig/vnet-yarp.pc:/Version/s/[^0-9.]//gp'
 
 DEPEND_USE+=		vnet-yarp

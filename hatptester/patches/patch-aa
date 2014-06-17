@@ -1,0 +1,27 @@
+From c4ce62ce08fcabc00e6e89e3e503db5fbca2241b Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Rapha=C3=ABl=20Lallement?= <raphael.lallement@laas.fr>
+Date: Fri, 23 May 2014 18:16:16 +0200
+Subject: [PATCH] [CMake] Fix linker issue
+
+With the new version of Boost the System library is no longer
+automatically linked, fix this issue.
+---
+ CMakeLists.txt |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git CMakeLists.txt CMakeLists.txt
+index c32c382..6f49a83 100644
+--- CMakeLists.txt
++++ CMakeLists.txt
+@@ -14,7 +14,7 @@ set(APP_ASSOCIATED_TAG "v${APP_VERSION}") #Tag associated to the software versio
+ 
+ find_package(msgconnector REQUIRED msgconnector)
+ find_package(Qt4 REQUIRED COMPONENTS QtCore QtGui)
+-find_package(Boost REQUIRED thread regex signals program_options)
++find_package(Boost REQUIRED thread regex signals program_options system)
+ find_package(Threads)
+ 
+ if(msgconnector_FOUND)
+-- 
+1.7.9.5
+

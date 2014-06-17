@@ -1,0 +1,92 @@
+Fix conflict with 3rd party signal/slot library by changing QT keywords
+
+--- include/qdisplay/ImageView.hpp	2014-05-29 02:12:04.457979610 +0200
++++ include/qdisplay/ImageView.hpp	2014-05-29 02:14:13.389975801 +0200
+@@ -77,7 +77,7 @@
+ 	/** Exports the view to different image format */
+     void exportView( const std::string& _fileName );
+ 
+-  public slots:
++  public Q_SLOTS:
+     void lutRandomize();
+     void lutGrayscale();
+     void lutInvertGrayscale();
+--- include/qdisplay/init.hpp	2014-05-29 02:12:04.457979610 +0200
++++ include/qdisplay/init.hpp	2014-05-29 02:14:13.389975801 +0200
+@@ -61,7 +61,7 @@
+ 			void (*_onExit)(SharedDataStructure*,boost::thread*) = NULL);
+ 		~QtAppStart();
+ 		
+-	public slots:
++	public Q_SLOTS:
+ 		void display();
+ 		void onExit();
+ };
+--- include/qdisplay/labeler.hpp	2014-05-29 02:12:04.457979610 +0200
++++ include/qdisplay/labeler.hpp	2014-05-29 02:14:13.389975801 +0200
+@@ -91,7 +91,7 @@
+ public:
+ 	Labeler(int nimages, char** images);
+ 	~Labeler();
+-public slots:
++public Q_SLOTS:
+ 	void onKeyPress(QKeyEvent *event);
+ 	void onMouseClick(QGraphicsSceneMouseEvent *mouseEvent, bool isClick);
+ 	void onMouseMove(QGraphicsSceneMouseEvent *mouseEvent);
+--- include/qdisplay/Viewer.hpp	2014-05-29 02:12:04.457979610 +0200
++++ include/qdisplay/Viewer.hpp	2014-05-29 02:14:13.393975801 +0200
+@@ -114,10 +114,10 @@
+      * Export the view to the given file name.
+      */
+     void exportView( const std::string& fileName );
+-  public slots:
++  public Q_SLOTS:
+ 		void exportView();
+ 		//void updateSceneRect();
+-	signals:
++	Q_SIGNALS:
+ 		void onKeyPress(QKeyEvent *event);
+ 		void onMouseClick(QGraphicsSceneMouseEvent *mouseEvent, bool isClick);
+ 		void onMouseMove(QGraphicsSceneMouseEvent *mouseEvent);
+--- include/qdisplay.i	2014-05-29 02:12:04.457979610 +0200
++++ include/qdisplay.i	2014-05-29 02:14:42.589974937 +0200
+@@ -38,8 +38,8 @@
+ %include "jafar.i"
+ %import "jmath/jblas.i"
+ 
+-#define slots
+-#define signals protected
++#define Q_SLOTS
++#define Q_SIGNALS protected
+ #define Q_OBJECT
+ 
+ %include "qdisplayException.i"
+--- src/Viewer.cpp	2014-05-29 02:12:04.461979610 +0200
++++ src/Viewer.cpp	2014-05-29 02:15:27.421973612 +0200
+@@ -265,7 +265,7 @@
+       scaleView(1 / 1.2);
+       break;
+   }
+-  emit onKeyPress(event);
++  Q_EMIT onKeyPress(event);
+ }
+ 
+ 
+@@ -273,7 +273,7 @@
+ {
+ 	QPointF dp = mouseEvent->buttonDownScreenPos(mouseEvent->button()) - mouseEvent->screenPos();
+ 	bool isClick = (std::abs(dp.x()) < 4) && (std::abs(dp.y()) < 4);
+-	emit viewer->onMouseClick(mouseEvent, isClick);
++	Q_EMIT viewer->onMouseClick(mouseEvent, isClick);
+ }
+ 
+ void Viewer::wheelEvent(QWheelEvent *event)
+@@ -417,7 +417,7 @@
+ 		qdisplay::Viewer *viewer = dynamic_cast<qdisplay::Viewer*>(*it);
+ 		if (viewer) viewer->setTitleWithMouseCoordinates(pos.x(), pos.y());
+ 	}
+-	emit viewer->onMouseMove(event);
++	Q_EMIT viewer->onMouseMove(event);
+ 	QGraphicsScene::mouseMoveEvent(event);
+ }
+ 
