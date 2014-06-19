@@ -1,4 +1,4 @@
-@comment Thu Oct 17 15:48:47 CEST 2013
+@comment Thu Jun 19 08:33:37 CEST 2014
 bin/display-robot
 include/jrl/dynamics/urdf/config.h
 include/jrl/dynamics/urdf/config.hh
@@ -7,4 +7,5 @@ include/jrl/dynamics/urdf/doc.hh
 include/jrl/dynamics/urdf/parser.hh
 include/jrl/dynamics/urdf/warning.hh
 lib/libjrl-dynamics-urdf.so
+lib/libjrl-dynamics-urdf.so.${PKGVERSION}
 lib/pkgconfig/jrl-dynamics-urdf.pc

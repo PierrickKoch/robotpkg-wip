@@ -1,3 +1,4 @@
-SHA1 (jrl-dynamics-urdf-2.1.0.tar.gz) = 50bd99c42222f445becf43b90aad762171137a19
-RMD160 (jrl-dynamics-urdf-2.1.0.tar.gz) = 25610235d2e748b620201af99189778b3d127ac4
-Size (jrl-dynamics-urdf-2.1.0.tar.gz) = 86632 bytes
+SHA1 (jrl-dynamics-urdf-2.2.0.tar.gz) = 691ec29131b7dd8cf058eac2e23c2a8fd8967545
+RMD160 (jrl-dynamics-urdf-2.2.0.tar.gz) = 27cff7b64411e504aa5e229f5e23253e1dd6cb85
+Size (jrl-dynamics-urdf-2.2.0.tar.gz) = 87211 bytes
+SHA1 (patch-aa) = 9d7e87f694698a6c52a0f23b692d332005cd932b

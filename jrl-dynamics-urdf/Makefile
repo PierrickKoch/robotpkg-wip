@@ -1,7 +1,7 @@
 # robotpkg Makefile for:	math/jrl-dynamics-urdf
 # Created:			Olivier Stasse on Thu, 27 Jun 2013
 #
-DISTNAME=		jrl-dynamics-urdf-2.1.0
+DISTNAME=		jrl-dynamics-urdf-2.2.0
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=jrl-dynamics-urdf/}
 MASTER_REPOSITORY=	git git://github.com/laas/jrl_dynamics_urdf.git
 

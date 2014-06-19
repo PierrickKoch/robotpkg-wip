@@ -11,6 +11,11 @@ endif
 
 ifeq (+,$(JRL_DYNAMICS_URDF_DEPEND_MK)) # ---------------------------------
 
+include ../../interfaces/jrl-mal/depend.mk
+include ../../math/jrl-dynamics/depend.mk
+include ../../graphics/urdfdom/depend.mk
+include ../../graphics/urdfdom-headers/depend.mk
+
 PREFER.jrl-dynamics-urdf?=	robotpkg
 
 DEPEND_USE+=			jrl-dynamics-urdf
