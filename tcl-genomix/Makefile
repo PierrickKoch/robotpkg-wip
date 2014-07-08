@@ -2,6 +2,7 @@
 # Created:			Anthony Mallet on Fri, 19 Oct 2012
 #
 
+PKGREVISION=	1
 DISTNAME=	tcl-genomix-1.3
 CATEGORIES=	supervision
 MASTER_SITES=	${MASTER_SITE_OPENROBOTS:=tcl-genomix/}
@@ -18,6 +19,12 @@ CONFIGURE_ARGS+=--with-tcl=$(dir ${TCL_CONFIG_SH})
 NOT_FOR_PLATFORM=	# empty
 
 DEPEND_ABI.tcl=	tcl>=8.5
+
+# for patch-aa, clean after use
+pre-configure: autoreconf
+include ../../mk/sysdep/autoconf.mk
+include ../../mk/sysdep/automake.mk
+include ../../pkgtools/libtool/depend.mk
 
 include ../../mk/sysdep/tcl.mk
 include ../../mk/language/c.mk
