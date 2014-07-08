@@ -1,0 +1,528 @@
+From a04e6142f5a42e1cd940e3879e2eb81aa02e5e97 Mon Sep 17 00:00:00 2001
+From: Anthony Mallet <anthony.mallet@laas.fr>
+Date: Thu, 26 Jun 2014 17:17:14 +0200
+Subject: [PATCH] Provide a more efficient implementation of the JSON
+ serialization code
+
+Replace the quick & dirty C -> JSON serialization of the C client by a
+better, more efficient implementation. Among the main improvements:
+
+- maintain a pointer on the current write position in the JSON string
+  instead of concatenatings strings with asprintf (biggest performance hit).
+- allocate the JSON buffer by exponentially growing chunks
+- replace useless "printf %s"-like constructs by direct string concatenation
+- implement a ad-hoc equivalent of itoa(3) instead of using "printf %d"
+  (but printf %g is still used when needed).
+- use JSON arrays instead of dictionaries with an integer key to serialize IDL
+  sequences and arrays. The deserialization code can parse both kind of
+  serialization, and all other clients should also be able to deal with both.
+
+All in all, this improves the serialization speed by a factor 80.
+---
+ client/c/client.configure.ac |    1 -
+ client/c/json.cc             |   91 ++++++++++++----------
+ common/json-common.h         |  176 ++++++++++++++++++++----------------------
+ server/json.cc               |   16 ++--
+ 4 files changed, 145 insertions(+), 139 deletions(-)
+
+diff --git client/c/client.configure.ac client/c/client.configure.ac
+index 69bcaea..0e9636c 100644
+--- client/c/client.configure.ac
++++ client/c/client.configure.ac
+@@ -55,7 +55,6 @@ lt_cv_deplibs_check_method=pass_all
+ 
+ LT_INIT
+ AC_PROG_CXX
+-AC_CHECK_FUNCS([vasprintf asprintf])
+ AX_PTHREAD(, [AC_MSG_ERROR([pthread support not available])])
+ 
+ dnl External software
+--- client/c/json.cc~	2014-02-19 13:50:42.000000000 +0100
++++ client/c/json.cc	2014-07-08 12:23:21.518249556 +0200
+@@ -26,15 +26,6 @@
+ '>
+ #include "autoconf/acheader.h"
+ 
+-#ifdef __linux__
+-# if defined(HAVE_VASPRINTF) && defined(HAVE_ASPRINTF)
+-/* Apparently we need _GNU_SOURCE defined to get access to vasprintf on Linux */
+-#  ifndef _GNU_SOURCE
+-#   define _GNU_SOURCE
+-#  endif
+-# endif
+-#endif
+-
+ #include <errno.h>
+ #include <stdio.h>
+ #include <stdlib.h>
+@@ -91,10 +82,19 @@
+ genom_<"$comp">_client_<"[$s name]">_json_print(char **json,
+              const struct genom_<"$comp">_<"[$s name]">_output *out)
+ {
++  size_t len;
++  char *end;
+   int s = 0;
+   *json = NULL;
+ 
+-  if ((s = bufcat(json, "{"))) {
++  len = JSON_MINBUF;
++  *json = end = (char *)malloc(len);
++  if (!*json) {
++    genom_syserr_detail d = { ENOMEM };
++    return genom_syserr(&d);
++  }
++
++  if ((s = bufcat(json, &end, &len, 0, "{")))  {
+     if (*json) free(*json);
+     *json = NULL;
+     genom_syserr_detail d = { s };
+@@ -103,12 +103,12 @@
+ 
+ <'  set sep {}'>
+ <'  foreach p [$s parameters inout out] {'>
+-  if ((s = bufcat(json, "<"$sep">\"<"[$p name]">\":"))) {
++  if ((s = bufcat(json, &end, &len, 0, "<"$sep">\"<"[$p name]">\":"))) {
+     if (*json) { free(*json); *json = NULL; }
+     genom_syserr_detail d = { s };
+     return genom_syserr(&d);
+   }
+-  if ((s = json_print_<"[[$p type] mangle]">(json,
++  if ((s = json_print_<"[[$p type] mangle]">(json, &end, &len,
+          <"[[$p type] pass value out->[$p name]]">))) {
+     if (*json) { free(*json); *json = NULL; }
+     genom_syserr_detail d = { s };
+@@ -117,7 +117,7 @@
+ <'  set sep ,'>
+ <'    }'>
+ 
+-  if ((s = bufcat(json, "}"))) {
++  if ((s = bufcat(json, &end, &len, 0, "}"))) {
+     if (*json) free(*json);
+     *json = NULL;
+     genom_syserr_detail d = { s };
+@@ -137,27 +137,36 @@
+ genom_<"$comp">_client_<"[$p name]">_json_print(char **json,
+   <"[[$p datatype] argument value data]">)
+ {
+-  int s;
++  size_t len;
++  char *end;
++  int s = 0;
+   *json = NULL;
+ 
+-  if ((s = bufcat(json, "{"))) {
++  len = JSON_MINBUF;
++  *json = end = (char *)malloc(len);
++  if (!*json) {
++    genom_syserr_detail d = { ENOMEM };
++    return genom_syserr(&d);
++  }
++
++  if ((s = bufcat(json, &end, &len, 0, "{"))) {
+     if (*json) { free(*json); *json = NULL; }
+     genom_syserr_detail d = { s };
+     return genom_syserr(&d);
+   }
+ 
+-  if ((s = bufcat(json, "\"<"[$p name]">\":"))) {
++  if ((s = bufcat(json, &end, &len, 0, "\"<"[$p name]">\":"))) {
+     if (*json) { free(*json); *json = NULL; }
+     genom_syserr_detail d = { s };
+     return genom_syserr(&d);
+   }
+-  if ((s = json_print_<"[[$p datatype] mangle]">(json, data))) {
++  if ((s = json_print_<"[[$p datatype] mangle]">(json, &end, &len, data))) {
+     if (*json) { free(*json); *json = NULL; }
+     genom_syserr_detail d = { s };
+     return genom_syserr(&d);
+   }
+ 
+-  if ((s = bufcat(json, "}"))) {
++  if ((s = bufcat(json, &end, &len, 0, "}"))) {
+     if (*json) { free(*json); *json = NULL; }
+     genom_syserr_detail d = { s };
+     return genom_syserr(&d);
+@@ -174,45 +183,50 @@
+ char *
+ genom_<"$comp">_client_json_error(genom_event e, const void *detail)
+ {
+-  char *s = NULL;
++  char *s, *end;
++  size_t len;
++
++  len = JSON_MINBUF;
++  s = end = (char *)malloc(len);
++  if (!s) return NULL;
+ 
+   if (!e) detail = genom_thrown(&e);
+ 
+   if (e == genom_syserr_id) {
+-    if (detail) {
+-      uint32_t e = ((genom_syserr_detail *)detail)->code;
+-      if (bufcat(&s, "\"%s\"", strerror(e))) return NULL;
+-    } else {
+-      if (bufcat(&s, "\"%s\"", genom_syserr_id)) return NULL;
+-    }
++    if (bufcat(&s, &end, &len, 0, "\"")) return NULL;
++    if (bufcat(&s, &end, &len, 1,
++               strerror(((genom_syserr_detail *)detail)->code))) return NULL;
++    if (bufcat(&s, &end, &len, 0, "\"")) return NULL;
+     return s;
+-  } else if (e == genom_unkex_id && detail) {
++  } else if (e == genom_unkex_id) {
++    if (bufcat(&s, &end, &len, 0, "{\"ex\":\"")) return NULL;
++    if (bufcat(&s, &end, &len, 0, genom_unkex_id)) return NULL;
+     if (detail) {
+-      if (bufcat(&s, "{\"ex\":\"%s\",\"detail\":{\"what\":", genom_unkex_id))
+-        return NULL;
+-      if (bufcatquoted(&s, ((genom_unkex_detail *)detail)->what)) return NULL;
+-      if (bufcat(&s, "}}")) return NULL;
+-    } else {
+-      if (bufcat(&s, "{\"ex\":\"%s\"}", genom_unkex_id)) return NULL;
++      if (bufcat(&s, &end, &len, 0, "\",\"detail\":{\"what\":\"")) return NULL;
++      if (bufcat(&s, &end, &len, 1,
++                 ((genom_unkex_detail *)detail)->what)) return NULL;
+     }
++    if (bufcat(&s, &end, &len, 0, "\"}}")) return NULL;
+     return s;
+   }
+ <'foreach e [$component types public] {'>
+ <'  if {[$e kind] != "exception"} continue'>
+   else if (e == <"[$e cname]">_id) {
+ <'  if {[llength [$e members]]} {'>
++    if (bufcat(&s, &end, &len, 0, "{\"ex\":\"")) return NULL;
++    if (bufcat(&s, &end, &len, 0, <"[$e cname]">_id)) return NULL;
+     if (detail) {
+-      if (bufcat(&s, "{\"ex\":\"%s\",\"detail\":", <"[$e cname]">_id))
+-        return NULL;
+-      if (json_print_<"[$e mangle]">(&s, (const <"[$e declarator]"> *)detail))
+-        return NULL;
+-      if (bufcat(&s, "}")) return NULL;
+-      return s;
++      if (bufcat(&s, &end, &len, 0, "\",\"detail\":")) return NULL;
++      if (json_print_<"[$e mangle]">(&s, &end, &len,
++                      (const <"[$e declarator]"> *)detail)) return NULL;
++      if (bufcat(&s, &end, &len, 0, "}")) return NULL;
++      return s;
+     }
+ <'  }'>
+-    if (bufcat(&s, "{\"ex\":\"%s\"}", <"[$e cname]">_id))
+-      return NULL;
+-    return s;
++    if (bufcat(&s, &end, &len, 0, "{\"ex\":\"")) return NULL;
++    if (bufcat(&s, &end, &len, 0, <"[$e cname]">_id)) return NULL;
++    if (bufcat(&s, &end, &len, 0, "\"}")) return NULL;
++    return s;
+   }
+ <'}'>
+ 
+diff --git common/json-common.h common/json-common.h
+index 00ca051..e0db752 100644
+--- common/json-common.h
++++ common/json-common.h
+@@ -22,15 +22,6 @@ lang c
+ '>
+ #include "autoconf/acheader.h"
+ 
+-#ifdef __linux__
+-# if defined(HAVE_VASPRINTF) && defined(HAVE_ASPRINTF)
+-/* Apparently we need _GNU_SOURCE defined to get access to vasprintf on Linux */
+-#  ifndef _GNU_SOURCE
+-#   define _GNU_SOURCE
+-#  endif
+-# endif
+-#endif
+-
+ /* C99 standard specifies that format macros must be explicitly requested */
+ #define __STDC_FORMAT_MACROS
+ 
+@@ -48,13 +39,17 @@ lang c
+ 
+ /* --- local data ---------------------------------------------------------- */
+ 
+-static int	bufcat(char **buf, const char *fmt, ...);
+-static int	bufcatquoted(char **buf, const char *data);
++#define JSON_MINBUF	128
++
++static int	bufcat(char **buf, char **end, size_t *len, int quoted,
++                       const char *data);
++static int	bufcat_uint64_t(char **buf, char **end, size_t *len, int neg,
++                                uint64_t i) __attribute__ ((unused));
+ 
+ <'foreach t $types {'>
+ static __inline__ int	json_scan_<"[$t mangle]">(
+   <"[$t argument reference]">, const char **);
+-static __inline__ int	json_print_<"[$t mangle]">(char **,
++static __inline__ int	json_print_<"[$t mangle]">(char **, char **, size_t *,
+   <"[$t argument value]">);
+ <'}'>
+ 
+@@ -310,94 +305,100 @@ json_scan_<"[$t mangle]">(<"[$t argument reference data]">, const char **json)
+ }
+ 
+ static __inline__ int
+-json_print_<"[$t mangle]">(char **json, <"[$t argument value data]">)
++json_print_<"[$t mangle]">(char **json, char **end, size_t *len,
++  <"[$t argument value data]">)
+ {
+   int s;
+ <'
+   switch -glob -- [$t kind] {
+     typedef - {* member} {'>
+-  if ((s = json_print_<"[[$t type] mangle]">(json, data))) return s;
++  if ((s = json_print_<"[[$t type] mangle]">(json, end, len, data))) return s;
+ <'
+     }
+     struct - union - exception {'>
+-  if ((s = bufcat(json, "{"))) return s;
++  if ((s = bufcat(json, end, len, 0, "{"))) return s;
+ <'
+       set sep {}
+       foreach e [$t members] {'>
+-  if ((s = bufcat(json, "<"$sep">\"<"[$e name]">\":"))) return s;
+-  if ((s = json_print_<"[$e mangle]">(json,
++  if ((s = bufcat(json, end, len, 0, "<"$sep">\"<"[$e name]">\":"))) return s;
++  if ((s = json_print_<"[$e mangle]">(json, end, len,
+          <"[$e pass value data->[$e name]]">))) return s;
+ <'
+         set sep ,
+       }'>
+-  if ((s = bufcat(json, "}"))) return s;
++  if ((s = bufcat(json, end, len, 0, "}"))) return s;
+ <'
+     }
+     sequence {'>
+   size_t i;
+-  if ((s = bufcat(json, "{"))) return s;
++  if ((s = bufcat(json, end, len, 0, "["))) return s;
+   for (i=0; i<data->_length; i++) {
+-    if ((s = bufcat(json, "%s\"%d\":", i?",":"", i))) return s;
+-    if ((s = json_print_<"[[$t type] mangle]">(
+-           json, <"[[$t type] pass value {data->_buffer[i]}]">))) return s;
++    if (i && (s = bufcat(json, end, len, 0, ","))) return s;
++    if ((s = json_print_<"[[$t type] mangle]">(json, end, len,
++           <"[[$t type] pass value {data->_buffer[i]}]">))) return s;
+   }
+-  if ((s = bufcat(json, "}"))) return s;
++  if ((s = bufcat(json, end, len, 0, "]"))) return s;
+ <'    }'>
+ <'    optional {'>
+   if (data->_present) {
+-    if ((s = json_print_<"[[$t type] mangle]">(
+-           json, <"[[$t type] pass value {data->_value}]">))) return s;
++    if ((s = json_print_<"[[$t type] mangle]">(json, end, len,
++           <"[[$t type] pass value {data->_value}]">))) return s;
+   } else {
+-    if ((s = bufcat(json, "null"))) return s;
++    if ((s = bufcat(json, end, len, 0, "null"))) return s;
+   }
+ <'    }'>
+ <'    array {'>
+   size_t i;
+-  if ((s = bufcat(json, "{"))) return s;
++  if ((s = bufcat(json, end, len, 0, "["))) return s;
+   for (i=0; i<<"[$t length]">; i++) {
+-    if ((s = bufcat(json, "%s\"%d\":", i?",":"", i))) return s;
+-    if ((s = json_print_<"[[$t type] mangle]">(
+-           json, <"[[$t type] pass value {data[i]}]">))) return s;
++    if (i && (s = bufcat(json, end, len, 0, ","))) return s;
++    if ((s = json_print_<"[[$t type] mangle]">(json, end, len,
++           <"[[$t type] pass value {data[i]}]">))) return s;
+   }
+-  if ((s = bufcat(json, "}"))) return s;
++  if ((s = bufcat(json, end, len, 0, "]"))) return s;
+ <'    }'>
+ <'    char {'>
+-  if (*data == '"')
+-    if ((s = bufcat(json, "\"\\\"\""))) return s;
+-  else
+-    if ((s = bufcat(json, "\"%c\"", *data))) return s;
++  char buf[] = { '"', *data, '"', 0 };
++  if ((s = bufcat(json, end, len, 1, buf))) return s;
+ <'    }'>
+ <'    string {'>
+-  if ((s = bufcatquoted(json, data))) return s;
++  if ((s = bufcat(json, end, len, 0, "\""))) return s;
++  if ((s = bufcat(json, end, len, 1, data))) return s;
++  if ((s = bufcat(json, end, len, 0, "\""))) return s;
+ <'    }'>
+ <'    enum {'>
+   switch(data) {
+ <'      foreach e [$t members] {'>
+     case <"[$e cname]">:
+-      if ((s = bufcat(json, "\"<"[$e fullname]">\""))) return s; else break;
++      if ((s = bufcat(json, end, len, 0, "\"<"[$e fullname]">\""))) return s;
++      break;
+ <'      }'>
+     default:
+       assert(!"invalid value in enum <"[$e fullname]">");
+-      if ((s = bufcat(json, "\"<invalid>\""))) return s; else break;
++      if ((s = bufcat(json, end, len, 0, "\"<invalid>\""))) return s;
++      break;
+   }
+ <'
+     }
+     float - double {'>
+   if (isnan(data)) {
+-    if ((s = bufcat(json, "null"))) return s;
++    if ((s = bufcat(json, end, len, 0, "null"))) return s;
+   } else {
+-    if ((s = bufcat(json, "%g", data))) return s;
++    char buf[32];
++    sprintf(buf, "%g", data);
++    if ((s = bufcat(json, end, len, 0, buf))) return s;
+   }
+ <'
+     }
+     {unsigned *} {'>
+   uint64_t v = <"[$t dereference value data]">;
+-  if ((s = bufcat(json, "%" PRIu64, v))) return s;
++  if ((s = bufcat_uint64_t(json, end, len, 0, v))) return s;
+ <'
+     }
+     default {'>
+   int64_t v = <"[$t dereference value data]">;
+-  if ((s = bufcat(json, "%" PRIi64, v))) return s;
++  if ((s = bufcat_uint64_t(json, end, len, v<0, (uint64_t)(v<0?-v:v))))
++    return s;
+ <'
+     }
+   }'>
+@@ -408,64 +409,57 @@ json_print_<"[$t mangle]">(char **json, <"[$t argument value data]">)
+ /* --- bufcat -------------------------------------------------------------- */
+ 
+ static int
+-bufcat(char **buf, const char *fmt, ...)
++bufcat(char **buf, char **end, size_t *len, int quoted, const char *data)
+ {
+-  va_list ap;
+-  int s;
+-#if defined(HAVE_VASPRINTF) && defined(HAVE_ASPRINTF)
+-  char *buf1, *r = NULL;
+-
+-  va_start(ap, fmt);
+-  s = vasprintf(&r, fmt, ap);
+-  va_end(ap);
+-  if (s < 0) return ENOMEM;
+-
+-  if (*buf) {
+-    buf1 = *buf;
+-    s = asprintf(buf, "%s%s", buf1, r);
+-    free(r);
+-    free(buf1);
+-    if (s < 0) return ENOMEM;
+-  } else
+-    *buf = r;
+-#else
+-  static char buf1[1024];
++  size_t avail;
++  const char *s;
++  char *d;
+ 
+-  s = 1 + (*buf ? strlen(*buf) : 0);
++  s = data;
++  while(*s) {
++    avail = *len - (*end - *buf);
++    if (quoted) {
++      for(d = *end; *s && avail; avail--) {
++        if (*s == '"') {
++          if (avail < 2) {
++            avail = 0;
++            break;
++          }
++          *d++ = '\\';
++          avail--;
++        }
++        *d++ = *s++;
++      }
++    } else {
++      for(d = *end; *s && avail; avail--)
++        *d++ = *s++;
++    }
+ 
+-  va_start(ap, fmt);
+-  vsnprintf(buf1, sizeof(buf1), fmt, ap);
+-  va_end(ap);
+-  s += strlen(buf1);
++    if (!avail) {
++      char *newbuf = (char *)realloc(*buf, *len << 1);
++      if (!*newbuf) return ENOMEM;
+ 
+-  if (*buf)
+-    *buf = (char *)realloc(*buf, s);
+-  else
+-    *buf = (char *)calloc(s, 1);
+-  if (!*buf) return ENOMEM;
+-  strcat(*buf, buf1);
+-#endif
++      d = newbuf + (d - *buf);
++      *buf = newbuf;
++      *len <<= 1;
++    }
++    *d = 0;
++    *end = d;
++  }
+ 
+   return 0;
+ }
+ 
+ static int
+-bufcatquoted(char **buf, const char *data)
++bufcat_uint64_t(char **buf, char **end, size_t *len, int neg, uint64_t i)
+ {
+-  size_t l;
+-  int s;
++  char a[32];
++  char *d;
+ 
+-  if ((s = bufcat(buf, "\""))) return s;
+-  do {
+-    l = strcspn(data, "\"");
+-    if (l) {
+-      if ((s = bufcat(buf, "%.*s", l, data))) return s;
+-      data += l;
+-    }
+-    while (*data == '"') {
+-      if ((s = bufcat(buf, "\\\""))) return s;
+-      data++;
+-    }
+-  } while (*data);
+-  return bufcat(buf, "\"");
++  d = a + sizeof(a);
++  *--d = 0;
++  do { *--d = '0' + i%10; } while (i /= 10);
++  if (neg) *--d = '-';
++
++  return bufcat(buf, end, len, 0, d);
+ }
+diff --git server/json.cc server/json.cc
+index 0e19f4c..78e9ab3 100644
+--- server/json.cc
++++ server/json.cc
+@@ -50,12 +50,18 @@ genom_<"$comp">_<"[$t mangle]">_encodex(
+ {
+   json = "{\"ex\":\"<"[$t fullname]">\"";
+ <'  if {[llength [$t members]]} {'>
+-  char *jdetail = NULL;
+-  if (!json_print_<"[$t mangle]">(&jdetail, exdetail)) {
+-    json += ",\"detail\":";
+-    json += jdetail;
++  char *jdetail, *end;
++  size_t len;
++
++  len = JSON_MINBUF;
++  jdetail = end = (char *)malloc(len);
++  if (jdetail) {
++    if (!json_print_<"[$t mangle]">(&jdetail, &end, &len, exdetail)) {
++      json += ",\"detail\":";
++      json += jdetail;
++    }
++    if (jdetail) free(jdetail);
+   }
+-  if (jdetail) free(jdetail);
+ <'  }'>
+   json += "}";
+ }
+-- 
+1.7.9.5
+
