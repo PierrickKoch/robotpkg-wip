@@ -1,0 +1,12 @@
+--- src/vnet_proxy.hh.old	2014-07-22 11:20:59.345253598 +0200
++++ src/vnet_proxy.hh	2014-07-22 11:21:22.061118696 +0200
+@@ -105,8 +105,7 @@
+ 				bool write(const std::string& dst, const char* data, int len) 
+ 				{
+ 					if (current_dst != dst) {
+-						port.close();
+-						port.open(local_uri.c_str());
++						::yarp::os::Network::disconnect(local_uri.c_str(), dst.c_str());
+ 						port.addOutput(dst.c_str());
+ 						current_dst = dst;
+ 					}
