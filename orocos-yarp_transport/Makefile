@@ -2,11 +2,11 @@
 # Created:			Charles Lesire on Tue, 10 Sep 2013
 #
 NAME=			orocos-yarp_transport
-VERSION=		20140327
+VERSION=		20140724
 DISTNAME=		${NAME}-${VERSION}
 CATEGORIES=		middleware
 
-DISTFILES=		7181f3649978b3cc75d22424c47ad9c4b9d84b51.tar.gz
+DISTFILES=		375bf3db524d7b8386d003fc9cfca9f9e7a35c6f.tar.gz
 MASTER_SITES=		https://gitorious.org/orocos-communication/yarp-transport/archive/
 MASTER_REPOSITORY=	git git://gitorious.org/orocos-communication/yarp-transport.git
 WRKSRC=			${WRKDIR}/orocos-communication-yarp-transport
