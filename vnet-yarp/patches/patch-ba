@@ -6,7 +6,7 @@
  					if (current_dst != dst) {
 -						port.close();
 -						port.open(local_uri.c_str());
-+						::yarp::os::Network::disconnect(local_uri.c_str(), dst.c_str());
++						::yarp::os::Network::disconnect(local_uri.c_str(), current_dst.c_str());
  						port.addOutput(dst.c_str());
  						current_dst = dst;
  					}
