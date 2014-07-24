@@ -5,7 +5,7 @@
 DISTNAME=			vnet-yarp-0.2
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=action/}
 MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/action/vnet-yarp
-PKGREVISION= 		1
+PKGREVISION= 		2
 
 CATEGORIES=		action
 MAINTAINER=		action@laas.fr

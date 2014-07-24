@@ -2,7 +2,7 @@
 # Created:			Anthony Mallet on Fri, 17 May 2013
 #
 
-DISTNAME=		demo-genom3-1.1
+DISTNAME=		demo-genom3-1.2
 CATEGORIES=		doc
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=demo/}
 MASTER_REPOSITORY=	${MASTER_REPOSITORY_OPENROBOTS_TRAC}demo-genom

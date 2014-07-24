@@ -1,11 +1,11 @@
-@comment Fri Oct 19 17:27:19 CEST 2012
+@comment Tue Jul 8 14:12:13 CEST 2014
 lib/pkgconfig/tcl-genomix.pc
-share/tcl-genomix/http.tcl
-share/tcl-genomix/json.tcl
-share/tcl-genomix/main.tcl
-share/tcl-genomix/module.tcl
-share/tcl-genomix/pkgIndex.tcl
-share/tcl-genomix/pmt.tcl
-share/tcl-genomix/server.tcl
-share/tcl-genomix/uri.tcl
-share/tcl-genomix/version.tcl
+lib/tcl-genomix/http.tcl
+lib/tcl-genomix/json.la
+lib/tcl-genomix/main.tcl
+lib/tcl-genomix/module.tcl
+lib/tcl-genomix/pkgIndex.tcl
+lib/tcl-genomix/pmt.tcl
+lib/tcl-genomix/server.tcl
+lib/tcl-genomix/uri.tcl
+lib/tcl-genomix/version.tcl
