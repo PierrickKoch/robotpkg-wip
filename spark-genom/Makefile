@@ -83,7 +83,7 @@ endef
 PKG_SUPPORTED_OPTIONS+=	mightability
 PKG_OPTION_DESCR.mightability=	Enable  mightabilities functions
 
-define PKG_OPTION_SET.oro
+define PKG_OPTION_SET.mightability
    GENOM_ARGS+= -DUSE_MIGHTABILITY_MAPS
 endef
 
