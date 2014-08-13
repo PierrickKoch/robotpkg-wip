@@ -68,7 +68,6 @@ SUBDIR+=	MPC_planner-genom
 SUBDIR+=	MPC_DEMTreatment-genom
 SUBDIR+=	msgconnector
 SUBDIR+=	mumps
-SUBDIR+= 	octomap
 SUBDIR+= 	octovis
 SUBDIR+= 	ompl
 SUBDIR+=	openrobots-idl
