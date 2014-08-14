@@ -27,7 +27,6 @@ CMAKE_ARGS+=		-DBOOST_LIBDIR=${PREFIX.boost-libs}/include
 
 include ../../wip/sysdep/glpk.mk
 include ../../wip/sysdep/libxpm.mk
-include ../../wip/sysdep/qhull.mk
 
 include ../../devel/boost-headers/depend.mk
 include ../../devel/boost-libs/depend.mk
@@ -42,4 +41,5 @@ include ../../mk/sysdep/glu.mk
 include ../../mk/sysdep/gsl.mk
 include ../../mk/sysdep/gts.mk
 include ../../mk/sysdep/libxml2.mk
+include ../../mk/sysdep/qhull.mk
 include ../../mk/robotpkg.mk

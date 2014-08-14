@@ -40,7 +40,6 @@ include ../../wip/libmove3d-planners/depend.mk
 include ../../wip/libmove3d/depend.mk
 include ../../wip/sysdep/glpk.mk
 include ../../wip/sysdep/libxpm.mk
-include ../../wip/sysdep/qhull.mk
 
 include ../../math/gbM/depend.mk
 include ../../motion/softMotion-libs/depend.mk
@@ -51,6 +50,7 @@ include ../../mk/sysdep/glu.mk
 include ../../mk/sysdep/gsl.mk
 include ../../mk/sysdep/gts.mk
 include ../../mk/sysdep/libxml2.mk
+include ../../mk/sysdep/qhull.mk
 include ../../mk/sysdep/qwt.mk
 include ../../mk/sysdep/xforms.mk
 include ../../mk/language/c.mk
