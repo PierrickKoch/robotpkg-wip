@@ -19,7 +19,7 @@ WRKSRC=     ${WRKDIR}/octomap-${PKGVERSION_NOREV}/octovis
 
 CMAKE_ARGS+= 	-Doctomap_DIR=${PREFIX.octomap}/share/octomap
 
-include ../../wip/octomap/depend.mk
+include ../../mapping/octomap/depend.mk
 include ../../mk/sysdep/cmake.mk
 include ../../mk/sysdep/qt4-libs.mk
 include ../../mk/sysdep/mesa.mk # OpenGL
