@@ -14,7 +14,7 @@ PREFER.hatpconsole?=	robotpkg
 
 DEPEND_USE+=		hatptester
 
-DEPEND_ABI.hatptester?=	hatptester>=1.4.1
+DEPEND_ABI.hatptester?=	hatptester>=1.5.0
 DEPEND_DIR.hatptester?=	../../wip/hatptester
 
 SYSTEM_SEARCH.hatptester=\
