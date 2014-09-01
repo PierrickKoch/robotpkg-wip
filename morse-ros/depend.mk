@@ -19,7 +19,7 @@ DEPEND_ABI.morse-ros?=	morse-ros>=0.2
 DEPEND_DIR.morse-ros?=	../../wip/morse-ros
 
 SYSTEM_SEARCH.morse-ros=\
-	lib/python*/site-packages/morse/middleware/ros/abstract_ros.py
+	${PYTHON_SYSLIBSEARCH}/morse/middleware/ros/abstract_ros.py
 
 include ../../mk/sysdep/python.mk
 

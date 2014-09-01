@@ -15,7 +15,7 @@ CMAKE_ARGS+=		-DBUILD_ROS_SUPPORT=ON
 CMAKE_ARGS+=		-DBUILD_YARP2_SUPPORT=OFF
 
 #include ../../interfaces/ros-common-msgs/depend.mk
-include ../../wip/sysdep/py-yaml.mk
+include ../../mk/sysdep/py-yaml.mk
 include ../../sysutils/py-rospkg/depend.mk
 include ../../sysutils/py-catkin-pkg/depend.mk
 include ../../simulation/morse/depend.mk
