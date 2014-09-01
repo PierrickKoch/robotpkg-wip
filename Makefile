@@ -58,6 +58,7 @@ SUBDIR+=	metapod
 SUBDIR+=	mhp-genom
 SUBDIR+=	morse-hla
 SUBDIR+=	morse-pocolibs
+SUBDIR+=	morse-ros
 SUBDIR+=	move3d-assets
 SUBDIR+=	move3d-studio
 SUBDIR+=	mrpt
