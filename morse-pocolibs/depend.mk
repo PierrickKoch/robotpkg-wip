@@ -19,7 +19,7 @@ DEPEND_ABI.morse-pocolibs?=	morse-pocolibs>=0.2
 DEPEND_DIR.morse-pocolibs?=	../../wip/morse-pocolibs
 
 SYSTEM_SEARCH.morse-pocolibs=\
-	 ${PYTHON_SYSLIBSEARCH}/morse/middleware/pocolibs_datastream.py
+	 '${PYTHON_SYSLIBSEARCH}/morse/middleware/pocolibs_datastream.py'
 
 include ../../mk/sysdep/python.mk
 
