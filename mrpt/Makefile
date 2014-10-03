@@ -3,7 +3,7 @@
 #
 
 DISTNAME=		mrpt-${VERSION}
-VERSION=		1.1.0
+VERSION=		1.2.2
 CATEGORIES=		wip
 MASTER_SITES= 	${MASTER_SITE_SOURCEFORGE:=mrpt/}
 MASTER_REPOSITORY=	https://github.com/jlblancoc/mrpt
