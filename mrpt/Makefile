@@ -8,6 +8,8 @@ CATEGORIES=		wip
 MASTER_SITES= 	${MASTER_SITE_SOURCEFORGE:=mrpt/}
 MASTER_REPOSITORY=	https://github.com/jlblancoc/mrpt
 
+PKGREVISION= 	1
+
 MAINTAINER=		arnaud.degroote@isae.fr
 COMMENT=		Mobile Robot Programming Toolkit
 HOMEPAGE= 		http://www.mrpt.org

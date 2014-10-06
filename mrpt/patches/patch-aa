@@ -1,0 +1,15 @@
+Handle "undefined" semantic of cmake for CMAKE_INSTALL_LIBDIR. In this context,
+CMAKE_INSTALL_LIBDIR is basically "lib", so one need to add a trailing / to make a
+valid pc
+
+--- parse-files/mrpt_template.pc.in.orig	2014-10-06 09:53:43.591941564 +0200
++++ parse-files/mrpt_template.pc.in	2014-10-06 09:54:26.315940299 +0200
+@@ -1,7 +1,7 @@
+ # This file is a parsed version for mrpt_pkgconfig_LIBNAME= @mrpt_pkgconfig_LIBNAME@
+ prefix=@mrpt_pkgconfig_INSTALL_PREFIX@
+ exec_prefix=${prefix}
+-libdir=${exec_prefix}@CMAKE_INSTALL_LIBDIR@
++libdir=${exec_prefix}/@CMAKE_INSTALL_LIBDIR@
+ includedir=${prefix}/include
+ 
+ Name: The mrpt-@mrpt_pkgconfig_LIBNAME@ library
