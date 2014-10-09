@@ -1,7 +1,9 @@
 # robotpkg Makefile for:	robots/romeo-description
 # Created:			Aurélie Clodic on Wed, 11 Jun 2014
 #
-DISTNAME=		romeo_description-0.3.0
+VERSION=		0.3.0
+DISTNAME=		romeo_description-${VERSION}
+PKGNAME=		romeo-description-${VERSION}
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=romeo/}
 MASTER_REPOSITORY=	${MASTER_REPOSITORY_GITHUB}laas/romeo
 
