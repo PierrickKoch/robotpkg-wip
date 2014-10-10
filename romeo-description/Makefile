@@ -13,6 +13,8 @@ COMMENT=		ROS Aldebaran Robotics Romeo robot model description
 LICENSE=		2-clause-bsd
 MAINTAINER=		hpp@laas.fr
 
+DYNAMIC_PLIST_DIRS+=	share/doc/romeo_description
+
 include ../../devel/ros-catkin/depend.mk
 include ../../pkgtools/pkg-config/depend.mk
 include ../../mk/sysdep/cmake.mk
