@@ -93,6 +93,7 @@ SUBDIR+=	ros-laser-geometry
 SUBDIR+=	ros-realtime-tools
 SUBDIR+=	ros-rviz
 SUBDIR+= 	rtslam-genom
+SUBDIR+=	sot-application
 SUBDIR+=	sot-romeo
 SUBDIR+=	spark-genom
 SUBDIR+=	sparkyarp-genom
