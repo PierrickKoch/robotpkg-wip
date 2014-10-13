@@ -14,12 +14,12 @@ PREFER.certi?=	robotpkg
 
 DEPEND_USE+=		certi
 
-DEPEND_ABI.certi?=	certi>=20120101
+DEPEND_ABI.certi?=	certi>=3.4.0
 DEPEND_DIR.certi?=	../../wip/certi
 
 SYSTEM_SEARCH.certi=\
 	bin/rtia 		\
-	include/RTI.hh  \
+	include/hla13/RTI.hh  \
 	lib/libCERTI.so
 endif
 

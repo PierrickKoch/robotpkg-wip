@@ -2,15 +2,14 @@
 # Created:			Arnaud Degroote on Tue, 12 Mar 2013
 #
 
-COMMIT=		HEAD
-PKG_VERSION=	20130312
-PKGREVISION= 	1
-DISTNAME= 	certi-${PKG_VERSION}
+PKG_VERSION=	3.4.3
+DISTNAME= 		CERTI-${PKG_VERSION}-Source
+PKGNAME= 		certi-${PKG_VERSION}
 CATEGORIES=		architecture
-MASTER_SITES=	:pserver:anonymous@cvs.savannah.nongnu.org:/sources/certi@${COMMIT}+certi
-FETCH_METHOD=	cvs
+MASTER_SITES=	http://download.savannah.gnu.org/releases/certi/
+MASTER_REPOSITORY=	git git://git.savannah.nongnu.org/certi.git
 
-MAINTAINER=	robotpkg@laas.fr
+MAINTAINER=	arnaud.degroote@isae-supaero.fr
 HOMEPAGE=	https://savannah.nongnu.org/projects/certi
 COMMENT=	An Open Source HLA RTI (High Level Architecture)
 LICENSE=	gnu-gpl-v2
