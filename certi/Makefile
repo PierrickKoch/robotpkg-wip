@@ -14,6 +14,8 @@ HOMEPAGE=	https://savannah.nongnu.org/projects/certi
 COMMENT=	An Open Source HLA RTI (High Level Architecture)
 LICENSE=	gnu-gpl-v2
 
+DEPEND_ABI.cmake= cmake>=2.8.11
+
 PKG_SUPPORTED_OPTIONS+=		gui
 PKG_OPTION_DESCR.gui=		Enable GUI support
 define PKG_OPTION_SET.gui
