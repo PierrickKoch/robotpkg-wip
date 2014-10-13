@@ -38,7 +38,6 @@ SUBDIR+=	jafar-rtslam
 SUBDIR+= 	jido-pick-object
 SUBDIR+=	jointStateMapper
 SUBDIR+=	joystick-genom
-SUBDIR+=	jrl-dynamics-urdf
 SUBDIR+=	kukaFri-libs
 SUBDIR+= 	laas-rackham
 SUBDIR+= 	laaswm-gui

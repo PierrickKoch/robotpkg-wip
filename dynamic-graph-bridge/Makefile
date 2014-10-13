@@ -30,7 +30,7 @@ include ../../motion/dynamic-graph/depend.mk
 include ../../motion/py-dynamic-graph/depend.mk
 include ../../motion/sot-core/depend.mk
 include ../../motion/sot-dynamic/depend.mk
-include ../../wip/jrl-dynamics-urdf/depend.mk
+include ../../math/jrl-dynamics-urdf/depend.mk
 include ../../interfaces/jrl-mal/depend.mk
 include ../../simulation/bullet/depend.mk
 include ../../devel/ros-roscpp-core/depend.mk
