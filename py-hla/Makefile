@@ -2,15 +2,13 @@
 # Created:			Arnaud Degroote on Tue, 12 Mar 2013
 #
 
-COMMIT=		HEAD
-PKG_VERSION=	20130312
-DISTNAME= 		pyhla-${PKG_VERSION}
+PKG_VERSION=	1.1.1
+DISTNAME= 		PyHLA-${PKG_VERSION}-Source
 PKGNAME= 		${PKGTAG.python}-hla-${PKG_VERSION}
 CATEGORIES=		architecture
-MASTER_SITES=	:pserver:anonymous@cvs.savannah.nongnu.org:/sources/certi@${COMMIT}+applications/PyHLA
-FETCH_METHOD=	cvs
+MASTER_SITES=	http://gnu.mirrors.pair.com/savannah/savannah//certi/contrib/PyHLA/
 
-MAINTAINER=	robotpkg@laas.fr
+MAINTAINER=		arnaud.degroote@isae-supaero.fr
 HOMEPAGE=	https://savannah.nongnu.org/projects/certi
 COMMENT=	An Open Source HLA RTI (High Level Architecture) python API
 LICENSE=	gnu-gpl-v2
