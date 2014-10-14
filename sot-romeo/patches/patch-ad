@@ -1,0 +1,13 @@
+There is a dependency problem concerning TAGFILES that leads to segmentation fault.
+
+--- doc/Doxyfile.extra.in.orig	2014-10-14 14:04:19.430102000 +0200
++++ doc/Doxyfile.extra.in	2014-10-14 14:05:24.713992000 +0200
+@@ -2,7 +2,4 @@
+ 
+ FILE_PATTERNS          = *.cc *.cpp *.h *.hh *.hxx
+ 
+-TAGFILES               = \
+-"@JRL_MAL_DOXYGENDOCDIR@/jrl-mal.doxytag = @JRL_MAL_DOXYGENDOCDIR@" \
+-"@DYNAMIC_GRAPH_DOXYGENDOCDIR@/dynamic-graph.doxytag = @DYNAMIC_GRAPH_DOXYGENDOCDIR@" \
+-"@SOT_CORE_DOXYGENDOCDIR@/sot-core.doxytag = @SOT_CORE_DOXYGENDOCDIR@"
++

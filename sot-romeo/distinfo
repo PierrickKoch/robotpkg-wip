@@ -1,4 +1,7 @@
 SHA1 (sot-romeo-1.0.0.tar.gz) = dde2bce7ea28d87d19efab063e7e65dd677373a4
 RMD160 (sot-romeo-1.0.0.tar.gz) = d59a533bc63ae903573bd44658b95c827241ee92
 Size (sot-romeo-1.0.0.tar.gz) = 78526 bytes
-SHA1 (patch-aa) = e9a4c0b1be9bd8bd6c2cca7344c064765d9d02e3
+SHA1 (patch-aa) = 7ae47f592603815b2e2e5dc1d7592239394cbf81
+SHA1 (patch-ab) = 24a2cd1971de45d0673d5a9a8a9ca3d7aaebc1bd
+SHA1 (patch-ac) = 05b37096f1911e69d5188a75b313953cad74ab08
+SHA1 (patch-ad) = 258fe8ca64a5dc6246ac98f4a4721a18fbc3eb5d
