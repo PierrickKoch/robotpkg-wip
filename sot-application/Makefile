@@ -10,6 +10,8 @@ COMMENT=		This packages provides a generic Stack Of Tasks library for the humano
 LICENSE=		gnu-lgpl-v3
 MAINTAINER=		hpp@laas.fr
 
+DYNAMIC_PLIST_DIRS+=	share/doc/sot-application
+
 include ../../motion/sot-dynamic/depend.mk
 include ../../pkgtools/pkg-config/depend.mk
 include ../../mk/sysdep/cmake.mk

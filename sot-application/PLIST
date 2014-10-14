@@ -1,0 +1,13 @@
+@comment Tue Oct 14 11:43:39 CEST 2014
+include/sot/application/config.h
+include/sot/application/config.hh
+include/sot/application/deprecated.hh
+include/sot/application/warning.hh
+lib/pkgconfig/sot-application.pc
+lib/python2.7/site-packages/dynamic_graph/sot/application/__init__.py
+lib/python2.7/site-packages/dynamic_graph/sot/application/acceleration/__init__.py
+lib/python2.7/site-packages/dynamic_graph/sot/application/acceleration/precomputed_meta_tasks.py
+lib/python2.7/site-packages/dynamic_graph/sot/application/velocity/__init__.py
+lib/python2.7/site-packages/dynamic_graph/sot/application/velocity/precomputed_meta_tasks.py
+lib/python2.7/site-packages/dynamic_graph/sot/application/velocity/precomputed_tasks.py
+
