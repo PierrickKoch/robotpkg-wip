@@ -24,8 +24,8 @@ DEPEND_ABI.ros-realtime-tools?=	ros-realtime-tools>=1.8.2
 DEPEND_DIR.ros-realtime-tools?=	../../wip/ros-realtime-tools
 
 SYSTEM_SEARCH.ros-realtime-tools=\
-  'include/realtime_tools/realtime_box.h'				\
-  'share/realtime_tools/${ROS_STACKAGE}:/<version>/s/[^0-9.]//gp'	\
+  'include/realtime_tools/realtime_box.h'			\
+  'share/realtime_tools/package.xml:/<version>/s/[^0-9.]//gp'	\
   'lib/pkgconfig/realtime_tools.pc:/Version/s/[^0-9.]//gp'
 
 endif # ROS_REALTIMETOOLS_DEPEND_MK ----------------------------------------
