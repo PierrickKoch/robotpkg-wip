@@ -11,7 +11,7 @@ ROS_COMMENT=	topic publisher from reatime threads
 
 include ../../meta-pkgs/ros-base/Makefile.common
 
-DEPEND_ABI.ros+=ros>=groovy
+DEPEND_ABI.ros+=ros>=hydro
 
 include ../../devel/ros-catkin/depend.mk
 include ../../middleware/ros-comm/depend.mk
