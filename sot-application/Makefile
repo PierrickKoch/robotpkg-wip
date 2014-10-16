@@ -4,6 +4,7 @@
 DISTNAME=		sot-application-1.0.0
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=sot-application/}
 MASTER_REPOSITORY=	${MASTER_REPOSITORY_GITHUB}stack-of-tasks/sot-application
+PKGREVISION=           1
 
 CATEGORIES=		robots
 COMMENT=		This packages provides a generic Stack Of Tasks library for the humanoid robot Romeo.
