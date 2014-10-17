@@ -1,7 +1,7 @@
 # robotpkg Makefile for:	motion/dynamic-graph-bridge
 #
 
-VERSION=		1.0.0
+VERSION=		2.0.0
 DISTNAME=		dynamic_graph_bridge-${VERSION}
 PKGNAME=		dynamic-graph-bridge-${VERSION}
 
@@ -24,6 +24,8 @@ CMAKE_ARGS+=		-DMANDIR=${PREFIX}/${PKGMANDIR}
 # library location
 CMAKE_ARGS+=		-DCMAKE_INSTALL_LIBDIR=lib
 
+include ../../sysutils/ros-rospack/depend.mk
+include ../../wip/dynamic-graph-bridge-msgs/depend.mk
 include ../../wip/ros-realtime-tools/depend.mk
 include ../../simulation/bullet/depend.mk
 include ../../interfaces/jrl-mal/depend.mk
@@ -37,6 +39,7 @@ include ../../simulation/bullet/depend.mk
 include ../../devel/ros-roscpp-core/depend.mk
 include ../../devel/ros-catkin/depend.mk
 include ../../pkgtools/pkg-config/depend.mk
+include ../../mk/sysdep/python.mk
 include ../../mk/language/c.mk
 include ../../mk/language/c++.mk
 include ../../mk/sysdep/cmake.mk

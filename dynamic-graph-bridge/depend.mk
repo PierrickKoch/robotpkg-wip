@@ -11,6 +11,8 @@ endif
 
 ifeq (+,$(ROS_DYNAMICGRAPHBRIDGE_DEPEND_MK)) # --------------------------------------
 
+include ../../wip/dynamic-graph-bridge-msgs/depend.mk
+
 PREFER.dynamic-graph-bridge?=		${PREFER.ros-base}
 SYSTEM_PREFIX.dynamic-graph-bridge?=	${SYSTEM_PREFIX.ros-base}
 

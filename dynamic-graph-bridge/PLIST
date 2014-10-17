@@ -1,9 +1,4 @@
-@comment Thu Oct 16 10:43:52 CEST 2014
-include/dynamic_graph_bridge/Matrix.h
-include/dynamic_graph_bridge/RunCommand.h
-include/dynamic_graph_bridge/RunCommandRequest.h
-include/dynamic_graph_bridge/RunCommandResponse.h
-include/dynamic_graph_bridge/Vector.h
+@comment Fri Oct 17 15:25:56 CEST 2014
 include/dynamic_graph_bridge/config.h
 include/dynamic_graph_bridge/config.hh
 include/dynamic_graph_bridge/deprecated.hh
@@ -33,31 +28,3 @@ ${PYTHON_SITELIB}/dynamic_graph/ros/ros_subscribe/__init__.py
 ${PYTHON_SITELIB}/dynamic_graph/ros/ros_subscribe/wrap.so
 ${PYTHON_SITELIB}/dynamic_graph/ros/ros_time/__init__.py
 ${PYTHON_SITELIB}/dynamic_graph/ros/ros_time/wrap.so
-${PYTHON_SITELIB}/dynamic_graph_bridge/__init__.py
-${PYTHON_SITELIB}/dynamic_graph_bridge/msg/_Matrix.py
-${PYTHON_SITELIB}/dynamic_graph_bridge/msg/_Vector.py
-${PYTHON_SITELIB}/dynamic_graph_bridge/msg/__init__.py
-${PYTHON_SITELIB}/dynamic_graph_bridge/srv/_RunCommand.py
-${PYTHON_SITELIB}/dynamic_graph_bridge/srv/__init__.py
-share/common-lisp/ros/dynamic_graph_bridge/msg/Matrix.lisp
-share/common-lisp/ros/dynamic_graph_bridge/msg/Vector.lisp
-share/common-lisp/ros/dynamic_graph_bridge/msg/_package.lisp
-share/common-lisp/ros/dynamic_graph_bridge/msg/_package_Matrix.lisp
-share/common-lisp/ros/dynamic_graph_bridge/msg/_package_Vector.lisp
-share/common-lisp/ros/dynamic_graph_bridge/msg/dynamic_graph_bridge-msg.asd
-share/common-lisp/ros/dynamic_graph_bridge/srv/RunCommand.lisp
-share/common-lisp/ros/dynamic_graph_bridge/srv/_package.lisp
-share/common-lisp/ros/dynamic_graph_bridge/srv/_package_RunCommand.lisp
-share/common-lisp/ros/dynamic_graph_bridge/srv/dynamic_graph_bridge-srv.asd
-share/dynamic_graph_bridge/cmake/dynamic_graph_bridge-msg-extras.cmake
-share/dynamic_graph_bridge/cmake/dynamic_graph_bridge-msg-paths.cmake
-share/dynamic_graph_bridge/cmake/dynamic_graph_bridgeConfig-version.cmake
-share/dynamic_graph_bridge/cmake/dynamic_graph_bridgeConfig.cmake
-share/dynamic_graph_bridge/msg/Matrix.msg
-share/dynamic_graph_bridge/msg/Vector.msg
-share/dynamic_graph_bridge/package.xml
-share/dynamic_graph_bridge/robot_pose_publisher
-share/dynamic_graph_bridge/run_command
-share/dynamic_graph_bridge/srv/RunCommand.srv
-share/dynamic_graph_bridge/tf_publisher
-

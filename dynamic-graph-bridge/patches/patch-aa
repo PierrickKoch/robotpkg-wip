@@ -1,8 +1,7 @@
 in robotpkg, realtime_tools is not installed as a catkin package  
 
-
---- CMakeLists.txt~	2013-12-02 15:54:49.000000000 +0100
-+++ CMakeLists.txt	2013-12-15 07:48:25.678062000 +0100
+--- CMakeLists.txt.orig	2014-10-17 16:12:06.141631000 +0200
++++ CMakeLists.txt	2014-10-17 16:12:30.447490000 +0200
 @@ -21,7 +21,8 @@
  
  project(dynamic_graph_bridge)
@@ -12,4 +11,4 @@ in robotpkg, realtime_tools is not installed as a catkin package
 +find_package(realtime_tools)
  find_package(Boost REQUIRED COMPONENTS program_options)
  
- add_message_files(FILES Matrix.msg Vector.msg)
+ catkin_package(CATKIN_DEPENDS message_runtime)

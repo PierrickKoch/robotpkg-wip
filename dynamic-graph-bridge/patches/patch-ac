@@ -5,9 +5,9 @@ this issue has already been raised by ros community
 (e.g.  https://github.com/ros/xacro/issues/2)
 should be possible to remove the patch with Hydro version (need to be tested)
 
---- CMakeLists.txt-old	2013-12-20 13:22:01.741374000 +0100
-+++ CMakeLists.txt	2013-12-20 13:23:06.659322000 +0100
-@@ -161,5 +161,14 @@
+--- CMakeLists.txt.orig	2014-10-17 16:12:06.141631000 +0200
++++ CMakeLists.txt	2014-10-17 16:16:08.350214000 +0200
+@@ -160,5 +160,14 @@
    ${CMAKE_SOURCE_DIR}/scripts/tf_publisher
    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
    )

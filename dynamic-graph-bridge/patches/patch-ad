@@ -1,0 +1,58 @@
+Don't know how to use rospack facilities in robotpkg for now
+
+--- CMakeLists.txt.orig	2014-10-17 15:12:46.857055000 +0200
++++ CMakeLists.txt	2014-10-17 15:14:35.183918000 +0200
+@@ -64,7 +64,7 @@
+ add_required_dependency(sot-core)
+ add_required_dependency(sot-dynamic)
+ add_required_dependency(jrl-dynamics-urdf)
+-ADD_ROSPACK_DEPENDENCY(dynamic_graph_bridge_msgs)
++add_required_dependency(dynamic_graph_bridge_msgs)
+ 
+ add_library(ros_bridge
+   src/converter.hh
+@@ -73,7 +73,7 @@
+   )
+ pkg_config_use_dependency(ros_bridge jrl-mal)
+ pkg_config_use_dependency(ros_bridge bullet)
+-rospack_use_dependency(ros_bridge dynamic_graph_bridge_msgs)
++pkg_config_use_dependency(ros_bridge dynamic_graph_bridge_msgs)
+ install(TARGETS ros_bridge DESTINATION lib)
+ 
+ # Make sure rpath are preserved during the install as ROS dependencies
+@@ -89,7 +89,7 @@
+   pkg_config_use_dependency(${NAME} dynamic-graph)
+   pkg_config_use_dependency(${NAME} sot-core)
+   pkg_config_use_dependency(${NAME} jrl-dynamics-urdf)
+-  rospack_use_dependency(${NAME} dynamic_graph_bridge_msgs)
++  pkg_config_use_dependency(${NAME} dynamic_graph_bridge_msgs)
+   add_dependencies(${NAME} ros_bridge)
+   target_link_libraries(${NAME} ros_bridge)
+   set_target_properties(${NAME} PROPERTIES BUILD_WITH_INSTALL_RPATH True)
+@@ -105,7 +105,7 @@
+   PKG_CONFIG_USE_DEPENDENCY(ros/${NAME}/wrap jrl-mal)
+   PKG_CONFIG_USE_DEPENDENCY(ros/${NAME}/wrap dynamic_graph)
+   PKG_CONFIG_USE_DEPENDENCY(ros/${NAME}/wrap sot-core)
+-  ROSPACK_USE_DEPENDENCY(ros/${NAME}/wrap dynamic_graph_bridge_msgs)
++  PKG_CONFIG_USE_DEPENDENCY(ros/${NAME}/wrap dynamic_graph_bridge_msgs)
+ endmacro()
+ 
+ include(cmake/python.cmake)
+@@ -125,7 +125,7 @@
+ pkg_config_use_dependency(ros_interpreter dynamic-graph)
+ pkg_config_use_dependency(ros_interpreter sot-core)
+ pkg_config_use_dependency(ros_interpreter roscpp)
+-rospack_use_dependency(ros_interpreter dynamic_graph_bridge_msgs)
++pkg_config_use_dependency(ros_interpreter dynamic_graph_bridge_msgs)
+ 
+ add_dependencies(ros_interpreter ros_bridge)
+ target_link_libraries(ros_interpreter ros_bridge)
+@@ -142,7 +142,7 @@
+ pkg_config_use_dependency(interpreter dynamic-graph)
+ pkg_config_use_dependency(interpreter sot-core)
+ pkg_config_use_dependency(interpreter sot-dynamic)
+-rospack_use_dependency(interpreter dynamic_graph_bridge_msgs)
++pkg_config_use_dependency(interpreter dynamic_graph_bridge_msgs)
+ # set_target_properties(interpreter PROPERTIES BUILD_WITH_INSTALL_RPATH True)
+ #install(TARGETS interpreter DESTINATION bin)
+ 
