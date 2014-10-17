@@ -26,6 +26,7 @@ CMAKE_ARGS+=		-DCMAKE_INSTALL_LIBDIR=lib
 
 include ../../interfaces/ros-std-msgs/depend.mk
 include ../../lang/ros-message-generation/depend.mk
+include ../../lang/ros-genlisp/depend.mk
 include ../../middleware/ros-comm/depend.mk
 include ../../devel/ros-catkin/depend.mk
 include ../../pkgtools/pkg-config/depend.mk
