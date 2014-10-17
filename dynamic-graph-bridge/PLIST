@@ -28,3 +28,9 @@ ${PYTHON_SITELIB}/dynamic_graph/ros/ros_subscribe/__init__.py
 ${PYTHON_SITELIB}/dynamic_graph/ros/ros_subscribe/wrap.so
 ${PYTHON_SITELIB}/dynamic_graph/ros/ros_time/__init__.py
 ${PYTHON_SITELIB}/dynamic_graph/ros/ros_time/wrap.so
+share/dynamic_graph_bridge/robot_pose_publisher
+share/dynamic_graph_bridge/tf_publisher
+share/dynamic_graph_bridge/cmake/dynamic_graph_bridgeConfig-version.cmake
+share/dynamic_graph_bridge/cmake/dynamic_graph_bridgeConfig.cmake
+share/dynamic_graph_bridge/package.xml
+share/dynamic_graph_bridge/run_command
