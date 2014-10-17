@@ -86,9 +86,9 @@ define PKG_OPTION_SET.ros-server
 
   TMPL1_WRKSRC+=	${TEMPLATES_WRKDIR}/ros/server
   CONFIGURE_ARGS.${TEMPLATES_WRKDIR}/ros/server+=\
-	--with-boost=${PREFIX.boost-headers}				\
-	--with-boost-libdir=$(dir ${SYSTEM_FILES.boost-lib-thread})	\
-	--with-boost-thread=boost_thread${BOOST_LIB_SUFFIX}
+    --with-boost=${PREFIX.boost-headers}				\
+    --with-boost-libdir=$(dir $(lastword ${SYSTEM_FILES.boost-lib-thread})) \
+    --with-boost-thread=boost_thread${BOOST_LIB_SUFFIX}
 
   USE_BOOST_LIBS+=	thread
 
