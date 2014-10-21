@@ -1,3 +1,5 @@
 SHA1 (PyHLA-1.1.1-Source.tar.gz) = 865a1a4570066801b81d28d6068d0cf34805b082
 RMD160 (PyHLA-1.1.1-Source.tar.gz) = d2fdd7bbd9b5a45c1aa50aeaac3374fa9c465057
 Size (PyHLA-1.1.1-Source.tar.gz) = 115908 bytes
+SHA1 (patch-aa) = 6de74707e22cb4225e3a47af92b6ea896831568a
+SHA1 (patch-ab) = 82665ec55ad932570223690030f33aeffe07350c
