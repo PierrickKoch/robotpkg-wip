@@ -14,7 +14,7 @@ PREFER.py-hla?=	robotpkg
 
 DEPEND_USE+=		py-hla
 
-DEPEND_ABI.py-hla?=	${PKGTAG.python-}hla>=20101119
+DEPEND_ABI.py-hla?=	${PKGTAG.python-}hla>=1.1.1
 DEPEND_DIR.py-hla?=	../../wip/py-hla
 
 SYSTEM_SEARCH.py-hla=\
