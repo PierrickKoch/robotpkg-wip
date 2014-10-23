@@ -14,4 +14,5 @@ lib/python2.7/site-packages/dynamic_graph/sot/romeo/dynamic_romeo/__init__.py
 lib/python2.7/site-packages/dynamic_graph/sot/romeo/dynamic_romeo/wrap.so 
 lib/python2.7/site-packages/dynamic_graph/sot/romeo/sot_romeo_controller/__init__.py
 lib/python2.7/site-packages/dynamic_graph/sot/romeo/sot_romeo_controller/wrap.so
-lib/libsot-romeo-controller.so lib/plugin/libdynamic-romeo.so
+lib/libsot-romeo-controller.so
+lib/plugin/libdynamic-romeo.so
