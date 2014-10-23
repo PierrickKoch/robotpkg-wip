@@ -13,16 +13,13 @@ ifeq (+,$(ROS_DYNAMICGRAPHBRIDGE_DEPEND_MK)) # ---------------------------------
 
 include ../../wip/dynamic-graph-bridge-msgs/depend.mk
 
-PREFER.dynamic-graph-bridge?=		${PREFER.ros-base}
-SYSTEM_PREFIX.dynamic-graph-bridge?=	${SYSTEM_PREFIX.ros-base}
-
 DEPEND_USE+=			dynamic-graph-bridge
 ROS_DEPEND_USE+=		dynamic-graph-bridge
 
 DEPEND_ABI.ros+=		ros>=groovy
 
 DEPEND_ABI.dynamic-graph-bridge?=		dynamic-graph-bridge>=1.0.0
-DEPEND_DIR.dynamic-graph-bridge?=		../../motion/dynamic-graph-bridge
+DEPEND_DIR.dynamic-graph-bridge?=		../../wip/dynamic-graph-bridge
 
 DEPEND_ABI.dynamic-graph-bridge.groovy?=	dynamic-graph-bridge>=1.0.0
 DEPEND_ABI.dynamic-graph-bridge.hydro?=		dynamic-graph-bridge>=1.0.0
