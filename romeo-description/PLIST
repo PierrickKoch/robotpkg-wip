@@ -7,6 +7,7 @@ lib/pkgconfig/romeo_description.pc
 share/romeo_description/cmake/romeo_descriptionConfig-version.cmake
 share/romeo_description/cmake/romeo_descriptionConfig.cmake
 share/romeo_description/launch/display.launch
+share/romeo_description/launch/display_small.launch
 share/romeo_description/launch/display.rviz
 share/romeo_description/launch/sot_display.launch
 share/romeo_description/launch/sot_display_small.launch
