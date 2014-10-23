@@ -3,13 +3,13 @@
 #
 
 PKGBASE=                metapod
-VERSION=	        1.0.1
+VERSION=	        1.0.9
 DISTNAME=	        ${PKGBASE}-${VERSION}
 PKGNAME=	        ${PKGBASE}-${VERSION}
 PKGREVISION=
 
 CATEGORIES=		math
-MASTER_SITES=		${MASTER_SITE_GITHUB:=downloads/laas/${PKGBASE}/}
+MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=${PKGBASE}/}
 MASTER_REPOSITORY=	${MASTER_REPOSITORY_GITHUB}/laas/${PKGBASE}
 
 COMMENT=		Template-based rigid body dynamics library.
