@@ -25,8 +25,7 @@ DEPEND_ABI.dynamic-graph-bridge.groovy?=	dynamic-graph-bridge>=1.0.0
 DEPEND_ABI.dynamic-graph-bridge.hydro?=		dynamic-graph-bridge>=1.0.0
 
 SYSTEM_SEARCH.dynamic-graph-bridge=\
-  'include/dynamic_graph_bridge/Matrix.h'\
-  'share/realtime_tools/${ROS_STACKAGE}'\
+  'include/dynamic_graph_bridge/config.h'\
   'lib/pkgconfig/dynamic_graph_bridge.pc'\
   'lib/librobot_model.so'\
   'lib/dynamic_graph_bridge/robot_pose_publisher'\
