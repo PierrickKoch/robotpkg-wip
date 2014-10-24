@@ -59,3 +59,10 @@ include/metapod/tools/joint-anyaxis.hh
 include/metapod/config.h
 lib/libmetapod_robotbuilder.so
 share/cmake/metapod.cmake
+share/metapod/data/simple_humanoid/metapod_license_file.txt
+share/metapod/data/simple_humanoid/simple_humanoid.config
+share/metapod/data/simple_humanoid/simple_humanoid.urdf
+share/metapod/data/simple_arm/metapod_license_file.txt
+share/metapod/data/simple_arm/simple_arm.config
+share/metapod/data/simple_arm/simple_arm.urdf
+bin/metapodfromurdf
