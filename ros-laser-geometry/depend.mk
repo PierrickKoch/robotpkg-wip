@@ -1,5 +1,5 @@
 # robotpkg depend.mk for:	perception/ros-laser-geometry
-# Created:			Charles Lesire on Tue, 8 Mar 2014
+# Created:			Charles Lesire on Tue, 8 Apr 2014
 #
 
 DEPEND_DEPTH:=			${DEPEND_DEPTH}+
@@ -24,12 +24,14 @@ DEPEND_DIR.ros-laser-geometry?=	../../wip/ros-laser-geometry
 
 DEPEND_ABI.ros-laser-geometry.groovy?=	ros-laser-geometry>=1.5<1.6
 DEPEND_ABI.ros-laser-geometry.hydro?=	ros-laser-geometry>=1.6<1.7
+DEPEND_ABI.ros-laser-geometry.indigo?=	ros-laser-geometry>=1.6<1.7
 
 SYSTEM_SEARCH.ros-laser-geometry=\
-	include/laser_geometry/laser_geometry.h \
-	lib/liblaser_geometry.so \
-	lib/pkgconfig/laser_geometry.pc \
-	share/laser_geometry/package.xml
+  'include/laser_geometry/laser_geometry.h'			\
+  'lib/liblaser_geometry.so'					\
+  '${PYTHON_SYSLIBSEARCH}/laser_geometry/__init__.py'		\
+  'lib/pkgconfig/laser_geometry.pc:/Version/s/[^0-9.]//gp'	\
+  'share/laser_geometry/package.xml:/<version>/s/[^0-9.]//gp'
 
 endif # ROS_LASER_GEOMETRY_DEPEND_MK ------------------------------------------
 
