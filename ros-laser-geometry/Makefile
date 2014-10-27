@@ -12,6 +12,7 @@ ROS_COMMENT=		C++ class turning laser scan data into point clouds
 include ../../meta-pkgs/ros-base/Makefile.common
 
 include ../../devel/ros-catkin/depend.mk
+include ../../devel/ros-cmake-modules/depend.mk
 include ../../math/ros-angles/depend.mk
 include ../../devel/boost-headers/depend.mk
 include ../../devel/boost-libs/depend.mk
