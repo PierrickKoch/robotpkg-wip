@@ -1,4 +1,6 @@
-@comment Tue Apr 8 22:01:40 CEST 2014
+@comment Mon Oct 27 15:00:49 CET 2014
+bin/rviz
+include/rviz/add_display_dialog.h
 include/rviz/bit_allocator.h
 include/rviz/class_id_recording_factory.h
 include/rviz/config.h
@@ -8,8 +10,10 @@ include/rviz/default_plugin/depth_cloud_display.h
 include/rviz/default_plugin/depth_cloud_mld.h
 include/rviz/default_plugin/effort_display.h
 include/rviz/default_plugin/effort_visual.h
+include/rviz/default_plugin/fluid_pressure_display.h
 include/rviz/default_plugin/grid_cells_display.h
 include/rviz/default_plugin/grid_display.h
+include/rviz/default_plugin/illuminance_display.h
 include/rviz/default_plugin/image_display.h
 include/rviz/default_plugin/interactive_marker_display.h
 include/rviz/default_plugin/interactive_markers/integer_action.h
@@ -42,7 +46,9 @@ include/rviz/default_plugin/polygon_display.h
 include/rviz/default_plugin/pose_array_display.h
 include/rviz/default_plugin/pose_display.h
 include/rviz/default_plugin/range_display.h
+include/rviz/default_plugin/relative_humidity_display.h
 include/rviz/default_plugin/robot_model_display.h
+include/rviz/default_plugin/temperature_display.h
 include/rviz/default_plugin/tf_display.h
 include/rviz/default_plugin/tools/focus_tool.h
 include/rviz/default_plugin/tools/goal_tool.h
@@ -93,6 +99,7 @@ include/rviz/ogre_helpers/custom_parameter_indices.h
 include/rviz/ogre_helpers/grid.h
 include/rviz/ogre_helpers/initialization.h
 include/rviz/ogre_helpers/line.h
+include/rviz/ogre_helpers/mesh_shape.h
 include/rviz/ogre_helpers/movable_text.h
 include/rviz/ogre_helpers/object.h
 include/rviz/ogre_helpers/ogre_logging.h
@@ -167,6 +174,7 @@ include/rviz/widget_geometry_change_detector.h
 include/rviz/window_manager_interface.h
 include/rviz/yaml_config_reader.h
 include/rviz/yaml_config_writer.h
+lib/libdefault_plugin.so
 lib/librviz.so
 lib/pkgconfig/rviz.pc
 ${PYTHON_SITELIB}/rviz-${PKGVERSION}-py${PYTHON_VERSION}.egg-info
@@ -181,11 +189,13 @@ share/rviz/icons/classes/Camera.png
 share/rviz/icons/classes/DepthCloud.png
 share/rviz/icons/classes/Displays.svg
 share/rviz/icons/classes/Effort.png
+share/rviz/icons/classes/FluidPressure.png
 share/rviz/icons/classes/FocusCamera.svg
 share/rviz/icons/classes/Grid.png
 share/rviz/icons/classes/GridCells.png
 share/rviz/icons/classes/Group.png
 share/rviz/icons/classes/Help.svg
+share/rviz/icons/classes/Illuminance.png
 share/rviz/icons/classes/Image.png
 share/rviz/icons/classes/Interact.png
 share/rviz/icons/classes/InteractiveMarkers.png
@@ -205,6 +215,7 @@ share/rviz/icons/classes/Pose.png
 share/rviz/icons/classes/PoseArray.png
 share/rviz/icons/classes/PublishPoint.svg
 share/rviz/icons/classes/Range.png
+share/rviz/icons/classes/RelativeHumidity.png
 share/rviz/icons/classes/RobotJoint.png
 share/rviz/icons/classes/RobotLink.png
 share/rviz/icons/classes/RobotLinkNoGeom.png
@@ -214,6 +225,7 @@ share/rviz/icons/classes/Selection.png
 share/rviz/icons/classes/SetGoal.png
 share/rviz/icons/classes/SetInitialPose.png
 share/rviz/icons/classes/TF.png
+share/rviz/icons/classes/Temperature.png
 share/rviz/icons/classes/Time.svg
 share/rviz/icons/classes/Tool Properties.png
 share/rviz/icons/classes/Views.svg
@@ -269,6 +281,8 @@ share/rviz/ogre_media/materials/glsl120/glsl120.program
 share/rviz/ogre_media/materials/glsl120/include/circle_impl.frag
 share/rviz/ogre_media/materials/glsl120/include/pack_depth.frag
 share/rviz/ogre_media/materials/glsl120/include/pass_depth.vert
+share/rviz/ogre_media/materials/glsl120/indexed_8bit_image.frag
+share/rviz/ogre_media/materials/glsl120/indexed_8bit_image.vert
 share/rviz/ogre_media/materials/glsl120/nogp/billboard.vert
 share/rviz/ogre_media/materials/glsl120/nogp/billboard_tile.vert
 share/rviz/ogre_media/materials/glsl120/nogp/box.frag
@@ -287,6 +301,7 @@ share/rviz/ogre_media/materials/glsl150/box.geom
 share/rviz/ogre_media/materials/glsl150/glsl150.program
 share/rviz/ogre_media/materials/glsl150/pass_pos_color.vert
 share/rviz/ogre_media/materials/scripts/default_pick_and_depth.material
+share/rviz/ogre_media/materials/scripts/indexed_8bit_image.material
 share/rviz/ogre_media/materials/scripts/point_cloud_point.material
 share/rviz/ogre_media/materials/scripts/point_cloud_tile.material
 share/rviz/ogre_media/materials/scripts120/point_cloud_box.material
@@ -314,5 +329,4 @@ share/rviz/plugin_description.xml
 @pkgdir include/rviz/CMakeFiles/rviz.dir/properties
 @pkgdir include/rviz/CMakeFiles/rviz.dir/ogre_helpers
 @pkgdir include/rviz/CMakeFiles/rviz.dir/image
-@pkgdir include/rviz/CMakeFiles/rviz.dir/__/__/build
 @pkgdir include/rviz/CMakeFiles/executable.dir

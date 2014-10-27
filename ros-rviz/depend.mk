@@ -1,5 +1,5 @@
-# robotpkg depend.mk for:	localization/ros-robot-state-publisher
-# Created:			Séverin Lemaignan on Tue, 06 Aug 2013
+# robotpkg depend.mk for:	graphics/ros-rviz
+# Created:			Charles Lesire on Wed, 9 Apr 2014
 #
 
 DEPEND_DEPTH:=			${DEPEND_DEPTH}+
