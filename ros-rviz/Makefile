@@ -11,7 +11,6 @@ ROS_COMMENT=	3D visualization tool
 
 include ../../meta-pkgs/ros-base/Makefile.common
 
-include ../../wip/ros-interactive-markers/depend.mk
 include ../../wip/ros-laser-geometry/depend.mk
 
 include ../../devel/ros-catkin/depend.mk
@@ -20,6 +19,7 @@ include ../../devel/ros-pluginlib/depend.mk
 include ../../devel/ros-ros/depend.mk
 include ../../devel/yaml-cpp/depend.mk
 include ../../graphics/assimp/depend.mk
+include ../../graphics/ros-interactive-markers/depend.mk
 include ../../graphics/ros-python-qt-binding/depend.mk
 include ../../graphics/ros-robot-model/depend.mk
 include ../../image/ros-image-common/depend.mk

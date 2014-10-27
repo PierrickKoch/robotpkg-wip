@@ -88,7 +88,6 @@ SUBDIR+=	rfid-genom
 SUBDIR+=	robotModelParser-libs
 SUBDIR+=	robot-viewer
 SUBDIR+=	romeo-description
-SUBDIR+=	ros-interactive-markers
 SUBDIR+=	ros-laser-geometry
 SUBDIR+=	ros-realtime-tools
 SUBDIR+=	ros-rviz
