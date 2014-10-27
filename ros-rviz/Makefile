@@ -13,7 +13,6 @@ include ../../meta-pkgs/ros-base/Makefile.common
 
 include ../../wip/ros-interactive-markers/depend.mk
 include ../../wip/ros-laser-geometry/depend.mk
-include ../../wip/ros-map-msgs/depend.mk
 
 include ../../devel/ros-catkin/depend.mk
 include ../../devel/ros-cmake-modules/depend.mk
@@ -27,6 +26,7 @@ include ../../image/ros-image-common/depend.mk
 include ../../image/ros-vision-opencv/depend.mk
 include ../../interfaces/ros-comm-msgs/depend.mk
 include ../../interfaces/ros-common-msgs/depend.mk
+include ../../interfaces/ros-map-msgs/depend.mk
 include ../../interfaces/ros-std-msgs/depend.mk
 include ../../math/eigen3/depend.mk
 include ../../math/ros-geometry/depend.mk

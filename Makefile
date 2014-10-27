@@ -90,7 +90,6 @@ SUBDIR+=	robot-viewer
 SUBDIR+=	romeo-description
 SUBDIR+=	ros-interactive-markers
 SUBDIR+=	ros-laser-geometry
-SUBDIR+=	ros-map-msgs
 SUBDIR+=	ros-realtime-tools
 SUBDIR+=	ros-rviz
 SUBDIR+= 	rtslam-genom
