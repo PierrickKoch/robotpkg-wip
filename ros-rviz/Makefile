@@ -11,6 +11,8 @@ ROS_COMMENT=	3D visualization tool
 
 include ../../meta-pkgs/ros-base/Makefile.common
 
+DEPEND_ABI.libogre += libogre>=1.7
+
 include ../../devel/ros-catkin/depend.mk
 include ../../devel/ros-cmake-modules/depend.mk
 include ../../devel/ros-pluginlib/depend.mk
