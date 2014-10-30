@@ -91,6 +91,7 @@ SUBDIR+=	romeo-description
 SUBDIR+=	ros-realtime-tools
 SUBDIR+= 	rtslam-genom
 SUBDIR+=	sot-application
+SUBDIR+=	sot-dyninv
 SUBDIR+=	sot-romeo
 SUBDIR+=	soth
 SUBDIR+=	spark-genom

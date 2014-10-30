@@ -1,0 +1,1 @@
+This sofware provides the solver and features to resolve the inverse of the dynamics of a free-floating robot, in contact with its environment. The basics are provided by the sot core, and the computation of the dynamics of the robot can be computed by a third party lib, for example sot-dynamic.
