@@ -1,0 +1,23 @@
+@comment Thu Oct 30 17:06:15 CET 2014
+include/soth/ActiveSet.hpp
+include/soth/Algebra.hpp
+include/soth/Allocator.hpp
+include/soth/BaseY.hpp
+include/soth/BasicStage.hpp
+include/soth/Bound.hpp
+include/soth/DestructiveColPivQR.hpp
+include/soth/Givens.hpp
+include/soth/HCOD.hpp
+include/soth/Random.hpp
+include/soth/Stage.hpp
+include/soth/SubMatrix.hpp
+include/soth/api.hpp
+include/soth/config.h
+include/soth/config.hh
+include/soth/debug.hpp
+include/soth/deprecated.hh
+include/soth/solvers.hpp
+include/soth/warning.hh
+lib/libsoth.so
+lib/libsoth.so.${PKGVERSION}
+lib/pkgconfig/soth.pc

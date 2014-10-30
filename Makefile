@@ -92,6 +92,7 @@ SUBDIR+=	ros-realtime-tools
 SUBDIR+= 	rtslam-genom
 SUBDIR+=	sot-application
 SUBDIR+=	sot-romeo
+SUBDIR+=	soth
 SUBDIR+=	spark-genom
 SUBDIR+=	sparkyarp-genom
 SUBDIR+=	tcl-genomix
