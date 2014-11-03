@@ -5,7 +5,7 @@
 PKGNAME=		soth-${VERSION}
 DISTNAME=		soth-${VERSION}
 VERSION=		2.0.0
-PKGREVISION=		0
+PKGREVISION=		1
 
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=soth/}
 MASTER_REPOSITORY=	${MASTER_REPOSITORY_GITHUB}/stack-of-tasks/soth
@@ -14,6 +14,8 @@ MAINTAINER=	hpp@laas.fr
 CATEGORIES=	wip
 COMMENT=	SOT Hierarchical solver
 LICENSE=	gnu-lgpl-v3
+
+DYNAMIC_PLIST_DIRS+=	share/doc/soth
 
 include ../../math/eigen3/depend.mk
 include ../../devel/boost-headers/depend.mk
