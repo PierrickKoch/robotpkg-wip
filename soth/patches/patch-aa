@@ -1,8 +1,8 @@
 Use cmake's idea of the "make" program, so that it can be tuned by robotpkg
 https://github.com/jrl-umi3218/jrl-cmakemodules/issues/34
 
---- doxygen.cmake.orig	2014-11-03 09:57:26.447333000 +0100
-+++ doxygen.cmake	2014-11-03 09:58:55.447207000 +0100
+--- cmake/doxygen.cmake.orig	2014-11-03 09:57:26.447333000 +0100
++++ cmake/doxygen.cmake	2014-11-03 09:58:55.447207000 +0100
 @@ -66,7 +66,7 @@
        COMMENT "Generating Doxygen documentation"
        )
