@@ -36,7 +36,7 @@ DEPEND_USE+=		antlr2
 DEPEND_ABI.antlr2?=	antlr2>=2<3
 DEPEND_DIR.antlr2?=	../../wip/antlr2
 
-SYSTEM_SEARCH.antlr2= 'bin/{,run}antlr'\
+SYSTEM_SEARCH.antlr2= 'bin/{,run}antlr{,2}'\
 			'include/antlr/ANTLRException.hpp'\
 			'lib/libantlr.a'
 export ANTLR_INCLUDE=$(word 2,${SYSTEM_FILES.antlr2})
@@ -46,6 +46,7 @@ export ANTLR_LIB=$(word 3,${SYSTEM_FILES.antlr2})
 SYSTEM_PKG.Fedora.antlr2=	antlr-C++ antlr-tool
 SYSTEM_PKG.Ubuntu.antlr2=	antlr libantlr-dev
 SYSTEM_PKG.Debian.antlr2=	antlr libantlr-dev
+SYSTEM_PKG.ArchLinux.antlr2=	antlr2
 
 endif # ANTLR_DEPEND_MK --------------------------------------------------
 
