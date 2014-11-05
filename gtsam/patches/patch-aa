@@ -1,0 +1,11 @@
+--- gtsam/slam/SmartFactorBase.h	2014-06-01 21:22:39.000000000 +0200
++++ gtsam/slam/SmartFactorBase.h	2014-10-03 15:30:49.756247706 +0200
+@@ -572,7 +572,7 @@
+ 
+     FastMap<Key,size_t> KeySlotMap;
+     for (size_t slot=0; slot < allKeys.size(); slot++)
+-      KeySlotMap.insert(std::make_pair<Key,size_t>(allKeys[slot],slot));
++      KeySlotMap.insert(std::make_pair(allKeys[slot],slot));
+ 
+     // a single point is observed in numKeys cameras
+     size_t numKeys = this->keys_.size(); // cameras observing current point
