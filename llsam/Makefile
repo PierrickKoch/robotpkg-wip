@@ -19,6 +19,9 @@ USE_QMAKE=              no
 
 CMAKE_ARGS+=            -DCMAKE_BUILD_TYPE=Release 
 
+DEPEND_ABI.gtsam=	gtsam>=3.1.0
+include ../../wip/gtsam/depend.mk
+
 DEPEND_ABI.jafar-rtslam=	jafar-rtslam>=0.3
 include ../../wip/jafar-rtslam/depend.mk
 
@@ -33,7 +36,6 @@ include ../../mk/sysdep/cmake.mk
 # standard
 include ../../pkgtools/pkg-config/depend.mk
 # language
-	
 include ../../mk/language/c.mk 
 include ../../mk/language/c++.mk 
 # robotpkg
