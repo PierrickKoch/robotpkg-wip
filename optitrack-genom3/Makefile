@@ -2,7 +2,7 @@
 # Created:			Anthony Mallet on Fri, 28 Mar 2014
 #
 
-DISTNAME=		optitrack-genom3-1.1
+DISTNAME=		optitrack-genom3-1.2
 CATEGORIES=		interfaces
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=${PKGBASE}/}
 MASTER_REPOSITORY=	${MASTER_REPOSITORY_OPENROBOTS}optitrack-genom3
