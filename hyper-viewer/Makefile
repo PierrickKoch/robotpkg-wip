@@ -8,7 +8,7 @@ VERSION=		0.1
 CATEGORIES=		supervision
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=hyper_viewer/}
 MASTER_REPOSITORY=	${MASTER_REPOSITORY_OPENROBOTS_TRAC}hyper_viewer
-
+PKGREVISION= 		1
 
 MAINTAINER=		arnaud.degroote@laas.fr
 COMMENT=		Viewer for the Hyper supervision tool

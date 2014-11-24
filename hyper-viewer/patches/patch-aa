@@ -1,0 +1,12 @@
+diff --git CMakeLists.txt CMakeLists.txt
+index ebc7608..9497af3 100644
+--- CMakeLists.txt
++++ CMakeLists.txt
+@@ -41,6 +41,7 @@ add_library(hyper_viewer_lib ${VIEWER_MOC_SRCS} ${VIEWER_SRCS})
+ target_link_libraries(hyper_viewer_lib ${QT_LIBRARIES})
+ target_link_libraries(hyper_viewer_lib ${HYPER_LIBS})
+ target_link_libraries(hyper_viewer_lib ${Boost_LIBRARIES})
++target_link_libraries(hyper_viewer_lib pthread)
+ 
+ add_executable(hyper_viewer src/main.cc)
+ target_link_libraries(hyper_viewer hyper_viewer_lib)
