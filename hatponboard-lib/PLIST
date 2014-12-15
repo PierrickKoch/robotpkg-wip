@@ -29,6 +29,7 @@ include/hatponboard-lib/TaskList.hh
 include/hatponboard-lib/TaskListNode.hh
 include/hatponboard-lib/TimeProjection.hh
 include/hatponboard-lib/UndesirableStateData.hh
+include/hatponboard-lib/VerboseLevel.hh
 include/hatponboard-lib/WastedTimeData.hh
 include/hatponboard-lib/WorldBase.hh
 include/hatponboard-lib/WorldBaseAgent.hh
