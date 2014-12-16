@@ -19,9 +19,18 @@ MAKE_JOBS_SAFE=		yes
 DEPEND_ABI.boost-libs=boost-libs>=1.34
 DEPEND_ABI.boost-headers=boost-headers>=1.34
 
+PKG_SUPPORTED_OPTIONS+= enable-goal
+PKG_SUGGESTED_OPTIONS+= enable-goal
+PKG_OPTION_DESCR.enable-goal= Enable the verification of methods goal after their projection
+define PKG_OPTION_SET.enable-goal
+	CMAKE_ARGS+= -DENABLE_METHOD_GOAL_TEST=ON
+endef
+define PKG_OPTION_UNSET.enable-goal
+	CMAKE_ARGS+= -DENABLE_METHOD_GOAL_TEST=OFF
+endef
+
 PKG_SUPPORTED_OPTIONS+=	doc
 PKG_OPTION_DESCR.doc= Enable the documentation generation
-
 define PKG_OPTION_SET.doc
 	include ../../mk/sysdep/doxygen.mk
 endef
