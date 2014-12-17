@@ -3,7 +3,7 @@
 #
 
 DISTNAME=		hatpconsole-${VERSION}
-VERSION=		1.2.0
+VERSION=		2.0.0
 PKGREVISION=		
 CATEGORIES=		planning
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=hatpconsole/}

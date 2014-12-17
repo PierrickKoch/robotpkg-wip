@@ -14,7 +14,7 @@ PREFER.hatpconsole?=	robotpkg
 
 DEPEND_USE+=		hatpconsole
 
-DEPEND_ABI.hatpconsole?=	hatpconsole>=1.2.0
+DEPEND_ABI.hatpconsole?=	hatpconsole>=2.0.0
 DEPEND_DIR.hatpconsole?=	../../wip/hatpconsole
 
 SYSTEM_SEARCH.hatpconsole=\
