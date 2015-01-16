@@ -1,4 +1,4 @@
-@comment Wed Apr 30 12:27:00 CEST 2014
+@comment Fri Jan 16 11:29:25 CET 2015
 bin/ompl_benchmark_statistics.py
 include/ompl/base/Cost.h
 include/ompl/base/DiscreteMotionValidator.h
@@ -68,9 +68,17 @@ include/ompl/control/SimpleDirectedControlSampler.h
 include/ompl/control/SimpleSetup.h
 include/ompl/control/SpaceInformation.h
 include/ompl/control/StatePropagator.h
+include/ompl/control/SteeredControlSampler.h
 include/ompl/control/planners/PlannerIncludes.h
 include/ompl/control/planners/est/EST.h
 include/ompl/control/planners/kpiece/KPIECE1.h
+include/ompl/control/planners/ltl/Automaton.h
+include/ompl/control/planners/ltl/LTLPlanner.h
+include/ompl/control/planners/ltl/LTLProblemDefinition.h
+include/ompl/control/planners/ltl/LTLSpaceInformation.h
+include/ompl/control/planners/ltl/ProductGraph.h
+include/ompl/control/planners/ltl/PropositionalDecomposition.h
+include/ompl/control/planners/ltl/World.h
 include/ompl/control/planners/pdst/PDST.h
 include/ompl/control/planners/rrt/RRT.h
 include/ompl/control/planners/syclop/Decomposition.h
@@ -106,6 +114,7 @@ include/ompl/extensions/opende/OpenDESimpleSetup.h
 include/ompl/extensions/opende/OpenDEStatePropagator.h
 include/ompl/extensions/opende/OpenDEStateSpace.h
 include/ompl/extensions/opende/OpenDEStateValidityChecker.h
+include/ompl/extensions/triangle/PropositionalTriangularDecomposition.h
 include/ompl/extensions/triangle/TriangularDecomposition.h
 include/ompl/geometric/GeneticSearch.h
 include/ompl/geometric/HillClimbing.h
@@ -113,8 +122,13 @@ include/ompl/geometric/PathGeometric.h
 include/ompl/geometric/PathHybridization.h
 include/ompl/geometric/PathSimplifier.h
 include/ompl/geometric/SimpleSetup.h
+include/ompl/geometric/planners/AnytimePathShortening.h
 include/ompl/geometric/planners/PlannerIncludes.h
+include/ompl/geometric/planners/cforest/CForest.h
+include/ompl/geometric/planners/cforest/CForestStateSampler.h
+include/ompl/geometric/planners/cforest/CForestStateSpaceWrapper.h
 include/ompl/geometric/planners/est/EST.h
+include/ompl/geometric/planners/fmt/FMT.h
 include/ompl/geometric/planners/kpiece/BKPIECE1.h
 include/ompl/geometric/planners/kpiece/Discretization.h
 include/ompl/geometric/planners/kpiece/KPIECE1.h
@@ -122,6 +136,7 @@ include/ompl/geometric/planners/kpiece/LBKPIECE1.h
 include/ompl/geometric/planners/pdst/PDST.h
 include/ompl/geometric/planners/prm/ConnectionStrategy.h
 include/ompl/geometric/planners/prm/LazyPRM.h
+include/ompl/geometric/planners/prm/LazyPRMstar.h
 include/ompl/geometric/planners/prm/PRM.h
 include/ompl/geometric/planners/prm/PRMstar.h
 include/ompl/geometric/planners/prm/SPARS.h
@@ -140,6 +155,7 @@ include/ompl/tools/benchmark/Benchmark.h
 include/ompl/tools/benchmark/MachineSpecs.h
 include/ompl/tools/config/MagicConstants.h
 include/ompl/tools/config/SelfConfig.h
+include/ompl/tools/debug/PlannerMonitor.h
 include/ompl/tools/debug/Profiler.h
 include/ompl/tools/multiplan/OptimizePlan.h
 include/ompl/tools/multiplan/ParallelPlan.h
@@ -152,8 +168,10 @@ include/ompl/util/RandomNumbers.h
 include/ompl/util/Time.h
 lib/libompl.so
 lib/libompl.so.${PKGVERSION}
-lib/libompl.so.9
+lib/libompl.so.10
 lib/pkgconfig/ompl.pc
+share/man/man1/ompl_benchmark_statistics.1
+share/ompl/demos/CForestCircleGridBenchmark.cpp
 share/ompl/demos/GeometricCarPlanning.cpp
 share/ompl/demos/HybridSystemPlanning.cpp
 share/ompl/demos/HypercubeBenchmark.cpp
@@ -176,6 +194,7 @@ share/ompl/demos/Koules/KoulesStatePropagator.cpp
 share/ompl/demos/Koules/KoulesStatePropagator.h
 share/ompl/demos/Koules/KoulesStateSpace.cpp
 share/ompl/demos/Koules/KoulesStateSpace.h
+share/ompl/demos/LTLWithTriangulation.cpp
 share/ompl/demos/OpenDERigidBodyPlanning.cpp
 share/ompl/demos/OptimalPlanning.cpp
 share/ompl/demos/OptimalPlanning.py
@@ -196,7 +215,6 @@ share/ompl/demos/RigidBodyPlanningWithODESolverAndControls.py
 share/ompl/demos/StateSampling.cpp
 share/ompl/demos/StateSampling.py
 share/ompl/demos/TriangulationDemo.cpp
-share/ompl/ompl-config-version.cmake
 share/ompl/ompl-config.cmake
 @pkgdir include/ompl/CMakeFiles/ompl.dir/util
 @pkgdir include/ompl/CMakeFiles/ompl.dir/tools/multiplan
@@ -209,12 +227,15 @@ share/ompl/ompl-config.cmake
 @pkgdir include/ompl/CMakeFiles/ompl.dir/geometric/planners/prm
 @pkgdir include/ompl/CMakeFiles/ompl.dir/geometric/planners/pdst
 @pkgdir include/ompl/CMakeFiles/ompl.dir/geometric/planners/kpiece
+@pkgdir include/ompl/CMakeFiles/ompl.dir/geometric/planners/fmt
 @pkgdir include/ompl/CMakeFiles/ompl.dir/geometric/planners/est
+@pkgdir include/ompl/CMakeFiles/ompl.dir/geometric/planners/cforest
 @pkgdir include/ompl/CMakeFiles/ompl.dir/extensions/morse
 @pkgdir include/ompl/CMakeFiles/ompl.dir/control/spaces
 @pkgdir include/ompl/CMakeFiles/ompl.dir/control/planners/syclop
 @pkgdir include/ompl/CMakeFiles/ompl.dir/control/planners/rrt
 @pkgdir include/ompl/CMakeFiles/ompl.dir/control/planners/pdst
+@pkgdir include/ompl/CMakeFiles/ompl.dir/control/planners/ltl
 @pkgdir include/ompl/CMakeFiles/ompl.dir/control/planners/kpiece
 @pkgdir include/ompl/CMakeFiles/ompl.dir/control/planners/est
 @pkgdir include/ompl/CMakeFiles/ompl.dir/base/spaces

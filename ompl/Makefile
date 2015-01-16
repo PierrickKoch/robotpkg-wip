@@ -3,7 +3,7 @@
 #
 
 DISTNAME=	ompl-${PKGVERSION_NOREV}-Source
-PKGVERSION=	0.14.1
+PKGVERSION=	1.0.0
 PKGNAME=	ompl-${PKGVERSION}
 
 CATEGORIES=		motion
@@ -18,6 +18,9 @@ LICENSE=	modified-bsd
 CMAKE_ARGS+=	-DBOOST_INCLUDEDIR=${PREFIX.boost-headers}/include
 CMAKE_ARGS+=	-DBOOST_LIBDIR=${PREFIX.boost-libs}/include
 CMAKE_ARGS+= 	-DOMPL_REGISTRATION=OFF
+CMAKE_ARGS+=    -DCMAKE_INSTALL_LIBDIR:PATH=${CMAKE_CONFIGURE_PREFIX}/lib
+
+DEPEND_ABI.cmake= 		cmake>=2.8.7
 
 PKG_SUPPORTED_OPTIONS+=		python
 PKG_OPTION_DESCR.python=	Enable python bindings
@@ -42,6 +45,7 @@ endef
 define PKG_OPTION_UNSET.morse
   CMAKE_ARGS+=			-DOMPL_EXTENSION_MORSE=OFF
 endef
+
 
 include ../../devel/boost-headers/depend.mk
 include ../../devel/boost-libs/depend.mk
