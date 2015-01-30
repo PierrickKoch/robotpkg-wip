@@ -1,0 +1,24 @@
+@comment Fri Jan 30 15:35:46 CET 2015
+${PYTHON_SITELIB}/pymavlink/__init__.py
+${PYTHON_SITELIB}/pymavlink/fgFDM.py
+${PYTHON_SITELIB}/pymavlink/mavextra.py
+${PYTHON_SITELIB}/pymavlink/mavlinkv09_ardupilotmega.py
+${PYTHON_SITELIB}/pymavlink/mavlinkv09_common.py
+${PYTHON_SITELIB}/pymavlink/mavlinkv09_minimal.py
+${PYTHON_SITELIB}/pymavlink/mavlinkv09_pixhawk.py
+${PYTHON_SITELIB}/pymavlink/mavlinkv09_slugs.py
+${PYTHON_SITELIB}/pymavlink/mavlinkv09_test.py
+${PYTHON_SITELIB}/pymavlink/mavlinkv09_ualberta.py
+${PYTHON_SITELIB}/pymavlink/mavlinkv10_ardupilotmega.py
+${PYTHON_SITELIB}/pymavlink/mavlinkv10_common.py
+${PYTHON_SITELIB}/pymavlink/mavlinkv10_matrixpilot.py
+${PYTHON_SITELIB}/pymavlink/mavlinkv10_minimal.py
+${PYTHON_SITELIB}/pymavlink/mavlinkv10_pixhawk.py
+${PYTHON_SITELIB}/pymavlink/mavlinkv10_sensesoar.py
+${PYTHON_SITELIB}/pymavlink/mavlinkv10_slugs.py
+${PYTHON_SITELIB}/pymavlink/mavlinkv10_test.py
+${PYTHON_SITELIB}/pymavlink/mavlinkv10_ualberta.py
+${PYTHON_SITELIB}/pymavlink/mavparm.py
+${PYTHON_SITELIB}/pymavlink/mavutil.py
+${PYTHON_SITELIB}/pymavlink/mavwp.py
+${PYTHON_SITELIB}/pymavlink/scanwin32.py

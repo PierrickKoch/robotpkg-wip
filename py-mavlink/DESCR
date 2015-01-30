@@ -1,0 +1,7 @@
+MAVLink -- Micro Air Vehicle Message Marshalling Library.
+
+This is a library for lightweight communication between Micro Air Vehicles
+(swarm) and/or ground control stations. It serializes C-structs for serial
+channels and can be used with any type of radio modem.
+
+This package contains the python interface.

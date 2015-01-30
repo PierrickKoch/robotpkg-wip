@@ -82,6 +82,7 @@ SUBDIR+=	pr2-pick-object
 SUBDIR+= 	py-flann
 SUBDIR+= 	py-hla
 SUBDIR+= 	py-laaswm
+SUBDIR+= 	py-mavlink
 SUBDIR+= 	py-morse
 SUBDIR+=	rednav-genom
 SUBDIR+=	rfid-genom
