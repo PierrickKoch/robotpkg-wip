@@ -19,7 +19,7 @@ DEPEND_DIR.mrpt?=	../../wip/mrpt
 
 SYSTEM_SEARCH.mrpt=\
 	bin/mrpt-performance \
-	include/mrpt/base/include/mrpt/base.h
+	include/mrpt/base/include/mrpt/base.h \
 	lib/libmrpt-base.so \
 	'lib/pkgconfig/mrpt-base.pc:/Version/s/[^0-9.]//gp'
 endif
