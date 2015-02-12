@@ -3,12 +3,10 @@
 #
 NAME=			gladys
 DISTNAME=		${NAME}-${VERSION}
-VERSION=		0.2.5
+VERSION=		0.2.6
 CATEGORIES=		mapping
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=${NAME}/}
 MASTER_REPOSITORY=	${MASTER_REPOSITORY_OPENROBOTS_TRAC}${NAME}
-
-PKGREVISION=           1
 
 MAINTAINER=		pierrick.koch@laas.fr
 COMMENT=		The Graph Library for Autonomous and DYnamic Systems
