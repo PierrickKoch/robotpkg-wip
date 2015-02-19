@@ -3,7 +3,7 @@
 #
 
 DISTNAME=		hatptester-${VERSION}
-VERSION=		1.5.0
+VERSION=		1.5.1
 PKGREVISION=		
 CATEGORIES=		planning
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=hatptester/}
