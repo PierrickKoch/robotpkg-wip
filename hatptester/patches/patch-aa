@@ -1,0 +1,26 @@
+diff --git CMakeLists.txt CMakeLists.txt
+index d790cec..91b7553 100644
+--- CMakeLists.txt
++++ CMakeLists.txt
+@@ -14,7 +14,7 @@ set(APP_ASSOCIATED_TAG "v${APP_VERSION}") #Tag associated to the software versio
+ 
+ find_package(msgconnector REQUIRED msgconnector)
+ find_package(Qt4 REQUIRED COMPONENTS QtCore QtGui)
+-find_package(Boost REQUIRED thread regex signals program_options system)
++find_package(Boost REQUIRED thread regex signals program_options system date_time)
+ find_package(Threads)
+ 
+ if(msgconnector_FOUND)
+diff --git logger/CMakeLists.txt logger/CMakeLists.txt
+index 403a1bb..7236d3c 100644
+--- logger/CMakeLists.txt
++++ logger/CMakeLists.txt
+@@ -22,7 +22,7 @@ if(ENABLE_LOGGER)
+ 	include_directories(${Boost_INCLUDE_DIRS} ${boost-log_INCLUDE_DIRS} ${CMAKE_CURRENT_SOURCE_DIR})
+ 
+ 	add_library(logger SHARED ${PROJECT_SOURCE_DIR}/logger/logger.cpp)
+-	target_link_libraries(logger boost_regex-mt boost_date_time-mt ${boost-log_LIBRARIES})
++	target_link_libraries(logger ${boost_LIBRARIES} ${boost-log_LIBRARIES})
+ 	set_target_properties(logger PROPERTIES COMPILE_DEFINITIONS "LOGGER_ENABLED")
+ 
+ 	install(TARGETS logger LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
