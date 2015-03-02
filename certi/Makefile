@@ -3,6 +3,7 @@
 #
 
 PKG_VERSION=	3.4.3
+PKGREVISION=    1
 DISTNAME= 		CERTI-${PKG_VERSION}-Source
 PKGNAME= 		certi-${PKG_VERSION}
 CATEGORIES=		architecture
@@ -15,6 +16,8 @@ COMMENT=	An Open Source HLA RTI (High Level Architecture)
 LICENSE=	gnu-gpl-v2
 
 DEPEND_ABI.cmake= cmake>=2.8.11
+
+CMAKE_ARGS+= 	-DCERTI_USE_NULL_PRIME_MESSAGE_PROTOCOL=ON
 
 PKG_SUPPORTED_OPTIONS+=		gui
 PKG_OPTION_DESCR.gui=		Enable GUI support
