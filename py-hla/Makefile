@@ -5,6 +5,7 @@
 PKG_VERSION=	1.1.1
 DISTNAME= 		PyHLA-${PKG_VERSION}-Source
 PKGNAME= 		${PKGTAG.python}-hla-${PKG_VERSION}
+PKGREVISION=    1
 CATEGORIES=		architecture
 MASTER_SITES=	http://gnu.mirrors.pair.com/savannah/savannah//certi/contrib/PyHLA/
 
