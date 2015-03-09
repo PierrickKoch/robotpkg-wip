@@ -1,0 +1,21 @@
+@comment Mon Mar 9 19:20:39 CET 2015
+include/glog/log_severity.h
+include/glog/logging.h
+include/glog/raw_logging.h
+include/glog/stl_logging.h
+include/glog/vlog_is_on.h
+lib/libglog.a
+lib/libglog.la
+lib/libglog.so
+lib/libglog.so.0
+lib/libglog.so.0.0.0
+lib/pkgconfig/libglog.pc
+share/doc/glog-0.3.3/AUTHORS
+share/doc/glog-0.3.3/COPYING
+share/doc/glog-0.3.3/ChangeLog
+share/doc/glog-0.3.3/INSTALL
+share/doc/glog-0.3.3/NEWS
+share/doc/glog-0.3.3/README
+share/doc/glog-0.3.3/README.windows
+share/doc/glog-0.3.3/designstyle.css
+share/doc/glog-0.3.3/glog.html
