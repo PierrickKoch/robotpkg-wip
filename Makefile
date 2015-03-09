@@ -36,7 +36,6 @@ SUBDIR+=	jafar-lgl
 SUBDIR+=	jafar-qdisplay
 SUBDIR+=	jafar-rednav
 SUBDIR+=	jafar-rtslam
-SUBDIR+= 	jido-pick-object
 SUBDIR+=	jointStateMapper
 SUBDIR+=	joystick-genom
 SUBDIR+=	kukaFri-libs
