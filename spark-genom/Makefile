@@ -19,7 +19,7 @@ LICENSE=		gnu-gpl-v2
 #######################
 
 PKG_OPTIONS_OPTIONAL_GROUPS=	robot
-PKG_OPTIONS_GROUP.robot=	hrp2 pr2 jido
+PKG_OPTIONS_GROUP.robot=	hrp2 pr2
 
 ##
 ## HRP2
@@ -42,20 +42,6 @@ define PKG_OPTION_SET.pr2
   GENOM_ARGS+= -DUSE_GLUT
   include ../../interfaces/openrobots-pose/depend.mk
   include ../../wip/jointStateMapper/depend.mk
-endef
-
-##
-## Jido
-##
-PKG_OPTION_DESCR.jido=	Compile SPARK with support for Jido
-
-## XXX lwr does not seems to be a depends
-define PKG_OPTION_SET.jido
-  GENOM_ARGS+= -DJIDO
-  GENOM_ARGS+= -DUSE_GLUT
-  include ../../robots/fingers-genom/depend.mk
-  include ../../math/gbM/depend.mk
-  include ../../wip/lwr-genom/depend.mk 
 endef
 
 ##
