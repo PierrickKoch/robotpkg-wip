@@ -2,14 +2,16 @@
 # Created:			Arnaud Degroote on Mon,  8 Oct 2012
 #
 
-PKGNAME= 		mavlink-${VERSION}
-DISTNAME=		${VERSION}
-VERSION=		1.0.11
-CATEGORIES=		supervision
-MASTER_SITES=		https://github.com/mavlink/mavlink/archive/
+DISTNAME= 		mavlink-${VERSION}
+VERSION=		20150326
+CATEGORIES=		middleware
+
+COMMIT= 			7a7ce3362706dd0164377d6182ce73f22f4d41ef
+FETCH_METHOD= 		git
+MASTER_SITES=		https://github.com/mavlink/mavlink.git@${COMMIT}
 MASTER_REPOSITORY=	https://github.com/mavlink/mavlink.git
 
-MAINTAINER=		arnaud.degroote@isae.fr
+MAINTAINER=		arnaud.degroote@isae-supaero.fr
 COMMENT=		MAVLink -- Micro Air Vehicle Message Marshalling Library
 LICENSE=		gnu-lgpl-v3
 

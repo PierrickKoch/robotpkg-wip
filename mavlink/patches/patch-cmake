@@ -1,0 +1,22 @@
+Reported on https://github.com/mavlink/mavlink/pull/359
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 9672634..ab3c11e 100644
+--- CMakeLists.txt
++++ CMakeLists.txt
+@@ -127,14 +127,13 @@ macro(generateMavlink version definitions)
+             COMMAND PYTHONPATH=$ENV{PYTHONPATH}:${CMAKE_CURRENT_SOURCE_DIR} ${PYTHON_EXECUTABLE} ${mavgen} --lang=C --wire-protocol=${version}
+                 --output=include/v${version} ${definitionAbsPath}
+             COMMAND touch ${targetName}-stamp
+-            DEPENDS ${definitionAbsPath} ${mavgen}
+             )
+         add_custom_target(${targetName} ALL DEPENDS ${targetName}-stamp)
+     endforeach()
+ endmacro()
+ 
+ # build
+-set(mavgen ${CMAKE_SOURCE_DIR}/pymavlink/generator/mavgen.py)
++set(mavgen -m pymavlink.tools.mavgen)
+ set(v0.9Definitions
+     ardupilotmega.xml
+     common.xml
