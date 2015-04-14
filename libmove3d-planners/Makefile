@@ -23,6 +23,16 @@ CMAKE_ARGS+= -DBOOST_LIBRARYDIR=${PREFIX.boost-libs}/lib
 
 DEPEND_ABI.boost-libs?= boost-libs{>=1.34.1<1.49,>=1.50}
 
+## HATP connection option
+PKG_SUPPORTED_OPTIONS+= hatp_connection
+PKG_OPTION_DESCR.hatp_connection= Enable connection to HATP for intricate task and motion planning
+
+define PKG_OPTION_SET.hatp_connection
+  CMAKE_ARGS+= -DHATP_CONNECTION=ON
+  include ../../wip/msgconnector/depend.mk
+  include ../../devel/jsoncpp/depend.mk
+endef
+
 ## Common includes
 include ../../wip/libmove3d/depend.mk
 include ../../wip/libmove3d-hri/depend.mk
