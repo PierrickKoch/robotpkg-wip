@@ -9,7 +9,7 @@ PKGREVISION=		3
 
 CATEGORIES=		path
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=move3d-studio/}
-MASTER_REPOSITORY=	git ssh://trac.laas.fr/git/robots/move3d-studio.git
+MASTER_REPOSITORY=	git git://trac.laas.fr/robots/move3d-studio.git
 
 MAINTAINER=		biomove3dgitrepo@laas.fr
 COMMENT=		The BioMove3D development studio
@@ -34,6 +34,16 @@ PKG_OPTION_SET.xforms= CMAKE_ARGS+= -DMOVE3D_XFORMS=ON
 PKG_OPTION_UNSET.xforms= CMAKE_ARGS+= -DMOVE3D_XFORMS=OFF
 
 PKG_SUGGESTED_OPTIONS=	qtstudio
+
+## HATP connection option
+PKG_SUPPORTED_OPTIONS+= hatp_connection
+PKG_OPTION_DESCR.hatp_connection= Enable connection to HATP for intricate task and motion planning
+
+define PKG_OPTION_SET.hatp_connection
+  CMAKE_ARGS+= -DHATP_CONNECTION=ON
+  include ../../wip/msgconnector/depend.mk
+  include ../../devel/jsoncpp/depend.mk
+endef
 
 include ../../wip/libmove3d-hri/depend.mk
 include ../../wip/libmove3d-planners/depend.mk
