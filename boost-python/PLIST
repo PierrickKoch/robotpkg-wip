@@ -1,0 +1,4 @@
+@comment Apr 17 10:35:03 CET 2015
+lib/libboost_python-mt.a
+lib/libboost_python-mt.so
+lib/libboost_python-mt.so.${BOOST_VERSION}

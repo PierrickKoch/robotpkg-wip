@@ -1,0 +1,5 @@
+Boost is a set of free, peer-reviewed, C++ libraries.  The emphasis is on
+portable libraries which work well with the ISO C++ Standard Library.
+
+This package adds only the Boost Python library. Other libraries are
+available in the boost-libs package.
