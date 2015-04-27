@@ -80,6 +80,7 @@ SUBDIR+=	orocos-yarp_transport
 SUBDIR+=	poisson
 SUBDIR+=	pr2-pick-object
 SUBDIR+= 	py-flann
+SUBDIR+= 	py-jsbsim
 SUBDIR+= 	py-hla
 SUBDIR+= 	py-laaswm
 SUBDIR+= 	py-mavlink
