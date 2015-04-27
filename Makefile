@@ -38,6 +38,7 @@ SUBDIR+=	jafar-rednav
 SUBDIR+=	jafar-rtslam
 SUBDIR+=	jointStateMapper
 SUBDIR+=	joystick-genom
+SUBDIR+=	jsbsim
 SUBDIR+=	kukaFri-libs
 SUBDIR+= 	laas-rackham
 SUBDIR+= 	laaswm-gui

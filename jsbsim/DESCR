@@ -1,0 +1,15 @@
+ JSBSim is an open source flight dynamics model (FDM) that compiles and runs
+ under many operating systems, including Microsoft Windows, Apple Macintosh,
+ Linux, IRIX, Cygwin (Unix on Windows), etc. The FDM is essentially the
+ physics/math model that defines the movement of an aircraft, rocket, etc.,
+ under the forces and moments applied to it using the various control
+ mechanisms and from the forces of nature. JSBSim has no native graphics. It
+ can be run by itself as a standalone program, taking input from a script file
+ and various vehicle configuration files. It can also be incorporated into a
+ larger flight simulator implementation that includes a visual system. The most
+ notable examples of the use of JSBSim are currently seen in the FlightGear
+ (open source), Outerra, BoozSimulator (open source), and OpenEaagles (open
+ source) simulators. JSBSim is also used to drive the motion-base research
+ simulators at the University of Naples, Italy, and in the Institute of Flight
+ System Dynamics and Institute of Aeronautics and Astronautics at RWTH Aachen
+ University in Germany. 
