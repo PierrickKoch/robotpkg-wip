@@ -1,0 +1,33 @@
+From 8c2c0b2061a04a8d2e2dbb279e44a60828ba881a Mon Sep 17 00:00:00 2001
+From: Anthony Mallet <anthony.mallet@laas.fr>
+Date: Wed, 6 May 2015 11:14:11 +0200
+Subject: [PATCH] Workaround a strange bug in tcl-8.6.0
+
+It looks like using expr { int([$object proc]) } in the context of a genom
+template triggers a bug (NULL pointer dereference) when tcl tries to get the
+current line number (requested by the genom template parser).
+
+It happens that using the equvalent tcl::mathfunc::int procedure does not
+trigger this issue, so use that instead.
+---
+ server/control-task.cc | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git server/control-task.cc server/control-task.cc
+index 22b36e4..94e057b 100644
+--- server/control-task.cc
++++ server/control-task.cc
+@@ -272,9 +272,9 @@ genom_component_data::timercb(const ros::TimerEvent &e)
+ <'  foreach task [$component tasks] {'>
+ <'    if {![catch {$task period} period]} {'>
+ <'
+-      set ticks [expr {int([$period value]/[$rate value])}]
++      set ticks [tcl::mathfunc::int [expr {[$period value]/[$rate value]}]]
+       if {![catch {$task delay} delay]} {
+-        set d [expr {int([$delay value]/[$rate value])}]
++        set d [tcl::mathfunc::int [expr {[$delay value]/[$rate value]}]]
+       } else {
+         set d 0
+       }
+-- 
+1.9.1

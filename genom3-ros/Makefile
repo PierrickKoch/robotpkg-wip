@@ -2,6 +2,7 @@
 # Created:			Anthony Mallet on Fri, 19 Oct 2012
 #
 
+PKGREVISION=	1
 DISTNAME=	genom3-ros-1.10
 CATEGORIES=	architecture
 MASTER_SITES=	${MASTER_SITE_OPENROBOTS:=genom3-ros/}
