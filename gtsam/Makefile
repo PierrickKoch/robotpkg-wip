@@ -18,7 +18,19 @@ CONFIGURE_DIRS=		_build
 
 USE_QMAKE=              no
 
-CMAKE_ARGS+=            -DCMAKE_BUILD_TYPE=Release 
+CMAKE_ARGS+= \
+	'-DCMAKE_BUILD_TYPE=Release'\
+	'-DGTSAM_BUILD_EXAMPLES_ALWAYS=OFF'
+
+PKG_SUPPORTED_OPTIONS+=		toolbox
+PKG_OPTION_DESCR.toolbox=	Build and install the matlab toolbox
+define PKG_OPTION_SET.toolbox
+  CMAKE_ARGS+=			'-DGTSAM_INSTALL_MATLAB_TOOLBOX=ON'
+  CMAKE_ARGS+=			'-Dmex_command=${MATLAB_ROOT}/bin/mex'
+endef
+define PKG_OPTION_UNSET.toolbox
+  CMAKE_ARGS+=			'-DGTSAM_INSTALL_MATLAB_TOOLBOX=OFF'
+endef
 
 DEPEND_ABI.boost-libs=	boost-libs>=1.43
 DEPEND_ABI.boost-headers= boost-headers>=1.43
@@ -26,10 +38,10 @@ include ../../devel/boost-headers/depend.mk
 include ../../devel/boost-libs/depend.mk
 
 DEPEND_ABI.cmake= cmake>=2.6
-include ../../mk/sysdep/cmake.mk 
+include ../../mk/sysdep/cmake.mk
 
-include ../../mk/language/c.mk 
-include ../../mk/language/c++.mk 
+include ../../mk/language/c.mk
+include ../../mk/language/c++.mk
 include ../../mk/robotpkg.mk
 
 pre-configure:
