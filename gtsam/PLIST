@@ -1,4 +1,4 @@
-@comment Wed Nov 5 17:31:44 CET 2014
+@comment Wed May 6 15:57:27 CEST 2015
 bin/wrap
 include/CppUnitLite/Failure.h
 include/CppUnitLite/Test.h
@@ -474,6 +474,8 @@ include/gtsam/geometry/Cal3_S2.h
 include/gtsam/geometry/Cal3_S2Stereo.h
 include/gtsam/geometry/CalibratedCamera.h
 include/gtsam/geometry/EssentialMatrix.h
+include/gtsam/geometry/ParallaxAnglePoint2.h
+include/gtsam/geometry/ParallaxAnglePoint3.h
 include/gtsam/geometry/PinholeCamera.h
 include/gtsam/geometry/Point2.h
 include/gtsam/geometry/Point3.h
@@ -591,6 +593,7 @@ include/gtsam/slam/JacobianFactorQ.h
 include/gtsam/slam/JacobianFactorQR.h
 include/gtsam/slam/JacobianFactorSVD.h
 include/gtsam/slam/JacobianSchurFactor.h
+include/gtsam/slam/ParallaxAngleProjectionFactor.h
 include/gtsam/slam/PoseRotationPrior.h
 include/gtsam/slam/PoseTranslationPrior.h
 include/gtsam/slam/PriorFactor.h
@@ -846,6 +849,14 @@ ${PLIST.toolbox}gtsam_toolbox/+gtsam/NonlinearISAM.m
 ${PLIST.toolbox}gtsam_toolbox/+gtsam/NonlinearOptimizer.m
 ${PLIST.toolbox}gtsam_toolbox/+gtsam/NonlinearOptimizerParams.m
 ${PLIST.toolbox}gtsam_toolbox/+gtsam/Ordering.m
+${PLIST.toolbox}gtsam_toolbox/+gtsam/PAOnlyAnchorsProjectionFactorCal3DS2.m
+${PLIST.toolbox}gtsam_toolbox/+gtsam/PAOnlyAnchorsProjectionFactorCal3_S2.m
+${PLIST.toolbox}gtsam_toolbox/+gtsam/PAProjectionFactorCal3DS2.m
+${PLIST.toolbox}gtsam_toolbox/+gtsam/PAProjectionFactorCal3_S2.m
+${PLIST.toolbox}gtsam_toolbox/+gtsam/PASingleAnchorProjectionFactorCal3DS2.m
+${PLIST.toolbox}gtsam_toolbox/+gtsam/PASingleAnchorProjectionFactorCal3_S2.m
+${PLIST.toolbox}gtsam_toolbox/+gtsam/ParallaxAnglePoint2.m
+${PLIST.toolbox}gtsam_toolbox/+gtsam/ParallaxAnglePoint3.m
 ${PLIST.toolbox}gtsam_toolbox/+gtsam/PinholeCameraCal3DS2.m
 ${PLIST.toolbox}gtsam_toolbox/+gtsam/Point2.m
 ${PLIST.toolbox}gtsam_toolbox/+gtsam/Point3.m

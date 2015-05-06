@@ -1,0 +1,2140 @@
+--- gtsam/geometry/ParallaxAnglePoint2.cpp	1970-01-01 01:00:00.000000000 +0100
++++ gtsam/geometry/ParallaxAnglePoint2.cpp	2015-05-06 13:52:06.399469742 +0200
+@@ -0,0 +1,66 @@
++/* ----------------------------------------------------------------------------
++
++ * GTSAM Copyright 2010, Georgia Tech Research Corporation,
++ * Atlanta, Georgia 30332-0415
++ * All Rights Reserved
++ * Authors: Frank Dellaert, et al. (see THANKS for the full author list)
++
++ * See LICENSE for the license information
++
++ * -------------------------------------------------------------------------- */
++
++/**
++ * @file   ParallaxAnglePoint.cpp
++ * @brief  Parallax Angle Point without depth
++ * @author Ellon P. Mendes
++ */
++
++#include "ParallaxAnglePoint2.h"
++
++using namespace std;
++
++namespace gtsam {
++
++/* ************************************************************************* */
++void ParallaxAnglePoint2::print(const string& s) const {
++  cout << s << *this << endl;
++}
++
++/* ************************************************************************* */
++bool ParallaxAnglePoint2::equals(const ParallaxAnglePoint2 & q, double tol) const {
++  return (fabs(yaw_ - q.yaw()) < tol &&
++          fabs(pitch_ - q.pitch()) < tol);
++}
++
++/* ************************************************************************* */
++ParallaxAnglePoint2 ParallaxAnglePoint2::operator+(const ParallaxAnglePoint2& q) const {
++  return ParallaxAnglePoint2(yaw_ + q.yaw_, pitch_ + q.pitch_);
++}
++
++/* ************************************************************************* */
++ParallaxAnglePoint2 ParallaxAnglePoint2::operator-(const ParallaxAnglePoint2& q) const {
++  return ParallaxAnglePoint2(yaw_ - q.yaw_, pitch_ - q.pitch_);
++}
++
++/* ************************************************************************* */
++Vector3 ParallaxAnglePoint2::directionVector(boost::optional<gtsam::Matrix&> H) const
++{
++  double sy = sin(yaw_), cy = cos(yaw_), sp = sin(pitch_), cp = cos(pitch_);
++  if(H)
++  {
++    H->resize(3,2);
++    *H << -sy*cp, -cy*sp,
++           cy*cp, -sy*sp,
++             0  ,   cp  ;
++  }
++  return (Vector(3) << cy*cp, sy*cp, sp);
++}
++
++/* ************************************************************************* */
++ostream &operator<<(ostream &os, const ParallaxAnglePoint2& p) {
++  os << '(' << p.yaw() << ", " << p.pitch() << ')';
++  return os;
++}
++
++/* ************************************************************************* */
++} // namespace gtsam
+--- gtsam/geometry/ParallaxAnglePoint2.h	1970-01-01 01:00:00.000000000 +0100
++++ gtsam/geometry/ParallaxAnglePoint2.h	2015-05-05 21:36:19.405210807 +0200
+@@ -0,0 +1,144 @@
++/* ----------------------------------------------------------------------------
++
++ * GTSAM Copyright 2010, Georgia Tech Research Corporation,
++ * Atlanta, Georgia 30332-0415
++ * All Rights Reserved
++ * Authors: Frank Dellaert, et al. (see THANKS for the full author list)
++
++ * See LICENSE for the license information
++
++ * -------------------------------------------------------------------------- */
++
++/**
++ * @file   ParallaxAnglePoint2.h
++ * @brief  Parallax Angle Point without depth
++ * @author Ellon P. Mendes
++ */
++
++// \callgraph
++
++#pragma once
++
++#include <gtsam/base/Matrix.h>
++#include <gtsam/base/DerivedValue.h>
++#include <gtsam/base/Lie.h>
++
++#include <boost/serialization/nvp.hpp>
++
++#include <cmath>
++
++namespace gtsam {
++
++  /**
++   * A Non-Depth Parallax Point
++   * @addtogroup slam
++   * \nosubgrouping
++   */
++  class GTSAM_EXPORT ParallaxAnglePoint2 : public DerivedValue<ParallaxAnglePoint2> {
++  public:
++    /// dimension of the variable - used to autodetect sizes
++    static const size_t dimension = 2;
++
++  private:
++    double yaw_; ///< Angle around z-axis, in rad.
++    double pitch_; ///< Angle around y-axis, in rad.
++
++  public:
++
++    /// @name Standard Constructors
++    /// @{
++
++    /// Default constructor creates a ParallaxAnglePoint2 oriented on x-axis.
++    ParallaxAnglePoint2(): yaw_(0), pitch_(0) {}
++
++    /// Construct from x, y, and z coordinates
++    ParallaxAnglePoint2(double yaw, double pitch): yaw_(yaw), pitch_(pitch) {}
++
++    /// @}
++    /// @name Advanced Constructors
++    /// @{
++
++    /// Construct from 2-element vector
++    ParallaxAnglePoint2(const Vector& v) {
++      if(v.size() != 2)
++        throw std::invalid_argument("ParallaxAnglePoint2 constructor from Vector requires that the Vector have dimension 2");
++      yaw_ = v(0);
++      pitch_ = v(1);
++    }
++
++    /// @}
++    /// @name Testable
++    /// @{
++
++    /** print with optional string */
++    void print(const std::string& s = "") const;
++
++    /** equals with an tolerance */
++    bool equals(const ParallaxAnglePoint2& p, double tol = 1e-9) const;
++
++    /// @}
++    /// @name Manifold
++    /// @{
++
++    /// dimension of the variable - used to autodetect sizes
++    inline static size_t Dim() { return dimension; }
++
++    /// return dimensionality of tangent space, DOF = 3
++    inline size_t dim() const { return dimension; }
++
++    /// Updates a with tangent space delta
++    inline ParallaxAnglePoint2 retract(const Vector& v) const { return ParallaxAnglePoint2(*this + v); }
++
++    /// Returns inverse retraction
++    inline Vector2 localCoordinates(const ParallaxAnglePoint2& q) const { return (q - *this).vector(); }
++
++    /// @}
++    /// @name Standard Interface
++    /// @{
++
++    /// assignment
++    // ParallaxAnglePoint2 operator = (const ParallaxAnglePoint2& q) const;
++
++    ///add two points
++    ParallaxAnglePoint2 operator + (const ParallaxAnglePoint2& q) const;
++
++    ///subtract two points
++    ParallaxAnglePoint2 operator - (const ParallaxAnglePoint2& q) const;
++
++    /** return vectorized form (column-wise)*/
++    Vector2 vector() const { return Vector2(yaw_,pitch_); }
++
++    /// get x
++    inline double yaw() const {return yaw_;}
++
++    /// get y
++    inline double pitch() const {return pitch_;}
++
++    /// @}
++
++    Vector3 directionVector(boost::optional<gtsam::Matrix&> H = boost::none) const;
++
++    /// Output stream operator
++    GTSAM_EXPORT friend std::ostream &operator<<(std::ostream &os, const ParallaxAnglePoint2& p);
++
++  private:
++
++    /// @name Advanced Interface
++    /// @{
++
++    /** Serialization function */
++    friend class boost::serialization::access;
++    template<class ARCHIVE>
++      void serialize(ARCHIVE & ar, const unsigned int version)
++    {
++      ar & boost::serialization::make_nvp("ParallaxAnglePoint2",
++          boost::serialization::base_object<Value>(*this));
++      ar & BOOST_SERIALIZATION_NVP(yaw_);
++      ar & BOOST_SERIALIZATION_NVP(pitch_);
++    }
++
++    /// @}
++
++  };
++
++}
+--- gtsam/geometry/ParallaxAnglePoint3.cpp	1970-01-01 01:00:00.000000000 +0100
++++ gtsam/geometry/ParallaxAnglePoint3.cpp	2015-05-06 14:40:46.138648761 +0200
+@@ -0,0 +1,223 @@
++/* ----------------------------------------------------------------------------
++
++ * GTSAM Copyright 2010, Georgia Tech Research Corporation,
++ * Atlanta, Georgia 30332-0415
++ * All Rights Reserved
++ * Authors: Frank Dellaert, et al. (see THANKS for the full author list)
++
++ * See LICENSE for the license information
++
++ * -------------------------------------------------------------------------- */
++
++/**
++ * @file   ParallaxAnglePoint3.cpp
++ * @brief  3D Parallax Angle Point
++ * @author Ellon P. Mendes
++ */
++
++#include "ParallaxAnglePoint3.h"
++
++using namespace std;
++
++// Prototypes of local functions
++double angleBetweenUnitVectors(
++  const gtsam::Vector3 & v1, const gtsam::Vector3 & v2,
++  boost::optional<gtsam::Matrix&> Dv1 = boost::none,
++  boost::optional<gtsam::Matrix&> Dv2 = boost::none);
++
++double norm(gtsam::Vector3 v, boost::optional<gtsam::Matrix&> Dv = boost::none);
++
++namespace gtsam {
++/* ************************************************************************* */
++void ParallaxAnglePoint3::print(const string& s) const {
++  cout << s << *this << endl;
++}
++
++/* ************************************************************************* */
++bool ParallaxAnglePoint3::equals(const ParallaxAnglePoint3 & q, double tol) const {
++  return (fabs(yaw_      - q.yaw()     ) < tol &&
++          fabs(pitch_    - q.pitch()   ) < tol &&
++          fabs(parallax_ - q.parallax()) < tol);
++}
++
++/* ************************************************************************* */
++ParallaxAnglePoint3 ParallaxAnglePoint3::operator+(const ParallaxAnglePoint3& q) const {
++  return ParallaxAnglePoint3(yaw_      + q.yaw_,
++                             pitch_    + q.pitch_,
++                             parallax_ + q.parallax_);
++}
++
++/* ************************************************************************* */
++ParallaxAnglePoint3 ParallaxAnglePoint3::operator-(const ParallaxAnglePoint3& q) const {
++  return ParallaxAnglePoint3(yaw_      - q.yaw_,
++                             pitch_    - q.pitch_,
++                             parallax_ - q.parallax_);
++}
++
++/* ************************************************************************* */
++ostream &operator<<(ostream &os, const ParallaxAnglePoint3& p) {
++  os << '(' << p.yaw() << ", " << p.pitch() << ", " << p.parallax() << ')';
++  return os;
++}
++
++/* ************************************************************************* */
++Vector3 ParallaxAnglePoint3::directionVectorFromMainAnchor(
++  boost::optional<gtsam::Matrix&> H) const
++{
++  double sy = sin(yaw_), cy = cos(yaw_), sp = sin(pitch_), cp = cos(pitch_);
++  if(H)
++  {
++    H->resize(3,3);
++    *H << -sy*cp, -cy*sp, 0,
++           cy*cp, -sy*sp, 0,
++             0  ,   cp  , 0;
++  }
++  return (Vector(3) << cy*cp, sy*cp, sp);
++}
++
++/* ************************************************************************* */
++Vector3 ParallaxAnglePoint3::directionVectorFromAssoAnchor(
++  const Point3 & mainAnchor, const Point3 & assoAnchor,
++  boost::optional<gtsam::Matrix&> Dpoint,
++  boost::optional<gtsam::Matrix&> Dmain ,
++  boost::optional<gtsam::Matrix&> Dasso ) const
++{
++  if (!Dasso)
++  {
++      return directionVectorFromOtheAnchor( mainAnchor, assoAnchor, assoAnchor, Dpoint, Dmain );
++  }
++
++  Matrix Dothe;
++  Vector3 directVec = directionVectorFromOtheAnchor(
++    mainAnchor, assoAnchor, assoAnchor,
++    Dpoint, Dmain, Dasso, Dothe);
++
++  *Dasso += Dothe;
++
++  return directVec;
++
++}
++
++/* ************************************************************************* */
++Vector3 ParallaxAnglePoint3::directionVectorFromOtheAnchor(
++  const Point3 & mainAnchor, const Point3 & assoAnchor, const Point3 & otheAnchor,
++  boost::optional<gtsam::Matrix&> Dpoint,
++  boost::optional<gtsam::Matrix&> Dmain ,
++  boost::optional<gtsam::Matrix&> Dasso ,
++  boost::optional<gtsam::Matrix&> Dothe ) const
++{
++
++  if (!Dpoint && !Dmain && !Dasso && !Dothe)
++  {
++    // Get vector from main anchor to associated anchor
++    Point3 main_T_asso(assoAnchor - mainAnchor);
++
++    // Get a normalized version of it
++    Vector3 main_T_asso_normd(main_T_asso.normalize().vector());
++
++    // Get the lenght of the vector
++    double norm_mTa = main_T_asso.norm();
++
++    // Get direction vector from main anchor to point
++    // NOTE: It's already normalized
++    Vector3 dirvec_mTp(directionVectorFromMainAnchor());
++
++    // Get the angle between these vectors
++    double phi = angleBetweenUnitVectors(dirvec_mTp, main_T_asso_normd);
++
++    // Get vector from main anchor to other anchor
++    Vector3 main_T_other((otheAnchor - mainAnchor).vector());
++
++    return sin(parallax_ + phi) * norm_mTa * dirvec_mTp - sin(parallax_) * main_T_other;
++  }
++
++  // Same computation with jacobians
++
++  // Get vector from main anchor to associated anchor
++  Matrix MTA_assoAnchor, MTA_mainAnchor;
++  Point3 main_T_asso(assoAnchor.sub(mainAnchor, MTA_assoAnchor, MTA_mainAnchor));
++
++  // Get a normalized version of it
++  Matrix MTANORMD_mta;
++  Vector3 main_T_asso_normd(main_T_asso.normalize(MTANORMD_mta).vector());
++
++  // Get the lenght of the vector
++  Matrix NORMMTA_mta;
++  double norm_mTa = norm(main_T_asso.vector(), NORMMTA_mta);
++
++  // Get direction vector from main anchor to point
++  // NOTE: It's already normalized
++  Matrix DIRVECMTP_point;
++  Vector3 dirvec_mTp(directionVectorFromMainAnchor(DIRVECMTP_point));
++
++  // Get the angle between these vectors
++  Matrix PHI_dirvecmtp, PHI_mtanormd;
++  double phi = angleBetweenUnitVectors(dirvec_mTp, main_T_asso_normd, PHI_dirvecmtp, PHI_mtanormd);
++
++  // Get vector from main anchor to other anchor
++  Matrix MTO_otheanchor, MTO_mainanchor;
++  Vector3 main_T_othe(otheAnchor.sub(mainAnchor, MTO_otheanchor, MTO_mainanchor).vector());
++
++  // Chain of partial derivates
++  // main anchor
++  if(Dmain)
++  {
++    *Dmain = dirvec_mTp * (  cos(parallax_ + phi) * norm_mTa * PHI_mtanormd * MTANORMD_mta * MTA_mainAnchor
++                           + sin(parallax_ + phi) * NORMMTA_mta * MTA_mainAnchor                           )
++             - sin(parallax_) * MTO_mainanchor;
++  }
++  // associated anchor
++  if(Dasso)
++  {
++    *Dasso = dirvec_mTp * (  cos(parallax_ + phi) * norm_mTa * PHI_mtanormd * MTANORMD_mta * MTA_assoAnchor
++                           + sin(parallax_ + phi) * NORMMTA_mta * MTA_assoAnchor                           );
++  }
++  // other anchor
++  if(Dothe)
++  {
++    *Dothe = - sin(parallax_) * MTO_otheanchor;
++  }
++  // parallax point
++  if(Dpoint)
++  {
++    Dpoint->resize(3,3);
++    Dpoint->block(0,0,3,2) = (dirvec_mTp * (cos(parallax_ + phi)*PHI_dirvecmtp*DIRVECMTP_point.block(0,0,3,2)) + sin(parallax_ + phi)*DIRVECMTP_point.block(0,0,3,2)) * norm_mTa;
++    Dpoint->block(0,2,3,1) = norm_mTa * dirvec_mTp * cos(parallax_ + phi) - main_T_othe * cos(parallax_);
++  }
++
++  return sin(parallax_ + phi) * norm_mTa * dirvec_mTp - sin(parallax_) * main_T_othe;
++
++}
++
++}
++
++// Local Functions
++double angleBetweenUnitVectors(
++  const gtsam::Vector3 & v1, const gtsam::Vector3 & v2,
++  boost::optional<gtsam::Matrix&> Dv1,
++  boost::optional<gtsam::Matrix&> Dv2)
++{
++  double dot_prod = v1.dot(v2);
++  if(Dv1)
++  {
++    Dv1->resize(1,3);
++    *Dv1 = -(1/sqrt(1-(dot_prod*dot_prod))) * v2.transpose();
++  }
++ if(Dv2)
++  {
++    Dv2->resize(1,3);
++    *Dv2 = -(1/sqrt(1-(dot_prod*dot_prod))) * v1.transpose();
++  }
++  return acos(dot_prod);
++}
++
++double norm(gtsam::Vector3 v, boost::optional<gtsam::Matrix&> Dv)
++{
++  double n = v.norm();
++  if(Dv)
++  {
++    Dv->resize(1,3);
++    *Dv << v(0)/n, v(1)/n, v(2)/n;
++  }
++  return n;
++}
+--- gtsam/geometry/ParallaxAnglePoint3.h	1970-01-01 01:00:00.000000000 +0100
++++ gtsam/geometry/ParallaxAnglePoint3.h	2015-05-06 15:02:42.114738787 +0200
+@@ -0,0 +1,165 @@
++/* ----------------------------------------------------------------------------
++
++ * GTSAM Copyright 2010, Georgia Tech Research Corporation,
++ * Atlanta, Georgia 30332-0415
++ * All Rights Reserved
++ * Authors: Frank Dellaert, et al. (see THANKS for the full author list)
++
++ * See LICENSE for the license information
++
++ * -------------------------------------------------------------------------- */
++
++/**
++ * @file   ParallaxAnglePoint3.h
++ * @brief  3D Parallax Angle Point
++ * @author Ellon P. Mendes
++ */
++
++// \callgraph
++
++#pragma once
++
++#include <gtsam/base/Matrix.h>
++#include <gtsam/base/DerivedValue.h>
++#include <gtsam/base/Lie.h>
++
++#include <gtsam/geometry/Point3.h>
++
++#include <boost/serialization/nvp.hpp>
++
++#include <cmath>
++
++namespace gtsam {
++
++	  /**
++   * A 3D Parallax Point
++   * @addtogroup slam
++   * \nosubgrouping
++   */
++  class GTSAM_EXPORT ParallaxAnglePoint3 : public DerivedValue<ParallaxAnglePoint3> {
++  public:
++    /// dimension of the variable - used to autodetect sizes
++    static const size_t dimension = 3;
++
++  private:
++    double yaw_; ///< Angle around z-axis, in rad.
++    double pitch_; ///< Angle around y-axis, in rad.
++    double parallax_; ///< Angle between main anchor to feature vector and associated anchor to feature, in rad.
++
++  public:
++
++    /// @name Standard Constructors
++    /// @{
++
++    /// Default constructor creates a ParallaxAnglePoint3 oriented on x-axis, and with coincident anchors.
++    ParallaxAnglePoint3(): yaw_(0), pitch_(0), parallax_(0) {}
++
++    /// Construct from yaw, pitch, and parallax coordinates
++    ParallaxAnglePoint3(double yaw, double pitch, double parallax): yaw_(yaw), pitch_(pitch), parallax_(parallax) {}
++
++    /// @}
++    /// @name Advanced Constructors
++    /// @{
++
++    /// Construct from 2-element vector
++    ParallaxAnglePoint3(const Vector& v) {
++      if(v.size() != 3)
++        throw std::invalid_argument("ParallaxAnglePoint3 constructor from Vector requires that the Vector have dimension 3");
++      yaw_ = v(0);
++      pitch_ = v(1);
++      parallax_ = v(2);
++    }
++
++    /// @}
++    /// @name Testable
++    /// @{
++
++    /** print with optional string */
++    void print(const std::string& s = "") const;
++
++    /** equals with an tolerance */
++    bool equals(const ParallaxAnglePoint3& p, double tol = 1e-9) const;
++
++    /// @}
++    /// @name Manifold
++    /// @{
++
++    /// dimension of the variable - used to autodetect sizes
++    inline static size_t Dim() { return dimension; }
++
++    /// return dimensionality of tangent space, DOF = 3
++    inline size_t dim() const { return dimension; }
++
++    /// Updates a with tangent space delta
++    inline ParallaxAnglePoint3 retract(const Vector& v) const { return ParallaxAnglePoint3(*this + v); }
++
++    /// Returns inverse retraction
++    inline Vector3 localCoordinates(const ParallaxAnglePoint3& q) const { return (q - *this).vector(); }
++
++    /// @}
++    /// @name Standard Interface
++    /// @{
++
++    /// assignment
++    // ParallaxAnglePoint3 operator = (const ParallaxAnglePoint3& q) const;
++
++    ///add two points
++    ParallaxAnglePoint3 operator + (const ParallaxAnglePoint3& q) const;
++
++    ///subtract two points
++    ParallaxAnglePoint3 operator - (const ParallaxAnglePoint3& q) const;
++
++    /** return vectorized form (column-wise)*/
++    Vector3 vector() const { return Vector3(yaw_,pitch_,parallax_); }
++
++    /// get yaw
++    inline double yaw() const {return yaw_;}
++
++    /// get pitch
++    inline double pitch() const {return pitch_;}
++
++    /// get parallax
++    inline double parallax() const {return parallax_;}
++
++    /// @}
++
++    Vector3 directionVectorFromMainAnchor(boost::optional<gtsam::Matrix&> H = boost::none) const;
++
++    Vector3 directionVectorFromAssoAnchor(
++      const Point3 & mainAnchor, const Point3 & assoAnchor,
++      boost::optional<gtsam::Matrix&> Dpoint = boost::none,
++      boost::optional<gtsam::Matrix&> Dmain  = boost::none,
++      boost::optional<gtsam::Matrix&> Dasso  = boost::none) const;
++
++    Vector3 directionVectorFromOtheAnchor(
++      const Point3 & mainAnchor, const Point3 & assoAnchor, const Point3 & otheAnchor,
++      boost::optional<gtsam::Matrix&> Dpoint = boost::none,
++      boost::optional<gtsam::Matrix&> Dmain  = boost::none,
++      boost::optional<gtsam::Matrix&> Dasso  = boost::none,
++      boost::optional<gtsam::Matrix&> Dothe  = boost::none) const;
++
++    /// Output stream operator
++    GTSAM_EXPORT friend std::ostream &operator<<(std::ostream &os, const ParallaxAnglePoint3& p);
++
++  private:
++
++    /// @name Advanced Interface
++    /// @{
++
++    /** Serialization function */
++    friend class boost::serialization::access;
++    template<class ARCHIVE>
++      void serialize(ARCHIVE & ar, const unsigned int version)
++    {
++      ar & boost::serialization::make_nvp("ParallaxAnglePoint3",
++          boost::serialization::base_object<Value>(*this));
++      ar & BOOST_SERIALIZATION_NVP(yaw_);
++      ar & BOOST_SERIALIZATION_NVP(pitch_);
++      ar & BOOST_SERIALIZATION_NVP(parallax_);
++    }
++
++    /// @}
++
++  };
++
++}
+--- gtsam/geometry/tests/testParallaxAnglePoint2.cpp	1970-01-01 01:00:00.000000000 +0100
++++ gtsam/geometry/tests/testParallaxAnglePoint2.cpp	2015-05-06 14:27:39.561152730 +0200
+@@ -0,0 +1,220 @@
++/* ----------------------------------------------------------------------------
++
++ * GTSAM Copyright 2010, Georgia Tech Research Corporation,
++ * Atlanta, Georgia 30332-0415
++ * All Rights Reserved
++ * Authors: Frank Dellaert, et al. (see THANKS for the full author list)
++
++ * See LICENSE for the license information
++
++ * -------------------------------------------------------------------------- */
++
++/**
++ * @file   testParallaxAnglePoint2.cpp
++ * @brief  Unit tests for ParallaxAnglePoint2 class
++ * @author Ellon P. Mendes
++ **/
++
++#include <gtsam/geometry/ParallaxAnglePoint2.h>
++#include <gtsam/base/Testable.h>
++#include <gtsam/base/numericalDerivative.h>
++#include <gtsam/base/lieProxies.h>
++#include <CppUnitLite/TestHarness.h>
++
++using namespace std;
++using namespace gtsam;
++
++GTSAM_CONCEPT_TESTABLE_INST(ParallaxAnglePoint2)
++GTSAM_CONCEPT_MANIFOLD_INST(ParallaxAnglePoint2)
++
++/* ************************************************************************* */
++TEST(ParallaxAnglePoint2, constructor) {
++  ParallaxAnglePoint2 p1(1, 2), p2 = p1;
++  EXPECT(assert_equal(p1, p2));
++}
++
++/* ************************************************************************* */
++// TEST(ParallaxAnglePoint2, Lie) {
++//   Point2 p1(1, 2), p2(4, 5);
++//   Matrix H1, H2;
++
++//   EXPECT(assert_equal(Point2(5,7), p1.compose(p2, H1, H2)));
++//   EXPECT(assert_equal(eye(2), H1));
++//   EXPECT(assert_equal(eye(2), H2));
++
++//   EXPECT(assert_equal(Point2(3,3), p1.between(p2, H1, H2)));
++//   EXPECT(assert_equal(-eye(2), H1));
++//   EXPECT(assert_equal(eye(2), H2));
++
++//   EXPECT(assert_equal(Point2(5,7), p1.retract((Vector(2) << 4., 5.))));
++//   EXPECT(assert_equal((Vector(2) << 3.,3.), p1.localCoordinates(p2)));
++// }
++
++/* ************************************************************************* */
++TEST( ParallaxAnglePoint2, expmap) {
++  Vector d(2);
++  d(0) = 1;
++  d(1) = -1;
++  ParallaxAnglePoint2 a(4, 5), b = a.retract(d), c(5, 4);
++  EXPECT(assert_equal(b,c));
++}
++
++/* ************************************************************************* */
++TEST( ParallaxAnglePoint2, arithmetic) {
++  // EXPECT(assert_equal( ParallaxAnglePoint2(-5,-6), -ParallaxAnglePoint2(5,6) ));
++  EXPECT(assert_equal( ParallaxAnglePoint2(5,6), ParallaxAnglePoint2(4,5)+ParallaxAnglePoint2(1,1)));
++  EXPECT(assert_equal( ParallaxAnglePoint2(3,4), ParallaxAnglePoint2(4,5)-ParallaxAnglePoint2(1,1) ));
++  // EXPECT(assert_equal( ParallaxAnglePoint2(8,6), ParallaxAnglePoint2(4,3)*2));
++  // EXPECT(assert_equal( ParallaxAnglePoint2(4,6), 2*ParallaxAnglePoint2(2,3)));
++  // EXPECT(assert_equal( ParallaxAnglePoint2(2,3), ParallaxAnglePoint2(4,6)/2));
++}
++
++// namespace {
++//   /* ************************************************************************* */
++//   // some shared test values
++//   ParallaxAnglePoint2 x1, x2(1, 1), x3(1, 1);
++//   ParallaxAnglePoint2 l1(1, 0), l2(1, 1), l3(2, 2), l4(1, 3);
++
++//   /* ************************************************************************* */
++//   // LieVector norm_proxy(const ParallaxAnglePoint2& point) {
++//   //   return LieVector(point.norm());
++//   // }
++// }
++// TEST( ParallaxAnglePoint2, norm ) {
++//   Point2 p0(cos(5.0), sin(5.0));
++//   DOUBLES_EQUAL(1, p0.norm(), 1e-6);
++//   Point2 p1(4, 5), p2(1, 1);
++//   DOUBLES_EQUAL( 5, p1.distance(p2), 1e-6);
++//   DOUBLES_EQUAL( 5, (p2-p1).norm(), 1e-6);
++
++//   Matrix expectedH, actualH;
++//   double actual;
++
++//   // exception, for (0,0) derivative is [Inf,Inf] but we return [1,1]
++//   actual = x1.norm(actualH);
++//   EXPECT_DOUBLES_EQUAL(0, actual, 1e-9);
++//   expectedH = (Matrix(1, 2) << 1.0, 1.0);
++//   EXPECT(assert_equal(expectedH,actualH));
++
++//   actual = x2.norm(actualH);
++//   EXPECT_DOUBLES_EQUAL(sqrt(2.0), actual, 1e-9);
++//   expectedH = numericalDerivative11(norm_proxy, x2);
++//   EXPECT(assert_equal(expectedH,actualH));
++// }
++
++/* ************************************************************************* */
++// namespace {
++//   LieVector distance_proxy(const Point2& location, const Point2& point) {
++//     return LieVector(location.distance(point));
++//   }
++// }
++// TEST( Point2, distance ) {
++//   Matrix expectedH1, actualH1, expectedH2, actualH2;
++
++//   // establish distance is indeed zero
++//   EXPECT_DOUBLES_EQUAL(1, x1.distance(l1), 1e-9);
++
++//   // establish distance is indeed 45 degrees
++//   EXPECT_DOUBLES_EQUAL(sqrt(2.0), x1.distance(l2), 1e-9);
++
++//   // Another pair
++//   double actual23 = x2.distance(l3, actualH1, actualH2);
++//   EXPECT_DOUBLES_EQUAL(sqrt(2.0), actual23, 1e-9);
++
++//   // Check numerical derivatives
++//   expectedH1 = numericalDerivative21(distance_proxy, x2, l3);
++//   expectedH2 = numericalDerivative22(distance_proxy, x2, l3);
++//   EXPECT(assert_equal(expectedH1,actualH1));
++//   EXPECT(assert_equal(expectedH2,actualH2));
++
++//   // Another test
++//   double actual34 = x3.distance(l4, actualH1, actualH2);
++//   EXPECT_DOUBLES_EQUAL(2, actual34, 1e-9);
++
++//   // Check numerical derivatives
++//   expectedH1 = numericalDerivative21(distance_proxy, x3, l4);
++//   expectedH2 = numericalDerivative22(distance_proxy, x3, l4);
++//   EXPECT(assert_equal(expectedH1,actualH1));
++//   EXPECT(assert_equal(expectedH2,actualH2));
++// }
++
++/* ************************************************************************* */
++// TEST( Point2, circleCircleIntersection) {
++
++//   double offset = 0.994987;
++//   // Test intersections of circle moving from inside to outside
++
++//   list<Point2> inside = Point2::CircleCircleIntersection(Point2(0,0),5,Point2(0,0),1);
++//   EXPECT_LONGS_EQUAL(0,inside.size());
++
++//   list<Point2> touching1 = Point2::CircleCircleIntersection(Point2(0,0),5,Point2(4,0),1);
++//   EXPECT_LONGS_EQUAL(1,touching1.size());
++//   EXPECT(assert_equal(Point2(5,0), touching1.front()));
++
++//   list<Point2> common = Point2::CircleCircleIntersection(Point2(0,0),5,Point2(5,0),1);
++//   EXPECT_LONGS_EQUAL(2,common.size());
++//   EXPECT(assert_equal(Point2(4.9,  offset), common.front(), 1e-6));
++//   EXPECT(assert_equal(Point2(4.9, -offset), common.back(), 1e-6));
++
++//   list<Point2> touching2 = Point2::CircleCircleIntersection(Point2(0,0),5,Point2(6,0),1);
++//   EXPECT_LONGS_EQUAL(1,touching2.size());
++//   EXPECT(assert_equal(Point2(5,0), touching2.front()));
++
++//   // test rotated case
++//   list<Point2> rotated = Point2::CircleCircleIntersection(Point2(0,0),5,Point2(0,5),1);
++//   EXPECT_LONGS_EQUAL(2,rotated.size());
++//   EXPECT(assert_equal(Point2(-offset, 4.9), rotated.front(), 1e-6));
++//   EXPECT(assert_equal(Point2( offset, 4.9), rotated.back(), 1e-6));
++
++//   // test r1<r2
++//   list<Point2> smaller = Point2::CircleCircleIntersection(Point2(0,0),1,Point2(5,0),5);
++//   EXPECT_LONGS_EQUAL(2,smaller.size());
++//   EXPECT(assert_equal(Point2(0.1,  offset), smaller.front(), 1e-6));
++//   EXPECT(assert_equal(Point2(0.1, -offset), smaller.back(), 1e-6));
++
++//   // test offset case, r1>r2
++//   list<Point2> offset1 = Point2::CircleCircleIntersection(Point2(1,1),5,Point2(6,1),1);
++//   EXPECT_LONGS_EQUAL(2,offset1.size());
++//   EXPECT(assert_equal(Point2(5.9, 1+offset), offset1.front(), 1e-6));
++//   EXPECT(assert_equal(Point2(5.9, 1-offset), offset1.back(), 1e-6));
++
++//   // test offset case, r1<r2
++//   list<Point2> offset2 = Point2::CircleCircleIntersection(Point2(6,1),1,Point2(1,1),5);
++//   EXPECT_LONGS_EQUAL(2,offset2.size());
++//   EXPECT(assert_equal(Point2(5.9, 1-offset), offset2.front(), 1e-6));
++//   EXPECT(assert_equal(Point2(5.9, 1+offset), offset2.back(), 1e-6));
++
++// }
++
++/* ************************************************************************* */
++TEST( ParallaxAnglePoint2, stream) {
++  ParallaxAnglePoint2 p(1, 2);
++  std::ostringstream os;
++  os << p;
++  EXPECT(os.str() == "(1, 2)");
++}
++
++/* ************************************************************************* */
++TEST( ParallaxAnglePoint2, directionVector) {
++  // Vector From Main
++  ParallaxAnglePoint2 p(M_PI/6, M_PI/3);
++  Vector ExpectedDirectionVector = (Vector(3) << 0.433012701892219,0.25,0.866025403784439);
++
++  CHECK(assert_equal(ExpectedDirectionVector, p.directionVector(), 1e-6));
++
++  // Vector From Main with Jacobian
++  Matrix H(3,2), ExpectedH(3,2);
++  ExpectedH << -0.25             ,  -0.75             ,
++                0.433012701892219,  -0.433012701892219,
++                0                ,   0.5;
++  CHECK(assert_equal(ExpectedDirectionVector, p.directionVector(H), 1e-6));
++  EXPECT(assert_equal(ExpectedH, H, 1e-6));
++}
++
++/* ************************************************************************* */
++int main () {
++  TestResult tr;
++  return TestRegistry::runAllTests(tr);
++}
++/* ************************************************************************* */
++
+--- gtsam/geometry/tests/testParallaxAnglePoint3.cpp	1970-01-01 01:00:00.000000000 +0100
++++ gtsam/geometry/tests/testParallaxAnglePoint3.cpp	2015-05-06 15:12:50.554157465 +0200
+@@ -0,0 +1,274 @@
++/* ----------------------------------------------------------------------------
++
++ * GTSAM Copyright 2010, Georgia Tech Research Corporation,
++ * Atlanta, Georgia 30332-0415
++ * All Rights Reserved
++ * Authors: Frank Dellaert, et al. (see THANKS for the full author list)
++
++ * See LICENSE for the license information
++
++ * -------------------------------------------------------------------------- */
++
++/**
++ * @file   testParallaxAnglePoint3.cpp
++ * @brief  Unit tests for ParallaxAnglePoint3 class
++ * @author Ellon P. Mendes
++ **/
++
++#include <gtsam/geometry/ParallaxAnglePoint3.h>
++#include <gtsam/base/Testable.h>
++#include <gtsam/base/numericalDerivative.h>
++#include <gtsam/base/lieProxies.h>
++#include <CppUnitLite/TestHarness.h>
++
++using namespace std;
++using namespace gtsam;
++
++GTSAM_CONCEPT_TESTABLE_INST(ParallaxAnglePoint3)
++GTSAM_CONCEPT_MANIFOLD_INST(ParallaxAnglePoint3)
++
++/* ************************************************************************* */
++TEST(ParallaxAnglePoint3, constructor) {
++  ParallaxAnglePoint3 p1(1, 2, 3), p2 = p1;
++  EXPECT(assert_equal(p1, p2));
++}
++
++/* ************************************************************************* */
++// TEST(ParallaxAnglePoint2, Lie) {
++//   Point2 p1(1, 2), p2(4, 5);
++//   Matrix H1, H2;
++
++//   EXPECT(assert_equal(Point2(5,7), p1.compose(p2, H1, H2)));
++//   EXPECT(assert_equal(eye(2), H1));
++//   EXPECT(assert_equal(eye(2), H2));
++
++//   EXPECT(assert_equal(Point2(3,3), p1.between(p2, H1, H2)));
++//   EXPECT(assert_equal(-eye(2), H1));
++//   EXPECT(assert_equal(eye(2), H2));
++
++//   EXPECT(assert_equal(Point2(5,7), p1.retract((Vector(2) << 4., 5.))));
++//   EXPECT(assert_equal((Vector(2) << 3.,3.), p1.localCoordinates(p2)));
++// }
++
++/* ************************************************************************* */
++TEST( ParallaxAnglePoint3, expmap) {
++  Vector d(3);
++  d(0) =  1.;
++  d(1) = -1.;
++  d(2) =  2.;
++  ParallaxAnglePoint3 a(4., 5., 6.), b = a.retract(d), c(5., 4., 8.);
++  EXPECT(assert_equal(c,b));
++  EXPECT(assert_equal(d,a.localCoordinates(c)));
++}
++
++/* ************************************************************************* */
++TEST( ParallaxAnglePoint3, arithmetic) {
++  // EXPECT(assert_equal( ParallaxAnglePoint2(-5,-6), -ParallaxAnglePoint2(5,6) ));
++  EXPECT(assert_equal( ParallaxAnglePoint3(5,6,7), ParallaxAnglePoint3(4,5,6)+ParallaxAnglePoint3(1,1,1)));
++  EXPECT(assert_equal( ParallaxAnglePoint3(3,4,5), ParallaxAnglePoint3(4,5,6)-ParallaxAnglePoint3(1,1,1)));
++  // EXPECT(assert_equal( ParallaxAnglePoint2(8,6), ParallaxAnglePoint2(4,3)*2));
++  // EXPECT(assert_equal( ParallaxAnglePoint2(4,6), 2*ParallaxAnglePoint2(2,3)));
++  // EXPECT(assert_equal( ParallaxAnglePoint2(2,3), ParallaxAnglePoint2(4,6)/2));
++}
++
++// namespace {
++//   /* ************************************************************************* */
++//   // some shared test values
++//   ParallaxAnglePoint2 x1, x2(1, 1), x3(1, 1);
++//   ParallaxAnglePoint2 l1(1, 0), l2(1, 1), l3(2, 2), l4(1, 3);
++
++//   /* ************************************************************************* */
++//   // LieVector norm_proxy(const ParallaxAnglePoint2& point) {
++//   //   return LieVector(point.norm());
++//   // }
++// }
++// TEST( ParallaxAnglePoint2, norm ) {
++//   Point2 p0(cos(5.0), sin(5.0));
++//   DOUBLES_EQUAL(1, p0.norm(), 1e-6);
++//   Point2 p1(4, 5), p2(1, 1);
++//   DOUBLES_EQUAL( 5, p1.distance(p2), 1e-6);
++//   DOUBLES_EQUAL( 5, (p2-p1).norm(), 1e-6);
++
++//   Matrix expectedH, actualH;
++//   double actual;
++
++//   // exception, for (0,0) derivative is [Inf,Inf] but we return [1,1]
++//   actual = x1.norm(actualH);
++//   EXPECT_DOUBLES_EQUAL(0, actual, 1e-9);
++//   expectedH = (Matrix(1, 2) << 1.0, 1.0);
++//   EXPECT(assert_equal(expectedH,actualH));
++
++//   actual = x2.norm(actualH);
++//   EXPECT_DOUBLES_EQUAL(sqrt(2.0), actual, 1e-9);
++//   expectedH = numericalDerivative11(norm_proxy, x2);
++//   EXPECT(assert_equal(expectedH,actualH));
++// }
++
++/* ************************************************************************* */
++// namespace {
++//   LieVector distance_proxy(const Point2& location, const Point2& point) {
++//     return LieVector(location.distance(point));
++//   }
++// }
++// TEST( Point2, distance ) {
++//   Matrix expectedH1, actualH1, expectedH2, actualH2;
++
++//   // establish distance is indeed zero
++//   EXPECT_DOUBLES_EQUAL(1, x1.distance(l1), 1e-9);
++
++//   // establish distance is indeed 45 degrees
++//   EXPECT_DOUBLES_EQUAL(sqrt(2.0), x1.distance(l2), 1e-9);
++
++//   // Another pair
++//   double actual23 = x2.distance(l3, actualH1, actualH2);
++//   EXPECT_DOUBLES_EQUAL(sqrt(2.0), actual23, 1e-9);
++
++//   // Check numerical derivatives
++//   expectedH1 = numericalDerivative21(distance_proxy, x2, l3);
++//   expectedH2 = numericalDerivative22(distance_proxy, x2, l3);
++//   EXPECT(assert_equal(expectedH1,actualH1));
++//   EXPECT(assert_equal(expectedH2,actualH2));
++
++//   // Another test
++//   double actual34 = x3.distance(l4, actualH1, actualH2);
++//   EXPECT_DOUBLES_EQUAL(2, actual34, 1e-9);
++
++//   // Check numerical derivatives
++//   expectedH1 = numericalDerivative21(distance_proxy, x3, l4);
++//   expectedH2 = numericalDerivative22(distance_proxy, x3, l4);
++//   EXPECT(assert_equal(expectedH1,actualH1));
++//   EXPECT(assert_equal(expectedH2,actualH2));
++// }
++
++/* ************************************************************************* */
++// TEST( Point2, circleCircleIntersection) {
++
++//   double offset = 0.994987;
++//   // Test intersections of circle moving from inside to outside
++
++//   list<Point2> inside = Point2::CircleCircleIntersection(Point2(0,0),5,Point2(0,0),1);
++//   EXPECT_LONGS_EQUAL(0,inside.size());
++
++//   list<Point2> touching1 = Point2::CircleCircleIntersection(Point2(0,0),5,Point2(4,0),1);
++//   EXPECT_LONGS_EQUAL(1,touching1.size());
++//   EXPECT(assert_equal(Point2(5,0), touching1.front()));
++
++//   list<Point2> common = Point2::CircleCircleIntersection(Point2(0,0),5,Point2(5,0),1);
++//   EXPECT_LONGS_EQUAL(2,common.size());
++//   EXPECT(assert_equal(Point2(4.9,  offset), common.front(), 1e-6));
++//   EXPECT(assert_equal(Point2(4.9, -offset), common.back(), 1e-6));
++
++//   list<Point2> touching2 = Point2::CircleCircleIntersection(Point2(0,0),5,Point2(6,0),1);
++//   EXPECT_LONGS_EQUAL(1,touching2.size());
++//   EXPECT(assert_equal(Point2(5,0), touching2.front()));
++
++//   // test rotated case
++//   list<Point2> rotated = Point2::CircleCircleIntersection(Point2(0,0),5,Point2(0,5),1);
++//   EXPECT_LONGS_EQUAL(2,rotated.size());
++//   EXPECT(assert_equal(Point2(-offset, 4.9), rotated.front(), 1e-6));
++//   EXPECT(assert_equal(Point2( offset, 4.9), rotated.back(), 1e-6));
++
++//   // test r1<r2
++//   list<Point2> smaller = Point2::CircleCircleIntersection(Point2(0,0),1,Point2(5,0),5);
++//   EXPECT_LONGS_EQUAL(2,smaller.size());
++//   EXPECT(assert_equal(Point2(0.1,  offset), smaller.front(), 1e-6));
++//   EXPECT(assert_equal(Point2(0.1, -offset), smaller.back(), 1e-6));
++
++//   // test offset case, r1>r2
++//   list<Point2> offset1 = Point2::CircleCircleIntersection(Point2(1,1),5,Point2(6,1),1);
++//   EXPECT_LONGS_EQUAL(2,offset1.size());
++//   EXPECT(assert_equal(Point2(5.9, 1+offset), offset1.front(), 1e-6));
++//   EXPECT(assert_equal(Point2(5.9, 1-offset), offset1.back(), 1e-6));
++
++//   // test offset case, r1<r2
++//   list<Point2> offset2 = Point2::CircleCircleIntersection(Point2(6,1),1,Point2(1,1),5);
++//   EXPECT_LONGS_EQUAL(2,offset2.size());
++//   EXPECT(assert_equal(Point2(5.9, 1-offset), offset2.front(), 1e-6));
++//   EXPECT(assert_equal(Point2(5.9, 1+offset), offset2.back(), 1e-6));
++
++// }
++
++/* ************************************************************************* */
++TEST( ParallaxAnglePoint3, stream) {
++  ParallaxAnglePoint3 p(1, 2, 3);
++  std::ostringstream os;
++  os << p;
++  EXPECT(os.str() == "(1, 2, 3)");
++}
++
++/* ************************************************************************* */
++TEST( ParallaxAnglePoint3, directionVector) {
++  Point3 mainAnchor(0, -3, 0);
++  Point3 assoAnchor(0, -5, 5);
++  Point3 otheAnchor(7,  0, 0);
++  ParallaxAnglePoint3 p(M_PI/2, 0, M_PI/4);
++
++  Vector ExpectedVecFromMain = (Vector3() << 0, 1, 0);
++  Vector ExpectedVecFromOthe = (Vector3() << -4.949747468305833, 0, 0);
++  Vector ExpectedVecFromAsso  = (Vector3() << 0, 3.535533905932738, -3.535533905932738);
++
++  // Jacobian matrix evaluated with the values above (check ParallaxPointJacobianTest.m)
++  Matrix3 EXPECTED_DIRECVECFROMOTHER_tm = (Matrix3() << 0.707106781186548,                   0,                   0,
++                                                                        0,  -0.000000000000000,  -0.707106781186548,
++                                                                        0,                   0,   0.707106781186548);
++
++  Matrix3 EXPECTED_DIRECVECFROMOTHER_ta = (Matrix3() << 0,                   0,                   0,
++                                                        0,   0.707106781186548,   0.707106781186548,
++                                                        0,                   0,                   0);
++
++  Matrix3 EXPECTED_DIRECVECFROMOTHER_to = (Matrix3() << -0.707106781186548,                   0,                   0,
++                                                                         0,  -0.707106781186548,                   0,
++                                                                         0,                   0,  -0.707106781186548);
++
++  Matrix3 EXPECTED_DIRECVECFROMOTHER_point = (Matrix3() << -2.121320343559642,                   0,  -4.949747468305833,
++                                                                            0,   4.949747468305833,  -7.071067811865476,
++                                                                            0,   2.121320343559642,                   0);
++
++  Matrix3 EXPECTED_DIRECVECFROMASSO_tm = (Matrix3() << 0.707106781186548,                   0,                   0,
++                                                                       0,  -0.000000000000000,  -0.707106781186548,
++                                                                       0,                   0,   0.707106781186548);
++
++  Matrix3 EXPECTED_DIRECVECFROMASSO_ta = (Matrix3() << -0.707106781186548,                   0,                   0,
++                                                                        0,   0.000000000000000,   0.707106781186548,
++                                                                        0,                   0,  -0.707106781186548);
++
++  Matrix3 EXPECTED_DIRECVECFROMASSO_point = (Matrix3() << -2.121320343559642,                   0,                   0,
++                                                                           0,   4.949747468305833,  -3.535533905932738,
++                                                                           0,   2.121320343559642,  -3.535533905932738);
++
++  Matrix3 EXPECTED_DIRECVECFROMMAIN_point = (Matrix3() << -1,     0,     0,
++                                                           0,     0,     0,
++                                                           0,     1,     0);
++
++  Matrix H_point, H_main, H_asso, H_other;
++  CHECK(assert_equal(ExpectedVecFromMain, p.directionVectorFromMainAnchor(), 1e-6));
++  CHECK(assert_equal(ExpectedVecFromMain, p.directionVectorFromMainAnchor(H_point), 1e-6));
++  EXPECT(assert_equal(EXPECTED_DIRECVECFROMMAIN_point, H_point, 1e-6));
++
++  H_point = zeros(3,3);
++  CHECK(assert_equal(ExpectedVecFromAsso, p.directionVectorFromAssoAnchor(mainAnchor, assoAnchor), 1e-6));
++  CHECK(assert_equal(ExpectedVecFromAsso, p.directionVectorFromAssoAnchor(mainAnchor, assoAnchor, H_point, H_main, H_asso), 1e-6));
++  EXPECT(assert_equal(EXPECTED_DIRECVECFROMASSO_point, H_point, 1e-6));
++  EXPECT(assert_equal(EXPECTED_DIRECVECFROMASSO_tm,    H_main,  1e-6));
++  EXPECT(assert_equal(EXPECTED_DIRECVECFROMASSO_ta,    H_asso,  1e-6));
++
++
++  H_point = zeros(3,3);
++  H_main  = zeros(3,3);
++  H_asso  = zeros(3,3);
++  CHECK(assert_equal(ExpectedVecFromOthe, p.directionVectorFromOtheAnchor(mainAnchor, assoAnchor, otheAnchor), 1e-6));
++  CHECK(assert_equal(ExpectedVecFromOthe, p.directionVectorFromOtheAnchor(mainAnchor, assoAnchor, otheAnchor, H_point, H_main, H_asso, H_other), 1e-6));
++  EXPECT(assert_equal(EXPECTED_DIRECVECFROMOTHER_point, H_point,  1e-6));
++  EXPECT(assert_equal(EXPECTED_DIRECVECFROMOTHER_tm,    H_main,   1e-6));
++  EXPECT(assert_equal(EXPECTED_DIRECVECFROMOTHER_ta,    H_asso,   1e-6));
++  EXPECT(assert_equal(EXPECTED_DIRECVECFROMOTHER_to,    H_other,  1e-6));
++
++}
++
++/* ************************************************************************* */
++int main () {
++  TestResult tr;
++  return TestRegistry::runAllTests(tr);
++}
++/* ************************************************************************* */
++
+--- gtsam/slam/ParallaxAngleProjectionFactor.h	1970-01-01 01:00:00.000000000 +0100
++++ gtsam/slam/ParallaxAngleProjectionFactor.h	2015-05-05 22:30:18.017247984 +0200
+@@ -0,0 +1,876 @@
++/* ----------------------------------------------------------------------------
++
++ * GTSAM Copyright 2010, Georgia Tech Research Corporation,
++ * Atlanta, Georgia 30332-0415
++ * All Rights Reserved
++ * GTSAM Authors: Frank Dellaert, et al. (see THANKS for the full author list)
++ * Parallax Angle Projection Factor by Ellon P. Mendes
++
++ * See LICENSE for the license information
++
++ * -------------------------------------------------------------------------- */
++
++/**
++ * @file ParallaxAngleProjectionFactor.h
++ * @brief Parallax Angle projection factors
++ * @author Ellon P. Mendes
++ */
++
++#pragma once
++
++#include <gtsam/nonlinear/NonlinearFactor.h>
++#include <gtsam/geometry/SimpleCamera.h>
++#include <boost/optional.hpp>
++
++#include <gtsam/geometry/Point3.h>
++#include <gtsam/geometry/Pose3.h>
++#include <gtsam/geometry/ParallaxAnglePoint2.h>
++#include <gtsam/geometry/ParallaxAnglePoint3.h>
++
++namespace gtsam {
++
++  /** Non-linear factor for a 2D measurement to a Parallax Angle Point with only one anchor.
++   *
++   * Non-linear factor for a constraint derived from a 2D measurement bewteen a robot pose and a
++   * landmark parametrized as Parallax Angle Point with no depth (a.k.a ParallaxAnglePoint2). The
++   * measurement was taken from the anchor, and the calibration is known here.
++   *
++   * @addtogroup SLAM
++   */
++  template<class POSE, class LANDMARK, class CALIBRATION = Cal3_S2>
++  class ParallaxAngleSingleAnchorProjectionFactor: public NoiseModelFactor2<POSE, LANDMARK>
++  {
++  protected:
++
++    // Keep a copy of measurement and calibration for I/O
++    Point2 measured_;                    ///< 2D measurement
++    boost::shared_ptr<CALIBRATION> K_;  ///< shared pointer to calibration object
++    boost::optional<POSE> body_P_sensor_; ///< The pose of the sensor in the body frame
++
++    // verbosity handling for Cheirality Exceptions
++    bool throwCheirality_; ///< If true, rethrows Cheirality exceptions (default: false)
++    bool verboseCheirality_; ///< If true, prints text for Cheirality exceptions (default: false)
++
++  public:
++
++    /// shorthand for base class type
++    typedef NoiseModelFactor2<POSE, LANDMARK> Base;
++
++    /// shorthand for this class
++    typedef ParallaxAngleSingleAnchorProjectionFactor<POSE, LANDMARK, CALIBRATION> This;
++
++    /// shorthand for a smart pointer to a factor
++    typedef boost::shared_ptr<This> shared_ptr;
++
++    /// Default constructor
++    ParallaxAngleSingleAnchorProjectionFactor() : throwCheirality_(false), verboseCheirality_(false) {}
++
++    /**
++     * Constructor
++     * TODO: Mark argument order standard (keys, measurement, parameters)
++     * @param measured is the 2 dimensional location of point in image (the measurement)
++     * @param model is the standard deviation
++     * @param mainAnchorKey is the index of main anchor
++     * @param pointKey is the index of the landmark
++     * @param K shared pointer to the constant calibration
++     * @param body_P_sensor is the transform from body to sensor frame (default identity)
++     */
++    ParallaxAngleSingleAnchorProjectionFactor(const Point2& measured, const SharedNoiseModel& model,
++        Key mainAnchorKey, Key pointKey, const boost::shared_ptr<CALIBRATION>& K,
++        boost::optional<POSE> body_P_sensor = boost::none) :
++          Base(model, mainAnchorKey, pointKey), measured_(measured), K_(K), body_P_sensor_(body_P_sensor),
++          throwCheirality_(false), verboseCheirality_(false) {}
++
++    /**
++     * Constructor with exception-handling flags
++     * TODO: Mark argument order standard (keys, measurement, parameters)
++     * @param measured is the 2 dimensional location of point in image (the measurement)
++     * @param model is the standard deviation
++     * @param mainAnchorKey is the index of main anchor
++     * @param pointKey is the index of the landmark
++     * @param K shared pointer to the constant calibration
++     * @param throwCheirality determines whether Cheirality exceptions are rethrown
++     * @param verboseCheirality determines whether exceptions are printed for Cheirality
++     * @param body_P_sensor is the transform from body to sensor frame  (default identity)
++     */
++    ParallaxAngleSingleAnchorProjectionFactor(const Point2& measured, const SharedNoiseModel& model,
++        Key mainAnchorKey, Key pointKey, const boost::shared_ptr<CALIBRATION>& K,
++        bool throwCheirality, bool verboseCheirality,
++        boost::optional<POSE> body_P_sensor = boost::none) :
++          Base(model, mainAnchorKey, pointKey), measured_(measured), K_(K), body_P_sensor_(body_P_sensor),
++          throwCheirality_(throwCheirality), verboseCheirality_(verboseCheirality) {}
++
++    /** Virtual destructor */
++    virtual ~ParallaxAngleSingleAnchorProjectionFactor() {}
++
++    /// @return a deep copy of this factor
++    virtual gtsam::NonlinearFactor::shared_ptr clone() const {
++      return boost::static_pointer_cast<gtsam::NonlinearFactor>(
++          gtsam::NonlinearFactor::shared_ptr(new This(*this))); }
++
++    /**
++     * print
++     * @param s optional string naming the factor
++     * @param keyFormatter optional formatter useful for printing Symbols
++     */
++    void print(const std::string& s = "", const KeyFormatter& keyFormatter = DefaultKeyFormatter) const {
++      std::cout << s << "ParallaxAngleSingleAnchorProjectionFactor, z = ";
++      measured_.print();
++      if(this->body_P_sensor_)
++        this->body_P_sensor_->print("  sensor pose in body frame: ");
++      Base::print("", keyFormatter);
++    }
++
++    /// equals
++    virtual bool equals(const NonlinearFactor& p, double tol = 1e-9) const {
++      const This *e = dynamic_cast<const This*>(&p);
++      return e
++          && Base::equals(p, tol)
++          && this->measured_.equals(e->measured_, tol)
++          && this->K_->equals(*e->K_, tol)
++          && ((!body_P_sensor_ && !e->body_P_sensor_) || (body_P_sensor_ && e->body_P_sensor_ && body_P_sensor_->equals(*e->body_P_sensor_)));
++    }
++
++    /// Evaluate error h(x)-z and optionally derivatives
++    Vector evaluateError(const Pose3& mainPose, const ParallaxAnglePoint2& point,
++        boost::optional<Matrix&> Dmain  = boost::none,
++        boost::optional<Matrix&> Dpoint = boost::none) const {
++      try {
++        // Test if we need jacobians
++        if (!Dmain && !Dpoint)
++        {
++          if(body_P_sensor_)
++          {
++            // Get the main and associated anchors, and the camera pose
++            Pose3 mainAnchorPose ( mainPose.compose(*body_P_sensor_) );
++
++            // Get the direction to the point from observation point
++            Point3 obs_T_point( point.directionVector() );
++
++            // Put a camera at the origin
++            PinholeCamera<CALIBRATION> camera(Pose3(mainAnchorPose.rotation(), Point3()), *K_);
++
++            // Project direction vector to camera and calculate the error
++            Point2 reprojectionError(camera.project(obs_T_point) - measured_);
++            return reprojectionError.vector();
++          }
++          else
++          {
++            // Get the direction to the point from observation point
++            Point3 obs_T_point( point.directionVector() );
++
++            // Put a camera at the origin
++            PinholeCamera<CALIBRATION> camera(Pose3(mainPose.rotation(), Point3()), *K_);
++
++            // Project direction vector to camera and calculate the error
++            Point2 reprojectionError(camera.project(obs_T_point) - measured_);
++            return reprojectionError.vector();
++          }
++        }
++
++        // Same computation but with jacobians
++        if(body_P_sensor_)
++        {
++            // Get the main and associated anchors, and the camera pose
++            gtsam::Matrix MAINANCHORPOSE_mainpose;
++            Pose3 mainAnchorPose ( mainPose.compose(*body_P_sensor_, MAINANCHORPOSE_mainpose) );
++
++            // Get the direction to the point from observation point
++            Matrix OBS_T_POINT_point;
++            Point3 obs_T_point(point.directionVector( OBS_T_POINT_point ));
++
++            // Put a camera at the origin
++            PinholeCamera<CALIBRATION> camera(Pose3(mainAnchorPose.rotation(), Point3()), *K_);
++
++            // Project direction vector to camera and calculate the error
++            Matrix PROJ_mainanchorori, PROJ_obs_t_point;
++            Point2 reprojectionError(camera.project(obs_T_point, PROJ_mainanchorori, PROJ_obs_t_point) - measured_);
++
++            // Chain of jacobians
++          if(Dmain)
++          {
++            Matrix PROJ_mainanchorpose(2,6);
++            PROJ_mainanchorpose << PROJ_mainanchorori.block(0,0,2,3), zeros(2,3);
++            Dmain->resize(2,6);
++            *Dmain << (PROJ_mainanchorpose * MAINANCHORPOSE_mainpose);
++          }
++          if(Dpoint)
++          {
++            Dpoint->resize(2,2);
++            *Dpoint << (PROJ_obs_t_point * OBS_T_POINT_point);
++          }
++
++          return reprojectionError.vector();
++
++        }
++        else
++        {
++            // Get the direction to the point from observation point
++            Matrix OBS_T_POINT_point;
++            Point3 obs_T_point(point.directionVector( OBS_T_POINT_point ));
++
++            // Put a camera at the origin
++            PinholeCamera<CALIBRATION> camera(Pose3(mainPose.rotation(), Point3()), *K_);
++
++            // Project direction vector to camera and calculate the error
++            Matrix PROJ_mainori, PROJ_obs_t_point;
++            Point2 reprojectionError(camera.project(obs_T_point, PROJ_mainori, PROJ_obs_t_point) - measured_);
++
++            // Chain of jacobians
++          if(Dmain)
++          {
++            Dmain->resize(2,6);
++            *Dmain << PROJ_mainori.block(0,0,2,3), zeros(2,3);
++          }
++          if(Dpoint)
++          {
++            Dpoint->resize(2,2);
++            *Dpoint << (PROJ_obs_t_point * OBS_T_POINT_point);
++          }
++
++          return reprojectionError.vector();
++        }
++      } catch( CheiralityException& e)
++      {
++        if (Dmain )  *Dmain  = zeros(2,6);
++        if (Dpoint)  *Dpoint = zeros(2,2);
++        if (verboseCheirality_)
++          std::cout << e.what() << ": Landmark "<< DefaultKeyFormatter(this->key2()) <<
++              " with single anchor (" << DefaultKeyFormatter(this->key1()) << ")" <<
++              " moved behind camera " << std::endl;
++        if (throwCheirality_)
++          throw e;
++      }
++      return ones(2) * 2.0 * K_->fx();
++    }
++
++    /** return the measurement */
++    const Point2& measured() const {
++      return measured_;
++    }
++
++    /** return the calibration object */
++    inline const boost::shared_ptr<CALIBRATION> calibration() const {
++      return K_;
++    }
++
++    /** return verbosity */
++    inline bool verboseCheirality() const { return verboseCheirality_; }
++
++    /** return flag for throwing cheirality exceptions */
++    inline bool throwCheirality() const { return throwCheirality_; }
++
++  private:
++
++    /// Serialization function
++    friend class boost::serialization::access;
++    template<class ARCHIVE>
++    void serialize(ARCHIVE & ar, const unsigned int version) {
++      ar & BOOST_SERIALIZATION_BASE_OBJECT_NVP(Base);
++      ar & BOOST_SERIALIZATION_NVP(measured_);
++      ar & BOOST_SERIALIZATION_NVP(K_);
++      ar & BOOST_SERIALIZATION_NVP(body_P_sensor_);
++      ar & BOOST_SERIALIZATION_NVP(throwCheirality_);
++      ar & BOOST_SERIALIZATION_NVP(verboseCheirality_);
++    }
++  };
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++  /** Non-linear factor for a 2D measurement to a Parallax Angle Point with only the anchors.
++   *
++   * Non-linear factor for a constraint derived from a 2D measurement bewteen a robot pose and a
++   * landmark parametrized as 3D Parallax Angle Point (a.k.a ParallaxAnglePoint3). The measurement
++   * was taken from the associated anchor, and the calibration is known here.
++   *
++   * @addtogroup SLAM
++   */
++  template<class POSE, class LANDMARK, class CALIBRATION = Cal3_S2>
++  class ParallaxAngleOnlyAnchorsProjectionFactor: public NoiseModelFactor3<POSE, POSE, LANDMARK> {
++  protected:
++
++    // Keep a copy of measurement and calibration for I/O
++    Point2 measured_;                    ///< 2D measurement
++    boost::shared_ptr<CALIBRATION> K_;  ///< shared pointer to calibration object
++    boost::optional<POSE> body_P_sensor_; ///< The pose of the sensor in the body frame
++
++    // verbosity handling for Cheirality Exceptions
++    bool throwCheirality_; ///< If true, rethrows Cheirality exceptions (default: false)
++    bool verboseCheirality_; ///< If true, prints text for Cheirality exceptions (default: false)
++
++  public:
++
++    /// shorthand for base class type
++    typedef NoiseModelFactor3<POSE, POSE, LANDMARK> Base;
++
++    /// shorthand for this class
++    typedef ParallaxAngleOnlyAnchorsProjectionFactor<POSE, LANDMARK, CALIBRATION> This;
++
++    /// shorthand for a smart pointer to a factor
++    typedef boost::shared_ptr<This> shared_ptr;
++
++    /// Default constructor
++    ParallaxAngleOnlyAnchorsProjectionFactor() : throwCheirality_(false), verboseCheirality_(false) {}
++
++    /**
++     * Constructor
++     * TODO: Mark argument order standard (keys, measurement, parameters)
++     * @param measured is the 2 dimensional location of point in image (the measurement)
++     * @param model is the standard deviation
++     * @param mainAnchorKey is the index of the main anchor
++     * @param associatedAnchorKey is the index of the associated anchor
++     * @param pointKey is the index of the landmark
++     * @param K shared pointer to the constant calibration
++     * @param body_P_sensor is the transform from body to sensor frame (default identity)
++     */
++    ParallaxAngleOnlyAnchorsProjectionFactor(const Point2& measured, const SharedNoiseModel& model,
++        Key mainAnchorKey, Key associatedAnchorKey, Key pointKey,
++        const boost::shared_ptr<CALIBRATION>& K,
++        boost::optional<POSE> body_P_sensor = boost::none) :
++          Base(model, mainAnchorKey, associatedAnchorKey, pointKey),
++          measured_(measured), K_(K), body_P_sensor_(body_P_sensor),
++          throwCheirality_(false), verboseCheirality_(false) {}
++
++    /**
++     * Constructor with exception-handling flags
++     * TODO: Mark argument order standard (keys, measurement, parameters)
++     * @param measured is the 2 dimensional location of point in image (the measurement)
++     * @param model is the standard deviation
++     * @param mainAnchorKey is the index of the main anchor
++     * @param associatedAnchorKey is the index of the associated anchor
++     * @param pointKey is the index of the landmark
++     * @param K shared pointer to the constant calibration
++     * @param throwCheirality determines whether Cheirality exceptions are rethrown
++     * @param verboseCheirality determines whether exceptions are printed for Cheirality
++     * @param body_P_sensor is the transform from body to sensor frame  (default identity)
++     */
++    ParallaxAngleOnlyAnchorsProjectionFactor(const Point2& measured, const SharedNoiseModel& model,
++        Key mainAnchorKey, Key associatedAnchorKey, Key pointKey,
++        const boost::shared_ptr<CALIBRATION>& K,
++        bool throwCheirality, bool verboseCheirality,
++        boost::optional<POSE> body_P_sensor = boost::none) :
++          Base(model, mainAnchorKey, associatedAnchorKey, pointKey),
++          measured_(measured), K_(K), body_P_sensor_(body_P_sensor),
++          throwCheirality_(throwCheirality), verboseCheirality_(verboseCheirality) {}
++
++    /** Virtual destructor */
++    virtual ~ParallaxAngleOnlyAnchorsProjectionFactor() {}
++
++    /// @return a deep copy of this factor
++    virtual gtsam::NonlinearFactor::shared_ptr clone() const {
++      return boost::static_pointer_cast<gtsam::NonlinearFactor>(
++          gtsam::NonlinearFactor::shared_ptr(new This(*this))); }
++
++    /**
++     * print
++     * @param s optional string naming the factor
++     * @param keyFormatter optional formatter useful for printing Symbols
++     */
++    void print(const std::string& s = "", const KeyFormatter& keyFormatter = DefaultKeyFormatter) const {
++      std::cout << s << "ParallaxAngleOnlyAnchorsProjectionFactor, z = ";
++      measured_.print();
++      if(this->body_P_sensor_)
++        this->body_P_sensor_->print("  sensor pose in body frame: ");
++      Base::print("", keyFormatter);
++    }
++
++    /// equals
++    virtual bool equals(const NonlinearFactor& p, double tol = 1e-9) const {
++      const This *e = dynamic_cast<const This*>(&p);
++      return e
++          && Base::equals(p, tol)
++          && this->measured_.equals(e->measured_, tol)
++          && this->K_->equals(*e->K_, tol)
++          && ((!body_P_sensor_ && !e->body_P_sensor_) || (body_P_sensor_ && e->body_P_sensor_ && body_P_sensor_->equals(*e->body_P_sensor_)));
++    }
++
++    /// Evaluate error h(x)-z and optionally derivatives
++    Vector evaluateError(const Pose3& mainPose, const Pose3& assoPose, const ParallaxAnglePoint3& point,
++        boost::optional<Matrix&> Dmain  = boost::none,
++        boost::optional<Matrix&> Dasso  = boost::none,
++        boost::optional<Matrix&> Dpoint = boost::none) const {
++      try {
++        // Test if we need jacobians
++        if (!Dmain && !Dasso && !Dpoint)
++        {
++          if(body_P_sensor_)
++          {
++            // Get the main and associated anchors, and the camera pose
++            Point3 mainAnchor     ( mainPose.compose(*body_P_sensor_).translation() );
++            Pose3  assoAnchorPose ( assoPose.compose(*body_P_sensor_)               );
++
++            // Get the direction to the point from observation point
++            Point3 obs_T_point(point.directionVectorFromAssoAnchor( mainAnchor, assoAnchorPose.translation() ));
++
++            // Put a camera at the origin
++            PinholeCamera<CALIBRATION> camera(Pose3(assoAnchorPose.rotation(), Point3()), *K_);
++
++            // Project direction vector to camera and calculate the error
++            Point2 reprojectionError(camera.project(obs_T_point) - measured_);
++            return reprojectionError.vector();
++          }
++          else
++          {
++            // Get the direction to the point from observation point
++            Point3 obs_T_point(point.directionVectorFromAssoAnchor( mainPose.translation(), assoPose.translation() ));
++
++            // Put a camera at the origin
++            PinholeCamera<CALIBRATION> camera(Pose3(assoPose.rotation(), Point3()), *K_);
++
++            // Project direction vector to camera and calculate the error
++            Point2 reprojectionError(camera.project(obs_T_point) - measured_);
++            return reprojectionError.vector();
++          }
++        }
++
++        // Same computation but with jacobians
++        if(body_P_sensor_)
++        {
++            // Get the main and associated anchors, and the camera pose
++            gtsam::Matrix MAINANCHORPOSE_mainpose, ASSOANCHORPOSE_assopose;
++            Point3 mainAnchor     ( mainPose.compose(*body_P_sensor_, MAINANCHORPOSE_mainpose).translation() );
++            Pose3  assoAnchorPose ( assoPose.compose(*body_P_sensor_, ASSOANCHORPOSE_assopose)               );
++
++            // Get the direction to the point from observation point
++            Matrix OBS_T_POINT_point, OBS_T_POINT_mainanchorpos, OBS_T_POINT_assoanchorpos;
++            Point3 obs_T_point(point.directionVectorFromAssoAnchor( mainAnchor, assoAnchorPose.translation(),
++              OBS_T_POINT_point,
++              OBS_T_POINT_mainanchorpos,
++              OBS_T_POINT_assoanchorpos));
++
++            // Put a camera at the origin
++            PinholeCamera<CALIBRATION> camera(Pose3(assoAnchorPose.rotation(), Point3()), *K_);
++
++            // Project direction vector to camera and calculate the error
++            Matrix PROJ_assoanchorori, PROJ_obs_t_point;
++            Point2 reprojectionError(camera.project(obs_T_point, PROJ_assoanchorori, PROJ_obs_t_point) - measured_);
++
++            // Chain of jacobians
++          if(Dmain)
++          {
++            Matrix PROJ_mainanchorpose = zeros(2,6);
++            PROJ_mainanchorpose.block(0,3,2,3) << (PROJ_obs_t_point * OBS_T_POINT_mainanchorpos);
++            Dmain->resize(2,6);
++            *Dmain << (PROJ_mainanchorpose * MAINANCHORPOSE_mainpose);
++          }
++          if(Dasso)
++          {
++            Matrix PROJ_assoanchorpose(2,6);
++            PROJ_assoanchorpose.block(0,0,2,3) << PROJ_assoanchorori.block(0,0,2,3);
++            PROJ_assoanchorpose.block(0,3,2,3) << (PROJ_obs_t_point * OBS_T_POINT_assoanchorpos);
++            Dasso->resize(2,6);
++            *Dasso << (PROJ_assoanchorpose * ASSOANCHORPOSE_assopose);
++          }
++          if(Dpoint)
++          {
++            Dpoint->resize(2,3);
++            *Dpoint << (PROJ_obs_t_point * OBS_T_POINT_point);
++          }
++
++          return reprojectionError.vector();
++
++        }
++        else
++        {
++            // Get the direction to the point from observation point
++            Matrix OBS_T_POINT_point, OBS_T_POINT_mainpos, OBS_T_POINT_assopos;
++            Point3 obs_T_point(point.directionVectorFromAssoAnchor( mainPose.translation(), assoPose.translation(),
++              OBS_T_POINT_point,
++              OBS_T_POINT_mainpos,
++              OBS_T_POINT_assopos));
++
++            // Put a camera at the origin
++            PinholeCamera<CALIBRATION> camera(Pose3(assoPose.rotation(), Point3()), *K_);
++
++            // Project direction vector to camera and calculate the error
++            Matrix PROJ_assoori, PROJ_obs_t_point;
++            Point2 reprojectionError(camera.project(obs_T_point, PROJ_assoori, PROJ_obs_t_point) - measured_);
++
++            // Chain of jacobians
++          if(Dmain)
++          {
++            Dmain->resize(2,6);
++            *Dmain << zeros(2,3), (PROJ_obs_t_point * OBS_T_POINT_mainpos);
++          }
++          if(Dasso)
++          {
++            Dasso->resize(2,6);
++            *Dasso << PROJ_assoori.block(0,0,2,3), (PROJ_obs_t_point * OBS_T_POINT_assopos);
++          }
++          if(Dpoint)
++          {
++            Dpoint->resize(2,3);
++            *Dpoint << (PROJ_obs_t_point * OBS_T_POINT_point);
++          }
++
++          return reprojectionError.vector();
++
++      }
++    } catch( CheiralityException& e) {
++        if (Dmain )  *Dmain  = zeros(2,6);
++        if (Dasso )  *Dasso  = zeros(2,6);
++        if (Dpoint)  *Dpoint = zeros(2,3);
++        if (verboseCheirality_)
++          std::cout << e.what() << ": Landmark "<< DefaultKeyFormatter(this->key3()) <<
++              " with anchors (" << DefaultKeyFormatter(this->key1()) << "," << DefaultKeyFormatter(this->key2()) <<
++              " moved behind camera " << DefaultKeyFormatter(this->key2()) << std::endl;
++        if (throwCheirality_)
++          throw e;
++      }
++      return ones(2) * 2.0 * K_->fx();
++    }
++
++    /** return the measurement */
++    const Point2& measured() const {
++      return measured_;
++    }
++
++    /** return the calibration object */
++    inline const boost::shared_ptr<CALIBRATION> calibration() const {
++      return K_;
++    }
++
++    /** return verbosity */
++    inline bool verboseCheirality() const { return verboseCheirality_; }
++
++    /** return flag for throwing cheirality exceptions */
++    inline bool throwCheirality() const { return throwCheirality_; }
++
++  private:
++
++    /// Serialization function
++    friend class boost::serialization::access;
++    template<class ARCHIVE>
++    void serialize(ARCHIVE & ar, const unsigned int version) {
++      ar & BOOST_SERIALIZATION_BASE_OBJECT_NVP(Base);
++      ar & BOOST_SERIALIZATION_NVP(measured_);
++      ar & BOOST_SERIALIZATION_NVP(K_);
++      ar & BOOST_SERIALIZATION_NVP(body_P_sensor_);
++      ar & BOOST_SERIALIZATION_NVP(throwCheirality_);
++      ar & BOOST_SERIALIZATION_NVP(verboseCheirality_);
++    }
++  };
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++  /** Non-linear factor for a 2D measurement to a Parallax Angle Point.
++   *
++   * Non-linear factor for a constraint derived from a 2D measurement bewteen a robot pose and a
++   * landmark parametrized as Parallax Angle Point (a.k.a ParallaxAnglePoint3). The measurement
++   * comes from from a pose different from the anchors (known as 'other'), and the calibration
++   * is known here.
++   *
++   * @addtogroup SLAM
++   */
++  template<class POSE, class LANDMARK, class CALIBRATION = Cal3_S2>
++  class ParallaxAngleProjectionFactor: public NoiseModelFactor4<POSE, POSE, POSE, LANDMARK> {
++  protected:
++
++    // Keep a copy of measurement and calibration for I/O
++    Point2 measured_;                    ///< 2D measurement
++    boost::shared_ptr<CALIBRATION> K_;  ///< shared pointer to calibration object
++    boost::optional<POSE> body_P_sensor_; ///< The pose of the sensor in the body frame
++
++    // verbosity handling for Cheirality Exceptions
++    bool throwCheirality_; ///< If true, rethrows Cheirality exceptions (default: false)
++    bool verboseCheirality_; ///< If true, prints text for Cheirality exceptions (default: false)
++
++  public:
++
++    /// shorthand for base class type
++    typedef NoiseModelFactor4<POSE, POSE, POSE, LANDMARK> Base;
++
++    /// shorthand for this class
++    typedef ParallaxAngleProjectionFactor<POSE, LANDMARK, CALIBRATION> This;
++
++    /// shorthand for a smart pointer to a factor
++    typedef boost::shared_ptr<This> shared_ptr;
++
++    /// Default constructor
++    ParallaxAngleProjectionFactor() : throwCheirality_(false), verboseCheirality_(false) {}
++
++    /**
++     * Constructor
++     * TODO: Mark argument order standard (keys, measurement, parameters)
++     * @param measured is the 2 dimensional location of point in image (the measurement)
++     * @param model is the standard deviation
++     * @param mainAnchorKey is the index of the main anchor
++     * @param associatedAnchorKey is the index of the associated anchor
++     * @param otherAnchorKey is the index of the other anchor
++     * @param pointKey is the index of the landmark
++     * @param K shared pointer to the constant calibration
++     * @param body_P_sensor is the transform from body to sensor frame (default identity)
++     */
++    ParallaxAngleProjectionFactor(const Point2& measured, const SharedNoiseModel& model,
++        Key mainAnchorKey, Key associatedAnchorKey, Key otherAnchorKey, Key pointKey,
++        const boost::shared_ptr<CALIBRATION>& K,
++        boost::optional<POSE> body_P_sensor = boost::none) :
++          Base(model, mainAnchorKey, associatedAnchorKey, otherAnchorKey, pointKey),
++          measured_(measured), K_(K), body_P_sensor_(body_P_sensor),
++          throwCheirality_(false), verboseCheirality_(false) {}
++
++    /**
++     * Constructor with exception-handling flags
++     * TODO: Mark argument order standard (keys, measurement, parameters)
++     * @param measured is the 2 dimensional location of point in image (the measurement)
++     * @param model is the standard deviation
++     * @param mainAnchorKey is the index of the main anchor
++     * @param associatedAnchorKey is the index of the associated anchor
++     * @param otherAnchorKey is the index of the other anchor
++     * @param pointKey is the index of the landmark
++     * @param K shared pointer to the constant calibration
++     * @param throwCheirality determines whether Cheirality exceptions are rethrown
++     * @param verboseCheirality determines whether exceptions are printed for Cheirality
++     * @param body_P_sensor is the transform from body to sensor frame  (default identity)
++     */
++    ParallaxAngleProjectionFactor(const Point2& measured, const SharedNoiseModel& model,
++        Key mainAnchorKey, Key associatedAnchorKey, Key otherAnchorKey, Key pointKey,
++        const boost::shared_ptr<CALIBRATION>& K,
++        bool throwCheirality, bool verboseCheirality,
++        boost::optional<POSE> body_P_sensor = boost::none) :
++          Base(model, mainAnchorKey, associatedAnchorKey, otherAnchorKey, pointKey),
++          measured_(measured), K_(K), body_P_sensor_(body_P_sensor),
++          throwCheirality_(throwCheirality), verboseCheirality_(verboseCheirality) {}
++
++    /** Virtual destructor */
++    virtual ~ParallaxAngleProjectionFactor() {}
++
++    /// @return a deep copy of this factor
++    virtual gtsam::NonlinearFactor::shared_ptr clone() const {
++      return boost::static_pointer_cast<gtsam::NonlinearFactor>(
++          gtsam::NonlinearFactor::shared_ptr(new This(*this))); }
++
++    /**
++     * print
++     * @param s optional string naming the factor
++     * @param keyFormatter optional formatter useful for printing Symbols
++     */
++    void print(const std::string& s = "", const KeyFormatter& keyFormatter = DefaultKeyFormatter) const {
++      std::cout << s << "ParallaxAngleProjectionFactor, z = ";
++      measured_.print();
++      if(this->body_P_sensor_)
++        this->body_P_sensor_->print("  sensor pose in body frame: ");
++      Base::print("", keyFormatter);
++    }
++
++    /// equals
++    virtual bool equals(const NonlinearFactor& p, double tol = 1e-9) const {
++      const This *e = dynamic_cast<const This*>(&p);
++      return e
++          && Base::equals(p, tol)
++          && this->measured_.equals(e->measured_, tol)
++          && this->K_->equals(*e->K_, tol)
++          && ((!body_P_sensor_ && !e->body_P_sensor_) || (body_P_sensor_ && e->body_P_sensor_ && body_P_sensor_->equals(*e->body_P_sensor_)));
++    }
++
++    /// Evaluate error h(x)-z and optionally derivatives
++    Vector evaluateError(const Pose3& mainPose, const Pose3& assoPose, const Pose3& othePose, const ParallaxAnglePoint3& point,
++        boost::optional<Matrix&> Dmain  = boost::none,
++        boost::optional<Matrix&> Dasso  = boost::none,
++        boost::optional<Matrix&> Dothe  = boost::none,
++        boost::optional<Matrix&> Dpoint = boost::none) const {
++      try {
++        // Test if we need jacobians
++        if (!Dmain && !Dasso && !Dothe && !Dpoint)
++        {
++          if(body_P_sensor_)
++          {
++            // Get the main and associated anchors, and the camera pose
++            Point3 mainAnchor( mainPose.compose(*body_P_sensor_).translation() );
++            Point3 assoAnchor( assoPose.compose(*body_P_sensor_).translation() );
++            Pose3  camPose   ( othePose.compose(*body_P_sensor_)               );
++
++            // Get the direction to the point from observation point
++            Point3 obs_T_point(point.directionVectorFromOtheAnchor( mainAnchor, assoAnchor, camPose.translation()));
++
++            // Put a camera at the origin
++            PinholeCamera<CALIBRATION> camera(Pose3(camPose.rotation(), Point3()), *K_);
++
++            // Project direction vector to camera and calculate the error
++            Point2 reprojectionError(camera.project(obs_T_point) - measured_);
++            return reprojectionError.vector();
++          }
++          else
++          {
++            // Get the direction to the point from observation point
++            Point3 obs_T_point(point.directionVectorFromOtheAnchor( mainPose.translation(), assoPose.translation(), othePose.translation()));
++
++            // Put a camera at the origin
++            PinholeCamera<CALIBRATION> camera(Pose3(othePose.rotation(), Point3()), *K_);
++
++            // Project direction vector to camera and calculate the error
++            Point2 reprojectionError(camera.project(obs_T_point) - measured_);
++            return reprojectionError.vector();
++          }
++        }
++
++        // Same computation but with jacobians
++        if(body_P_sensor_)
++        {
++            // Get the main and associated anchors, and the camera pose
++            gtsam::Matrix MAINANCHORPOSE_mainpose, ASSOANCHORPOSE_assopose, CAMPOSE_othepose;
++            Point3 mainAnchor( mainPose.compose(*body_P_sensor_, MAINANCHORPOSE_mainpose).translation() );
++            Point3 assoAnchor( assoPose.compose(*body_P_sensor_, ASSOANCHORPOSE_assopose).translation() );
++            Pose3  camPose   ( othePose.compose(*body_P_sensor_, CAMPOSE_othepose       )               );
++
++            // Get the direction to the point from observation point
++            Matrix OBS_T_POINT_point, OBS_T_POINT_mainanchorpos, OBS_T_POINT_assoanchorpos, OBS_T_POINT_campos;
++            Point3 obs_T_point(point.directionVectorFromOtheAnchor( mainAnchor, assoAnchor, camPose.translation(),
++              OBS_T_POINT_point,
++              OBS_T_POINT_mainanchorpos,
++              OBS_T_POINT_assoanchorpos,
++              OBS_T_POINT_campos));
++
++            // Put a camera at the origin
++            PinholeCamera<CALIBRATION> camera(Pose3(camPose.rotation(), Point3()), *K_);
++
++            // Project direction vector to camera and calculate the error
++            Matrix PROJ_camori, PROJ_obs_t_point;
++            Point2 reprojectionError(camera.project(obs_T_point, PROJ_camori, PROJ_obs_t_point) - measured_);
++
++            // Chain of jacobians
++          if(Dmain)
++          {
++            Matrix PROJ_mainanchorpose = zeros(2,6);
++            PROJ_mainanchorpose.block(0,3,2,3) << (PROJ_obs_t_point * OBS_T_POINT_mainanchorpos);
++            Dmain->resize(2,6);
++            *Dmain << (PROJ_mainanchorpose * MAINANCHORPOSE_mainpose);
++          }
++          if(Dasso)
++          {
++            Matrix PROJ_assoanchorpose = zeros(2,6);
++            PROJ_assoanchorpose.block(0,3,2,3) << (PROJ_obs_t_point * OBS_T_POINT_assoanchorpos);
++            Dasso->resize(2,6);
++            *Dasso << (PROJ_assoanchorpose * ASSOANCHORPOSE_assopose);
++          }
++          if(Dothe)
++          {
++            Matrix PROJ_campose(2,6);
++            PROJ_campose << PROJ_camori.block(0,0,2,3), (PROJ_obs_t_point * OBS_T_POINT_campos);
++            Dothe->resize(2,6);
++            *Dothe << (PROJ_campose * CAMPOSE_othepose);
++          }
++          if(Dpoint)
++          {
++            Dpoint->resize(2,3);
++            *Dpoint << (PROJ_obs_t_point * OBS_T_POINT_point);
++          }
++
++          return reprojectionError.vector();
++
++        }
++        else
++        {
++            // Get the direction to the point from observation point
++            Matrix OBS_T_POINT_point, OBS_T_POINT_mainanchorpos, OBS_T_POINT_assoanchorpos, OBS_T_POINT_campos;
++            Point3 obs_T_point(point.directionVectorFromOtheAnchor(
++              mainPose.translation(), assoPose.translation(), othePose.translation(),
++              OBS_T_POINT_point,
++              OBS_T_POINT_mainanchorpos,
++              OBS_T_POINT_assoanchorpos,
++              OBS_T_POINT_campos));
++
++            // Put a camera at the origin
++            PinholeCamera<CALIBRATION> camera(Pose3(othePose.rotation(), Point3()), *K_);
++
++            // Project direction vector to camera and calculate the error
++            Matrix PROJ_camori, PROJ_obs_t_point;
++            Point2 reprojectionError(camera.project(obs_T_point, PROJ_camori, PROJ_obs_t_point) - measured_);
++
++            // Chain of jacobians
++          if(Dmain)
++          {
++            Dmain->resize(2,6);
++            *Dmain << zeros(2,3), (PROJ_obs_t_point * OBS_T_POINT_mainanchorpos);
++          }
++          if(Dasso)
++          {
++            Dasso->resize(2,6);
++            *Dasso << zeros(2,3), (PROJ_obs_t_point * OBS_T_POINT_assoanchorpos);
++          }
++          if(Dothe)
++          {
++            Dothe->resize(2,6);
++            *Dothe << PROJ_camori.block(0,0,2,3), (PROJ_obs_t_point * OBS_T_POINT_campos);
++          }
++          if(Dpoint)
++          {
++            Dpoint->resize(2,3);
++            *Dpoint << (PROJ_obs_t_point * OBS_T_POINT_point);
++          }
++
++          return reprojectionError.vector();
++
++      }
++    }catch( CheiralityException& e) {
++        if (Dmain )  *Dmain  = zeros(2,6);
++        if (Dasso )  *Dasso  = zeros(2,6);
++        if (Dothe )  *Dothe  = zeros(2,6);
++        if (Dpoint)  *Dpoint = zeros(2,3);
++        if (verboseCheirality_)
++          std::cout << e.what() << ": Landmark "<< DefaultKeyFormatter(this->key4()) <<
++              " with anchors (" << DefaultKeyFormatter(this->key1()) << "," << DefaultKeyFormatter(this->key2()) <<
++              " moved behind camera " << DefaultKeyFormatter(this->key3()) << std::endl;
++        if (throwCheirality_)
++          throw e;
++      }
++      return ones(2) * 2.0 * K_->fx();
++    }
++
++    /** return the measurement */
++    const Point2& measured() const {
++      return measured_;
++    }
++
++    /** return the calibration object */
++    inline const boost::shared_ptr<CALIBRATION> calibration() const {
++      return K_;
++    }
++
++    /** return verbosity */
++    inline bool verboseCheirality() const { return verboseCheirality_; }
++
++    /** return flag for throwing cheirality exceptions */
++    inline bool throwCheirality() const { return throwCheirality_; }
++
++  private:
++
++    /// Serialization function
++    friend class boost::serialization::access;
++    template<class ARCHIVE>
++    void serialize(ARCHIVE & ar, const unsigned int version) {
++      ar & BOOST_SERIALIZATION_BASE_OBJECT_NVP(Base);
++      ar & BOOST_SERIALIZATION_NVP(measured_);
++      ar & BOOST_SERIALIZATION_NVP(K_);
++      ar & BOOST_SERIALIZATION_NVP(body_P_sensor_);
++      ar & BOOST_SERIALIZATION_NVP(throwCheirality_);
++      ar & BOOST_SERIALIZATION_NVP(verboseCheirality_);
++    }
++  };
++
++} // \ namespace gtsam
+--- gtsam.h	2014-06-01 21:22:39.000000000 +0200
++++ gtsam.h	2015-05-05 22:25:48.977930910 +0200
+@@ -837,6 +837,66 @@
+   void serialize() const;
+ };
+
++#include <gtsam/geometry/ParallaxAnglePoint2.h>
++virtual class ParallaxAnglePoint2 : gtsam::Value {
++  // Standard Constructors
++  ParallaxAnglePoint2();
++  ParallaxAnglePoint2(double yaw, double pitch);
++  ParallaxAnglePoint2(Vector v);
++
++  // Testable
++  void print(string s) const;
++  bool equals(const gtsam::ParallaxAnglePoint2& pose, double tol) const;
++
++  // Manifold
++  static size_t Dim();
++  size_t dim() const;
++  gtsam::ParallaxAnglePoint2 retract(Vector v) const;
++  Vector localCoordinates(const gtsam::ParallaxAnglePoint2& p) const;
++
++  // Standard Interface
++  double yaw() const;
++  double pitch() const;
++  Vector vector() const;
++
++  Vector directionVector() const;
++
++  // enabling serialization functionality
++  void serialize() const;
++};
++
++#include <gtsam/geometry/ParallaxAnglePoint3.h>
++virtual class ParallaxAnglePoint3 : gtsam::Value {
++  // Standard Constructors
++  ParallaxAnglePoint3();
++  ParallaxAnglePoint3(double yaw, double pitch, double parallax);
++  ParallaxAnglePoint3(Vector v);
++
++  // Testable
++  void print(string s) const;
++  bool equals(const gtsam::ParallaxAnglePoint3& pose, double tol) const;
++
++  // Manifold
++  static size_t Dim();
++  size_t dim() const;
++  gtsam::ParallaxAnglePoint3 retract(Vector v) const;
++  Vector localCoordinates(const gtsam::ParallaxAnglePoint3& p) const;
++
++  // Standard Interface
++  double yaw() const;
++  double pitch() const;
++  double parallax() const;
++  Vector vector() const;
++
++  Vector directionVectorFromMainAnchor() const;
++  Vector directionVectorFromAssoAnchor(const gtsam::Point3& mainAnchor, const gtsam::Point3& assoAnchor) const;
++  Vector directionVectorFromOtheAnchor(const gtsam::Point3& mainAnchor, const gtsam::Point3& assoAnchor, const gtsam::Point3& otheAnchor) const;
++
++  // enabling serialization functionality
++  void serialize() const;
++};
++
++
+ //*************************************************************************
+ // Symbolic
+ //*************************************************************************
+@@ -2180,6 +2240,81 @@
+ typedef gtsam::GenericProjectionFactor<gtsam::Pose3, gtsam::Point3, gtsam::Cal3_S2> GenericProjectionFactorCal3_S2;
+ typedef gtsam::GenericProjectionFactor<gtsam::Pose3, gtsam::Point3, gtsam::Cal3DS2> GenericProjectionFactorCal3DS2;
+
++#include <gtsam/slam/ParallaxAngleProjectionFactor.h>
++template<POSE, LANDMARK, CALIBRATION>
++virtual class ParallaxAngleSingleAnchorProjectionFactor : gtsam::NoiseModelFactor {
++  ParallaxAngleSingleAnchorProjectionFactor(const gtsam::Point2& measured, const gtsam::noiseModel::Base* noiseModel,
++    size_t mainAnchorKey, size_t pointKey, const CALIBRATION* k);
++  ParallaxAngleSingleAnchorProjectionFactor(const gtsam::Point2& measured, const gtsam::noiseModel::Base* noiseModel,
++    size_t mainAnchorKey, size_t pointKey, const CALIBRATION* k, const POSE& body_P_sensor);
++
++  ParallaxAngleSingleAnchorProjectionFactor(const gtsam::Point2& measured, const gtsam::noiseModel::Base* noiseModel,
++      size_t mainAnchorKey, size_t pointKey, const CALIBRATION* k, bool throwCheirality, bool verboseCheirality);
++  ParallaxAngleSingleAnchorProjectionFactor(const gtsam::Point2& measured, const gtsam::noiseModel::Base* noiseModel,
++      size_t mainAnchorKey, size_t pointKey, const CALIBRATION* k, bool throwCheirality, bool verboseCheirality,
++      const POSE& body_P_sensor);
++
++  gtsam::Point2 measured() const;
++  CALIBRATION* calibration() const;
++  bool verboseCheirality() const;
++  bool throwCheirality() const;
++
++  // enabling serialization functionality
++  void serialize() const;
++};
++typedef gtsam::ParallaxAngleSingleAnchorProjectionFactor<gtsam::Pose3, gtsam::ParallaxAnglePoint2, gtsam::Cal3_S2> PASingleAnchorProjectionFactorCal3_S2;
++typedef gtsam::ParallaxAngleSingleAnchorProjectionFactor<gtsam::Pose3, gtsam::ParallaxAnglePoint2, gtsam::Cal3DS2> PASingleAnchorProjectionFactorCal3DS2;
++
++
++template<POSE, LANDMARK, CALIBRATION>
++virtual class ParallaxAngleOnlyAnchorsProjectionFactor : gtsam::NoiseModelFactor {
++  ParallaxAngleOnlyAnchorsProjectionFactor(const gtsam::Point2& measured, const gtsam::noiseModel::Base* noiseModel,
++    size_t mainAnchorKey, size_t associatedAnchorKey, size_t pointKey, const CALIBRATION* k);
++  ParallaxAngleOnlyAnchorsProjectionFactor(const gtsam::Point2& measured, const gtsam::noiseModel::Base* noiseModel,
++    size_t mainAnchorKey, size_t associatedAnchorKey, size_t pointKey, const CALIBRATION* k, const POSE& body_P_sensor);
++
++  ParallaxAngleOnlyAnchorsProjectionFactor(const gtsam::Point2& measured, const gtsam::noiseModel::Base* noiseModel,
++      size_t mainAnchorKey, size_t associatedAnchorKey, size_t pointKey, const CALIBRATION* k, bool throwCheirality, bool verboseCheirality);
++  ParallaxAngleOnlyAnchorsProjectionFactor(const gtsam::Point2& measured, const gtsam::noiseModel::Base* noiseModel,
++      size_t mainAnchorKey, size_t associatedAnchorKey, size_t pointKey, const CALIBRATION* k, bool throwCheirality, bool verboseCheirality,
++      const POSE& body_P_sensor);
++
++  gtsam::Point2 measured() const;
++  CALIBRATION* calibration() const;
++  bool verboseCheirality() const;
++  bool throwCheirality() const;
++
++  // enabling serialization functionality
++  void serialize() const;
++};
++typedef gtsam::ParallaxAngleOnlyAnchorsProjectionFactor<gtsam::Pose3, gtsam::ParallaxAnglePoint3, gtsam::Cal3_S2> PAOnlyAnchorsProjectionFactorCal3_S2;
++typedef gtsam::ParallaxAngleOnlyAnchorsProjectionFactor<gtsam::Pose3, gtsam::ParallaxAnglePoint3, gtsam::Cal3DS2> PAOnlyAnchorsProjectionFactorCal3DS2;
++
++
++template<POSE, LANDMARK, CALIBRATION>
++virtual class ParallaxAngleProjectionFactor : gtsam::NoiseModelFactor {
++  ParallaxAngleProjectionFactor(const gtsam::Point2& measured, const gtsam::noiseModel::Base* noiseModel,
++    size_t mainAnchorKey, size_t associatedAnchorKey, size_t otherAnchorKey, size_t pointKey, const CALIBRATION* k);
++  ParallaxAngleProjectionFactor(const gtsam::Point2& measured, const gtsam::noiseModel::Base* noiseModel,
++    size_t mainAnchorKey, size_t associatedAnchorKey, size_t otherAnchorKey, size_t pointKey, const CALIBRATION* k, const POSE& body_P_sensor);
++
++  ParallaxAngleProjectionFactor(const gtsam::Point2& measured, const gtsam::noiseModel::Base* noiseModel,
++      size_t mainAnchorKey, size_t associatedAnchorKey, size_t otherAnchorKey, size_t pointKey, const CALIBRATION* k, bool throwCheirality, bool verboseCheirality);
++  ParallaxAngleProjectionFactor(const gtsam::Point2& measured, const gtsam::noiseModel::Base* noiseModel,
++      size_t mainAnchorKey, size_t associatedAnchorKey, size_t otherAnchorKey, size_t pointKey, const CALIBRATION* k, bool throwCheirality, bool verboseCheirality,
++      const POSE& body_P_sensor);
++
++  gtsam::Point2 measured() const;
++  CALIBRATION* calibration() const;
++  bool verboseCheirality() const;
++  bool throwCheirality() const;
++
++  // enabling serialization functionality
++  void serialize() const;
++};
++typedef gtsam::ParallaxAngleProjectionFactor<gtsam::Pose3, gtsam::ParallaxAnglePoint3, gtsam::Cal3_S2> PAProjectionFactorCal3_S2;
++typedef gtsam::ParallaxAngleProjectionFactor<gtsam::Pose3, gtsam::ParallaxAnglePoint3, gtsam::Cal3DS2> PAProjectionFactorCal3DS2;
++
+
+ #include <gtsam/slam/GeneralSFMFactor.h>
+ template<CAMERA, LANDMARK>

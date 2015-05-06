@@ -5,6 +5,7 @@
 DISTNAME=               gtsam-3.1.0
 EXTRACT_SUFX=           .tgz
 VERSION=                3.1.0
+PKGREVISION=			1
 CATEGORIES=             wip
 MASTER_SITES=           https://research.cc.gatech.edu/borg/sites/edu.borg/files/downloads/
 
@@ -23,7 +24,7 @@ CMAKE_ARGS+= \
 	'-DGTSAM_BUILD_EXAMPLES_ALWAYS=OFF'
 
 PKG_SUPPORTED_OPTIONS+=		toolbox
-PKG_OPTION_DESCR.toolbox=	Build and install the matlab toolbox
+PKG_OPTION_DESCR.toolbox=	Build and install the matlab toolbox (Needs MATLAB_ROOT path set in robotpkg.conf)
 define PKG_OPTION_SET.toolbox
   CMAKE_ARGS+=			'-DGTSAM_INSTALL_MATLAB_TOOLBOX=ON'
   CMAKE_ARGS+=			'-Dmex_command=${MATLAB_ROOT}/bin/mex'
