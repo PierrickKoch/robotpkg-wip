@@ -1,0 +1,161 @@
+Add error function from SingleAnchorProjectionFactor to ParallaxAnglePoint3
+--- gtsam.h	2015-05-07 14:21:16.768171500 +0200
++++ gtsam.h	2015-05-07 14:20:30.876077548 +0200
+@@ -2262,8 +2262,10 @@
+   // enabling serialization functionality
+   void serialize() const;
+ };
+-typedef gtsam::ParallaxAngleSingleAnchorProjectionFactor<gtsam::Pose3, gtsam::ParallaxAnglePoint2, gtsam::Cal3_S2> PASingleAnchorProjectionFactorCal3_S2;
+-typedef gtsam::ParallaxAngleSingleAnchorProjectionFactor<gtsam::Pose3, gtsam::ParallaxAnglePoint2, gtsam::Cal3DS2> PASingleAnchorProjectionFactorCal3DS2;
++typedef gtsam::ParallaxAngleSingleAnchorProjectionFactor<gtsam::Pose3, gtsam::ParallaxAnglePoint2, gtsam::Cal3_S2> PAPoint2SingleAnchorProjectionFactorCal3_S2;
++typedef gtsam::ParallaxAngleSingleAnchorProjectionFactor<gtsam::Pose3, gtsam::ParallaxAnglePoint2, gtsam::Cal3DS2> PAPoint2SingleAnchorProjectionFactorCal3DS2;
++typedef gtsam::ParallaxAngleSingleAnchorProjectionFactor<gtsam::Pose3, gtsam::ParallaxAnglePoint3, gtsam::Cal3_S2> PAPoint3SingleAnchorProjectionFactorCal3_S2;
++typedef gtsam::ParallaxAngleSingleAnchorProjectionFactor<gtsam::Pose3, gtsam::ParallaxAnglePoint3, gtsam::Cal3DS2> PAPoint3SingleAnchorProjectionFactorCal3DS2;
+
+
+ template<POSE, LANDMARK, CALIBRATION>
+@@ -2289,8 +2289,8 @@
+   // enabling serialization functionality
+   void serialize() const;
+ };
+-typedef gtsam::ParallaxAngleOnlyAnchorsProjectionFactor<gtsam::Pose3, gtsam::ParallaxAnglePoint3, gtsam::Cal3_S2> PAOnlyAnchorsProjectionFactorCal3_S2;
+-typedef gtsam::ParallaxAngleOnlyAnchorsProjectionFactor<gtsam::Pose3, gtsam::ParallaxAnglePoint3, gtsam::Cal3DS2> PAOnlyAnchorsProjectionFactorCal3DS2;
++typedef gtsam::ParallaxAngleOnlyAnchorsProjectionFactor<gtsam::Pose3, gtsam::ParallaxAnglePoint3, gtsam::Cal3_S2> PAPoint3OnlyAnchorsProjectionFactorCal3_S2;
++typedef gtsam::ParallaxAngleOnlyAnchorsProjectionFactor<gtsam::Pose3, gtsam::ParallaxAnglePoint3, gtsam::Cal3DS2> PAPoint3OnlyAnchorsProjectionFactorCal3DS2;
+
+
+ template<POSE, LANDMARK, CALIBRATION>
+@@ -2314,8 +2314,8 @@
+   // enabling serialization functionality
+   void serialize() const;
+ };
+-typedef gtsam::ParallaxAngleProjectionFactor<gtsam::Pose3, gtsam::ParallaxAnglePoint3, gtsam::Cal3_S2> PAProjectionFactorCal3_S2;
+-typedef gtsam::ParallaxAngleProjectionFactor<gtsam::Pose3, gtsam::ParallaxAnglePoint3, gtsam::Cal3DS2> PAProjectionFactorCal3DS2;
++typedef gtsam::ParallaxAngleProjectionFactor<gtsam::Pose3, gtsam::ParallaxAnglePoint3, gtsam::Cal3_S2> PAPoint3ProjectionFactorCal3_S2;
++typedef gtsam::ParallaxAngleProjectionFactor<gtsam::Pose3, gtsam::ParallaxAnglePoint3, gtsam::Cal3DS2> PAPoint3ProjectionFactorCal3DS2;
+
+
+ #include <gtsam/slam/GeneralSFMFactor.h>
+--- gtsam/slam/ParallaxAngleProjectionFactor.h	2015-05-07 14:21:16.768171500 +0200
++++ gtsam/slam/ParallaxAngleProjectionFactor.h	2015-05-07 14:11:25.325210470 +0200
+@@ -244,6 +244,120 @@
+       return ones(2) * 2.0 * K_->fx();
+     }
+
++        /// Evaluate error h(x)-z and optionally derivatives
++    Vector evaluateError(const Pose3& mainPose, const ParallaxAnglePoint3& point,
++        boost::optional<Matrix&> Dmain  = boost::none,
++        boost::optional<Matrix&> Dpoint = boost::none) const {
++      try {
++        // Test if we need jacobians
++        if (!Dmain && !Dpoint)
++        {
++          if(body_P_sensor_)
++          {
++            // Get the main and associated anchors, and the camera pose
++            Pose3 mainAnchorPose ( mainPose.compose(*body_P_sensor_) );
++
++            // Get the direction to the point from observation point
++            Point3 obs_T_point( point.directionVectorFromMainAnchor() );
++
++            // Put a camera at the origin
++            PinholeCamera<CALIBRATION> camera(Pose3(mainAnchorPose.rotation(), Point3()), *K_);
++
++            // Project direction vector to camera and calculate the error
++            Point2 reprojectionError(camera.project(obs_T_point) - measured_);
++            return reprojectionError.vector();
++          }
++          else
++          {
++            // Get the direction to the point from observation point
++            Point3 obs_T_point( point.directionVectorFromMainAnchor() );
++
++            // Put a camera at the origin
++            PinholeCamera<CALIBRATION> camera(Pose3(mainPose.rotation(), Point3()), *K_);
++
++            // Project direction vector to camera and calculate the error
++            Point2 reprojectionError(camera.project(obs_T_point) - measured_);
++            return reprojectionError.vector();
++          }
++        }
++
++        // Same computation but with jacobians
++        if(body_P_sensor_)
++        {
++            // Get the main and associated anchors, and the camera pose
++            gtsam::Matrix MAINANCHORPOSE_mainpose;
++            Pose3 mainAnchorPose ( mainPose.compose(*body_P_sensor_, MAINANCHORPOSE_mainpose) );
++
++            // Get the direction to the point from observation point
++            Matrix OBS_T_POINT_point;
++            Point3 obs_T_point(point.directionVectorFromMainAnchor( OBS_T_POINT_point ));
++
++            // Put a camera at the origin
++            PinholeCamera<CALIBRATION> camera(Pose3(mainAnchorPose.rotation(), Point3()), *K_);
++
++            // Project direction vector to camera and calculate the error
++            Matrix PROJ_mainanchorori, PROJ_obs_t_point;
++            Point2 reprojectionError(camera.project(obs_T_point, PROJ_mainanchorori, PROJ_obs_t_point) - measured_);
++
++            // Chain of jacobians
++          if(Dmain)
++          {
++            Matrix PROJ_mainanchorpose(2,6);
++            PROJ_mainanchorpose << PROJ_mainanchorori.block(0,0,2,3), zeros(2,3);
++            Dmain->resize(2,6);
++            *Dmain << (PROJ_mainanchorpose * MAINANCHORPOSE_mainpose);
++          }
++          if(Dpoint)
++          {
++            Dpoint->resize(2,3);
++            *Dpoint << (PROJ_obs_t_point * OBS_T_POINT_point);
++          }
++
++          return reprojectionError.vector();
++
++        }
++        else
++        {
++            // Get the direction to the point from observation point
++            Matrix OBS_T_POINT_point;
++            Point3 obs_T_point(point.directionVectorFromMainAnchor( OBS_T_POINT_point ));
++
++            // Put a camera at the origin
++            PinholeCamera<CALIBRATION> camera(Pose3(mainPose.rotation(), Point3()), *K_);
++
++            // Project direction vector to camera and calculate the error
++            Matrix PROJ_mainori, PROJ_obs_t_point;
++            Point2 reprojectionError(camera.project(obs_T_point, PROJ_mainori, PROJ_obs_t_point) - measured_);
++
++            // Chain of jacobians
++          if(Dmain)
++          {
++            Dmain->resize(2,6);
++            *Dmain << PROJ_mainori.block(0,0,2,3), zeros(2,3);
++          }
++          if(Dpoint)
++          {
++            Dpoint->resize(2,3);
++            *Dpoint << (PROJ_obs_t_point * OBS_T_POINT_point);
++          }
++
++          return reprojectionError.vector();
++        }
++      } catch( CheiralityException& e)
++      {
++        if (Dmain )  *Dmain  = zeros(2,6);
++        if (Dpoint)  *Dpoint = zeros(2,3);
++        if (verboseCheirality_)
++          std::cout << e.what() << ": Landmark "<< DefaultKeyFormatter(this->key2()) <<
++              " with single anchor (" << DefaultKeyFormatter(this->key1()) << ")" <<
++              " moved behind camera " << std::endl;
++        if (throwCheirality_)
++          throw e;
++      }
++      return ones(2) * 2.0 * K_->fx();
++    }
++
++
+     /** return the measurement */
+     const Point2& measured() const {
+       return measured_;

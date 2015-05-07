@@ -5,7 +5,7 @@
 DISTNAME=               gtsam-3.1.0
 EXTRACT_SUFX=           .tgz
 VERSION=                3.1.0
-PKGREVISION=			1
+PKGREVISION=			2
 CATEGORIES=             wip
 MASTER_SITES=           https://research.cc.gatech.edu/borg/sites/edu.borg/files/downloads/
 
