@@ -1,0 +1,195 @@
+Add static constructors to Parallax Angle Points
+
+--- gtsam/geometry/ParallaxAnglePoint2.h	2015-05-11 14:28:07.113933768 +0200
++++ gtsam/geometry/ParallaxAnglePoint2.h	2015-05-08 19:08:41.697786177 +0200
+@@ -22,6 +22,10 @@
+ #include <gtsam/base/Matrix.h>
+ #include <gtsam/base/DerivedValue.h>
+ #include <gtsam/base/Lie.h>
++#include <gtsam/geometry/Point2.h>
++#include <gtsam/geometry/Point3.h>
++#include <gtsam/geometry/Pose3.h>
++#include <gtsam/geometry/PinholeCamera.h>
+
+ #include <boost/serialization/nvp.hpp>
+
+@@ -66,6 +70,39 @@
+       pitch_ = v(1);
+     }
+
++    /// Construct from camera and measurement
++    template<class PinholeCameraType>
++    static ParallaxAnglePoint2 FromCameraAndMeasurement(const PinholeCameraType &camera, const Point2 &measurement)
++    {
++      Point3 vecFromMain = camera.backproject(measurement, 1.0);
++      double yaw   = atan2(vecFromMain.y(),vecFromMain.x());
++      double pitch = atan2(vecFromMain.z(),Point2(vecFromMain.x(),vecFromMain.y()).norm());
++
++      return ParallaxAnglePoint2(yaw,pitch);
++    }
++
++    /// Construct from pose, body to sensor pose and camera calibration
++    template<class CalibrationType>
++    static ParallaxAnglePoint2 FromPoseMeasurementAndCalibration(const Pose3 &pose, const Point2 &measurement, const CalibrationType& K, boost::optional<Pose3> body_P_sensor = boost::none)
++    {
++      boost::shared_ptr<PinholeCamera<CalibrationType> > camera_ptr;
++
++      if(body_P_sensor)
++      {
++        camera_ptr = boost::make_shared<PinholeCamera<CalibrationType> >(pose.compose(*body_P_sensor), K);
++      }
++      else
++      {
++        camera_ptr = boost::make_shared<PinholeCamera<CalibrationType> >(pose, K);
++      }
++
++      Point3 vecFromMain = camera_ptr->backproject(measurement, 1.0);
++      double yaw   = atan2(vecFromMain.y(),vecFromMain.x());
++      double pitch = atan2(vecFromMain.z(),Point2(vecFromMain.x(),vecFromMain.y()).norm());
++
++      return ParallaxAnglePoint2(yaw,pitch);
++    }
++
+     /// @}
+     /// @name Testable
+     /// @{
+--- gtsam/geometry/ParallaxAnglePoint3.cpp	2015-05-11 14:28:07.113933768 +0200
++++ gtsam/geometry/ParallaxAnglePoint3.cpp	2015-05-08 18:40:09.733203490 +0200
+@@ -29,6 +29,22 @@
+
+ namespace gtsam {
+ /* ************************************************************************* */
++ParallaxAnglePoint3 ParallaxAnglePoint3::FromParallaxAnglePointAndAnchors(
++  const ParallaxAnglePoint3 &oldPoint,
++  const Point3 &oldMainAnchor, const Point3 &oldAssoAnchor,
++  const Point3 &newMainAnchor, const Point3 &newAssoAnchor)
++{
++  Vector3 vecFromNewMain(oldPoint.directionVectorFromOtheAnchor(oldMainAnchor, oldAssoAnchor, newMainAnchor));
++  Vector3 vecFromNewAsso(oldPoint.directionVectorFromOtheAnchor(oldMainAnchor, oldAssoAnchor, newAssoAnchor));
++
++  double yaw   = atan2(vecFromNewMain.y(),vecFromNewMain.x());
++  double pitch = atan2(vecFromNewMain.z(),Point2(vecFromNewMain.x(),vecFromNewMain.y()).norm());
++  double parallax = acos(vecFromNewMain.dot(vecFromNewAsso)/(vecFromNewMain.norm()*vecFromNewAsso.norm()));
++
++  return ParallaxAnglePoint3(yaw,pitch,parallax);
++}
++
++/* ************************************************************************* */
+ void ParallaxAnglePoint3::print(const string& s) const {
+   cout << s << *this << endl;
+ }
+--- gtsam/geometry/ParallaxAnglePoint3.h	2015-05-11 14:28:07.113933768 +0200
++++ gtsam/geometry/ParallaxAnglePoint3.h	2015-05-08 18:38:00.960126712 +0200
+@@ -24,6 +24,9 @@
+ #include <gtsam/base/Lie.h>
+
+ #include <gtsam/geometry/Point3.h>
++#include <gtsam/geometry/Point3.h>
++#include <gtsam/geometry/Pose3.h>
++#include <gtsam/geometry/PinholeCamera.h>
+
+ #include <boost/serialization/nvp.hpp>
+
+@@ -70,6 +73,57 @@
+       parallax_ = v(2);
+     }
+
++    /// Construct from main and associated cameras and respective measurements
++    template<class PinholeCameraType>
++    static ParallaxAnglePoint3 FromCamerasAndMeasurements(
++      const PinholeCameraType &mainCamera, const Point2 &measurementFromMain,
++      const PinholeCameraType &assoCamera, const Point2 &measurementFromAsso)
++    {
++      Point3 pointFromMain = mainCamera.backproject(measurementFromMain, 1.0);
++      Point3 pointFromAsso = assoCamera.backproject(measurementFromAsso, 1.0);
++
++      double yaw   = atan2(pointFromMain.y(),pointFromMain.x());
++      double pitch = atan2(pointFromMain.z(),Point2(pointFromMain.x(),pointFromMain.y()).norm());
++      double parallax = acos(pointFromMain.dot(pointFromAsso)/(pointFromMain.norm()*pointFromAsso.norm()));
++
++      return ParallaxAnglePoint3(yaw,pitch,parallax);
++    }
++
++    /// Construct from main and associated poses, together with respective measurements, camera calibration and body to sensor pose
++    template<class CalibrationType>
++    static ParallaxAnglePoint3 FromPosesMeasurementsAndCalibration(
++      const Pose3 &mainPose, const Point2 &measurementFromMain,
++      const Pose3 &assoPose, const Point2 &measurementFromAsso,
++      const CalibrationType& K, boost::optional<Pose3> body_P_sensor = boost::none)
++    {
++      boost::shared_ptr<PinholeCamera<CalibrationType> > mainCamera_ptr;
++      boost::shared_ptr<PinholeCamera<CalibrationType> > assoCamera_ptr;
++
++      if(body_P_sensor)
++      {
++        mainCamera_ptr = boost::make_shared<PinholeCamera<CalibrationType> >(mainPose.compose(*body_P_sensor), K);
++        assoCamera_ptr = boost::make_shared<PinholeCamera<CalibrationType> >(assoPose.compose(*body_P_sensor), K);
++      }
++      else
++      {
++        mainCamera_ptr = boost::make_shared<PinholeCamera<CalibrationType> >(mainPose, K);
++        assoCamera_ptr = boost::make_shared<PinholeCamera<CalibrationType> >(assoPose, K);
++      }
++
++      Point3 vecFromMain = mainCamera_ptr->backproject(measurementFromMain, 1.0);
++      Point3 vecFromAsso = assoCamera_ptr->backproject(measurementFromAsso, 1.0);
++
++      double yaw   = atan2(vecFromMain.y(),vecFromMain.x());
++      double pitch = atan2(vecFromMain.z(),Point2(vecFromMain.x(),vecFromMain.y()).norm());
++      double parallax = acos(vecFromMain.dot(vecFromAsso)/(vecFromMain.norm()*vecFromAsso.norm()));
++
++      return ParallaxAnglePoint3(yaw,pitch,parallax);
++    }
++
++    static ParallaxAnglePoint3 FromParallaxAnglePointAndAnchors(const ParallaxAnglePoint3 &oldPoint,
++                        const Point3 &oldMainAnchor, const Point3 &oldAssoAnchor,
++                        const Point3 &newMainAnchor, const Point3 &newAssoAnchor);
++
+     /// @}
+     /// @name Testable
+     /// @{
+--- gtsam.h	2015-05-11 14:28:07.137933964 +0200
++++ gtsam.h	2015-05-11 14:23:28.263660051 +0200
+@@ -844,6 +844,14 @@
+   ParallaxAnglePoint2(double yaw, double pitch);
+   ParallaxAnglePoint2(Vector v);
+
++  // Static Constructors
++  static gtsam::ParallaxAnglePoint2 FromCameraAndMeasurement(const gtsam::SimpleCamera &camera, const gtsam::Point2 &measurement);
++  static gtsam::ParallaxAnglePoint2 FromCameraAndMeasurement(const gtsam::PinholeCameraCal3DS2 &camera, const gtsam::Point2 &measurement);
++  static gtsam::ParallaxAnglePoint2 FromPoseMeasurementAndCalibration(const gtsam::Pose3 &pose, const gtsam::Point2 &measurement, const gtsam::Cal3_S2& K, const gtsam::Pose3& body_P_sensor);
++  static gtsam::ParallaxAnglePoint2 FromPoseMeasurementAndCalibration(const gtsam::Pose3 &pose, const gtsam::Point2 &measurement, const gtsam::Cal3_S2& K);
++  static gtsam::ParallaxAnglePoint2 FromPoseMeasurementAndCalibration(const gtsam::Pose3 &pose, const gtsam::Point2 &measurement, const gtsam::Cal3DS2& K);
++  static gtsam::ParallaxAnglePoint2 FromPoseMeasurementAndCalibration(const gtsam::Pose3 &pose, const gtsam::Point2 &measurement, const gtsam::Cal3DS2& K, const gtsam::Pose3& body_P_sensor);
++
+   // Testable
+   void print(string s) const;
+   bool equals(const gtsam::ParallaxAnglePoint2& pose, double tol) const;
+@@ -872,6 +880,27 @@
+   ParallaxAnglePoint3(double yaw, double pitch, double parallax);
+   ParallaxAnglePoint3(Vector v);
+
++  // Static Constructors
++  static gtsam::ParallaxAnglePoint3 FromCamerasAndMeasurements( const gtsam::SimpleCamera &mainCamera, const gtsam::Point2 &measurementFromMain,
++                                                                const gtsam::SimpleCamera &assoCamera, const gtsam::Point2 &measurementFromAsso);
++  static gtsam::ParallaxAnglePoint3 FromCamerasAndMeasurements( const gtsam::PinholeCameraCal3DS2 &mainCamera, const gtsam::Point2 &measurementFromMain,
++                                                                const gtsam::PinholeCameraCal3DS2 &assoCamera, const gtsam::Point2 &measurementFromAsso);
++  static gtsam::ParallaxAnglePoint3 FromPosesMeasurementsAndCalibration( const gtsam::Pose3 &mainPose, const gtsam::Point2 &measurementFromMain,
++                                                                         const gtsam::Pose3 &assoPose, const gtsam::Point2 &measurementFromAsso,
++                                                                         const gtsam::Cal3_S2& K);
++  static gtsam::ParallaxAnglePoint3 FromPosesMeasurementsAndCalibration( const gtsam::Pose3 &mainPose, const gtsam::Point2 &measurementFromMain,
++                                                                         const gtsam::Pose3 &assoPose, const gtsam::Point2 &measurementFromAsso,
++                                                                         const gtsam::Cal3_S2& K,      const gtsam::Pose3 &body_P_sensor);
++  static gtsam::ParallaxAnglePoint3 FromPosesMeasurementsAndCalibration( const gtsam::Pose3 &mainPose, const gtsam::Point2 &measurementFromMain,
++                                                                         const gtsam::Pose3 &assoPose, const gtsam::Point2 &measurementFromAsso,
++                                                                         const gtsam::Cal3DS2& K);
++  static gtsam::ParallaxAnglePoint3 FromPosesMeasurementsAndCalibration( const gtsam::Pose3 &mainPose, const gtsam::Point2 &measurementFromMain,
++                                                                         const gtsam::Pose3 &assoPose, const gtsam::Point2 &measurementFromAsso,
++                                                                         const gtsam::Cal3DS2& K,      const gtsam::Pose3 &body_P_sensor);
++  static gtsam::ParallaxAnglePoint3 FromParallaxAnglePointAndAnchors( const gtsam::ParallaxAnglePoint3 &oldPoint,
++                                                                      const gtsam::Point3 &oldMainAnchor, const gtsam::Point3 &oldAssoAnchor,
++                                                                      const gtsam::Point3 &newMainAnchor, const gtsam::Point3 &newAssoAnchor);
++
+   // Testable
+   void print(string s) const;
+   bool equals(const gtsam::ParallaxAnglePoint3& pose, double tol) const;
