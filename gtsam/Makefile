@@ -28,6 +28,8 @@ PKG_OPTION_DESCR.toolbox=	Build and install the matlab toolbox (Needs MATLAB_ROO
 define PKG_OPTION_SET.toolbox
   CMAKE_ARGS+=			'-DGTSAM_INSTALL_MATLAB_TOOLBOX=ON'
   CMAKE_ARGS+=			'-Dmex_command=${MATLAB_ROOT}/bin/mex'
+  DEPEND_ABI.gcc= gcc<=4.7
+  include ../../mk/sysdep/gcc.mk
 endef
 define PKG_OPTION_UNSET.toolbox
   CMAKE_ARGS+=			'-DGTSAM_INSTALL_MATLAB_TOOLBOX=OFF'
