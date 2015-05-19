@@ -5,6 +5,7 @@
 DISTNAME= 		jsbsim-${VERSION}
 PKGNAME=		${PKGTAG.python}-jsbsim-${VERSION}
 VERSION=		20150424
+PKGREVISION= 	1
 CATEGORIES=		simulation
 
 FETCH_METHOD= 		cvs

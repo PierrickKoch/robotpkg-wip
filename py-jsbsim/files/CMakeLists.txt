@@ -14,5 +14,6 @@ cython_add_module(jsbsim jsbsim.pyx)
 target_link_libraries(jsbsim ${JSBSIM_LIBRARY})
 
 INSTALL(TARGETS jsbsim DESTINATION ${PYTHON_INSTDIR})
+INSTALL(FILES JSBSim_utils.py DESTINATION ${PYTHON_INSTDIR})
 
 
