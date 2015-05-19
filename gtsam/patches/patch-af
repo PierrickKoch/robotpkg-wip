@@ -1,0 +1,181 @@
+Patch with last modifications to work with Parallax Angle Points in the toolbox
+  - Add toPoint3 methods and wrap it
+  - Fix a bug in the Parallax Angle Point static constructors
+  - Wrap evaluateError methods of Parallax Angle Point Projection Factors (was used for debug)
+  - Add method to access newFactorsIndices from ISAM2Result, and wrap it in the matlab toolbox
+--- gtsam/geometry/ParallaxAnglePoint2.h	2015-05-19 15:06:53.169068033 +0200
++++ gtsam/geometry/ParallaxAnglePoint2.h	2015-05-14 18:49:59.374873705 +0200
+@@ -74,7 +74,7 @@
+     template<class PinholeCameraType>
+     static ParallaxAnglePoint2 FromCameraAndMeasurement(const PinholeCameraType &camera, const Point2 &measurement)
+     {
+-      Point3 vecFromMain = camera.backproject(measurement, 1.0);
++      Point3 vecFromMain = camera.backproject(measurement, 1.0) - camera.pose().translation();
+       double yaw   = atan2(vecFromMain.y(),vecFromMain.x());
+       double pitch = atan2(vecFromMain.z(),Point2(vecFromMain.x(),vecFromMain.y()).norm());
+
+@@ -96,7 +96,7 @@
+         camera_ptr = boost::make_shared<PinholeCamera<CalibrationType> >(pose, K);
+       }
+
+-      Point3 vecFromMain = camera_ptr->backproject(measurement, 1.0);
++      Point3 vecFromMain = camera_ptr->backproject(measurement, 1.0) - camera_ptr->pose().translation();
+       double yaw   = atan2(vecFromMain.y(),vecFromMain.x());
+       double pitch = atan2(vecFromMain.z(),Point2(vecFromMain.x(),vecFromMain.y()).norm());
+
+--- gtsam/geometry/ParallaxAnglePoint3.cpp	2015-05-19 15:06:53.169068033 +0200
++++ gtsam/geometry/ParallaxAnglePoint3.cpp	2015-05-19 14:35:56.340826167 +0200
+@@ -205,6 +205,39 @@
+
+ }
+
++Point3 ParallaxAnglePoint3::toPoint3(const Point3 & mainAnchor, const Point3 &  assoAnchor) const
++{
++  Vector3 vecFromMain = directionVectorFromMainAnchor();
++
++  Point3 mainToAsso = (assoAnchor - mainAnchor);
++
++  double mainAngle = angleBetweenUnitVectors(vecFromMain, mainToAsso.normalize().vector());
++
++  double sinParalax = sin(parallax_);
++  // Guard to avoid division by zero
++  if(fabs(sinParalax) <= 1e-6)
++  {
++    if (sinParalax < 0) sinParalax = -1e-6;
++    else sinParalax = 1e-6;
++  }
++
++  double depthFromMain = (sin(mainAngle + parallax_)/sinParalax)*mainToAsso.norm();
++
++  return mainAnchor + Point3(vecFromMain*depthFromMain);
++
++}
++
++Point3 ParallaxAnglePoint3::toPoint3(const Pose3 & mainPose, const Pose3 & assoPose, boost::optional<const Pose3 &> body_P_sensor) const
++{
++  if(body_P_sensor)
++  {
++    return toPoint3(mainPose.compose(*body_P_sensor).translation(), assoPose.compose(*body_P_sensor).translation());
++  }
++  //else
++
++  return toPoint3(mainPose.translation(), assoPose.translation());
++}
++
+ }
+
+ // Local Functions
+--- gtsam/geometry/ParallaxAnglePoint3.h	2015-05-19 15:06:53.169068033 +0200
++++ gtsam/geometry/ParallaxAnglePoint3.h	2015-05-18 15:41:52.795327081 +0200
+@@ -79,8 +79,8 @@
+       const PinholeCameraType &mainCamera, const Point2 &measurementFromMain,
+       const PinholeCameraType &assoCamera, const Point2 &measurementFromAsso)
+     {
+-      Point3 pointFromMain = mainCamera.backproject(measurementFromMain, 1.0);
+-      Point3 pointFromAsso = assoCamera.backproject(measurementFromAsso, 1.0);
++      Point3 pointFromMain = mainCamera.backproject(measurementFromMain, 1.0) - mainCamera.pose().translation();
++      Point3 pointFromAsso = assoCamera.backproject(measurementFromAsso, 1.0) - assoCamera.pose().translation();
+
+       double yaw   = atan2(pointFromMain.y(),pointFromMain.x());
+       double pitch = atan2(pointFromMain.z(),Point2(pointFromMain.x(),pointFromMain.y()).norm());
+@@ -110,8 +110,8 @@
+         assoCamera_ptr = boost::make_shared<PinholeCamera<CalibrationType> >(assoPose, K);
+       }
+
+-      Point3 vecFromMain = mainCamera_ptr->backproject(measurementFromMain, 1.0);
+-      Point3 vecFromAsso = assoCamera_ptr->backproject(measurementFromAsso, 1.0);
++      Point3 vecFromMain = mainCamera_ptr->backproject(measurementFromMain, 1.0) - mainCamera_ptr->pose().translation();
++      Point3 vecFromAsso = assoCamera_ptr->backproject(measurementFromAsso, 1.0) - assoCamera_ptr->pose().translation();
+
+       double yaw   = atan2(vecFromMain.y(),vecFromMain.x());
+       double pitch = atan2(vecFromMain.z(),Point2(vecFromMain.x(),vecFromMain.y()).norm());
+@@ -192,6 +192,10 @@
+       boost::optional<gtsam::Matrix&> Dasso  = boost::none,
+       boost::optional<gtsam::Matrix&> Dothe  = boost::none) const;
+
++    Point3 toPoint3(const Point3 & mainAnchor, const Point3 &  assoAnchor) const;
++
++    Point3 toPoint3(const Pose3 & mainPose, const Pose3 & assoPose, boost::optional<const Pose3 &> body_P_sensor = boost::none) const;
++
+     /// Output stream operator
+     GTSAM_EXPORT friend std::ostream &operator<<(std::ostream &os, const ParallaxAnglePoint3& p);
+
+--- gtsam/nonlinear/ISAM2.h	2014-05-08 02:57:09.000000000 +0200
++++ gtsam/nonlinear/ISAM2.h	2015-05-13 15:52:41.701493931 +0200
+@@ -310,6 +310,10 @@
+    */
+   FastVector<size_t> newFactorsIndices;
+
++  /** Function to access newFactorIndices from Matlab toolbox
++   */
++  inline FastVector<size_t> getNewFactorsIndices() { return newFactorsIndices; }
++
+   /** A struct holding detailed results, which must be enabled with
+    * ISAM2Params::enableDetailedResults.
+    */
+--- gtsam/slam/ParallaxAngleProjectionFactor.h	2015-05-19 15:06:53.161068144 +0200
++++ gtsam/slam/ParallaxAngleProjectionFactor.h	2015-05-14 12:27:36.733741098 +0200
+@@ -639,7 +639,7 @@
+         if (Dpoint)  *Dpoint = zeros(2,3);
+         if (verboseCheirality_)
+           std::cout << e.what() << ": Landmark "<< DefaultKeyFormatter(this->key3()) <<
+-              " with anchors (" << DefaultKeyFormatter(this->key1()) << "," << DefaultKeyFormatter(this->key2()) <<
++              " with anchors (" << DefaultKeyFormatter(this->key1()) << "," << DefaultKeyFormatter(this->key2()) << ")" <<
+               " moved behind camera " << DefaultKeyFormatter(this->key2()) << std::endl;
+         if (throwCheirality_)
+           throw e;
+--- gtsam.h	2015-05-19 15:06:53.169068033 +0200
++++ gtsam.h	2015-05-18 15:48:30.119315060 +0200
+@@ -921,6 +921,10 @@
+   Vector directionVectorFromAssoAnchor(const gtsam::Point3& mainAnchor, const gtsam::Point3& assoAnchor) const;
+   Vector directionVectorFromOtheAnchor(const gtsam::Point3& mainAnchor, const gtsam::Point3& assoAnchor, const gtsam::Point3& otheAnchor) const;
+
++  gtsam::Point3 toPoint3(const gtsam::Point3 & mainAnchor, const gtsam::Point3 & assoAnchor) const;
++  gtsam::Point3 toPoint3(const gtsam::Pose3  & mainPose,   const gtsam::Pose3  & assoPose)   const;
++  gtsam::Point3 toPoint3(const gtsam::Pose3  & mainPose,   const gtsam::Pose3  & assoPose, const gtsam::Pose3 & body_P_sensor) const;
++
+   // enabling serialization functionality
+   void serialize() const;
+ };
+@@ -2106,6 +2110,7 @@
+   size_t getVariablesRelinearized() const;
+   size_t getVariablesReeliminated() const;
+   size_t getCliques() const;
++  gtsam::KeyVector getNewFactorsIndices();
+ };
+
+ class ISAM2 {
+@@ -2283,6 +2288,10 @@
+       size_t mainAnchorKey, size_t pointKey, const CALIBRATION* k, bool throwCheirality, bool verboseCheirality,
+       const POSE& body_P_sensor);
+
++  // Error functions
++  Vector evaluateError(const gtsam::Pose3& mainPose, const gtsam::ParallaxAnglePoint2& point) const;
++  Vector evaluateError(const gtsam::Pose3& mainPose, const gtsam::ParallaxAnglePoint3& point) const;
++
+   gtsam::Point2 measured() const;
+   CALIBRATION* calibration() const;
+   bool verboseCheirality() const;
+@@ -2310,6 +2319,11 @@
+       size_t mainAnchorKey, size_t associatedAnchorKey, size_t pointKey, const CALIBRATION* k, bool throwCheirality, bool verboseCheirality,
+       const POSE& body_P_sensor);
+
++  // Error functions
++  Vector evaluateError(const gtsam::Pose3& mainPose, const gtsam::Pose3& assoPose, const gtsam::ParallaxAnglePoint3& point) const;
++
++
++
+   gtsam::Point2 measured() const;
+   CALIBRATION* calibration() const;
+   bool verboseCheirality() const;
+@@ -2335,6 +2349,9 @@
+       size_t mainAnchorKey, size_t associatedAnchorKey, size_t otherAnchorKey, size_t pointKey, const CALIBRATION* k, bool throwCheirality, bool verboseCheirality,
+       const POSE& body_P_sensor);
+
++  // Error functions
++  Vector evaluateError(const gtsam::Pose3& mainPose, const gtsam::Pose3& assoPose, const gtsam::Pose3& othePose, const gtsam::ParallaxAnglePoint3& point) const;
++
+   gtsam::Point2 measured() const;
+   CALIBRATION* calibration() const;
+   bool verboseCheirality() const;
+
