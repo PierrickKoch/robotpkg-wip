@@ -8,7 +8,7 @@ CATEGORIES=		wip
 MASTER_SITES= 	${MASTER_SITE_SOURCEFORGE:=mrpt/}
 MASTER_REPOSITORY=	https://github.com/jlblancoc/mrpt
 
-PKGREVISION= 	1
+PKGREVISION= 	2
 
 MAINTAINER=		arnaud.degroote@isae.fr
 COMMENT=		Mobile Robot Programming Toolkit
@@ -18,6 +18,7 @@ LICENSE=		modified-bsd
 DYNAMIC_PLIST_DIRS+=	share/doc/mrpt-doc
 
 include ../../archivers/zlib/depend.mk
+include ../../graphics/assimp/depend.mk
 include ../../image/opencv/depend.mk
 include ../../math/eigen3/depend.mk
 include ../../pkgtools/pkg-config/depend.mk

@@ -655,9 +655,6 @@ include/mrpt/vision/include/mrpt/vision/pinhole.h
 include/mrpt/vision/include/mrpt/vision/tracking.h
 include/mrpt/vision/include/mrpt/vision/types.h
 include/mrpt/vision/include/mrpt/vision/utils.h
-lib/libassimp-mrpt.so
-lib/libassimp-mrpt.so.3
-lib/libassimp-mrpt.so.3.1.1
 lib/libmrpt-base.so
 lib/libmrpt-base.so.1.2
 lib/libmrpt-base.so.${PKGVERSION}
