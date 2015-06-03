@@ -1,0 +1,22 @@
+Add method to reinitialize (update) ISAM2 linearization point
+--- gtsam/nonlinear/ISAM2.h	2015-06-03 19:36:05.860771545 +0200
++++ gtsam/nonlinear/ISAM2.h	2015-06-01 20:47:07.677809363 +0200
+@@ -551,6 +551,8 @@
+   /** Access the current linearization point */
+   const Values& getLinearizationPoint() const { return theta_; }
+
++  void updateLinearizationPoint(const Values& newTheta) { theta_.update(newTheta); }
++
+   /** Compute an estimate from the incomplete linear delta computed during the last update.
+    * This delta is incomplete because it was not updated below wildfire_threshold.  If only
+    * a single variable is needed, it is faster to call calculateEstimate(const KEY&).
+--- gtsam.h	2015-06-03 19:36:05.864771590 +0200
++++ gtsam.h	2015-06-01 21:24:30.287061081 +0200
+@@ -2132,6 +2132,7 @@
+   //void update(const gtsam::NonlinearFactorGraph& newFactors, const gtsam::Values& newTheta, const gtsam::KeyVector& removeFactorIndices, FastMap<Key,int>& constrainedKeys, bool force_relinearize);
+
+   gtsam::Values getLinearizationPoint() const;
++  void updateLinearizationPoint(const gtsam::Values& newTheta);
+   gtsam::Values calculateEstimate() const;
+   gtsam::Value calculateEstimate(size_t key) const;
+   gtsam::Values calculateBestEstimate() const;
