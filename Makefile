@@ -16,7 +16,6 @@ SUBDIR+= 	demo-genom3
 SUBDIR+=	dynamic-graph-bridge
 SUBDIR+=	dynamic-graph-bridge-msgs
 SUBDIR+=	gdalwrap
-SUBDIR+=	genom3
 SUBDIR+=	genom3-openprs
 SUBDIR+=	genom3-pocolibs
 SUBDIR+=	genom3-ros

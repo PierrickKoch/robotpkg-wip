@@ -11,7 +11,7 @@ MAINTAINER=		openrobots@laas.fr
 COMMENT=		Export motion capture data from an Optitrack system
 LICENSE=		isc
 
-include ../../wip/genom3/module.mk
+include ../../architecture/genom3/module.mk
 
 include ../../pkgtools/pkg-config/depend.mk
 include ../../wip/openrobots-idl/depend.mk

@@ -12,7 +12,7 @@ MAINTAINER=		openrobots@laas.fr
 COMMENT=		sample GenoM module used in the tutorial
 LICENSE=		isc
 
-include ../../wip/genom3/module.mk
+include ../../architecture/genom3/module.mk
 
 include ../../mk/language/c.mk
 include ../../mk/robotpkg.mk

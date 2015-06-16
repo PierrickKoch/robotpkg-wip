@@ -19,7 +19,7 @@ CONFIGURE_ARGS+=--with-boost=${PREFIX.boost-headers}
 
 NOT_FOR_PLATFORM=	# empty
 
-include ../../wip/genom3/depend.mk
+include ../../architecture/genom3/depend.mk
 include ../../devel/boost-headers/depend.mk
 include ../../devel/ros-ros/depend.mk
 include ../../interfaces/ros-common-msgs/depend.mk
