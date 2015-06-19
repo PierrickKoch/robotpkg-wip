@@ -17,11 +17,13 @@ RESTRICTED=	Redistribution of repackaged binaries not permitted
 NO_PUBLIC_SRC=	${RESTRICTED}
 NO_PUBLIC_BIN=	${RESTRICTED}
 
-
 DYNAMIC_PLIST_DIRS+=	share/doc/hrp2_14_description
+
 
 include ../../meta-pkgs/ros-base/Makefile.common
 
+include ../robot_capsule_urdf/depend.mk
+include ../../graphics/urdfdom/depend.mk
 include ../../devel/ros-catkin/depend.mk
 include ../../devel/ros-xacro/depend.mk
 include ../../interfaces/ros-common-msgs/depend.mk
@@ -35,3 +37,8 @@ include ../../mk/sysdep/pdflatex.mk
 include ../../mk/language/c.mk
 include ../../mk/language/c++.mk
 include ../../mk/robotpkg.mk
+
+CONFIGURE_ENV+=      ROS_ROOT=$(call quote,/opt/openrobots/share/ros)
+CONFIGURE_ENV+=      ROS_PACKAGE_PATH=$(call quote,/opt/openrobots/share:/opt/openrobots/stacks)
+CONFIGURE_ENV+=      ROS_MASTER_URI=$(call quote,http://localhost:11311)
+CONFIGURE_ENV+=      ROS_DISTRO=$(call quote,${PREFER.ros})
