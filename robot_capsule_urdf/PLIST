@@ -1,0 +1,3 @@
+lib/pkgconfig/robot_capsule_urdf.pc
+lib/robot_capsule_urdf/robot_capsule_urdf
+share/robot_capsule_urdf/package.xml

@@ -1,7 +1,7 @@
 # robotpkg Makefile for:	graphics/robot_capsule_urdf
 # Created:			Olivier Stasse on Fri, 19 Jun 2015
 #
-VERSION=		1.0.0
+VERSION=		1.0.1
 DISTNAME=		robot_capsule_urdf-${VERSION}
 PKGNAME=		robot_capsule_urdf-${VERSION}
 MASTER_SITES=		${MASTER_SITE_OPENROBOTS:=robot_capsule_urdf/}
