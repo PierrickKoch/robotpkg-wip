@@ -1,0 +1,4 @@
+share/hrp2_computer_monitor/package.xml
+share/hrp2_computer_monitor/scripts/cpu_monitor.py
+share/hrp2_computer_monitor/scripts/hd_monitor.py
+share/hrp2_computer_monitor/scripts/ntp_monitor.py
