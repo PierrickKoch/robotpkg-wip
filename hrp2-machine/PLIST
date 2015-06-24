@@ -1,0 +1,5 @@
+lib/pkgconfig/hrp2_machine.pc
+share/hrp2_machine/hrp2_10.machine
+share/hrp2_machine/hrp2_14.machine
+share/hrp2_machine/package.xml
+share/hrp2_machine/sim.machine
