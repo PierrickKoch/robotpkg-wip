@@ -17,7 +17,6 @@ DEPEND_DIR.py-yaml?=	../../wip/py-yaml
 SYSTEM_SEARCH.py-yaml=\
 	'${PYTHON_SYSLIBSEARCH}/yaml/__init__.py:/__version__/s/[^0-9.]//gp'
 
-include ../../devel/yaml-cpp/depend.mk
 include ../../mk/sysdep/python.mk
 
 endif # PYYAML_DEPEND_MK -----------------------------------------------------

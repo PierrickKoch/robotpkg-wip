@@ -22,7 +22,5 @@ PYDISTUTILSPKG=	yes
 # specify the option --include-dirs or uncomment and
 # modify the parameter include_dirs in setup.cfg)
 
-include ../../devel/yaml-cpp/depend.mk
-include ../../mk/sysdep/py-argparse.mk
 include ../../mk/sysdep/python.mk
 include ../../mk/robotpkg.mk
