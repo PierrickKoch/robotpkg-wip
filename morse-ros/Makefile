@@ -18,7 +18,7 @@ CMAKE_ARGS+=		-DBUILD_HLA_SUPPORT=OFF
 CMAKE_ARGS+= 		-DPYMORSE_SUPPORT=OFF
 
 #include ../../interfaces/ros-common-msgs/depend.mk
-include ../../mk/sysdep/py-yaml.mk
+include ../../wip/py-yaml/depend.mk
 include ../../sysutils/py-rospkg/depend.mk
 include ../../sysutils/py-catkin-pkg/depend.mk
 include ../../simulation/morse/depend.mk
