@@ -8,10 +8,16 @@ endif
 
 ifeq (+,$(PYYAML_DEPEND_MK)) # -----------------------------------------------
 
-PREFER.py-yaml?=		robotpkg
-
 DEPEND_USE+=		py-yaml
-DEPEND_ABI.py-yaml?=	${PKGTAG.python-}yaml>=3.10
+
+PREFER.py-yaml?= system
+ifeq (Ubuntu,${OPSYS})
+  ifneq (,$(filter 12.04,${OS_VERSION}))
+    PREFER.py-yaml?= robotpkg
+  endif
+endif
+
+DEPEND_ABI.py-yaml?=	${PKGTAG.python-}yaml>=3
 DEPEND_DIR.py-yaml?=	../../wip/py-yaml
 
 SYSTEM_SEARCH.py-yaml=\
